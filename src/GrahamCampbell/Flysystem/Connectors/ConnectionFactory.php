@@ -17,6 +17,7 @@
 namespace GrahamCampbell\Flysystem\Connectors;
 
 use Flysystem\Flysystem;
+use Flysystem\AdapterInterface;
 
 /**
  * This is the connection factory class.
@@ -81,7 +82,7 @@ class ConnectionFactory
             case 'local':
                 return new LocalConnector();
             case 'sftp':
-                return new StfpConnector();
+                return new SftpConnector();
             case 'webdav':
                 return new WebDavConnector();
             case 'zip':
