@@ -75,6 +75,6 @@ class AwsS3Connector implements ConnectorInterface
 
     protected function getAdapter($client, array $config)
     {
-        return new AwsS3($client, $config['bucket'], $config['prefix']));
+        return new AwsS3($client, $config['bucket'], $config['prefix']);
     }
 }
