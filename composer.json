@@ -39,7 +39,7 @@
         "laravel/framework": "4.1.*",
         "symfony/config": "2.4.*",
         "symfony/filesystem": "2.4.*",
-        "frenkynet/flysystem": "meta-fixes",
+        "frenkynet/flysystem": "dev-meta-fixes",
         "aws/aws-sdk-php": "2.5.*",
         "dropbox/dropbox-sdk": "1.1.*",
         "sabre/dav": "1.8.*"
