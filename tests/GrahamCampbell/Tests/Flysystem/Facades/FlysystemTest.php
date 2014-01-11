@@ -59,6 +59,6 @@ class FlysystemTest extends AbstractTestCase
      */
     protected function getFacadeRoot()
     {
-        return 'GrahamCampbell\Flysystem\Classes\Flysystem';
+        return 'Flysystem\Flysystem';
     }
 }
