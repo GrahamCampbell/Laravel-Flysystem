@@ -64,13 +64,11 @@ class AwsS3Connector implements ConnectorInterface
             throw new \InvalidArgumentException('The awss3 connector requires a bucket.');
         }
 
-        $prefix = null;
-
-        if (array_key_exists('prefix', $config)) {
-            $prefix = $config['prefix'];
+        if (!array_key_exists('prefix', $config)) {
+            $config['prefix'] = null;
         }
 
-        return array('bucket' => $bucket, 'prefix' => $prefix);
+        return array('bucket' => $config['bucket'], 'prefix' => $config['prefix']);
     }
 
     protected function getAdapter($client, array $config)

@@ -60,13 +60,11 @@ class DropboxConnector implements ConnectorInterface
 
     protected function getConfig(array $config)
     {
-        $prefix = null;
-
-        if (array_key_exists('prefix', $config)) {
-            $prefix = $config['prefix'];
+        if (!array_key_exists('prefix', $config)) {
+            $config['prefix'] = null;
         }
 
-        return array('prefix' => $prefix);
+        return array('prefix' => $config['prefix']);
     }
 
     protected function getAdapter($client, array $config)
