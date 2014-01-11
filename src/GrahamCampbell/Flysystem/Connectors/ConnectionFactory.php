@@ -16,7 +16,7 @@
 
 namespace GrahamCampbell\Flysystem\Connectors;
 
-use Flysystem\Flysystem;
+use Flysystem\Filesystem;
 use Flysystem\AdapterInterface;
 
 /**
@@ -35,7 +35,7 @@ class ConnectionFactory
      *
      * @param  array   $config
      * @param  string  $name
-     * @return \Flysystem\Flysystem
+     * @return \Flysystem\FilesystemInterface
      */
     public function make(array $config, $name = null)
     {
@@ -96,10 +96,10 @@ class ConnectionFactory
      * Create a new connection instance.
      *
      * @param  \Flysystem\AdapterInterface  $adapter
-     * @return \Flysystem\Flysystem
+     * @return \Flysystem\FilesystemInterface
      */
     protected function createConnection(AdapterInterface $adapter)
     {
-        return new Flysystem($adapter);
+        return new Filesystem($adapter);
     }
 }
