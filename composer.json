@@ -1,0 +1,59 @@
+{
+    "name": "graham-campbell/flysystem",
+    "description": "Flysystem Is A Flysystem Bridge For Laravel 4.1",
+    "keywords": ["laravel", "framework", "files", "aws", "s3", "dropbox", "flysystem", "Flysystem", "Laravel Flysystem", "Laravel-Flysystem", "Graham Campbell", "GrahamCampbell"],
+    "license": "Apache-2.0",
+    "authors": [
+        {
+            "name": "Graham Campbell",
+            "email": "graham@mineuk.com"
+        }
+    ],
+    "repositories": [
+        {
+            "type": "package",
+            "package": {
+                "name": "sebastianbergmann/phpcov",
+                "version": "1.1.0",
+                "dist": {
+                    "url": "https://github.com/sebastianbergmann/phpcov/archive/1.1.0.zip",
+                    "type": "zip"
+                },
+                "source": {
+                    "url": "https://github.com/sebastianbergmann/phpcov.git",
+                    "type": "git",
+                    "reference": "1.1.0"
+                },
+                "bin": [
+                    "phpcov.php"
+                ]
+            }
+        }
+    ],
+    "require": {
+        "php": ">=5.4.7",
+        "laravel/framework": "4.1.*",
+        "symfony/config": "2.4.*",
+        "symfony/filesystem": "2.4.*",
+        "frenkynet/flysystem": "0.1.*",
+        "aws/aws-sdk-php": "2.5.*",
+        "dropbox/dropbox-sdk": "1.1.*",
+        "sabre/dav": "1.8.*"
+    },
+    "require-dev": {
+        "graham-campbell/testbench": "0.2.*"
+    },
+    "autoload": {
+        "psr-0": {
+            "GrahamCampbell\\Flysystem": "src/",
+            "GrahamCampbell\\Tests\\Flysystem": "tests/"
+        }
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "0.1-dev"
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}
