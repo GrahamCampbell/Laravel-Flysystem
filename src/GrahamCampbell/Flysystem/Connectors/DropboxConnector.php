@@ -69,6 +69,6 @@ class DropboxConnector implements ConnectorInterface
 
     protected function getAdapter($client, array $config)
     {
-        return new Dropobox($client, $config['prefix']);
+        return new Dropbox($client, $config['prefix']);
     }
 }
