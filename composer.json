@@ -11,6 +11,10 @@
     ],
     "repositories": [
         {
+            "type": "vcs",
+            "url": "https://github.com/GrahamCampbell/Flysystem"
+        },
+        {
             "type": "package",
             "package": {
                 "name": "sebastianbergmann/phpcov",
@@ -35,7 +39,7 @@
         "laravel/framework": "4.1.*",
         "symfony/config": "2.4.*",
         "symfony/filesystem": "2.4.*",
-        "frenkynet/flysystem": "0.1.*",
+        "frenkynet/flysystem": "meta-fixes",
         "aws/aws-sdk-php": "2.5.*",
         "dropbox/dropbox-sdk": "1.1.*",
         "sabre/dav": "1.8.*"
