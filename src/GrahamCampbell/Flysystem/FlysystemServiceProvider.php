@@ -64,7 +64,9 @@ class FlysystemServiceProvider extends ServiceProvider
     protected function registerFlysystem()
     {
         $this->app->bindShared('flysystem', function ($app) {
-            return new Managers\FlysystemManager($app);
+            $factory = new Connectors\ConnectionFactory();
+
+            return new Managers\FlysystemManager($app, $factory);
         });
     }
 
