@@ -17,7 +17,7 @@
 namespace GrahamCampbell\Flysystem\Connectors;
 
 use Aws\S3\S3Client;
-use Flysystem\Adapters\AwsS3;
+use Flysystem\Adapter\AwsS3;
 
 /**
  * This is the awss3 connector class.

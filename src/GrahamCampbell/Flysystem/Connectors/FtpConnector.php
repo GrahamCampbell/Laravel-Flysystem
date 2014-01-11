@@ -16,7 +16,7 @@
 
 namespace GrahamCampbell\Flysystem\Connectors;
 
-use Flysystem\Adapters\Ftp;
+use Flysystem\Adapter\Ftp;
 
 /**
  * This is the ftp connector class.

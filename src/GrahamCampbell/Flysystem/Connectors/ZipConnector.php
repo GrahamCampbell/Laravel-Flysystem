@@ -16,7 +16,7 @@
 
 namespace GrahamCampbell\Flysystem\Connectors;
 
-use Flysystem\Adapters\Zip;
+use Flysystem\Adapter\Zip;
 
 /**
  * This is the zip connector class.

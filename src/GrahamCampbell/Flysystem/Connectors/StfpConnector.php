@@ -16,7 +16,7 @@
 
 namespace GrahamCampbell\Flysystem\Connectors;
 
-use Flysystem\Adapters\Sftp;
+use Flysystem\Adapter\Sftp;
 
 /**
  * This is the sftp connector class.

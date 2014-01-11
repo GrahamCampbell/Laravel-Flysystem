@@ -16,7 +16,7 @@
 
 namespace GrahamCampbell\Flysystem\Connectors;
 
-use Flysystem\Adapters\Local;
+use Flysystem\Adapter\Local;
 
 /**
  * This is the local connector class.
