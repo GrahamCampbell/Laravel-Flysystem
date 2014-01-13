@@ -42,12 +42,24 @@ class WebDavConnector implements ConnectorInterface
         return $this->getAdapter($client);
     }
 
+    /**
+     * Get the webdav client.
+     *
+     * @param  array  $config
+     * @return \Sabre\DAV\Client
+     */
     protected function getClient(array $config)
     {
         return new Client($config);
     }
 
-    protected function getAdapter($client)
+    /**
+     * Get the webdav adapter.
+     *
+     * @param  \Sabre\DAV\Client  $client
+     * @return \Flysystem\Adapter\WebDav
+     */
+    protected function getAdapter(Client $client)
     {
         return new WebDav($client);
     }

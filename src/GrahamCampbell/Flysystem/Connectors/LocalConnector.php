@@ -41,6 +41,12 @@ class LocalConnector implements ConnectorInterface
         return $this->getAdapter($config);
     }
 
+    /**
+     * Get the configuration.
+     *
+     * @param  array  $config
+     * @return array
+     */
     protected function getConfig(array $config)
     {
         if (!array_key_exists('path', $config)) {
@@ -50,6 +56,12 @@ class LocalConnector implements ConnectorInterface
         return array('path' => $config['path']);
     }
 
+    /**
+     * Get the local adapter.
+     *
+     * @param  array  $config
+     * @return \Flysystem\Adapter\Local
+     */
     protected function getAdapter(array $config)
     {
         return new Local($config['path']);

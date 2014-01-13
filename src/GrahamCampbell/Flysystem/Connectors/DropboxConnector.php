@@ -44,6 +44,12 @@ class DropboxConnector implements ConnectorInterface
         return $this->getAdapter($client, $config);
     }
 
+    /**
+     * Get the authentication data.
+     *
+     * @param  array  $config
+     * @return array
+     */
     protected function getAuth(array $config)
     {
         if (!array_key_exists('token', $config) || !array_key_exists('app', $config)) {
@@ -53,11 +59,23 @@ class DropboxConnector implements ConnectorInterface
         return array('token' => $config['token'], 'app' => $config['app']);
     }
 
+    /**
+     * Get the dropbox client.
+     *
+     * @param  array  $auth
+     * @return \Dropbox\Client
+     */
     protected function getClient(array $auth)
     {
         return new Client($auth['token'], $auth['app']);
     }
 
+    /**
+     * Get the configuration.
+     *
+     * @param  array  $config
+     * @return array
+     */
     protected function getConfig(array $config)
     {
         if (!array_key_exists('prefix', $config)) {
@@ -67,7 +85,14 @@ class DropboxConnector implements ConnectorInterface
         return array('prefix' => $config['prefix']);
     }
 
-    protected function getAdapter($client, array $config)
+    /**
+     * Get the dropbox adapter.
+     *
+     * @param  \Dropbox\Client  $client
+     * @param  array  $config
+     * @return \Flysystem\Adapter\Dropbox
+     */
+    protected function getAdapter(Client $client, array $config)
     {
         return new Dropbox($client, $config['prefix']);
     }

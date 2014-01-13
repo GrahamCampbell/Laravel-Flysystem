@@ -40,6 +40,12 @@ class SftpConnector implements ConnectorInterface
         return $this->getAdapter($config);
     }
 
+    /**
+     * Get the sftp adapter.
+     *
+     * @param  array  $config
+     * @return \Flysystem\Adapter\Sftp
+     */
     protected function getAdapter(array $config)
     {
         return new Sftp($config);

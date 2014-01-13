@@ -40,6 +40,12 @@ class FtpConnector implements ConnectorInterface
         return $this->getAdapter($config);
     }
 
+    /**
+     * Get the ftp adapter.
+     *
+     * @param  array  $config
+     * @return \Flysystem\Adapter\Ftp
+     */
     protected function getAdapter(array $config)
     {
         return new Ftp($config);

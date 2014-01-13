@@ -44,6 +44,12 @@ class AwsS3Connector implements ConnectorInterface
         return $this->getAdapter($client, $config);
     }
 
+    /**
+     * Get the authentication data.
+     *
+     * @param  array  $config
+     * @return array
+     */
     protected function getAuth(array $config)
     {
         if (!array_key_exists('key', $config) || !array_key_exists('secret', $config)) {
@@ -53,11 +59,23 @@ class AwsS3Connector implements ConnectorInterface
         return array('key' => $config['key'], 'secret' => $config['secret']);
     }
 
+    /**
+     * Get the awss3 client.
+     *
+     * @param  array  $auth
+     * @return \Aws\S3\S3Client
+     */
     protected function getClient(array $auth)
     {
         return S3Client::factory($auth);
     }
 
+    /**
+     * Get the configuration.
+     *
+     * @param  array  $config
+     * @return array
+     */
     protected function getConfig(array $config)
     {
         if (!array_key_exists('bucket', $config)) {
@@ -75,7 +93,14 @@ class AwsS3Connector implements ConnectorInterface
         }
     }
 
-    protected function getAdapter($client, array $config)
+    /**
+     * Get the awss3 adapter.
+     *
+     * @param  \Aws\S3\S3Client  $client
+     * @param  array  $config
+     * @return \Flysystem\Adapter\AwsS3
+     */
+    protected function getAdapter(S3Client $client, array $config)
     {
         return new AwsS3($client, $config['bucket'], $config['prefix']);
     }

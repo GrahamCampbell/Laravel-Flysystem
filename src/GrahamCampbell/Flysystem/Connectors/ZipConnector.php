@@ -41,6 +41,12 @@ class ZipConnector implements ConnectorInterface
         return $this->getAdapter($config);
     }
 
+    /**
+     * Get the configuration.
+     *
+     * @param  array  $config
+     * @return array
+     */
     protected function getConfig(array $config)
     {
         if (!array_key_exists('path', $config)) {
@@ -50,6 +56,12 @@ class ZipConnector implements ConnectorInterface
         return array('path' => $config['path']);
     }
 
+    /**
+     * Get the zip adapter.
+     *
+     * @param  array  $config
+     * @return \Flysystem\Adapter\Zip
+     */
     protected function getAdapter(array $config)
     {
         return new Zip($config['path']);
