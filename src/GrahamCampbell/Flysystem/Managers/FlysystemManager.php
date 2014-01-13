@@ -38,7 +38,7 @@ class FlysystemManager
     protected $config;
 
     /**
-     * The adapter connection factory instance.
+     * The connection factory instance.
      *
      * @var \GrahamCampbell\Flysystem\Connectors\ConnectionFactory
      */
@@ -199,6 +199,26 @@ class FlysystemManager
     public function getConnections()
     {
         return $this->connections;
+    }
+
+    /**
+     * Get the config instance.
+     *
+     * @return \Illuminate\Config\Repository
+     */
+    public function getConfig()
+    {
+        return $this->config;
+    }
+
+    /**
+     * Get the factory instance.
+     *
+     * @return \GrahamCampbell\Flysystem\Connectors\ConnectionFactory
+     */
+    public function getFactory()
+    {
+        return $this->factory;
     }
 
     /**
