@@ -16,6 +16,7 @@
 
 namespace GrahamCampbell\Flysystem\Managers;
 
+use Illuminate\Config\Repository;
 use GrahamCampbell\Flysystem\Connectors\ConnectionFactory;
 
 /**
@@ -30,11 +31,11 @@ use GrahamCampbell\Flysystem\Connectors\ConnectionFactory;
 class FlysystemManager
 {
     /**
-     * The application instance.
+     * The config instance.
      *
-     * @var \Illuminate\Foundation\Application
+     * @var \Illuminate\Config\Repository
      */
-    protected $app;
+    protected $config;
 
     /**
      * The adapter connection factory instance.
@@ -60,13 +61,13 @@ class FlysystemManager
     /**
      * Create a new flysystem manager instance.
      *
-     * @param  \Illuminate\Foundation\Application  $app
+     * @param  \Illuminate\Config\Repository   $config
      * @param  \GrahamCampbell\Flysystem\Connectors\ConnectionFactory  $factory
      * @return void
      */
-    public function __construct($app, ConnectionFactory $factory)
+    public function __construct(Repository $config, ConnectionFactory $factory)
     {
-        $this->app = $app;
+        $this->config = $config;
         $this->factory = $factory;
     }
 
@@ -123,7 +124,7 @@ class FlysystemManager
      */
     protected function makeConnection($name)
     {
-        $config = $this->getConfig($name);
+        $config = $this->getConnectionConfig($name);
 
         if (isset($this->extensions[$name])) {
             return call_user_func($this->extensions[$name], $config);
@@ -143,14 +144,12 @@ class FlysystemManager
      *
      * @param  string  $name
      * @return array
-     *
-     * @throws \InvalidArgumentException
      */
-    protected function getConfig($name)
+    protected function getConnectionConfig($name)
     {
         $name = $name ?: $this->getDefaultConnection();
 
-        $connections = $this->app['config']['flysystem::connections'];
+        $connections = $this->config['flysystem::connections'];
 
         if (is_null($config = array_get($connections, $name))) {
             throw new \InvalidArgumentException("Adapter [$name] not configured.");
@@ -166,7 +165,7 @@ class FlysystemManager
      */
     public function getDefaultConnection()
     {
-        return $this->app['config']['flysystem::default'];
+        return $this->config['flysystem::default'];
     }
 
     /**
@@ -177,7 +176,7 @@ class FlysystemManager
      */
     public function setDefaultConnection($name)
     {
-        $this->app['config']['flysystem::default'] = $name;
+        $this->config['flysystem::default'] = $name;
     }
 
     /**
