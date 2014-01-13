@@ -12,6 +12,10 @@
     "repositories": [
         {
             "type": "vcs",
+            "url": "https://github.com/GrahamCampbell/dropbox-sdk-php"
+        },
+        {
+            "type": "vcs",
             "url": "https://github.com/GrahamCampbell/Flysystem"
         },
         {
@@ -41,7 +45,7 @@
         "symfony/filesystem": "2.4.*",
         "frenkynet/flysystem": "dev-meta-fixes",
         "aws/aws-sdk-php": "2.5.*",
-        "dropbox/dropbox-sdk": "1.1.*",
+        "dropbox/dropbox-sdk": "dev-nss-fix",
         "sabre/dav": "1.8.*"
     },
     "require-dev": {
