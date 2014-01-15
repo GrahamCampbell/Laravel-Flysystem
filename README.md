@@ -36,7 +36,7 @@ Please check the system requirements before installing Laravel Flysystem.
 
 To get the latest version of Laravel Flysystem, simply require it in your `composer.json` file.  
 
-`"graham-campbell/flysystem": "dev-master"`  
+`"graham-campbell/flysystem": "*"`  
 
 You'll then need to run `composer install` or `composer update` to download it and have the autoloader updated.  
 
