@@ -16,7 +16,7 @@
 
 namespace GrahamCampbell\Flysystem\Connectors;
 
-use Flysystem\Adapter\Ftp;
+use League\Flysystem\Adapter\Ftp;
 
 /**
  * This is the ftp connector class.
@@ -33,7 +33,7 @@ class FtpConnector implements ConnectorInterface
      * Establish an adapter connection.
      *
      * @param  array  $config
-     * @return \Flysystem\Adapter\Ftp
+     * @return \League\Flysystem\Adapter\Ftp
      */
     public function connect(array $config)
     {
@@ -44,7 +44,7 @@ class FtpConnector implements ConnectorInterface
      * Get the ftp adapter.
      *
      * @param  array  $config
-     * @return \Flysystem\Adapter\Ftp
+     * @return \League\Flysystem\Adapter\Ftp
      */
     protected function getAdapter(array $config)
     {

@@ -17,7 +17,7 @@
 namespace GrahamCampbell\Flysystem\Connectors;
 
 use Sabre\DAV\Client;
-use Flysystem\Adapter\WebDav;
+use League\Flysystem\Adapter\WebDav;
 
 /**
  * This is the webdav connector class.
@@ -34,7 +34,7 @@ class WebDavConnector implements ConnectorInterface
      * Establish an adapter connection.
      *
      * @param  array  $config
-     * @return \Flysystem\Adapter\WebDav
+     * @return \League\Flysystem\Adapter\WebDav
      */
     public function connect(array $config)
     {
@@ -57,7 +57,7 @@ class WebDavConnector implements ConnectorInterface
      * Get the webdav adapter.
      *
      * @param  \Sabre\DAV\Client  $client
-     * @return \Flysystem\Adapter\WebDav
+     * @return \League\Flysystem\Adapter\WebDav
      */
     protected function getAdapter(Client $client)
     {

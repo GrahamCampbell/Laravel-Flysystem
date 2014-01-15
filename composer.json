@@ -15,10 +15,6 @@
             "url": "https://github.com/GrahamCampbell/dropbox-sdk-php"
         },
         {
-            "type": "vcs",
-            "url": "https://github.com/GrahamCampbell/Flysystem"
-        },
-        {
             "type": "package",
             "package": {
                 "name": "sebastianbergmann/phpcov",
@@ -43,7 +39,7 @@
         "laravel/framework": "4.1.*",
         "symfony/config": "2.4.*",
         "symfony/filesystem": "2.4.*",
-        "frenkynet/flysystem": "dev-meta-fixes",
+        "league/flysystem": "0.2.*",
         "aws/aws-sdk-php": "2.5.*",
         "dropbox/dropbox-sdk": "dev-nss-fix",
         "sabre/dav": "1.8.*"

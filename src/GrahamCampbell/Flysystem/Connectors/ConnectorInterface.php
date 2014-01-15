@@ -31,7 +31,7 @@ interface ConnectorInterface
      * Establish an adapter connection.
      *
      * @param  array  $config
-     * @return \Flysystem\AdapterInterface
+     * @return \League\Flysystem\AdapterInterface
      */
     public function connect(array $config);
 }

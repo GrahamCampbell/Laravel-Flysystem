@@ -17,7 +17,7 @@
 namespace GrahamCampbell\Flysystem\Connectors;
 
 use Dropbox\Client;
-use Flysystem\Adapter\Dropbox;
+use League\Flysystem\Adapter\Dropbox;
 
 /**
  * This is the dropbox connector class.
@@ -34,7 +34,7 @@ class DropboxConnector implements ConnectorInterface
      * Establish an adapter connection.
      *
      * @param  array  $config
-     * @return \Flysystem\Adapter\Dropbox
+     * @return \League\Flysystem\Adapter\Dropbox
      */
     public function connect(array $config)
     {
@@ -90,7 +90,7 @@ class DropboxConnector implements ConnectorInterface
      *
      * @param  \Dropbox\Client  $client
      * @param  array  $config
-     * @return \Flysystem\Adapter\Dropbox
+     * @return \League\Flysystem\Adapter\Dropbox
      */
     protected function getAdapter(Client $client, array $config)
     {

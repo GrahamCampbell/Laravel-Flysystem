@@ -75,7 +75,7 @@ class FlysystemManager
      * Get an adapter connection instance.
      *
      * @param  string  $name
-     * @return \Flysystem\FilesystemInterface
+     * @return \League\Flysystem\FilesystemInterface
      */
     public function connection($name = null)
     {
@@ -92,7 +92,7 @@ class FlysystemManager
      * Reconnect to the given adapter.
      *
      * @param  string  $name
-     * @return \Flysystem\FilesystemInterface
+     * @return \League\Flysystem\FilesystemInterface
      */
     public function reconnect($name = null)
     {
@@ -120,7 +120,7 @@ class FlysystemManager
      * Make the adapter connection instance.
      *
      * @param  string  $name
-     * @return \Flysystem\FilesystemInterface
+     * @return \League\Flysystem\FilesystemInterface
      */
     protected function makeConnection($name)
     {

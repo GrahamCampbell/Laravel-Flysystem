@@ -16,7 +16,7 @@
 
 namespace GrahamCampbell\Flysystem\Connectors;
 
-use Flysystem\Adapter\Sftp;
+use League\Flysystem\Adapter\Sftp;
 
 /**
  * This is the sftp connector class.
@@ -33,7 +33,7 @@ class SftpConnector implements ConnectorInterface
      * Establish an adapter connection.
      *
      * @param  array  $config
-     * @return \Flysystem\Adapter\Sftp
+     * @return \League\Flysystem\Adapter\Sftp
      */
     public function connect(array $config)
     {
@@ -44,7 +44,7 @@ class SftpConnector implements ConnectorInterface
      * Get the sftp adapter.
      *
      * @param  array  $config
-     * @return \Flysystem\Adapter\Sftp
+     * @return \League\Flysystem\Adapter\Sftp
      */
     protected function getAdapter(array $config)
     {

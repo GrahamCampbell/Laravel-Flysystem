@@ -17,7 +17,7 @@
 namespace GrahamCampbell\Flysystem\Connectors;
 
 use Aws\S3\S3Client;
-use Flysystem\Adapter\AwsS3;
+use League\Flysystem\Adapter\AwsS3;
 
 /**
  * This is the awss3 connector class.
@@ -34,7 +34,7 @@ class AwsS3Connector implements ConnectorInterface
      * Establish an adapter connection.
      *
      * @param  array  $config
-     * @return \Flysystem\Adapter\AwsS3
+     * @return \League\Flysystem\Adapter\AwsS3
      */
     public function connect(array $config)
     {
@@ -98,7 +98,7 @@ class AwsS3Connector implements ConnectorInterface
      *
      * @param  \Aws\S3\S3Client  $client
      * @param  array  $config
-     * @return \Flysystem\Adapter\AwsS3
+     * @return \League\Flysystem\Adapter\AwsS3
      */
     protected function getAdapter(S3Client $client, array $config)
     {

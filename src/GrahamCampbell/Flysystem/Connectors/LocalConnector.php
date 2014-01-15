@@ -16,7 +16,7 @@
 
 namespace GrahamCampbell\Flysystem\Connectors;
 
-use Flysystem\Adapter\Local;
+use League\Flysystem\Adapter\Local;
 
 /**
  * This is the local connector class.
@@ -33,7 +33,7 @@ class LocalConnector implements ConnectorInterface
      * Establish an adapter connection.
      *
      * @param  array  $config
-     * @return \Flysystem\Adapter\Local
+     * @return \League\Flysystem\Adapter\Local
      */
     public function connect(array $config)
     {
@@ -60,7 +60,7 @@ class LocalConnector implements ConnectorInterface
      * Get the local adapter.
      *
      * @param  array  $config
-     * @return \Flysystem\Adapter\Local
+     * @return \League\Flysystem\Adapter\Local
      */
     protected function getAdapter(array $config)
     {
