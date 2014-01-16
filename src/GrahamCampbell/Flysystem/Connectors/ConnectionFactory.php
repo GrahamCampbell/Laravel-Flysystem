@@ -37,7 +37,7 @@ class ConnectionFactory
      * @param  string  $name
      * @return \League\Flysystem\FilesystemInterface
      */
-    public function make(array $config, $name = null)
+    public function make(array $config, $name)
     {
         $config = $this->parseConfig($config, $name);
 
