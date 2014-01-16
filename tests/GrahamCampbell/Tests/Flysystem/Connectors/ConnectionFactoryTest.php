@@ -33,7 +33,7 @@ class ConnectionFactoryTest extends AbstractTestCase
 {
     public function testMake()
     {
-        $factory = $this->getConnectionFactory();
+        $factory = $this->getMockedFactory();
 
         $return = $factory->make(array('driver' => 'local', 'path' => __DIR__), 'local');
 
@@ -136,5 +136,22 @@ class ConnectionFactoryTest extends AbstractTestCase
     protected function getConnectionFactory()
     {
         return new ConnectionFactory();
+    }
+
+    protected function getMockedFactory()
+    {
+        $mock = Mockery::mock('GrahamCampbell\Flysystem\Connectors\ConnectionFactory[createConnector]');
+
+        $connectory = Mockery::mock('GrahamCampbell\Flysystem\Connectors\LocalConnector');
+
+        $connectory->shouldReceive('connect')->once()
+            ->with(array('name' => 'local', 'driver' => 'local', 'path' => __DIR__))
+            ->andReturn(Mockery::mock('League\Flysystem\Adapter\Local'));
+
+        $mock->shouldReceive('createConnector')->once()
+            ->with(array('name' => 'local', 'driver' => 'local', 'path' => __DIR__))
+            ->andReturn($connectory);
+
+        return $mock;
     }
 }
