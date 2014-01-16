@@ -149,7 +149,7 @@ class FlysystemManager
     {
         $name = $name ?: $this->getDefaultConnection();
 
-        $connections = $this->config['flysystem::connections'];
+        $connections = $this->config->get('flysystem::connections');
 
         if (is_null($config = array_get($connections, $name))) {
             throw new \InvalidArgumentException("Adapter [$name] not configured.");
@@ -165,7 +165,7 @@ class FlysystemManager
      */
     public function getDefaultConnection()
     {
-        return $this->config['flysystem::default'];
+        return $this->config->get('flysystem::default');
     }
 
     /**
@@ -176,7 +176,7 @@ class FlysystemManager
      */
     public function setDefaultConnection($name)
     {
-        $this->config['flysystem::default'] = $name;
+        $this->config->set('flysystem::default', $name);
     }
 
     /**
