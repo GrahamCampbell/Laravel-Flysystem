@@ -111,7 +111,7 @@ class ConnectionFactoryTest extends AbstractTestCase
 
         try {
             $factory->createConnector(array());
-        } catch (Exception $e) {
+        } catch (\Exception $e) {
             $return = $e;
         }
 
@@ -126,7 +126,7 @@ class ConnectionFactoryTest extends AbstractTestCase
 
         try {
             $factory->createConnector(array('driver' => 'unsupported'));
-        } catch (Exception $e) {
+        } catch (\Exception $e) {
             $return = $e;
         }
 
