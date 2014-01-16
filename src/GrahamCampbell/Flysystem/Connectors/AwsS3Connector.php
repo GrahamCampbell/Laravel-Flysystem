@@ -56,7 +56,13 @@ class AwsS3Connector implements ConnectorInterface
             throw new \InvalidArgumentException('The awss3 connector requires authentication.');
         }
 
-        return array('key' => $config['key'], 'secret' => $config['secret']);
+        if (array_key_exists('region', $config)) {
+            return array('key' => $config['key'], 'secret' => $config['secret'], 'region' => $config['region']);
+        } else {
+            return array('key' => $config['key'], 'secret' => $config['secret']);
+        }
+
+        return $config;
     }
 
     /**
@@ -78,19 +84,15 @@ class AwsS3Connector implements ConnectorInterface
      */
     protected function getConfig(array $config)
     {
+        if (!array_key_exists('prefix', $config)) {
+            $config['prefix'] = null;
+        }
+
         if (!array_key_exists('bucket', $config)) {
             throw new \InvalidArgumentException('The awss3 connector requires a bucket.');
         }
 
-        if (array_key_exists('prefix', $config) && array_key_exists('region', $config)) {
-            return array('bucket' => $config['bucket'], 'prefix' => $config['prefix'], 'region' => $config['region']);
-        } elseif (!array_key_exists('prefix', $config) && array_key_exists('region', $config)) {
-            return array('bucket' => $config['bucket'], 'region' => $config['region']);
-        } elseif (array_key_exists('prefix', $config) && !array_key_exists('region', $config)) {
-            return array('bucket' => $config['bucket'], 'prefix' => $config['prefix']);
-        } else {
-            return array('bucket' => $config['bucket']);
-        }
+        return array('bucket' => $config['bucket'], 'prefix' => $config['prefix']);
     }
 
     /**
