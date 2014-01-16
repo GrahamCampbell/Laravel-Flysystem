@@ -33,39 +33,91 @@ class FlysystemManagerTest extends AbstractTestCase
 {
     public function testConnectionName()
     {
-        $manager = $this->getFlysystemManager();
-
         $config = array('driver' => 'local', 'path' => __DIR__);
 
-        $manager->getConfig()->shouldReceive('get')->once()
-            ->with('flysystem::connections')->andReturn(array('local' => $config));
+        $manager = $this->getConfigManager($config);
 
-        $manager->getFactory()->shouldReceive('make')->once()
-            ->with($config, 'local')->andReturn(Mockery::mock('League\Flysystem\FilesystemInterface'));
+        $this->assertEquals($manager->getConnections(), array());
 
         $return = $manager->connection('local');
 
         $this->assertInstanceOf('League\Flysystem\FilesystemInterface', $return);
+
+        $this->assertArrayHasKey('local', $manager->getConnections());
+
+        $return = $manager->reconnect('local');
+
+        $this->assertInstanceOf('League\Flysystem\FilesystemInterface', $return);
+
+        $this->assertArrayHasKey('local', $manager->getConnections());
+
+        $manager = $this->getFlysystemManager();
+
+        $manager->disconnect('local');
+
+        $this->assertEquals($manager->getConnections(), array());
     }
 
     public function testConnectionNull()
     {
-        $manager = $this->getFlysystemManager();
-
         $config = array('driver' => 'local', 'path' => __DIR__);
 
-        $manager->getConfig()->shouldReceive('get')->once()
+        $manager = $this->getConfigManager($config);
+
+        $manager->getConfig()->shouldReceive('get')->twice()
             ->with('flysystem::default')->andReturn('local');
 
-        $manager->getConfig()->shouldReceive('get')->once()
-            ->with('flysystem::connections')->andReturn(array('local' => $config));
-
-        $manager->getFactory()->shouldReceive('make')->once()
-            ->with($config, 'local')->andReturn(Mockery::mock('League\Flysystem\FilesystemInterface'));
+        $this->assertEquals($manager->getConnections(), array());
 
         $return = $manager->connection();
 
         $this->assertInstanceOf('League\Flysystem\FilesystemInterface', $return);
+
+        $this->assertArrayHasKey('local', $manager->getConnections());
+
+        $return = $manager->reconnect();
+
+        $this->assertInstanceOf('League\Flysystem\FilesystemInterface', $return);
+
+        $this->assertArrayHasKey('local', $manager->getConnections());
+
+        $manager = $this->getFlysystemManager();
+
+        $manager->getConfig()->shouldReceive('get')->once()
+            ->with('flysystem::default')->andReturn('local');
+
+        $manager->disconnect();
+
+        $this->assertEquals($manager->getConnections(), array());
+    }
+
+    public function testGetDefaultConnection()
+    {
+        $manager = $this->getFlysystemManager();
+
+        $manager->getConfig()->shouldReceive('get')->once()
+            ->with('flysystem::default')->andReturn('local');
+
+        $return = $manager->getDefaultConnection();
+
+        $this->assertEquals($return, 'local');
+    }
+
+    public function testSetDefaultConnection()
+    {
+        $manager = $this->getFlysystemManager();
+
+        $manager->getConfig()->shouldReceive('set')->once()
+            ->with('flysystem::default', 'local');
+
+        $manager->setDefaultConnection('local');
+    }
+
+    public function testExtend()
+    {
+        $manager = $this->getFlysystemManager();
+
+        $manager->extend('test', 'foo');
     }
 
     protected function getFlysystemManager()
@@ -74,5 +126,18 @@ class FlysystemManagerTest extends AbstractTestCase
         $factory = Mockery::mock('GrahamCampbell\Flysystem\Connectors\ConnectionFactory');
 
         return new FlysystemManager($config, $factory);
+    }
+
+    protected function getConfigManager(array $config)
+    {
+        $manager = $this->getFlysystemManager();
+
+        $manager->getConfig()->shouldReceive('get')->twice()
+            ->with('flysystem::connections')->andReturn(array('local' => $config));
+
+        $manager->getFactory()->shouldReceive('make')->twice()
+            ->with($config, 'local')->andReturn(Mockery::mock('League\Flysystem\FilesystemInterface'));
+
+        return $manager;
     }
 }
