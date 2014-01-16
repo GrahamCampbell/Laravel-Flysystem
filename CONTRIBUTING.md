@@ -11,7 +11,7 @@ The first command is only necessary the first time. If you have issues merging, 
 
 You can then update the branch:
 
-    git pull --rebase upstream develop
+    git pull --rebase upstream master
     git push --force origin <branch_name>
 
 Once it is set up, run `git mergetool`. Once all conflicts are fixed, run `git rebase --continue`, and `git push --force origin <branch_name>`.

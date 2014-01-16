@@ -24,7 +24,7 @@ use Illuminate\Support\ServiceProvider;
  * @package    Laravel-Flysystem
  * @author     Graham Campbell
  * @copyright  Copyright 2014 Graham Campbell
- * @license    https://github.com/GrahamCampbell/Laravel-Flysystem/blob/develop/LICENSE.md
+ * @license    https://github.com/GrahamCampbell/Laravel-Flysystem/blob/master/LICENSE.md
  * @link       https://github.com/GrahamCampbell/Laravel-Flysystem
  */
 class FlysystemServiceProvider extends ServiceProvider
