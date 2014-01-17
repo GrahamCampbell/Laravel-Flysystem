@@ -11,10 +11,6 @@
     ],
     "repositories": [
         {
-            "type": "vcs",
-            "url": "https://github.com/GrahamCampbell/dropbox-sdk-php"
-        },
-        {
             "type": "package",
             "package": {
                 "name": "sebastianbergmann/phpcov",
@@ -41,7 +37,7 @@
         "symfony/filesystem": "2.4.*",
         "league/flysystem": "0.2.*",
         "aws/aws-sdk-php": "2.5.*",
-        "dropbox/dropbox-sdk": "dev-nss-fix",
+        "dropbox/dropbox-sdk": "dev-master",
         "sabre/dav": "1.8.*"
     },
     "require-dev": {
