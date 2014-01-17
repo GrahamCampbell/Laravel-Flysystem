@@ -6,8 +6,8 @@ Laravel Flysystem
 [![Build Status](https://travis-ci.org/GrahamCampbell/Laravel-Flysystem.png)](https://travis-ci.org/GrahamCampbell/Laravel-Flysystem)
 [![Coverage Status](https://coveralls.io/repos/GrahamCampbell/Laravel-Flysystem/badge.png)](https://coveralls.io/r/GrahamCampbell/Laravel-Flysystem)
 [![Scrutinizer Quality Score](https://scrutinizer-ci.com/g/GrahamCampbell/Laravel-Flysystem/badges/quality-score.png?s=f37f619e28817a3d4e143e4216cd875216a6f5f1)](https://scrutinizer-ci.com/g/GrahamCampbell/Laravel-Flysystem)
+[![SensioLabsInsight](https://insight.sensiolabs.com/projects/5002239a-89e2-43bc-8a51-ee35b064ef50/mini.png)](https://insight.sensiolabs.com/projects/5002239a-89e2-43bc-8a51-ee35b064ef50)
 [![Latest Version](https://poser.pugx.org/graham-campbell/flysystem/v/stable.png)](https://packagist.org/packages/graham-campbell/flysystem)
-[![Still Maintained](http://stillmaintained.com/GrahamCampbell/Laravel-Flysystem.png)](http://stillmaintained.com/GrahamCampbell/Laravel-Flysystem)
 
 
 ## What Is Laravel Flysystem?
@@ -19,7 +19,7 @@ Laravel Flysystem is a [Flysystem](https://github.com/php-loep/flysystem) bridge
 * Laravel Flysystem uses [Travis CI](https://travis-ci.org/GrahamCampbell/Laravel-Flysystem) to run tests to check if it's working as it should.  
 * Laravel Flysystem uses [Scrutinizer CI](https://scrutinizer-ci.com/g/GrahamCampbell/Laravel-Flysystem) and [Coveralls](https://coveralls.io/r/GrahamCampbell/Laravel-Flysystem) to run additional tests and checks.  
 * Laravel Flysystem uses [Composer](https://getcomposer.org) to load and manage dependencies.  
-* Laravel Flysystem provides a [change log](https://github.com/GrahamCampbell/Laravel-Flysystem/blob/master/CHANGELOG.md), [releases](https://github.com/GrahamCampbell/Laravel-Flysystem/releases), and a [wiki](https://github.com/GrahamCampbell/Laravel-Flysystem/wiki).  
+* Laravel Flysystem provides a [change log](https://github.com/GrahamCampbell/Laravel-Flysystem/blob/master/CHANGELOG.md), [releases](https://github.com/GrahamCampbell/Laravel-Flysystem/releases), and [api docs](http://grahamcampbell.github.io/Laravel-Flysystem).  
 * Laravel Flysystem is licensed under the Apache License, available [here](https://github.com/GrahamCampbell/Laravel-Flysystem/blob/master/LICENSE.md).  
 
 
@@ -80,7 +80,7 @@ Once it is set up, run `git mergetool`. Once all conflicts are fixed, run `git r
 
 Please review these guidelines before submitting any pull requests.  
 
-* Bug fixes shouldn't be sent to the master branch unless they fix features that exist only in the upcoming release.  
+* When submitting bug fixes, check if a maintenance branch exists for an older series, then pull against that older branch if the bug is present in it.  
 * Before sending a pull request for a new feature, you should first create an issue with [Proposal] in the title.  
 * Please follow the [PSR-2 Coding Style](https://github.com/php-fig/fig-standards/blob/master/accepted/PSR-2-coding-style-guide.md) and [PHP-FIG Naming Conventions](https://github.com/php-fig/fig-standards/blob/master/bylaws/002-psr-naming-conventions.md).  
 
