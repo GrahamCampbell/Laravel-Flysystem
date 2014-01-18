@@ -15,9 +15,9 @@ Laravel Flysystem
 Laravel Flysystem is a [Flysystem](https://github.com/php-loep/flysystem) bridge for [Laravel 4.1](http://laravel.com).  
 
 * Laravel Flysystem was created by, and is maintained by [Graham Campbell](https://github.com/GrahamCampbell).  
-* Laravel Markdown relies on Frank de Jonge's [Flysystem](https://github.com/php-loep/flysystem) package.  
-* Laravel Flysystem uses [Travis CI](https://travis-ci.org/GrahamCampbell/Laravel-Flysystem) to run tests to check if it's working as it should.  
-* Laravel Flysystem uses [Scrutinizer CI](https://scrutinizer-ci.com/g/GrahamCampbell/Laravel-Flysystem) and [Coveralls](https://coveralls.io/r/GrahamCampbell/Laravel-Flysystem) to run additional tests and checks.  
+* Laravel Flysystem relies on Frank de Jonge's [Flysystem](https://github.com/php-loep/flysystem) package.  
+* Laravel Flysystem uses [Travis CI](https://travis-ci.org/GrahamCampbell/Laravel-Flysystem) with [Coveralls](https://coveralls.io/r/GrahamCampbell/Laravel-Flysystem) to check everything is working.  
+* Laravel Flysystem uses [Scrutinizer CI](https://scrutinizer-ci.com/g/GrahamCampbell/Laravel-Flysystem) and [SensioLabsInsight](https://insight.sensiolabs.com/projects/5002239a-89e2-43bc-8a51-ee35b064ef50) to run additional checks.  
 * Laravel Flysystem uses [Composer](https://getcomposer.org) to load and manage dependencies.  
 * Laravel Flysystem provides a [change log](https://github.com/GrahamCampbell/Laravel-Flysystem/blob/master/CHANGELOG.md), [releases](https://github.com/GrahamCampbell/Laravel-Flysystem/releases), and [api docs](http://grahamcampbell.github.io/Laravel-Flysystem).  
 * Laravel Flysystem is licensed under the Apache License, available [here](https://github.com/GrahamCampbell/Laravel-Flysystem/blob/master/LICENSE.md).  
