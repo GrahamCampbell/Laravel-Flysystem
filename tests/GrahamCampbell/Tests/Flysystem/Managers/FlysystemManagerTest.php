@@ -91,6 +91,28 @@ class FlysystemManagerTest extends AbstractTestCase
         $this->assertEquals($manager->getConnections(), array());
     }
 
+    public function testConnectionError()
+    {
+        $manager = $this->getFlysystemManager();
+
+        $config = array('driver' => 'error', 'path' => __DIR__);
+
+        $manager->getConfig()->shouldReceive('get')->once()
+            ->with('flysystem::connections')->andReturn(array('local' => $config));
+
+        $this->assertEquals($manager->getConnections(), array());
+
+        $return = null;
+
+        try {
+            $manager->connection('error');
+        } catch (\Exception $e) {
+            $return = $e;
+        }
+
+        $this->assertInstanceOf('InvalidArgumentException', $return);
+    }
+
     public function testGetDefaultConnection()
     {
         $manager = $this->getFlysystemManager();
