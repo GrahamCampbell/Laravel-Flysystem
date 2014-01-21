@@ -7,6 +7,6 @@ CHANGE LOG
 * Improved caching support
 
 
-## V0.1 Alpha (Upcoming)
+## V0.1 Alpha (21/01/2014)
 
 * Initial testing release
