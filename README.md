@@ -13,10 +13,10 @@ Laravel Flysystem
 
 ## What Is Laravel Flysystem?
 
-Laravel Flysystem is a [Flysystem](https://github.com/php-loep/flysystem) bridge for [Laravel 4.1](http://laravel.com).  
+Laravel Flysystem is a [Flysystem](https://github.com/thephpleague/flysystem) bridge for [Laravel 4.1](http://laravel.com).  
 
 * Laravel Flysystem was created by, and is maintained by [Graham Campbell](https://github.com/GrahamCampbell).  
-* Laravel Flysystem relies on Frank de Jonge's [Flysystem](https://github.com/php-loep/flysystem) package.  
+* Laravel Flysystem relies on Frank de Jonge's [Flysystem](https://github.com/thephpleague/flysystem) package.  
 * Laravel Flysystem uses [Travis CI](https://travis-ci.org/GrahamCampbell/Laravel-Flysystem) with [Coveralls](https://coveralls.io/r/GrahamCampbell/Laravel-Flysystem) to check everything is working.  
 * Laravel Flysystem uses [Scrutinizer CI](https://scrutinizer-ci.com/g/GrahamCampbell/Laravel-Flysystem) and [SensioLabsInsight](https://insight.sensiolabs.com/projects/5002239a-89e2-43bc-8a51-ee35b064ef50) to run additional checks.  
 * Laravel Flysystem uses [Composer](https://getcomposer.org) to load and manage dependencies.  

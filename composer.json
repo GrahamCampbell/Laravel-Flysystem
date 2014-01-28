@@ -38,6 +38,7 @@
         "league/flysystem": "0.2.*",
         "aws/aws-sdk-php": "2.5.*",
         "dropbox/dropbox-sdk": "dev-master",
+        "rackspace/php-opencloud": "1.9.*",
         "sabre/dav": "1.8.*"
     },
     "require-dev": {
@@ -51,7 +52,7 @@
     },
     "extra": {
         "branch-alias": {
-            "dev-master": "0.1-dev"
+            "dev-master": "0.2-dev"
         }
     },
     "minimum-stability": "dev",
