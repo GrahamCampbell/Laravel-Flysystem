@@ -35,16 +35,21 @@ class RackspaceConnectorTest extends AbstractTestCase
     {
         $connector = $this->getRackspaceConnector();
 
-        $return = $connector->connect(array(
-            'endpoint'  => 'https://lon.identity.api.rackspacecloud.com/v2.0/',
-            'username'  => 'your-username',
-            'password'  => 'your-password',
-            'container' => 'your-container'
-        ));
+        $return = null;
 
-        $this->assertInstanceOf('League\Flysystem\Adapter\RackspaceS3', $return);
+        try {
+            $connector->connect(array(
+                'endpoint'  => 'https://lon.identity.api.rackspacecloud.com/v2.0/',
+                'username'  => 'your-username',
+                'password'  => 'your-password',
+                'container' => 'your-container'
+            ));
+        } catch (\Exception $e) {
+            $return = $e;
+        }
+
+        $this->assertInstanceOf('Guzzle\Http\Exception\ClientErrorResponseException', $return);
     }
-
 
     public function testConnectWithoutAuth()
     {
