@@ -36,7 +36,7 @@ class RackspaceConnectorTest extends AbstractTestCase
         $connector = $this->getRackspaceConnector();
 
         $return = $connector->connect(array(
-            'endpoint'  => 'your-endpoint',
+            'endpoint'  => 'https://lon.identity.api.rackspacecloud.com/v2.0/',
             'username'  => 'your-username',
             'password'  => 'your-password',
             'container' => 'your-container'
@@ -53,7 +53,10 @@ class RackspaceConnectorTest extends AbstractTestCase
         $return = null;
 
         try {
-            $connector->connect(array('endpoint'  => 'your-endpoint', 'container' => 'your-container'));
+            $connector->connect(array(
+                'endpoint'  => 'https://lon.identity.api.rackspacecloud.com/v2.0/',
+                'container' => 'your-container'
+            ));
         } catch (\Exception $e) {
             $return = $e;
         }
@@ -68,7 +71,10 @@ class RackspaceConnectorTest extends AbstractTestCase
         $return = null;
 
         try {
-            $connector->connect(array('username'  => 'your-username', 'password'  => 'your-password'));
+            $connector->connect(array(
+                'username'  => 'your-username',
+                'password'  => 'your-password'
+            ));
         } catch (\Exception $e) {
             $return = $e;
         }
