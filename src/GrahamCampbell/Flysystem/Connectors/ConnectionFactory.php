@@ -73,6 +73,8 @@ class ConnectionFactory
         switch ($config['driver']) {
             case 'awss3':
                 return new AwsS3Connector();
+            case 'rackspace':
+                return new RackspaceConnector();
             case 'dropbox':
                 return new DropboxConnector();
             case 'ftp':

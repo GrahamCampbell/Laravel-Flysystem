@@ -49,6 +49,15 @@ class ConnectionFactoryTest extends AbstractTestCase
         $this->assertInstanceOf('GrahamCampbell\Flysystem\Connectors\AwsS3Connector', $return);
     }
 
+    public function testCreateRackspaceConnector()
+    {
+        $factory = $this->getConnectionFactory();
+
+        $return = $factory->createConnector(array('driver' => 'rackspace'));
+
+        $this->assertInstanceOf('GrahamCampbell\Flysystem\Connectors\RackspaceConnector', $return);
+    }
+
     public function testCreateDropboxConnector()
     {
         $factory = $this->getConnectionFactory();
