@@ -37,7 +37,7 @@
         "symfony/filesystem": "2.4.*",
         "league/flysystem": "0.2.*",
         "aws/aws-sdk-php": "2.5.*",
-        "dropbox/dropbox-sdk": "dev-master",
+        "dropbox/dropbox-sdk": "1.1.*",
         "rackspace/php-opencloud": "1.9.*",
         "sabre/dav": "1.8.*"
     },
