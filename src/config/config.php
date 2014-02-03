@@ -31,7 +31,7 @@ return array(
 
     /*
     |--------------------------------------------------------------------------
-    | Database Connections
+    | Flysystem Connections
     |--------------------------------------------------------------------------
     |
     | Here are each of the connections setup for your application. Examples of
