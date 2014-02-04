@@ -43,11 +43,11 @@ You'll then need to run `composer install` or `composer update` to download it a
 
 Once Laravel Flysystem is installed, you need to register the service provider. Open up `app/config/app.php` and add the following to the `providers` key.
 
-`'GrahamCampbell\Flysystem\FlysystemServiceProvider'`
+* `'GrahamCampbell\Flysystem\FlysystemServiceProvider'`
 
 You can register the Flysystem facade in the `aliases` key of your `app/config/app.php` file if you like.
 
-`'Flysystem' => 'GrahamCampbell\Flysystem\Facades\Flysystem'`
+* `'Flysystem' => 'GrahamCampbell\Flysystem\Facades\Flysystem'`
 
 
 ## Configuration
