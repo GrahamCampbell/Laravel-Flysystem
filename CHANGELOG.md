@@ -6,7 +6,7 @@ CHANGE LOG
 * Improved caching support
 
 
-## V0.2 Alpha (Upcoming)
+## V0.2 Alpha (08/02/2014)
 
 * PSR-4 namespacing
 * Updated docs
