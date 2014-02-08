@@ -1,11 +1,16 @@
 CHANGE LOG
 ==========
 
+## V0.3 Alpha (Upcoming)
+
+* Improved caching support
+
 
 ## V0.2 Alpha (Upcoming)
 
+* PSR-4 namespacing
+* Updated docs
 * Added rackspace support
-* Improved caching support (TODO)
 * Minor tweaks
 
 
