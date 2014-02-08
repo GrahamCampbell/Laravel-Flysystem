@@ -43,7 +43,7 @@ class FlysystemServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        $this->package('graham-campbell/flysystem');
+        $this->package('graham-campbell/flysystem', 'graham-campbell/flysystem', __DIR__);
     }
 
     /**

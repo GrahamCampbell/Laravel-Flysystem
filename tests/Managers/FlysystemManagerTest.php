@@ -65,7 +65,7 @@ class FlysystemManagerTest extends AbstractTestCase
         $manager = $this->getConfigManager($config);
 
         $manager->getConfig()->shouldReceive('get')->twice()
-            ->with('flysystem::default')->andReturn('local');
+            ->with('graham-campbell/flysystem::default')->andReturn('local');
 
         $this->assertEquals($manager->getConnections(), array());
 
@@ -84,7 +84,7 @@ class FlysystemManagerTest extends AbstractTestCase
         $manager = $this->getFlysystemManager();
 
         $manager->getConfig()->shouldReceive('get')->once()
-            ->with('flysystem::default')->andReturn('local');
+            ->with('graham-campbell/flysystem::default')->andReturn('local');
 
         $manager->disconnect();
 
@@ -98,7 +98,7 @@ class FlysystemManagerTest extends AbstractTestCase
         $config = array('driver' => 'error', 'path' => __DIR__);
 
         $manager->getConfig()->shouldReceive('get')->once()
-            ->with('flysystem::connections')->andReturn(array('local' => $config));
+            ->with('graham-campbell/flysystem::connections')->andReturn(array('local' => $config));
 
         $this->assertEquals($manager->getConnections(), array());
 
@@ -118,7 +118,7 @@ class FlysystemManagerTest extends AbstractTestCase
         $manager = $this->getFlysystemManager();
 
         $manager->getConfig()->shouldReceive('get')->once()
-            ->with('flysystem::default')->andReturn('local');
+            ->with('graham-campbell/flysystem::default')->andReturn('local');
 
         $return = $manager->getDefaultConnection();
 
@@ -130,7 +130,7 @@ class FlysystemManagerTest extends AbstractTestCase
         $manager = $this->getFlysystemManager();
 
         $manager->getConfig()->shouldReceive('set')->once()
-            ->with('flysystem::default', 'local');
+            ->with('graham-campbell/flysystem::default', 'local');
 
         $manager->setDefaultConnection('local');
     }
@@ -155,7 +155,7 @@ class FlysystemManagerTest extends AbstractTestCase
         $manager = $this->getFlysystemManager();
 
         $manager->getConfig()->shouldReceive('get')->twice()
-            ->with('flysystem::connections')->andReturn(array('local' => $config));
+            ->with('graham-campbell/flysystem::connections')->andReturn(array('local' => $config));
 
         $manager->getFactory()->shouldReceive('make')->twice()
             ->with($config, 'local')->andReturn(Mockery::mock('League\Flysystem\FilesystemInterface'));
