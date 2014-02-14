@@ -26,7 +26,7 @@ Laravel Flysystem is a [Flysystem](https://github.com/thephpleague/flysystem) br
 
 ## System Requirements
 
-* PHP 5.4.7+ or PHP 5.5+ is required.
+* PHP 5.4.7+ or HHVM 2.4+ is required.
 * You will need [Laravel 4.1](http://laravel.com) because this package is designed for it.
 * You will need [Composer](https://getcomposer.org) installed to load the dependencies of Laravel Flysystem.
 
@@ -35,7 +35,7 @@ Laravel Flysystem is a [Flysystem](https://github.com/thephpleague/flysystem) br
 
 Please check the system requirements before installing Laravel Flysystem.
 
-To get the latest version of Laravel Flysystem, simply require `"graham-campbell/flysystem": "0.2.*@alpha"` in your `composer.json` file. You'll then need to run `composer install` or `composer update` to download it and have the autoloader updated.
+To get the latest version of Laravel Flysystem, simply require `"graham-campbell/flysystem": "0.3.*@dev"` in your `composer.json` file. You'll then need to run `composer install` or `composer update` to download it and have the autoloader updated.
 
 Once Laravel Flysystem is installed, you need to register the service provider. Open up `app/config/app.php` and add the following to the `providers` key.
 
@@ -70,7 +70,7 @@ This option (`'connections'`) is where each of the connections are setup for you
 There is currently no usage documentation besides the [API Documentation](http://grahamcampbell.github.io/Laravel-Flysystem
 ) for Laravel Flysystem.
 
-You may see an example of implementation in [CMS Core](https://github.com/GrahamCampbell/CMS-Core).
+You may see an example of implementation in [Laravel Assets](https://github.com/GrahamCampbell/Laravel-Assets).
 
 
 ## Updating Your Fork

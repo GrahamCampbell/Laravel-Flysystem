@@ -9,27 +9,6 @@
             "email": "graham@mineuk.com"
         }
     ],
-    "repositories": [
-        {
-            "type": "package",
-            "package": {
-                "name": "sebastianbergmann/phpcov",
-                "version": "1.1.0",
-                "dist": {
-                    "url": "https://github.com/sebastianbergmann/phpcov/archive/1.1.0.zip",
-                    "type": "zip"
-                },
-                "source": {
-                    "url": "https://github.com/sebastianbergmann/phpcov.git",
-                    "type": "git",
-                    "reference": "1.1.0"
-                },
-                "bin": [
-                    "phpcov.php"
-                ]
-            }
-        }
-    ],
     "require": {
         "php": ">=5.4.7",
         "laravel/framework": "4.1.*",
@@ -42,7 +21,7 @@
         "sabre/dav": "1.8.*"
     },
     "require-dev": {
-        "graham-campbell/testbench": "0.2.*"
+        "graham-campbell/testbench": "0.3.*"
     },
     "autoload": {
         "psr-4": {
@@ -52,7 +31,7 @@
     },
     "extra": {
         "branch-alias": {
-            "dev-master": "0.2-dev"
+            "dev-master": "0.3-dev"
         }
     },
     "minimum-stability": "dev",
