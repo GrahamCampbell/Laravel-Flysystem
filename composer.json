@@ -15,13 +15,13 @@
         "symfony/config": "2.4.*",
         "symfony/filesystem": "2.4.*",
         "league/flysystem": "0.2.*",
-        "aws/aws-sdk-php": "2.5.*",
-        "dropbox/dropbox-sdk": "1.1.*",
-        "rackspace/php-opencloud": "1.9.*",
-        "sabre/dav": "1.8.*"
     },
     "require-dev": {
-        "graham-campbell/testbench": "0.3.*"
+        "graham-campbell/testbench": "0.3.*",
+        "aws/aws-sdk-php": "2.5.*",
+        "rackspace/php-opencloud": "1.9.*",
+        "dropbox/dropbox-sdk": "1.1.*",
+        "sabre/dav": "1.8.*"
     },
     "autoload": {
         "psr-4": {
