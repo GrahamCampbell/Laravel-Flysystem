@@ -2,13 +2,13 @@ Laravel Flysystem
 =================
 
 
-[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/GrahamCampbell/Laravel-Flysystem/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
 [![Build Status](https://travis-ci.org/GrahamCampbell/Laravel-Flysystem.png)](https://travis-ci.org/GrahamCampbell/Laravel-Flysystem)
 [![Coverage Status](https://coveralls.io/repos/GrahamCampbell/Laravel-Flysystem/badge.png)](https://coveralls.io/r/GrahamCampbell/Laravel-Flysystem)
 [![Scrutinizer Quality Score](https://scrutinizer-ci.com/g/GrahamCampbell/Laravel-Flysystem/badges/quality-score.png?s=f37f619e28817a3d4e143e4216cd875216a6f5f1)](https://scrutinizer-ci.com/g/GrahamCampbell/Laravel-Flysystem)
 [![SensioLabsInsight](https://insight.sensiolabs.com/projects/5002239a-89e2-43bc-8a51-ee35b064ef50/mini.png)](https://insight.sensiolabs.com/projects/5002239a-89e2-43bc-8a51-ee35b064ef50)
 [![Software License](https://poser.pugx.org/graham-campbell/flysystem/license.png)](https://github.com/GrahamCampbell/Laravel-Flysystem/blob/master/LICENSE.md)
 [![Latest Version](https://poser.pugx.org/graham-campbell/flysystem/v/stable.png)](https://packagist.org/packages/graham-campbell/flysystem)
+[![Still Maintained](http://stillmaintained.com/GrahamCampbell/Laravel-Flysystem.png)](http://stillmaintained.com/GrahamCampbell/Laravel-Flysystem)
 
 
 ## What Is Laravel Flysystem?
