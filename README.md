@@ -37,10 +37,11 @@ Please check the system requirements before installing Laravel Flysystem.
 To get the latest version of Laravel Flysystem, simply require `"graham-campbell/flysystem": "0.3.*@dev"` in your `composer.json` file.
 
 There are some additional dependencies you will need to install for some of the features:
-  * In order to load the awss3 connector, you will need to require `"aws/aws-sdk-php": "2.6.*"` in your `composer.json` file.
-  *In order to load the rackspace connector, you will need to require `"rackspace/php-opencloud": "1.9.*"` in your `composer.json` file.
-  *In order to load the dropbox connector, you will need to require `"dropbox/dropbox-sdk": "1.1.*"` in your `composer.json` file.
-  *In order to load the webdav connector, you will need to require `"sabre/dav": "1.8.*"` in your `composer.json` file.
+
+* In order to load the awss3 connector, you will need to require `"aws/aws-sdk-php": "2.6.*"` in your `composer.json` file.
+* In order to load the rackspace connector, you will need to require `"rackspace/php-opencloud": "1.9.*"` in your `composer.json` file.
+* In order to load the dropbox connector, you will need to require `"dropbox/dropbox-sdk": "1.1.*"` in your `composer.json` file.
+* In order to load the webdav connector, you will need to require `"sabre/dav": "1.8.*"` in your `composer.json` file.
 
 You'll then need to run `composer install` or `composer update` to download it and have the autoloader updated.
 
