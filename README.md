@@ -2,13 +2,12 @@ Laravel Flysystem
 =================
 
 
-[![Build Status](https://travis-ci.org/GrahamCampbell/Laravel-Flysystem.png)](https://travis-ci.org/GrahamCampbell/Laravel-Flysystem)
-[![Coverage Status](https://coveralls.io/repos/GrahamCampbell/Laravel-Flysystem/badge.png)](https://coveralls.io/r/GrahamCampbell/Laravel-Flysystem)
+[![Build Status](https://img.shields.io/travis/GrahamCampbell/Laravel-Flysystem/master.svg)](https://travis-ci.org/GrahamCampbell/Laravel-Flysystem)
+[![Coverage Status](https://img.shields.io/coveralls/GrahamCampbell/Laravel-Flysystem/master.svg)](https://coveralls.io/r/GrahamCampbell/Laravel-Flysystem)
+[![Software License](https://img.shields.io/badge/license-Apache%202.0-brightgreen.svg)](https://github.com/GrahamCampbell/Laravel-Flysystem/blob/master/LICENSE.md)
+[![Latest Version](https://img.shields.io/github/tag/GrahamCampbell/Laravel-Flysystem.svg)](https://github.com/GrahamCampbell/Laravel-Flysystem/releases)
 [![Scrutinizer Quality Score](https://scrutinizer-ci.com/g/GrahamCampbell/Laravel-Flysystem/badges/quality-score.png?s=f37f619e28817a3d4e143e4216cd875216a6f5f1)](https://scrutinizer-ci.com/g/GrahamCampbell/Laravel-Flysystem)
 [![SensioLabsInsight](https://insight.sensiolabs.com/projects/5002239a-89e2-43bc-8a51-ee35b064ef50/mini.png)](https://insight.sensiolabs.com/projects/5002239a-89e2-43bc-8a51-ee35b064ef50)
-[![Software License](https://poser.pugx.org/graham-campbell/flysystem/license.png)](https://github.com/GrahamCampbell/Laravel-Flysystem/blob/master/LICENSE.md)
-[![Latest Version](https://poser.pugx.org/graham-campbell/flysystem/v/stable.png)](https://packagist.org/packages/graham-campbell/flysystem)
-[![Still Maintained](http://stillmaintained.com/GrahamCampbell/Laravel-Flysystem.png)](http://stillmaintained.com/GrahamCampbell/Laravel-Flysystem)
 
 
 ## What Is Laravel Flysystem?
@@ -26,7 +25,7 @@ Laravel Flysystem is a [Flysystem](https://github.com/thephpleague/flysystem) br
 
 ## System Requirements
 
-* PHP 5.4.7+ or HHVM 2.4+ (HHVM support is incomplete mainly due to dependencies).
+* PHP 5.4.7+ or HHVM 3.0+ (HHVM support is incomplete mainly due to dependencies).
 * You will need [Laravel 4.1](http://laravel.com) because this package is designed for it.
 * You will need [Composer](https://getcomposer.org) installed to load the dependencies of Laravel Flysystem.
 
@@ -35,7 +34,15 @@ Laravel Flysystem is a [Flysystem](https://github.com/thephpleague/flysystem) br
 
 Please check the system requirements before installing Laravel Flysystem.
 
-To get the latest version of Laravel Flysystem, simply require `"graham-campbell/flysystem": "0.3.*@dev"` in your `composer.json` file. In order to load support for the awss3 connector, you will need to require `"aws/aws-sdk-php": "2.5.*"` in your `composer.json` file. In order to load support for the rackspace connector, you will need to require `"rackspace/php-opencloud": "1.9.*"` in your `composer.json` file. In order to load support for the dropbox connector, you will need to require `"dropbox/dropbox-sdk": "1.1.*"` in your `composer.json` file. In order to load support for the webdav connector, you will need to require `"sabre/dav": "1.8.*"` in your `composer.json` file. You'll then need to run `composer install` or `composer update` to download it and have the autoloader updated.
+To get the latest version of Laravel Flysystem, simply require `"graham-campbell/flysystem": "0.3.*@dev"` in your `composer.json` file.
+
+There are some additional dependencies you will need to install for some of the features:
+  * In order to load the awss3 connector, you will need to require `"aws/aws-sdk-php": "2.6.*"` in your `composer.json` file.
+  *In order to load the rackspace connector, you will need to require `"rackspace/php-opencloud": "1.9.*"` in your `composer.json` file.
+  *In order to load the dropbox connector, you will need to require `"dropbox/dropbox-sdk": "1.1.*"` in your `composer.json` file.
+  *In order to load the webdav connector, you will need to require `"sabre/dav": "1.8.*"` in your `composer.json` file.
+
+You'll then need to run `composer install` or `composer update` to download it and have the autoloader updated.
 
 Once Laravel Flysystem is installed, you need to register the service provider. Open up `app/config/app.php` and add the following to the `providers` key.
 
