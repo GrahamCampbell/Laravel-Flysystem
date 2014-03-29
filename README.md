@@ -25,7 +25,7 @@ Laravel Flysystem is a [Flysystem](https://github.com/thephpleague/flysystem) br
 
 ## System Requirements
 
-* PHP 5.4.7+ or HHVM 3.0+ (HHVM support is incomplete mainly due to dependencies).
+* PHP 5.4.7+ or HHVM 3.0+ (HHVM support is pretty sketchy in some dependencies).
 * You will need [Laravel 4.1](http://laravel.com) because this package is designed for it.
 * You will need [Composer](https://getcomposer.org) installed to load the dependencies of Laravel Flysystem.
 
