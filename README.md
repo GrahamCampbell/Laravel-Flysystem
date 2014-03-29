@@ -5,7 +5,7 @@ Laravel Flysystem
 [![Build Status](https://img.shields.io/travis/GrahamCampbell/Laravel-Flysystem/master.svg)](https://travis-ci.org/GrahamCampbell/Laravel-Flysystem)
 [![Coverage Status](https://img.shields.io/coveralls/GrahamCampbell/Laravel-Flysystem/master.svg)](https://coveralls.io/r/GrahamCampbell/Laravel-Flysystem)
 [![Software License](https://img.shields.io/badge/license-Apache%202.0-brightgreen.svg)](https://github.com/GrahamCampbell/Laravel-Flysystem/blob/master/LICENSE.md)
-[![Latest Version](https://img.shields.io/github/tag/GrahamCampbell/Laravel-Flysystem.svg)](https://github.com/GrahamCampbell/Laravel-Flysystem/releases)
+[![Latest Version](https://img.shields.io/github/release/GrahamCampbell/Laravel-Flysystem.svg)](https://github.com/GrahamCampbell/Laravel-Flysystem/releases)
 [![Scrutinizer Quality Score](https://scrutinizer-ci.com/g/GrahamCampbell/Laravel-Flysystem/badges/quality-score.png?s=f37f619e28817a3d4e143e4216cd875216a6f5f1)](https://scrutinizer-ci.com/g/GrahamCampbell/Laravel-Flysystem)
 [![SensioLabsInsight](https://insight.sensiolabs.com/projects/5002239a-89e2-43bc-8a51-ee35b064ef50/mini.png)](https://insight.sensiolabs.com/projects/5002239a-89e2-43bc-8a51-ee35b064ef50)
 
