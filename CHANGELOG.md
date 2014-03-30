@@ -1,10 +1,16 @@
 CHANGE LOG
 ==========
 
+
+## V0.4 Alpha (Upcoming)
+
+* Improved caching support
+
+
 ## V0.3 Alpha (Upcoming)
 
 * PHP 5.6 and partial HHVM compatibility
-* Improved caching support
+* Composer tweaks
 
 
 ## V0.2 Alpha (08/02/2014)
