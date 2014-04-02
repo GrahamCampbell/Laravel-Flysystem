@@ -61,8 +61,6 @@ class AwsS3Connector implements ConnectorInterface
         } else {
             return array('key' => $config['key'], 'secret' => $config['secret']);
         }
-
-        return $config;
     }
 
     /**
