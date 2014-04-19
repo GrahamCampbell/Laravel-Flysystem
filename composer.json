@@ -15,7 +15,7 @@
         "symfony/config": "2.4.*",
         "symfony/event-dispatcher": "2.4.*",
         "symfony/filesystem": "2.4.*",
-        "league/flysystem": "0.3.*"
+        "league/flysystem": "0.4.*"
     },
     "require-dev": {
         "graham-campbell/testbench": "0.3.*",
