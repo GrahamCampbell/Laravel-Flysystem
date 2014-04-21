@@ -34,7 +34,7 @@ Laravel Flysystem is a [Flysystem](https://github.com/thephpleague/flysystem) br
 
 Please check the system requirements before installing Laravel Flysystem.
 
-To get the latest version of Laravel Flysystem, simply require `"graham-campbell/flysystem": "0.3.*@dev"` in your `composer.json` file.
+To get the latest version of Laravel Flysystem, simply require `"graham-campbell/flysystem": "0.3.*@alpha"` in your `composer.json` file.
 
 There are some additional dependencies you will need to install for some of the features:
 
