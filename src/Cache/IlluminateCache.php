@@ -35,7 +35,7 @@ class IlluminateCache extends AbstractCache
      *
      * @var \Illuminate\Cache\StoreInterface
      */
-    protected $cache;
+    protected $client;
 
     /**
      * The cache key.
@@ -54,13 +54,13 @@ class IlluminateCache extends AbstractCache
     /**
      * Constructor
      *
-     * @param  \Illuminate\Cache\StoreInterface  $cache
+     * @param  \Illuminate\Cache\StoreInterface  $client
      * @param  string  $key
      * @param  int     $ttl
      */
-    public function __construct(StoreInterface $cache, $key = 'flysystem', $ttl = null)
+    public function __construct(StoreInterface $client, $key = 'flysystem', $ttl = null)
     {
-        $this->cache = $cache;
+        $this->client = $client;
         $this->key = $key;
         $this->ttl = ceil($ttl / 60);
     }
@@ -72,7 +72,7 @@ class IlluminateCache extends AbstractCache
      */
     public function load()
     {
-        if (($contents = $this->cache->get($this->key)) !== null) {
+        if (($contents = $this->client->get($this->key)) !== null) {
             $this->setFromStorage($contents);
         }
     }
@@ -87,9 +87,9 @@ class IlluminateCache extends AbstractCache
         $contents = $this->getForStorage();
 
         if ($this->ttl !== null) {
-            $this->cache->put($this->key, $contents, $this->ttl);
+            $this->client->put($this->key, $contents, $this->ttl);
         } else {
-            $this->cache->forever($this->key, $contents);
+            $this->client->forever($this->key, $contents);
         }
     }
 
@@ -98,8 +98,8 @@ class IlluminateCache extends AbstractCache
      *
      * @return \Illuminate\Cache\CacheStore
      */
-    public function getCache()
+    public function getClient()
     {
-        return $this->cache;
+        return $this->client;
     }
 }
