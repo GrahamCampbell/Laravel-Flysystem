@@ -57,7 +57,7 @@ class ConnectionFactory
      */
     public function make(array $config, FlysystemManager $manager)
     {
-        return $this->createConnector($config, $manager)->connect($config);
+        return $this->createConnector($config)->connect($config, $manager);
     }
 
     /**
@@ -67,7 +67,7 @@ class ConnectionFactory
      * @param  \GrahamCampbell\Flysystem\Managers\FlysystemManager  $manager
      * @return \GrahamCampbell\Flysystem\Interfaces\ConnectorInterface
      */
-    public function createConnector(array $config, FlysystemManager $manager)
+    public function createConnector(array $config)
     {
         if (!isset($config['driver'])) {
             throw new \InvalidArgumentException("A driver must be specified.");
@@ -77,7 +77,7 @@ class ConnectionFactory
             case 'illuminate':
                 return new IlluminateConnector($this->cache);
             case 'adapter':
-                return new AdapterConnector($this->adapter, $manager);
+                return new AdapterConnector();
         }
 
         throw new \InvalidArgumentException("Unsupported driver [{$config['driver']}]");
