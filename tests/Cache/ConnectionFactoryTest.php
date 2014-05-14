@@ -114,11 +114,11 @@ class ConnectionFactoryTest extends AbstractTestCase
         $connector = Mockery::mock('GrahamCampbell\Flysystem\Cache\IlluminateConnector', array($cache));
 
         $connector->shouldReceive('connect')->once()
-            ->with(array('name' => 'foo', 'driver' => 'illuminate', 'connector' => 'redis'), $manager)
+            ->with(array('name' => 'foo', 'driver' => 'illuminate', 'connector' => 'redis'))
             ->andReturn(Mockery::mock('League\Flysystem\CacheInterface'));
 
         $mock->shouldReceive('createConnector')->once()
-            ->with(array('name' => 'foo', 'driver' => 'illuminate', 'connector' => 'redis'))
+            ->with(array('name' => 'foo', 'driver' => 'illuminate', 'connector' => 'redis'), $manager)
             ->andReturn($connector);
 
         return $mock;

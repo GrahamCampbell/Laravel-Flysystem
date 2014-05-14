@@ -19,6 +19,7 @@ namespace GrahamCampbell\Flysystem\Adapters;
 use OpenCloud\OpenStack;
 use League\Flysystem\Adapter\Rackspace;
 use OpenCloud\ObjectStore\Resource\Container;
+use GrahamCampbell\Flysystem\Interfaces\ConnectorInterface;
 
 /**
  * This is the rackspace connector class.
@@ -29,7 +30,7 @@ use OpenCloud\ObjectStore\Resource\Container;
  * @license    https://github.com/GrahamCampbell/Laravel-Flysystem/blob/master/LICENSE.md
  * @link       https://github.com/GrahamCampbell/Laravel-Flysystem
  */
-class RackspaceConnector
+class RackspaceConnector implements ConnectorInterface
 {
     /**
      * Establish an adapter connection.

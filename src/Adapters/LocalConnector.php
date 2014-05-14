@@ -17,6 +17,7 @@
 namespace GrahamCampbell\Flysystem\Adapters;
 
 use League\Flysystem\Adapter\Local;
+use GrahamCampbell\Flysystem\Interfaces\ConnectorInterface;
 
 /**
  * This is the local connector class.
@@ -27,7 +28,7 @@ use League\Flysystem\Adapter\Local;
  * @license    https://github.com/GrahamCampbell/Laravel-Flysystem/blob/master/LICENSE.md
  * @link       https://github.com/GrahamCampbell/Laravel-Flysystem
  */
-class LocalConnector
+class LocalConnector implements ConnectorInterface
 {
     /**
      * Establish an adapter connection.

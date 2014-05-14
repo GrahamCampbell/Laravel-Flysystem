@@ -18,6 +18,7 @@ namespace GrahamCampbell\Flysystem\Adapters;
 
 use Aws\S3\S3Client;
 use League\Flysystem\Adapter\AwsS3;
+use GrahamCampbell\Flysystem\Interfaces\ConnectorInterface;
 
 /**
  * This is the awss3 connector class.
@@ -28,7 +29,7 @@ use League\Flysystem\Adapter\AwsS3;
  * @license    https://github.com/GrahamCampbell/Laravel-Flysystem/blob/master/LICENSE.md
  * @link       https://github.com/GrahamCampbell/Laravel-Flysystem
  */
-class AwsS3Connector
+class AwsS3Connector implements ConnectorInterface
 {
     /**
      * Establish an adapter connection.

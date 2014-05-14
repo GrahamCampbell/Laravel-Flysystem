@@ -18,6 +18,7 @@ namespace GrahamCampbell\Flysystem\Cache;
 
 use Illuminate\Cache\CacheManager;
 use Illuminate\Cache\StoreInterface;
+use GrahamCampbell\Flysystem\Interfaces\ConnectorInterface;
 
 /**
  * This is the illuminate connector class.
@@ -28,7 +29,7 @@ use Illuminate\Cache\StoreInterface;
  * @license    https://github.com/GrahamCampbell/Laravel-Flysystem/blob/master/LICENSE.md
  * @link       https://github.com/GrahamCampbell/Laravel-Flysystem
  */
-class IlluminateConnector
+class IlluminateConnector implements ConnectorInterface
 {
     /**
      * The cache manager instance.

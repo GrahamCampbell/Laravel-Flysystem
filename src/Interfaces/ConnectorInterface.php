@@ -14,13 +14,10 @@
  * limitations under the License.
  */
 
-namespace GrahamCampbell\Flysystem\Adapters;
-
-use League\Flysystem\Adapter\Ftp;
-use GrahamCampbell\Flysystem\Interfaces\ConnectorInterface;
+namespace GrahamCampbell\Flysystem\Interfaces;
 
 /**
- * This is the ftp connector class.
+ * This is the connector interface.
  *
  * @package    Laravel-Flysystem
  * @author     Graham Campbell
@@ -28,27 +25,13 @@ use GrahamCampbell\Flysystem\Interfaces\ConnectorInterface;
  * @license    https://github.com/GrahamCampbell/Laravel-Flysystem/blob/master/LICENSE.md
  * @link       https://github.com/GrahamCampbell/Laravel-Flysystem
  */
-class FtpConnector implements ConnectorInterface
+interface ConnectorInterface
 {
     /**
-     * Establish an adapter connection.
+     * Establish an adapter/cache connection.
      *
      * @param  array  $config
-     * @return \League\Flysystem\Adapter\Ftp
+     * @return \League\Flysystem\AdapterInterface|\League\Flysystem\CacheInterface
      */
-    public function connect(array $config)
-    {
-        return $this->getAdapter($config);
-    }
-
-    /**
-     * Get the ftp adapter.
-     *
-     * @param  array  $config
-     * @return \League\Flysystem\Adapter\Ftp
-     */
-    protected function getAdapter(array $config)
-    {
-        return new Ftp($config);
-    }
+    public function connect(array $config);
 }

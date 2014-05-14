@@ -19,6 +19,7 @@ namespace GrahamCampbell\Flysystem\Cache;
 use League\Flysystem\Cache\Adapter;
 use League\Flysystem\AdapterInterface;
 use GrahamCampbell\Flysystem\Managers\FlysystemManager;
+use GrahamCampbell\Flysystem\Interfaces\ConnectorInterface;
 
 /**
  * This is the adapter connector class.
@@ -29,19 +30,36 @@ use GrahamCampbell\Flysystem\Managers\FlysystemManager;
  * @license    https://github.com/GrahamCampbell/Laravel-Flysystem/blob/master/LICENSE.md
  * @link       https://github.com/GrahamCampbell/Laravel-Flysystem
  */
-class AdapterConnector
+class AdapterConnector implements ConnectorInterface
 {
+    /**
+     * The flysysten manager instance.
+     *
+     * @var \GrahamCampbell\Flysystem\Managers\FlysystemManager
+     */
+    protected $manager;
+
+    /**
+     * Create a new connection factory instance.
+     *
+     * @param  \GrahamCampbell\Flysystem\Managers\FlysystemManager  $manager
+     * @return void
+     */
+    public function __construct(FlysystemManager $manager)
+    {
+        $this->manager = $manager;
+    }
+
     /**
      * Establish a cache connection.
      *
-     * @param  array   $config
-     * @param  \GrahamCampbell\Flysystem\Managers\FlysystemManager  $manager
+     * @param  array  $config
      * @return \League\Flysystem\Cache\Adapter
      */
-    public function connect(array $config, FlysystemManager $manager)
+    public function connect(array $config)
     {
         $config = $this->getConfig($config);
-        $client = $this->getClient($config, $manager);
+        $client = $this->getClient($config);
         return $this->getAdapter($client, $config);
     }
 
@@ -64,14 +82,13 @@ class AdapterConnector
      * Get the cache client.
      *
      * @param  array  $config
-     * @param  \GrahamCampbell\Flysystem\Managers\FlysystemManager  $manager
      * @return \League\Flysystem\AdapterInterface
      */
-    protected function getClient(array $config, FlysystemManager $manager)
+    protected function getClient(array $config)
     {
         $name = array_get($config, 'adapter');
-        $config = $manager->getConnectionConfig($name);
-        return $manager->getFactory()->createAdapter($config);
+        $config = $this->manager->getConnectionConfig($name);
+        return $this->manager->getFactory()->createAdapter($config);
     }
 
     /**
@@ -87,5 +104,15 @@ class AdapterConnector
         $ttl = array_get($config, 'ttl');
 
         return new Adapter($client, $file, $ttl);
+    }
+
+    /**
+     * Get the flysystem manager instance.
+     *
+     * @return \GrahamCampbell\Flysystem\Managers\FlysystemManager
+     */
+    public function getManager()
+    {
+        return $this->manager;
     }
 }

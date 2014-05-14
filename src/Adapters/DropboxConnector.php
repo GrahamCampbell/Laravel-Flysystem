@@ -18,6 +18,7 @@ namespace GrahamCampbell\Flysystem\Adapters;
 
 use Dropbox\Client;
 use League\Flysystem\Adapter\Dropbox;
+use GrahamCampbell\Flysystem\Interfaces\ConnectorInterface;
 
 /**
  * This is the dropbox connector class.
@@ -28,7 +29,7 @@ use League\Flysystem\Adapter\Dropbox;
  * @license    https://github.com/GrahamCampbell/Laravel-Flysystem/blob/master/LICENSE.md
  * @link       https://github.com/GrahamCampbell/Laravel-Flysystem
  */
-class DropboxConnector
+class DropboxConnector implements ConnectorInterface
 {
     /**
      * Establish an adapter connection.

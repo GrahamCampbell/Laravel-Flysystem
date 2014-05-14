@@ -17,6 +17,7 @@
 namespace GrahamCampbell\Flysystem\Adapters;
 
 use League\Flysystem\Adapter\Sftp;
+use GrahamCampbell\Flysystem\Interfaces\ConnectorInterface;
 
 /**
  * This is the sftp connector class.
@@ -27,7 +28,7 @@ use League\Flysystem\Adapter\Sftp;
  * @license    https://github.com/GrahamCampbell/Laravel-Flysystem/blob/master/LICENSE.md
  * @link       https://github.com/GrahamCampbell/Laravel-Flysystem
  */
-class SftpConnector
+class SftpConnector implements ConnectorInterface
 {
     /**
      * Establish an adapter connection.

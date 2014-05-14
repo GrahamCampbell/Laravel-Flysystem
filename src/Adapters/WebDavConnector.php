@@ -18,6 +18,7 @@ namespace GrahamCampbell\Flysystem\Adapters;
 
 use Sabre\DAV\Client;
 use League\Flysystem\Adapter\WebDav;
+use GrahamCampbell\Flysystem\Interfaces\ConnectorInterface;
 
 /**
  * This is the webdav connector class.
@@ -28,7 +29,7 @@ use League\Flysystem\Adapter\WebDav;
  * @license    https://github.com/GrahamCampbell/Laravel-Flysystem/blob/master/LICENSE.md
  * @link       https://github.com/GrahamCampbell/Laravel-Flysystem
  */
-class WebDavConnector
+class WebDavConnector implements ConnectorInterface
 {
     /**
      * Establish an adapter connection.
