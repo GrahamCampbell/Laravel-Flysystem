@@ -14,14 +14,12 @@
  * limitations under the License.
  */
 
-namespace GrahamCampbell\Tests\Flysystem\Classes;
+namespace GrahamCampbell\Flysystem\Adapters;
 
-use Mockery;
-use GrahamCampbell\Flysystem\Connectors\SftpConnector;
-use GrahamCampbell\TestBench\Classes\AbstractTestCase;
+use League\Flysystem\Adapter\Ftp;
 
 /**
- * This is the sftp connector test class.
+ * This is the ftp connector class.
  *
  * @package    Laravel-Flysystem
  * @author     Graham Campbell
@@ -29,24 +27,27 @@ use GrahamCampbell\TestBench\Classes\AbstractTestCase;
  * @license    https://github.com/GrahamCampbell/Laravel-Flysystem/blob/master/LICENSE.md
  * @link       https://github.com/GrahamCampbell/Laravel-Flysystem
  */
-class SftpConnectorTest extends AbstractTestCase
+class FtpConnector
 {
-    public function testConnect()
+    /**
+     * Establish an adapter connection.
+     *
+     * @param  array  $config
+     * @return \League\Flysystem\Adapter\Ftp
+     */
+    public function connect(array $config)
     {
-        $connector = $this->getSftpConnector();
-
-        $return = $connector->connect(array(
-            'host' => 'sftp.example.com',
-            'port' => 22,
-            'username' => 'your-username',
-            'password' => 'your-password'
-        ));
-
-        $this->assertInstanceOf('League\Flysystem\Adapter\Sftp', $return);
+        return $this->getAdapter($config);
     }
 
-    protected function getSftpConnector()
+    /**
+     * Get the ftp adapter.
+     *
+     * @param  array  $config
+     * @return \League\Flysystem\Adapter\Ftp
+     */
+    protected function getAdapter(array $config)
     {
-        return new SftpConnector();
+        return new Ftp($config);
     }
 }

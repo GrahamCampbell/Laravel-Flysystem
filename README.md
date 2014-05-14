@@ -34,7 +34,7 @@ Laravel Flysystem is a [Flysystem](https://github.com/thephpleague/flysystem) br
 
 Please check the system requirements before installing Laravel Flysystem.
 
-To get the latest version of Laravel Flysystem, simply require `"graham-campbell/flysystem": "0.3.*@alpha"` in your `composer.json` file.
+To get the latest version of Laravel Flysystem, simply require `"graham-campbell/flysystem": "0.4.*@alpha"` in your `composer.json` file.
 
 There are some additional dependencies you will need to install for some of the features:
 
@@ -62,7 +62,7 @@ To get started, first publish the package config file:
 
     php artisan config:publish graham-campbell/flysystem
 
-There are two config options:
+There are three config options:
 
 **Default Connection Name**
 
@@ -71,6 +71,10 @@ This option (`'default'`) is where you may specify which of the connections belo
 **Flysystem Connections**
 
 This option (`'connections'`) is where each of the connections are setup for your application. Examples of configuring each supported driver are included in the config file. You can of course have multiple connections per driver.
+
+**Flysystem Cache**
+
+This option (`'cache'`) is where each of the cache configurations setup for your application. There are currently two drivers: illuminate and adapter. Examples of configuration are included. You can of course have multiple connections per driver as shown.
 
 
 ## Usage

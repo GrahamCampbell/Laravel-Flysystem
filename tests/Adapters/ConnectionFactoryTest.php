@@ -14,14 +14,14 @@
  * limitations under the License.
  */
 
-namespace GrahamCampbell\Tests\Flysystem\Classes;
+namespace GrahamCampbell\Tests\Flysystem\Adapters;
 
 use Mockery;
-use GrahamCampbell\Flysystem\Connectors\ConnectionFactory;
+use GrahamCampbell\Flysystem\Adapters\ConnectionFactory;
 use GrahamCampbell\TestBench\Classes\AbstractTestCase;
 
 /**
- * This is the connection factory test class.
+ * This is the adapter connection factory test class.
  *
  * @package    Laravel-Flysystem
  * @author     Graham Campbell
@@ -35,9 +35,9 @@ class ConnectionFactoryTest extends AbstractTestCase
     {
         $factory = $this->getMockedFactory();
 
-        $return = $factory->make(array('driver' => 'local', 'path' => __DIR__), 'local');
+        $return = $factory->make(array('driver' => 'local', 'path' => __DIR__, 'name' => 'local'));
 
-        $this->assertInstanceOf('League\Flysystem\Filesystem', $return);
+        $this->assertInstanceOf('League\Flysystem\AdapterInterface', $return);
     }
 
     public function testCreateAwsS3Connector()
@@ -46,7 +46,7 @@ class ConnectionFactoryTest extends AbstractTestCase
 
         $return = $factory->createConnector(array('driver' => 'awss3'));
 
-        $this->assertInstanceOf('GrahamCampbell\Flysystem\Connectors\AwsS3Connector', $return);
+        $this->assertInstanceOf('GrahamCampbell\Flysystem\Adapters\AwsS3Connector', $return);
     }
 
     public function testCreateRackspaceConnector()
@@ -55,7 +55,7 @@ class ConnectionFactoryTest extends AbstractTestCase
 
         $return = $factory->createConnector(array('driver' => 'rackspace'));
 
-        $this->assertInstanceOf('GrahamCampbell\Flysystem\Connectors\RackspaceConnector', $return);
+        $this->assertInstanceOf('GrahamCampbell\Flysystem\Adapters\RackspaceConnector', $return);
     }
 
     public function testCreateDropboxConnector()
@@ -64,7 +64,7 @@ class ConnectionFactoryTest extends AbstractTestCase
 
         $return = $factory->createConnector(array('driver' => 'dropbox'));
 
-        $this->assertInstanceOf('GrahamCampbell\Flysystem\Connectors\DropboxConnector', $return);
+        $this->assertInstanceOf('GrahamCampbell\Flysystem\Adapters\DropboxConnector', $return);
     }
 
     public function testCreateFtpConnector()
@@ -73,7 +73,7 @@ class ConnectionFactoryTest extends AbstractTestCase
 
         $return = $factory->createConnector(array('driver' => 'ftp'));
 
-        $this->assertInstanceOf('GrahamCampbell\Flysystem\Connectors\FTPConnector', $return);
+        $this->assertInstanceOf('GrahamCampbell\Flysystem\Adapters\FTPConnector', $return);
     }
 
     public function testCreateLocalConnector()
@@ -82,7 +82,7 @@ class ConnectionFactoryTest extends AbstractTestCase
 
         $return = $factory->createConnector(array('driver' => 'local'));
 
-        $this->assertInstanceOf('GrahamCampbell\Flysystem\Connectors\LocalConnector', $return);
+        $this->assertInstanceOf('GrahamCampbell\Flysystem\Adapters\LocalConnector', $return);
     }
 
     public function testCreateSftpConnector()
@@ -91,7 +91,7 @@ class ConnectionFactoryTest extends AbstractTestCase
 
         $return = $factory->createConnector(array('driver' => 'sftp'));
 
-        $this->assertInstanceOf('GrahamCampbell\Flysystem\Connectors\SftpConnector', $return);
+        $this->assertInstanceOf('GrahamCampbell\Flysystem\Adapters\SftpConnector', $return);
     }
 
     public function testCreateWebDavConnector()
@@ -100,7 +100,7 @@ class ConnectionFactoryTest extends AbstractTestCase
 
         $return = $factory->createConnector(array('driver' => 'webdav'));
 
-        $this->assertInstanceOf('GrahamCampbell\Flysystem\Connectors\WebDavConnector', $return);
+        $this->assertInstanceOf('GrahamCampbell\Flysystem\Adapters\WebDavConnector', $return);
     }
 
     public function testCreateZipConnector()
@@ -109,7 +109,7 @@ class ConnectionFactoryTest extends AbstractTestCase
 
         $return = $factory->createConnector(array('driver' => 'zip'));
 
-        $this->assertInstanceOf('GrahamCampbell\Flysystem\Connectors\ZipConnector', $return);
+        $this->assertInstanceOf('GrahamCampbell\Flysystem\Adapters\ZipConnector', $return);
     }
 
     public function testCreateEmptyDriverConnector()
@@ -149,17 +149,17 @@ class ConnectionFactoryTest extends AbstractTestCase
 
     protected function getMockedFactory()
     {
-        $mock = Mockery::mock('GrahamCampbell\Flysystem\Connectors\ConnectionFactory[createConnector]');
+        $mock = Mockery::mock('GrahamCampbell\Flysystem\Adapters\ConnectionFactory[createConnector]');
 
-        $connectory = Mockery::mock('GrahamCampbell\Flysystem\Connectors\LocalConnector');
+        $connector = Mockery::mock('GrahamCampbell\Flysystem\Adapters\LocalConnector');
 
-        $connectory->shouldReceive('connect')->once()
+        $connector->shouldReceive('connect')->once()
             ->with(array('name' => 'local', 'driver' => 'local', 'path' => __DIR__))
             ->andReturn(Mockery::mock('League\Flysystem\Adapter\Local'));
 
         $mock->shouldReceive('createConnector')->once()
             ->with(array('name' => 'local', 'driver' => 'local', 'path' => __DIR__))
-            ->andReturn($connectory);
+            ->andReturn($connector);
 
         return $mock;
     }

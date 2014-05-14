@@ -44,7 +44,8 @@ return array(
 
         'local' => array(
             'driver' => 'local',
-            'path'   => storage_path('files')
+            'path'   => storage_path('files'),
+            // 'cache'  => 'foo'
         ),
 
         'zip' => array(
@@ -58,7 +59,8 @@ return array(
             'secret' => 'your-secret',
             'bucket' => 'your-bucket',
             // 'region' => 'your-region',
-            // 'prefix' => 'your-prefix'
+            // 'prefix' => 'your-prefix',
+            // 'cache'  => 'foo'
         ),
 
         'rackspace' => array(
@@ -66,14 +68,16 @@ return array(
             'endpoint'  => 'your-endpoint',
             'username'  => 'your-username',
             'password'  => 'your-password',
-            'container' => 'your-container'
+            'container' => 'your-container',
+            // 'cache'  => 'foo'
         ),
 
         'dropbox' => array(
             'driver' => 'dropbox',
             'token'  => 'your-token',
             'app'    => 'your-app',
-            // 'prefix' => 'your-prefix'
+            // 'prefix' => 'your-prefix',
+            // 'cache'  => 'foo'
         ),
 
         'ftp' => array(
@@ -85,7 +89,8 @@ return array(
             // 'root' => '/path/to/root',
             // 'passive' => true,
             // 'ssl' => true,
-            // 'timeout' => 20
+            // 'timeout' => 20,
+            // 'cache'  => 'foo'
         ),
 
         'sftp' => array(
@@ -96,14 +101,53 @@ return array(
             'password' => 'your-password',
             // 'privateKey' => 'path/to/or/contents/of/privatekey',
             // 'root' => '/path/to/root',
-            // 'timeout' => 20
+            // 'timeout' => 20,
+            // 'cache'  => 'foo'
         ),
 
         'webdav' => array(
             'driver' => 'webdav',
             'baseUri' => 'http://example.org/dav/',
             'userName' => 'your-username',
-            'password' => 'your-password'
+            'password' => 'your-password',
+            // 'cache'  => 'foo'
+        )
+
+    ),
+
+    /*
+    |--------------------------------------------------------------------------
+    | Flysystem Cache
+    |--------------------------------------------------------------------------
+    |
+    | Here are each of the cache configurations setup for your application.
+    | There are currently two drivers: illuminate and adapter. Examples of
+    | configuration are included. You can of course have multiple connections
+    | per driver as shown.
+    |
+    */
+
+    'cache' => array(
+
+        'foo' => array(
+            'driver'    => 'illuminate',
+            'connector' => null, // null means use default driver
+            'key'       => 'foo',
+            // 'ttl'       => 300
+        ),
+
+        'bar' => array(
+            'driver'    => 'illuminate',
+            'connector' => 'redis', // app/config/cache.php
+            'key'       => 'bar',
+            'ttl'       => 600
+        ),
+
+        'adapter' => array(
+            'driver'  => 'adapter',
+            'adapter' => 'local', // as defined in connections
+            'file'    => 'flysystem.json',
+            'ttl'     => 600
         )
 
     )

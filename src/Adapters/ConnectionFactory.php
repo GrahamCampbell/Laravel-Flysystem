@@ -14,13 +14,10 @@
  * limitations under the License.
  */
 
-namespace GrahamCampbell\Flysystem\Connectors;
-
-use League\Flysystem\Filesystem;
-use League\Flysystem\AdapterInterface;
+namespace GrahamCampbell\Flysystem\Adapters;
 
 /**
- * This is the connection factory class.
+ * This is the adapter connection factory class.
  *
  * @package    Laravel-Flysystem
  * @author     Graham Campbell
@@ -31,38 +28,21 @@ use League\Flysystem\AdapterInterface;
 class ConnectionFactory
 {
     /**
-     * Establish a connection based on the configuration.
+     * Establish an adapter connection.
      *
      * @param  array   $config
-     * @param  string  $name
-     * @return \League\Flysystem\FilesystemInterface
+     * @return \League\Flysystem\AdapterInterface
      */
-    public function make(array $config, $name)
+    public function make(array $config)
     {
-        $config = $this->parseConfig($config, $name);
-
-        $adapter = $this->createConnector($config)->connect($config);
-
-        return $this->createConnection($adapter);
-    }
-
-    /**
-     * Parse and prepare the adapter configuration.
-     *
-     * @param  array   $config
-     * @param  string  $name
-     * @return array
-     */
-    protected function parseConfig(array $config, $name)
-    {
-        return array_add($config, 'name', $name);
+        return $this->createConnector($config)->connect($config);
     }
 
     /**
      * Create a connector instance based on the configuration.
      *
      * @param  array  $config
-     * @return \GrahamCampbell\Flysystem\Connectors\ConnectorInterface
+     * @return \GrahamCampbell\Flysystem\Inferfaces\ConnectorInterface
      */
     public function createConnector(array $config)
     {
@@ -90,16 +70,5 @@ class ConnectionFactory
         }
 
         throw new \InvalidArgumentException("Unsupported driver [{$config['driver']}]");
-    }
-
-    /**
-     * Create a new connection instance.
-     *
-     * @param  \League\Flysystem\AdapterInterface  $adapter
-     * @return \League\Flysystem\FilesystemInterface
-     */
-    protected function createConnection(AdapterInterface $adapter)
-    {
-        return new Filesystem($adapter);
     }
 }

@@ -14,14 +14,14 @@
  * limitations under the License.
  */
 
-namespace GrahamCampbell\Tests\Flysystem\Classes;
+namespace GrahamCampbell\Tests\Flysystem\Adapters;
 
 use Mockery;
-use GrahamCampbell\Flysystem\Connectors\localConnector;
+use GrahamCampbell\Flysystem\Adapters\zipConnector;
 use GrahamCampbell\TestBench\Classes\AbstractTestCase;
 
 /**
- * This is the local connector test class.
+ * This is the zip connector test class.
  *
  * @package    Laravel-Flysystem
  * @author     Graham Campbell
@@ -29,29 +29,29 @@ use GrahamCampbell\TestBench\Classes\AbstractTestCase;
  * @license    https://github.com/GrahamCampbell/Laravel-Flysystem/blob/master/LICENSE.md
  * @link       https://github.com/GrahamCampbell/Laravel-Flysystem
  */
-class LocalConnectorTest extends AbstractTestCase
+class ZipConnectorTest extends AbstractTestCase
 {
     public function testConnectStandard()
     {
-        $connector = $this->getLocalConnector();
+        $connector = $this->getZipConnector();
 
-        $return = $connector->connect(array('path' => __DIR__));
+        $return = $connector->connect(array('path' => __DIR__.'\stubs\test.zip'));
 
-        $this->assertInstanceOf('League\Flysystem\Adapter\Local', $return);
+        $this->assertInstanceOf('League\Flysystem\Adapter\Zip', $return);
     }
 
     public function testConnectWithPrefix()
     {
-        $connector = $this->getLocalConnector();
+        $connector = $this->getZipConnector();
 
-        $return = $connector->connect(array('path' => __DIR__, 'prefix' => 'your-prefix'));
+        $return = $connector->connect(array('path' => __DIR__.'\stubs\test.zip', 'prefix' => 'your-prefix'));
 
-        $this->assertInstanceOf('League\Flysystem\Adapter\Local', $return);
+        $this->assertInstanceOf('League\Flysystem\Adapter\Zip', $return);
     }
 
     public function testConnectWithoutPath()
     {
-        $connector = $this->getLocalConnector();
+        $connector = $this->getZipConnector();
 
         $return = null;
 
@@ -64,8 +64,8 @@ class LocalConnectorTest extends AbstractTestCase
         $this->assertInstanceOf('InvalidArgumentException', $return);
     }
 
-    protected function getLocalConnector()
+    protected function getZipConnector()
     {
-        return new LocalConnector();
+        return new ZipConnector();
     }
 }

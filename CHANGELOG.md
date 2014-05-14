@@ -2,10 +2,15 @@ CHANGE LOG
 ==========
 
 
-## V0.4 Alpha (Upcoming - July 2014)
+## V0.5 Alpha (Upcoming - July 2014)
 
 * Upgrade to Laravel 4.2
+
+
+## V0.4 Alpha (Upcoming)
+
 * Improved caching support
+* Refactoring
 
 
 ## V0.3 Alpha (21/04/2014)

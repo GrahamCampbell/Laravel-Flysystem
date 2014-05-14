@@ -17,7 +17,7 @@
 namespace GrahamCampbell\Flysystem\Managers;
 
 use Illuminate\Config\Repository;
-use GrahamCampbell\Flysystem\Connectors\ConnectionFactory;
+use GrahamCampbell\Flysystem\Filesystem\ConnectionFactory;
 
 /**
  * This is the flysystem manager class.
@@ -40,7 +40,7 @@ class FlysystemManager
     /**
      * The connection factory instance.
      *
-     * @var \GrahamCampbell\Flysystem\Connectors\ConnectionFactory
+     * @var \GrahamCampbell\Flysystem\Filesystem\ConnectionFactory
      */
     protected $factory;
 
@@ -62,7 +62,7 @@ class FlysystemManager
      * Create a new flysystem manager instance.
      *
      * @param  \Illuminate\Config\Repository   $config
-     * @param  \GrahamCampbell\Flysystem\Connectors\ConnectionFactory  $factory
+     * @param  \GrahamCampbell\Flysystem\Filesystem\ConnectionFactory  $factory
      * @return void
      */
     public function __construct(Repository $config, ConnectionFactory $factory)
@@ -136,7 +136,7 @@ class FlysystemManager
             return call_user_func($this->extensions[$driver], $config);
         }
 
-        return $this->factory->make($config, $name);
+        return $this->factory->make($config, $this);
     }
 
     /**
@@ -145,7 +145,7 @@ class FlysystemManager
      * @param  string  $name
      * @return array
      */
-    protected function getConnectionConfig($name)
+    public function getConnectionConfig($name)
     {
         $name = $name ?: $this->getDefaultConnection();
 
@@ -154,6 +154,31 @@ class FlysystemManager
         if (is_null($config = array_get($connections, $name))) {
             throw new \InvalidArgumentException("Adapter [$name] not configured.");
         }
+
+        if (!is_null($cache = array_get($config, 'cache'))) {
+            $config['cache'] = $this->getCacheConfig($cache);
+        }
+
+        $config['name'] = $name;
+
+        return $config;
+    }
+
+    /**
+     * Get the cache configuration.
+     *
+     * @param  string  $name
+     * @return array
+     */
+    public function getCacheConfig($name)
+    {
+        $cache = $this->config->get('graham-campbell/flysystem::cache');
+
+        if (is_null($config = array_get($cache, $name))) {
+            throw new \InvalidArgumentException("Cache [$name] not configured.");
+        }
+
+        $config['name'] = $name;
 
         return $config;
     }
@@ -214,7 +239,7 @@ class FlysystemManager
     /**
      * Get the factory instance.
      *
-     * @return \GrahamCampbell\Flysystem\Connectors\ConnectionFactory
+     * @return \GrahamCampbell\Flysystem\Filesystem\ConnectionFactory
      */
     public function getFactory()
     {

@@ -14,13 +14,12 @@
  * limitations under the License.
  */
 
-namespace GrahamCampbell\Flysystem\Connectors;
+namespace GrahamCampbell\Flysystem\Adapters;
 
-use Sabre\DAV\Client;
-use League\Flysystem\Adapter\WebDav;
+use League\Flysystem\Adapter\Zip;
 
 /**
- * This is the webdav connector class.
+ * This is the zip connector class.
  *
  * @package    Laravel-Flysystem
  * @author     Graham Campbell
@@ -28,39 +27,43 @@ use League\Flysystem\Adapter\WebDav;
  * @license    https://github.com/GrahamCampbell/Laravel-Flysystem/blob/master/LICENSE.md
  * @link       https://github.com/GrahamCampbell/Laravel-Flysystem
  */
-class WebDavConnector implements ConnectorInterface
+class ZipConnector
 {
     /**
      * Establish an adapter connection.
      *
      * @param  array  $config
-     * @return \League\Flysystem\Adapter\WebDav
+     * @return \League\Flysystem\Adapter\Zip
      */
     public function connect(array $config)
     {
-        $client = $this->getClient($config);
-        return $this->getAdapter($client);
+        $config = $this->getConfig($config);
+        return $this->getAdapter($config);
     }
 
     /**
-     * Get the webdav client.
+     * Get the configuration.
      *
      * @param  array  $config
-     * @return \Sabre\DAV\Client
+     * @return array
      */
-    protected function getClient(array $config)
+    protected function getConfig(array $config)
     {
-        return new Client($config);
+        if (!array_key_exists('path', $config)) {
+            throw new \InvalidArgumentException('The zip connector requires a path.');
+        }
+
+        return array('path' => $config['path']);
     }
 
     /**
-     * Get the webdav adapter.
+     * Get the zip adapter.
      *
-     * @param  \Sabre\DAV\Client  $client
-     * @return \League\Flysystem\Adapter\WebDav
+     * @param  array  $config
+     * @return \League\Flysystem\Adapter\Zip
      */
-    protected function getAdapter(Client $client)
+    protected function getAdapter(array $config)
     {
-        return new WebDav($client);
+        return new Zip($config['path']);
     }
 }

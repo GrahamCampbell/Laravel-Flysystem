@@ -14,12 +14,14 @@
  * limitations under the License.
  */
 
-namespace GrahamCampbell\Flysystem\Connectors;
+namespace GrahamCampbell\Tests\Flysystem\Adapters;
 
-use League\Flysystem\Adapter\Ftp;
+use Mockery;
+use GrahamCampbell\Flysystem\Adapters\WebDavConnector;
+use GrahamCampbell\TestBench\Classes\AbstractTestCase;
 
 /**
- * This is the ftp connector class.
+ * This is the webdav connector test class.
  *
  * @package    Laravel-Flysystem
  * @author     Graham Campbell
@@ -27,27 +29,27 @@ use League\Flysystem\Adapter\Ftp;
  * @license    https://github.com/GrahamCampbell/Laravel-Flysystem/blob/master/LICENSE.md
  * @link       https://github.com/GrahamCampbell/Laravel-Flysystem
  */
-class FtpConnector implements ConnectorInterface
+class WebDavConnectorTest extends AbstractTestCase
 {
-    /**
-     * Establish an adapter connection.
-     *
-     * @param  array  $config
-     * @return \League\Flysystem\Adapter\Ftp
-     */
-    public function connect(array $config)
+    public function testConnect()
     {
-        return $this->getAdapter($config);
+        if (defined('HHVM_VERSION')) {
+            return $this->markTestSkipped('WebDav is broken on this version of HHVM.');
+        }
+
+        $connector = $this->getWebDavConnector();
+
+        $return = $connector->connect(array(
+            'baseUri'  => 'http://example.org/dav/',
+            'userName' => 'your-username',
+            'password' => 'your-password'
+        ));
+
+        $this->assertInstanceOf('League\Flysystem\Adapter\WebDav', $return);
     }
 
-    /**
-     * Get the ftp adapter.
-     *
-     * @param  array  $config
-     * @return \League\Flysystem\Adapter\Ftp
-     */
-    protected function getAdapter(array $config)
+    protected function getWebDavConnector()
     {
-        return new Ftp($config);
+        return new WebDavConnector();
     }
 }

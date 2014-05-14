@@ -65,7 +65,9 @@ class FlysystemServiceProvider extends ServiceProvider
     {
         $this->app->bindShared('flysystem', function ($app) {
             $config = $app['config'];
-            $factory = new Connectors\ConnectionFactory();
+            $adapter = new Adapters\ConnectionFactory();
+            $cache = new Cache\ConnectionFactory($app['cache']);
+            $factory = new Filesystem\ConnectionFactory($adapter, $cache);
 
             return new Managers\FlysystemManager($config, $factory);
         });

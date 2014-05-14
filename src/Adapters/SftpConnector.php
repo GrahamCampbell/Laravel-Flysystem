@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-namespace GrahamCampbell\Flysystem\Connectors;
+namespace GrahamCampbell\Flysystem\Adapters;
 
 use League\Flysystem\Adapter\Sftp;
 
@@ -27,7 +27,7 @@ use League\Flysystem\Adapter\Sftp;
  * @license    https://github.com/GrahamCampbell/Laravel-Flysystem/blob/master/LICENSE.md
  * @link       https://github.com/GrahamCampbell/Laravel-Flysystem
  */
-class SftpConnector implements ConnectorInterface
+class SftpConnector
 {
     /**
      * Establish an adapter connection.

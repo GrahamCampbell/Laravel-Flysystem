@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-namespace GrahamCampbell\Flysystem\Connectors;
+namespace GrahamCampbell\Flysystem\Adapters;
 
 use League\Flysystem\Adapter\Local;
 
@@ -27,7 +27,7 @@ use League\Flysystem\Adapter\Local;
  * @license    https://github.com/GrahamCampbell/Laravel-Flysystem/blob/master/LICENSE.md
  * @link       https://github.com/GrahamCampbell/Laravel-Flysystem
  */
-class LocalConnector implements ConnectorInterface
+class LocalConnector
 {
     /**
      * Establish an adapter connection.

@@ -14,14 +14,13 @@
  * limitations under the License.
  */
 
-namespace GrahamCampbell\Tests\Flysystem\Classes;
+namespace GrahamCampbell\Flysystem\Adapters;
 
-use Mockery;
-use GrahamCampbell\Flysystem\Connectors\WebDavConnector;
-use GrahamCampbell\TestBench\Classes\AbstractTestCase;
+use Sabre\DAV\Client;
+use League\Flysystem\Adapter\WebDav;
 
 /**
- * This is the webdav connector test class.
+ * This is the webdav connector class.
  *
  * @package    Laravel-Flysystem
  * @author     Graham Campbell
@@ -29,27 +28,39 @@ use GrahamCampbell\TestBench\Classes\AbstractTestCase;
  * @license    https://github.com/GrahamCampbell/Laravel-Flysystem/blob/master/LICENSE.md
  * @link       https://github.com/GrahamCampbell/Laravel-Flysystem
  */
-class WebDavConnectorTest extends AbstractTestCase
+class WebDavConnector
 {
-    public function testConnect()
+    /**
+     * Establish an adapter connection.
+     *
+     * @param  array  $config
+     * @return \League\Flysystem\Adapter\WebDav
+     */
+    public function connect(array $config)
     {
-        if (defined('HHVM_VERSION')) {
-            return $this->markTestSkipped('WebDav is broken on this version of HHVM.');
-        }
-
-        $connector = $this->getWebDavConnector();
-
-        $return = $connector->connect(array(
-            'baseUri'  => 'http://example.org/dav/',
-            'userName' => 'your-username',
-            'password' => 'your-password'
-        ));
-
-        $this->assertInstanceOf('League\Flysystem\Adapter\WebDav', $return);
+        $client = $this->getClient($config);
+        return $this->getAdapter($client);
     }
 
-    protected function getWebDavConnector()
+    /**
+     * Get the webdav client.
+     *
+     * @param  array  $config
+     * @return \Sabre\DAV\Client
+     */
+    protected function getClient(array $config)
     {
-        return new WebDavConnector();
+        return new Client($config);
+    }
+
+    /**
+     * Get the webdav adapter.
+     *
+     * @param  \Sabre\DAV\Client  $client
+     * @return \League\Flysystem\Adapter\WebDav
+     */
+    protected function getAdapter(Client $client)
+    {
+        return new WebDav($client);
     }
 }
