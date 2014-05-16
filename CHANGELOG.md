@@ -10,6 +10,7 @@ CHANGE LOG
 ## V0.4 Alpha (Upcoming)
 
 * Improved caching support
+* Now using my manager package
 * Refactoring
 
 

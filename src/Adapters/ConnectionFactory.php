@@ -42,7 +42,7 @@ class ConnectionFactory
      * Create a connector instance based on the configuration.
      *
      * @param  array  $config
-     * @return \GrahamCampbell\Flysystem\Inferfaces\ConnectorInterface
+     * @return \GrahamCampbell\Manager\Interfaces\ConnectorInterface
      */
     public function createConnector(array $config)
     {

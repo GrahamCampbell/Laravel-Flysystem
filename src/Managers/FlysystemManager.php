@@ -18,6 +18,7 @@ namespace GrahamCampbell\Flysystem\Managers;
 
 use Illuminate\Config\Repository;
 use GrahamCampbell\Flysystem\Filesystem\ConnectionFactory;
+use GrahamCampbell\Manager\Managers\AbstractManager;
 
 /**
  * This is the flysystem manager class.
@@ -28,35 +29,14 @@ use GrahamCampbell\Flysystem\Filesystem\ConnectionFactory;
  * @license    https://github.com/GrahamCampbell/Laravel-Flysystem/blob/master/LICENSE.md
  * @link       https://github.com/GrahamCampbell/Laravel-Flysystem
  */
-class FlysystemManager
+class FlysystemManager extends AbstractManager
 {
-    /**
-     * The config instance.
-     *
-     * @var \Illuminate\Config\Repository
-     */
-    protected $config;
-
     /**
      * The connection factory instance.
      *
      * @var \GrahamCampbell\Flysystem\Filesystem\ConnectionFactory
      */
     protected $factory;
-
-    /**
-     * The active connection instances.
-     *
-     * @var array
-     */
-    protected $connections = array();
-
-    /**
-     * The custom connection resolvers.
-     *
-     * @var array
-     */
-    protected $extensions = array();
 
     /**
      * Create a new flysystem manager instance.
@@ -72,71 +52,24 @@ class FlysystemManager
     }
 
     /**
-     * Get an adapter connection instance.
+     * Create the connection instance.
      *
-     * @param  string  $name
-     * @return \League\Flysystem\FilesystemInterface
+     * @param  array  $config
+     * @return string
      */
-    public function connection($name = null)
+    protected function createConnection(array $config)
     {
-        $name = $name ?: $this->getDefaultConnection();
-
-        if (!isset($this->connections[$name])) {
-            $this->connections[$name] = $this->makeConnection($name);
-        }
-
-        return $this->connections[$name];
-    }
-
-    /**
-     * Reconnect to the given adapter.
-     *
-     * @param  string  $name
-     * @return \League\Flysystem\FilesystemInterface
-     */
-    public function reconnect($name = null)
-    {
-        $name = $name ?: $this->getDefaultConnection();
-
-        $this->disconnect($name);
-
-        return $this->connection($name);
-    }
-
-    /**
-     * Disconnect from the given adapter.
-     *
-     * @param  string  $name
-     * @return void
-     */
-    public function disconnect($name = null)
-    {
-        $name = $name ?: $this->getDefaultConnection();
-
-        unset($this->connections[$name]);
-    }
-
-    /**
-     * Make the adapter connection instance.
-     *
-     * @param  string  $name
-     * @return \League\Flysystem\FilesystemInterface
-     */
-    protected function makeConnection($name)
-    {
-        $config = $this->getConnectionConfig($name);
-
-        if (isset($this->extensions[$name])) {
-            return call_user_func($this->extensions[$name], $config);
-        }
-
-        $driver = $config['driver'];
-
-        if (isset($this->extensions[$driver])) {
-            return call_user_func($this->extensions[$driver], $config);
-        }
-
         return $this->factory->make($config, $this);
+    }
+
+    /**
+     * Get the configuration name.
+     *
+     * @return string
+     */
+    protected function getConfigName()
+    {
+        return 'graham-campbell/flysystem';
     }
 
     /**
@@ -149,7 +82,7 @@ class FlysystemManager
     {
         $name = $name ?: $this->getDefaultConnection();
 
-        $connections = $this->config->get('graham-campbell/flysystem::connections');
+        $connections = $this->config->get($this->getConfigName().'::connections');
 
         if (is_null($config = array_get($connections, $name))) {
             throw new \InvalidArgumentException("Adapter [$name] not configured.");
@@ -170,9 +103,9 @@ class FlysystemManager
      * @param  string  $name
      * @return array
      */
-    public function getCacheConfig($name)
+    protected function getCacheConfig($name)
     {
-        $cache = $this->config->get('graham-campbell/flysystem::cache');
+        $cache = $this->config->get($this->getConfigName().'::cache');
 
         if (is_null($config = array_get($cache, $name))) {
             throw new \InvalidArgumentException("Cache [$name] not configured.");
@@ -184,59 +117,6 @@ class FlysystemManager
     }
 
     /**
-     * Get the default connection name.
-     *
-     * @return string
-     */
-    public function getDefaultConnection()
-    {
-        return $this->config->get('graham-campbell/flysystem::default');
-    }
-
-    /**
-     * Set the default connection name.
-     *
-     * @param  string  $name
-     * @return void
-     */
-    public function setDefaultConnection($name)
-    {
-        $this->config->set('graham-campbell/flysystem::default', $name);
-    }
-
-    /**
-     * Register an extension connection resolver.
-     *
-     * @param  string    $name
-     * @param  callable  $resolver
-     * @return void
-     */
-    public function extend($name, $resolver)
-    {
-        $this->extensions[$name] = $resolver;
-    }
-
-    /**
-     * Return all of the created connections.
-     *
-     * @return array
-     */
-    public function getConnections()
-    {
-        return $this->connections;
-    }
-
-    /**
-     * Get the config instance.
-     *
-     * @return \Illuminate\Config\Repository
-     */
-    public function getConfig()
-    {
-        return $this->config;
-    }
-
-    /**
      * Get the factory instance.
      *
      * @return \GrahamCampbell\Flysystem\Filesystem\ConnectionFactory
@@ -244,17 +124,5 @@ class FlysystemManager
     public function getFactory()
     {
         return $this->factory;
-    }
-
-    /**
-     * Dynamically pass methods to the default connection.
-     *
-     * @param  string  $method
-     * @param  array   $parameters
-     * @return mixed
-     */
-    public function __call($method, $parameters)
-    {
-        return call_user_func_array(array($this->connection(), $method), $parameters);
     }
 }

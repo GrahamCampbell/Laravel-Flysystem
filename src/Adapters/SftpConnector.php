@@ -17,7 +17,7 @@
 namespace GrahamCampbell\Flysystem\Adapters;
 
 use League\Flysystem\Adapter\Sftp;
-use GrahamCampbell\Flysystem\Interfaces\ConnectorInterface;
+use GrahamCampbell\Manager\Interfaces\ConnectorInterface;
 
 /**
  * This is the sftp connector class.

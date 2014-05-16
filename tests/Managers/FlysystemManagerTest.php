@@ -44,18 +44,6 @@ class FlysystemManagerTest extends AbstractTestCase
         $this->assertInstanceOf('League\Flysystem\FilesystemInterface', $return);
 
         $this->assertArrayHasKey('local', $manager->getConnections());
-
-        $return = $manager->reconnect('local');
-
-        $this->assertInstanceOf('League\Flysystem\FilesystemInterface', $return);
-
-        $this->assertArrayHasKey('local', $manager->getConnections());
-
-        $manager = $this->getFlysystemManager();
-
-        $manager->disconnect('local');
-
-        $this->assertEquals($manager->getConnections(), array());
     }
 
     public function testConnectionNull()
@@ -64,7 +52,7 @@ class FlysystemManagerTest extends AbstractTestCase
 
         $manager = $this->getConfigManager($config);
 
-        $manager->getConfig()->shouldReceive('get')->twice()
+        $manager->getConfig()->shouldReceive('get')->once()
             ->with('graham-campbell/flysystem::default')->andReturn('local');
 
         $this->assertEquals($manager->getConnections(), array());
@@ -74,21 +62,6 @@ class FlysystemManagerTest extends AbstractTestCase
         $this->assertInstanceOf('League\Flysystem\FilesystemInterface', $return);
 
         $this->assertArrayHasKey('local', $manager->getConnections());
-
-        $return = $manager->reconnect();
-
-        $this->assertInstanceOf('League\Flysystem\FilesystemInterface', $return);
-
-        $this->assertArrayHasKey('local', $manager->getConnections());
-
-        $manager = $this->getFlysystemManager();
-
-        $manager->getConfig()->shouldReceive('get')->once()
-            ->with('graham-campbell/flysystem::default')->andReturn('local');
-
-        $manager->disconnect();
-
-        $this->assertEquals($manager->getConnections(), array());
     }
 
     public function testConnectionCache()
@@ -106,15 +79,11 @@ class FlysystemManagerTest extends AbstractTestCase
         $this->assertInstanceOf('League\Flysystem\FilesystemInterface', $return);
 
         $this->assertArrayHasKey('local', $manager->getConnections());
-
-        $manager->disconnect('local');
-
-        $this->assertEquals($manager->getConnections(), array());
     }
 
     public function testConnectionError()
     {
-        $manager = $this->getFlysystemManager();
+        $manager = $this->getManager();
 
         $config = array('driver' => 'error', 'path' => __DIR__);
 
@@ -136,7 +105,7 @@ class FlysystemManagerTest extends AbstractTestCase
 
     public function testConnectionErrorCache()
     {
-        $manager = $this->getFlysystemManager();
+        $manager = $this->getManager();
 
         $config = array('driver' => 'local', 'path' => __DIR__, 'cache' => 'foo');
 
@@ -161,36 +130,7 @@ class FlysystemManagerTest extends AbstractTestCase
         $this->assertInstanceOf('InvalidArgumentException', $return);
     }
 
-    public function testGetDefaultConnection()
-    {
-        $manager = $this->getFlysystemManager();
-
-        $manager->getConfig()->shouldReceive('get')->once()
-            ->with('graham-campbell/flysystem::default')->andReturn('local');
-
-        $return = $manager->getDefaultConnection();
-
-        $this->assertEquals($return, 'local');
-    }
-
-    public function testSetDefaultConnection()
-    {
-        $manager = $this->getFlysystemManager();
-
-        $manager->getConfig()->shouldReceive('set')->once()
-            ->with('graham-campbell/flysystem::default', 'local');
-
-        $manager->setDefaultConnection('local');
-    }
-
-    public function testExtend()
-    {
-        $manager = $this->getFlysystemManager();
-
-        $manager->extend('test', 'foo');
-    }
-
-    protected function getFlysystemManager()
+    protected function getManager()
     {
         $config = Mockery::mock('Illuminate\Config\Repository');
         $factory = Mockery::mock('GrahamCampbell\Flysystem\Filesystem\ConnectionFactory');
@@ -200,14 +140,14 @@ class FlysystemManagerTest extends AbstractTestCase
 
     protected function getConfigManager(array $config)
     {
-        $manager = $this->getFlysystemManager();
+        $manager = $this->getManager();
 
-        $manager->getConfig()->shouldReceive('get')->twice()
+        $manager->getConfig()->shouldReceive('get')->once()
             ->with('graham-campbell/flysystem::connections')->andReturn(array('local' => $config));
 
         $config['name'] = 'local';
 
-        $manager->getFactory()->shouldReceive('make')->twice()
+        $manager->getFactory()->shouldReceive('make')->once()
             ->with($config, $manager)->andReturn(Mockery::mock('League\Flysystem\FilesystemInterface'));
 
         return $manager;
@@ -215,7 +155,7 @@ class FlysystemManagerTest extends AbstractTestCase
 
     protected function getConfigManagerCache(array $config, array $cache)
     {
-        $manager = $this->getFlysystemManager();
+        $manager = $this->getManager();
 
         $manager->getConfig()->shouldReceive('get')->once()
             ->with('graham-campbell/flysystem::connections')->andReturn(array('local' => $config));

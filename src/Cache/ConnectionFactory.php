@@ -65,7 +65,7 @@ class ConnectionFactory
      *
      * @param  array  $config
      * @param  \GrahamCampbell\Flysystem\Managers\FlysystemManager  $manager
-     * @return \GrahamCampbell\Flysystem\Interfaces\ConnectorInterface
+     * @return \GrahamCampbell\Manager\Interfaces\ConnectorInterface
      */
     public function createConnector(array $config, FlysystemManager $manager)
     {
