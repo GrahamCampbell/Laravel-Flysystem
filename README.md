@@ -96,7 +96,7 @@ This class contains no public methods of interest. This class should be added to
 Here you can see an example of just how simple this package is to use. Out of the box, the default adapter is `local`, and it will just work straight away:
 
 ```php
-use GrahamCampbell\Flysystem\Facades\Flysystem
+use GrahamCampbell\Flysystem\Facades\Flysystem;
 // you can alias this in app/config/app.php if you like
 
 Flysystem::put('hi.txt', 'foo');
@@ -108,18 +108,19 @@ Flysystem::read('hi.txt'); // this will return foo
 The flysystem manager will behave like it is a `\League\Flysystem\Filesystem` class. If you want to call specific connections, you can do with the `connection` method:
 
 ```php
-use GrahamCampbell\Flysystem\Facades\Flysystem
+use GrahamCampbell\Flysystem\Facades\Flysystem;
 
-// note the foo connection is not available by default, it's hypothetical
+// note the foo connection does not ship with this package, it's hypothetical
 Flysystem::connection('foo')->put('test.txt', 'bar');
 
+// now we can read that file
 Flysystem::connection('bar')->read('test.txt'); // this will return bar
 ```
 
 With that in mind, note that:
 
 ```php
-use GrahamCampbell\Flysystem\Facades\Flysystem
+use GrahamCampbell\Flysystem\Facades\Flysystem;
 
 // writing this:
 Flysystem::connection('local')->read('test.txt')
@@ -127,8 +128,14 @@ Flysystem::connection('local')->read('test.txt')
 // is identical to writing this:
 Flysystem::read('test.txt')
 
+// and is also identical to writing this:
+Flysystem::connection()->read('test.txt')
+
 // this is because the local connection is configured to be the default
 Flysystem::getDefaultConnection() // this will return local
+
+// we can change the default connection
+Flysystem::setDefaultConnection('foo') // the default is now foo
 ```
 
 For more information on how to use the `\League\Flysystem\Filesystem` class we are calling behind the scenes here, check out the docs at https://github.com/thephpleague/flysystem#general-usage.
