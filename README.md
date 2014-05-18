@@ -79,10 +79,26 @@ This option (`'cache'`) is where each of the cache configurations setup for your
 
 ## Usage
 
-There is currently no usage documentation besides the [API Documentation](http://grahamcampbell.github.io/Laravel-Flysystem
+**Managers\FlysystemManager**
+
+This is the class of most interest. It is bound to the ioc container as `'flysystem'` and can be accessed using the `Facades\Flysystem` facade. This abstract class implements the ManagerInterface by extending AbstractManager. The interface and abstract class are both part of my [Laravel Manager](https://github.com/GrahamCampbell/Laravel-Manager) package so you may want to go and checkout the docs for how to use the manager class over at [that repo](https://github.com/GrahamCampbell/Laravel-Manager#usage). Note that the connection class returned will always be an instance of a class that implements `\League\Flysystem\FilesystemInterface` which will be `\League\Flysystem\Filesystem` by default.
+
+**Facades\Flysystem**
+
+This facade will dynamically pass static method calls to the `'flysystem'` object in the ioc container which by default is the `Managers\FlysystemManager` class.
+
+**FlysystemServiceProvider**
+
+This class contains no public methods of interest. This class should be added to the providers array in `app/config/app.php`. This class will setup ioc bindings.
+
+**Further Information**
+
+There are other classes in this package that are not documented here. This is because they are not intended for public use and are used internally by this package.
+
+Feel free to check out the [API Documentation](http://grahamcampbell.github.io/Laravel-Flysystem
 ) for Laravel Flysystem.
 
-You may see an example of implementation in [Laravel Assets](https://github.com/GrahamCampbell/Laravel-Assets).
+You will eventually be able to see an example of implementation in [Laravel Assets](https://github.com/GrahamCampbell/Laravel-Assets) when ever I get around to actually writing that package.
 
 
 ## Updating Your Fork
