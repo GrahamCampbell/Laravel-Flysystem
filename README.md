@@ -96,9 +96,11 @@ This class contains no public methods of interest. This class should be added to
 Here you can see an example of just how simple this package is to use. Out of the box, the default adapter is `local`, and it will just work straight away:
 
 ```php
-use GrahamCampbell\Flysystem\Facades\Flysystem // you can alias this in app/config/app.php if you like
+use GrahamCampbell\Flysystem\Facades\Flysystem
+// you can alias this in app/config/app.php if you like
 
-Flysystem::put('hi.txt', 'foo'); // we're done here - how easy was that, it just works!
+Flysystem::put('hi.txt', 'foo');
+// we're done here - how easy was that, it just works!
 
 Flysystem::read('hi.txt'); // this will return foo
 ```
@@ -106,14 +108,28 @@ Flysystem::read('hi.txt'); // this will return foo
 The flysystem manager will behave like it is a `\League\Flysystem\Filesystem` class. If you want to call specific connections, you can do with the `connection` method:
 
 ```php
-use GrahamCampbell\Flysystem\Facades\Flysystem // you can alias this in app/config/app.php if you like
+use GrahamCampbell\Flysystem\Facades\Flysystem
 
-Flysystem::connection('foo')->put('test.txt', 'bar'); // note the foo connection is not available by default
+// note the foo connection is not available by default, it's hypothetical
+Flysystem::connection('foo')->put('test.txt', 'bar');
 
 Flysystem::connection('bar')->read('test.txt'); // this will return bar
 ```
 
-With that in mind, note that `Flysystem::connection('local')->read('test.txt')` is the same as writing `Flysystem::read('test.txt')`.
+With that in mind, note that:
+
+```php
+use GrahamCampbell\Flysystem\Facades\Flysystem
+
+// writing this:
+Flysystem::connection('local')->read('test.txt')
+
+// is identical to writing this:
+Flysystem::read('test.txt')
+
+// this is because the local connection is configured to be the default
+Flysystem::getDefaultConnection() // this will return local
+```
 
 For more information on how to use the `\League\Flysystem\Filesystem` class we are calling behind the scenes here, check out the docs at https://github.com/thephpleague/flysystem#general-usage.
 
