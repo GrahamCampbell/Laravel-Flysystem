@@ -91,6 +91,32 @@ This facade will dynamically pass static method calls to the `'flysystem'` objec
 
 This class contains no public methods of interest. This class should be added to the providers array in `app/config/app.php`. This class will setup ioc bindings.
 
+**Real Examples**
+
+Here you can see an example of just how simple this package is to use. Out of the box, the default adapter is `local`, and it will just work straight away:
+
+```php
+use GrahamCampbell\Flysystem\Facades\Flysystem // you can alias this in app/config/app.php if you like
+
+Flysystem::put('hi.txt', 'foo'); // we're done here - how easy was that, it just works!
+
+Flysystem::read('hi.txt'); // this will return foo
+```
+
+The flysystem manager will behave like it is a `\League\Flysystem\Filesystem` class. If you want to call specific connections, you can do with the `connection` method:
+
+```php
+use GrahamCampbell\Flysystem\Facades\Flysystem // you can alias this in app/config/app.php if you like
+
+Flysystem::connection('foo')->put('test.txt', 'bar'); // note the foo connection is not available by default
+
+Flysystem::connection('bar')->read('test.txt'); // this will return bar
+```
+
+With that in mind, note that `Flysystem::connection('local')->read('test.txt')` is the same as writing `Flysystem::read('test.txt')`.
+
+For more information on how to use the `\League\Flysystem\Filesystem` class we are calling behind the scenes here, check out the docs at https://github.com/thephpleague/flysystem#general-usage.
+
 **Further Information**
 
 There are other classes in this package that are not documented here. This is because they are not intended for public use and are used internally by this package.
