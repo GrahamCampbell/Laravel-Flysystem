@@ -161,7 +161,7 @@ class Foo
 App::make('Foo')->bar();
 ```
 
-For more information on how to use the `\League\Flysystem\Filesystem` class we are calling behind the scenes here, check out the docs at https://github.com/thephpleague/flysystem#general-usage.
+For more information on how to use the `\League\Flysystem\Filesystem` class we are calling behind the scenes here, check out the docs at https://github.com/thephpleague/flysystem#general-usage, and the manager class at https://github.com/GrahamCampbell/Laravel-Manager#usage.
 
 **Further Information**
 
