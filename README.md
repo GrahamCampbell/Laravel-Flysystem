@@ -114,7 +114,7 @@ use GrahamCampbell\Flysystem\Facades\Flysystem;
 Flysystem::connection('foo')->put('test.txt', 'bar');
 
 // now we can read that file
-Flysystem::connection('bar')->read('test.txt'); // this will return bar
+Flysystem::connection('foo')->read('test.txt'); // this will return bar
 ```
 
 With that in mind, note that:
