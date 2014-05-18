@@ -123,19 +123,42 @@ With that in mind, note that:
 use GrahamCampbell\Flysystem\Facades\Flysystem;
 
 // writing this:
-Flysystem::connection('local')->read('test.txt')
+Flysystem::connection('local')->read('test.txt');
 
 // is identical to writing this:
-Flysystem::read('test.txt')
+Flysystem::read('test.txt');
 
 // and is also identical to writing this:
-Flysystem::connection()->read('test.txt')
+Flysystem::connection()->read('test.txt');
 
 // this is because the local connection is configured to be the default
-Flysystem::getDefaultConnection() // this will return local
+Flysystem::getDefaultConnection(); // this will return local
 
 // we can change the default connection
-Flysystem::setDefaultConnection('foo') // the default is now foo
+Flysystem::setDefaultConnection('foo'); // the default is now foo
+```
+
+If you prefer to use dependency injection over facades like me, then you can easily inject the manager like so:
+
+```php
+use GrahamCampbell\Flysystem\Managers\FlysystemManager;
+
+class Foo
+{
+    protected $flysystem;
+
+    public function __construct(FlysystemManager $flysystem)
+    {
+        $this->flysystem = $flysystem;
+    }
+
+    public function bar()
+    {
+        $this->flysystem->read('test.txt');
+    }
+}
+
+App::make('Foo')->bar();
 ```
 
 For more information on how to use the `\League\Flysystem\Filesystem` class we are calling behind the scenes here, check out the docs at https://github.com/thephpleague/flysystem#general-usage.
