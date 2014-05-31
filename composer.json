@@ -11,6 +11,7 @@
     ],
     "require": {
         "php": ">=5.4.7",
+        "illuminate/cache": "~4.1",
         "illuminate/support": "~4.1",
         "graham-campbell/manager": "~1.0",
         "league/flysystem": "0.4.*"
