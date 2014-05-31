@@ -4,10 +4,10 @@ CHANGE LOG
 
 ## V0.5 Alpha (Upcoming - July 2014)
 
-* Upgrade to Laravel 4.2
+* Upgrade to Laravel ~4.1
 
 
-## V0.4 Alpha (Upcoming)
+## V0.4 Alpha (31/05/2014)
 
 * Improved caching support
 * Now using my manager package
