@@ -12,7 +12,7 @@ Laravel Flysystem
 
 ## What Is Laravel Flysystem?
 
-Laravel Flysystem is a [Flysystem](https://github.com/thephpleague/flysystem) bridge for [Laravel 4.1](http://laravel.com).
+Laravel Flysystem is a [Flysystem](https://github.com/thephpleague/flysystem) bridge for [Laravel 4.1+](http://laravel.com).
 
 * Laravel Flysystem was created by, and is maintained by [Graham Campbell](https://github.com/GrahamCampbell).
 * Laravel Flysystem relies on Frank de Jonge's [Flysystem](https://github.com/thephpleague/flysystem) package and my [Laravel Manager](https://github.com/GrahamCampbell/Laravel-Manager) package.
@@ -25,8 +25,8 @@ Laravel Flysystem is a [Flysystem](https://github.com/thephpleague/flysystem) br
 
 ## System Requirements
 
-* PHP 5.4.7+ or HHVM 3.0+ (HHVM support is pretty sketchy in some dependencies).
-* You will need [Laravel 4.1](http://laravel.com) because this package is designed for it.
+* PHP 5.4.7+ or HHVM 3.1+ (HHVM support is pretty sketchy in some dependencies).
+* You will need [Laravel 4.1+](http://laravel.com) because this package is designed for it.
 * You will need [Composer](https://getcomposer.org) installed to load the dependencies of Laravel Flysystem.
 
 
@@ -34,7 +34,7 @@ Laravel Flysystem is a [Flysystem](https://github.com/thephpleague/flysystem) br
 
 Please check the system requirements before installing Laravel Flysystem.
 
-To get the latest version of Laravel Flysystem, simply require `"graham-campbell/flysystem": "0.4.*@alpha"` in your `composer.json` file.
+To get the latest version of Laravel Flysystem, simply require `"graham-campbell/flysystem": "~0.5"` in your `composer.json` file.
 
 There are some additional dependencies you will need to install for some of the features:
 
