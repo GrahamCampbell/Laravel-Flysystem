@@ -1,31 +1,16 @@
 {
-    "name": "graham-campbell/flysystem",
-    "description": "Flysystem Is A Flysystem Bridge For Laravel 4.1+",
-    "keywords": ["laravel", "framework", "files", "aws", "s3", "dropbox", "flysystem", "Flysystem", "Laravel Flysystem", "Laravel-Flysystem", "Graham Campbell", "GrahamCampbell"],
-    "license": "Apache-2.0",
-    "authors": [
-        {
-            "name": "Graham Campbell",
-            "email": "graham@mineuk.com"
-        }
-    ],
     "require": {
         "php": ">=5.4.7",
         "illuminate/cache": "~4.1",
         "illuminate/support": "~4.1",
         "graham-campbell/manager": "~1.0",
-        "league/flysystem": "0.4.*"
+        "league/flysystem": "0.5.*"
     },
     "require-dev": {
         "graham-campbell/testbench": "~1.0",
         "aws/aws-sdk-php": "2.6.*",
         "rackspace/php-opencloud": "1.9.*",
         "dropbox/dropbox-sdk": "1.1.*"
-    },
-    "suggest": {
-        "aws/aws-sdk-php": "Enables the aws connector.",
-        "rackspace/php-opencloud": "Enables the rackspace connector.",
-        "dropbox/dropbox-sdk": "Enables the dropbox connector."
     },
     "autoload": {
         "psr-4": {
@@ -35,11 +20,6 @@
     "autoload-dev": {
         "psr-4": {
             "GrahamCampbell\\Tests\\Flysystem\\": "tests/"
-        }
-    },
-    "extra": {
-        "branch-alias": {
-            "dev-develop": "0.5-dev"
         }
     },
     "minimum-stability": "dev",
