@@ -17,11 +17,11 @@
 namespace GrahamCampbell\Tests\Flysystem\Adapters;
 
 use Mockery;
-use GrahamCampbell\Flysystem\Adapters\LocalConnector;
+use GrahamCampbell\Flysystem\Adapters\NullConnector;
 use GrahamCampbell\TestBench\Classes\AbstractTestCase;
 
 /**
- * This is the local connector test class.
+ * This is the null connector test class.
  *
  * @package    Laravel-Flysystem
  * @author     Graham Campbell
@@ -29,43 +29,19 @@ use GrahamCampbell\TestBench\Classes\AbstractTestCase;
  * @license    https://github.com/GrahamCampbell/Laravel-Flysystem/blob/master/LICENSE.md
  * @link       https://github.com/GrahamCampbell/Laravel-Flysystem
  */
-class LocalConnectorTest extends AbstractTestCase
+class NullConnectorTest extends AbstractTestCase
 {
-    public function testConnectStandard()
+    public function testConnect()
     {
-        $connector = $this->getLocalConnector();
+        $connector = $this->getNullConnector();
 
-        $return = $connector->connect(array('path' => __DIR__));
+        $return = $connector->connect(array());
 
-        $this->assertInstanceOf('League\Flysystem\Adapter\Local', $return);
-    }
-
-    public function testConnectWithPrefix()
-    {
-        $connector = $this->getLocalConnector();
-
-        $return = $connector->connect(array('path' => __DIR__, 'prefix' => 'your-prefix'));
-
-        $this->assertInstanceOf('League\Flysystem\Adapter\Local', $return);
-    }
-
-    public function testConnectWithoutPath()
-    {
-        $connector = $this->getLocalConnector();
-
-        $return = null;
-
-        try {
-            $connector->connect(array());
-        } catch (\Exception $e) {
-            $return = $e;
-        }
-
-        $this->assertInstanceOf('InvalidArgumentException', $return);
+        $this->assertInstanceOf('League\Flysystem\Adapter\Null', $return);
     }
 
     protected function getLocalConnector()
     {
-        return new LocalConnector();
+        return new NullConnector();
     }
 }
