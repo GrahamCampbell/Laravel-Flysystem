@@ -63,15 +63,6 @@ return array(
             // 'cache'  => 'foo'
         ),
 
-        'rackspace' => array(
-            'driver'    => 'rackspace',
-            'endpoint'  => 'your-endpoint',
-            'username'  => 'your-username',
-            'password'  => 'your-password',
-            'container' => 'your-container',
-            // 'cache'  => 'foo'
-        ),
-
         'dropbox' => array(
             'driver' => 'dropbox',
             'token'  => 'your-token',
@@ -90,6 +81,20 @@ return array(
             // 'passive' => true,
             // 'ssl' => true,
             // 'timeout' => 20,
+            // 'cache'  => 'foo'
+        ),
+
+        'null' => array(
+            'driver'    => 'null',
+            // 'cache'  => 'foo'
+        ),
+
+        'rackspace' => array(
+            'driver'    => 'rackspace',
+            'endpoint'  => 'your-endpoint',
+            'username'  => 'your-username',
+            'password'  => 'your-password',
+            'container' => 'your-container',
             // 'cache'  => 'foo'
         ),
 
