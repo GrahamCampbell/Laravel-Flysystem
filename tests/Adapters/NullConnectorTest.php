@@ -37,7 +37,7 @@ class NullConnectorTest extends AbstractTestCase
 
         $return = $connector->connect(array());
 
-        $this->assertInstanceOf('League\Flysystem\Adapter\Null', $return);
+        $this->assertInstanceOf('League\Flysystem\Adapter\NullAdapter', $return);
     }
 
     protected function getNullConnector()
