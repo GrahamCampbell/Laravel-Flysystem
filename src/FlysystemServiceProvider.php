@@ -71,6 +71,8 @@ class FlysystemServiceProvider extends ServiceProvider
 
             return new Managers\FlysystemManager($config, $factory);
         });
+
+        $this->app->alias('flysystem', 'GrahamCampbell\Flysystem\Managers\FlysystemManager');
     }
 
     /**
