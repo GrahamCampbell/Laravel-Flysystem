@@ -18,7 +18,7 @@ namespace GrahamCampbell\Tests\Flysystem\Cache;
 
 use Mockery;
 use GrahamCampbell\Flysystem\Cache\ConnectionFactory;
-use GrahamCampbell\TestBench\Classes\AbstractTestCase;
+use GrahamCampbell\TestBench\AbstractTestCase;
 
 /**
  * This is the cache connection factory test class.

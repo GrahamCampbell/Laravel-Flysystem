@@ -18,7 +18,7 @@ namespace GrahamCampbell\Tests\Flysystem\Adapters;
 
 use Mockery;
 use GrahamCampbell\Flysystem\Adapters\ConnectionFactory;
-use GrahamCampbell\TestBench\Classes\AbstractTestCase;
+use GrahamCampbell\TestBench\AbstractTestCase;
 
 /**
  * This is the adapter connection factory test class.
