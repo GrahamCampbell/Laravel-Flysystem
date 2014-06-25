@@ -17,8 +17,8 @@
 namespace GrahamCampbell\Tests\Flysystem\Adapters;
 
 use Mockery;
-use GrahamCampbell\Flysystem\Adapters\localConnector;
-use GrahamCampbell\TestBench\Classes\AbstractTestCase;
+use GrahamCampbell\Flysystem\Adapters\LocalConnector;
+use GrahamCampbell\TestBench\AbstractTestCase;
 
 /**
  * This is the local connector test class.

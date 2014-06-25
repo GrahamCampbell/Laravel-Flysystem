@@ -14,14 +14,13 @@
  * limitations under the License.
  */
 
-namespace GrahamCampbell\Tests\Flysystem\Adapters;
+namespace GrahamCampbell\Flysystem\Adapters;
 
-use Mockery;
-use GrahamCampbell\Flysystem\Adapters\WebDavConnector;
-use GrahamCampbell\TestBench\AbstractTestCase;
+use League\Flysystem\Adapter\NullAdapter;
+use GrahamCampbell\Manager\Interfaces\ConnectorInterface;
 
 /**
- * This is the webdav connector test class.
+ * This is the null connector class.
  *
  * @package    Laravel-Flysystem
  * @author     Graham Campbell
@@ -29,27 +28,26 @@ use GrahamCampbell\TestBench\AbstractTestCase;
  * @license    https://github.com/GrahamCampbell/Laravel-Flysystem/blob/master/LICENSE.md
  * @link       https://github.com/GrahamCampbell/Laravel-Flysystem
  */
-class WebDavConnectorTest extends AbstractTestCase
+class NullConnector implements ConnectorInterface
 {
-    public function testConnect()
+    /**
+     * Establish an adapter connection.
+     *
+     * @param  array  $config
+     * @return \League\Flysystem\Adapter\NullAdapter
+     */
+    public function connect(array $config)
     {
-        if (defined('HHVM_VERSION')) {
-            return $this->markTestSkipped('WebDav is broken on this version of HHVM.');
-        }
-
-        $connector = $this->getWebDavConnector();
-
-        $return = $connector->connect(array(
-            'baseUri'  => 'http://example.org/dav/',
-            'userName' => 'your-username',
-            'password' => 'your-password'
-        ));
-
-        $this->assertInstanceOf('League\Flysystem\Adapter\WebDav', $return);
+        return $this->getAdapter();
     }
 
-    protected function getWebDavConnector()
+    /**
+     * Get the null adapter.
+     *
+     * @return \League\Flysystem\Adapter\NullAdapter
+     */
+    protected function getAdapter()
     {
-        return new WebDavConnector();
+        return new NullAdapter();
     }
 }

@@ -18,7 +18,7 @@ namespace GrahamCampbell\Tests\Flysystem\Adapters;
 
 use Mockery;
 use GrahamCampbell\Flysystem\Adapters\ConnectionFactory;
-use GrahamCampbell\TestBench\Classes\AbstractTestCase;
+use GrahamCampbell\TestBench\AbstractTestCase;
 
 /**
  * This is the adapter connection factory test class.
@@ -49,15 +49,6 @@ class ConnectionFactoryTest extends AbstractTestCase
         $this->assertInstanceOf('GrahamCampbell\Flysystem\Adapters\AwsS3Connector', $return);
     }
 
-    public function testCreateRackspaceConnector()
-    {
-        $factory = $this->getConnectionFactory();
-
-        $return = $factory->createConnector(array('driver' => 'rackspace'));
-
-        $this->assertInstanceOf('GrahamCampbell\Flysystem\Adapters\RackspaceConnector', $return);
-    }
-
     public function testCreateDropboxConnector()
     {
         $factory = $this->getConnectionFactory();
@@ -83,6 +74,24 @@ class ConnectionFactoryTest extends AbstractTestCase
         $return = $factory->createConnector(array('driver' => 'local'));
 
         $this->assertInstanceOf('GrahamCampbell\Flysystem\Adapters\LocalConnector', $return);
+    }
+
+    public function testCreateNullConnector()
+    {
+        $factory = $this->getConnectionFactory();
+
+        $return = $factory->createConnector(array('driver' => 'null'));
+
+        $this->assertInstanceOf('GrahamCampbell\Flysystem\Adapters\NullConnector', $return);
+    }
+
+    public function testCreateRackspaceConnector()
+    {
+        $factory = $this->getConnectionFactory();
+
+        $return = $factory->createConnector(array('driver' => 'rackspace'));
+
+        $this->assertInstanceOf('GrahamCampbell\Flysystem\Adapters\RackspaceConnector', $return);
     }
 
     public function testCreateSftpConnector()

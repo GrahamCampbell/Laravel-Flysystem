@@ -53,14 +53,16 @@ class ConnectionFactory
         switch ($config['driver']) {
             case 'awss3':
                 return new AwsS3Connector();
-            case 'rackspace':
-                return new RackspaceConnector();
             case 'dropbox':
                 return new DropboxConnector();
             case 'ftp':
                 return new FtpConnector();
             case 'local':
                 return new LocalConnector();
+            case 'null':
+                return new NullConnector();
+            case 'rackspace':
+                return new RackspaceConnector();
             case 'sftp':
                 return new SftpConnector();
             case 'webdav':

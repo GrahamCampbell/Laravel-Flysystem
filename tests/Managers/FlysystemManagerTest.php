@@ -18,7 +18,7 @@ namespace GrahamCampbell\Tests\Flysystem\Managers;
 
 use Mockery;
 use GrahamCampbell\Flysystem\Managers\FlysystemManager;
-use GrahamCampbell\TestBench\Classes\AbstractTestCase;
+use GrahamCampbell\TestBench\AbstractTestCase;
 
 /**
  * This is the flysystem manager test class.

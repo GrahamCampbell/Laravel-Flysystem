@@ -1,6 +1,6 @@
 {
     "name": "graham-campbell/flysystem",
-    "description": "Flysystem Is A Flysystem Bridge For Laravel 4.1",
+    "description": "Flysystem Is A Flysystem Bridge For Laravel 4.1+",
     "keywords": ["laravel", "framework", "files", "aws", "s3", "dropbox", "flysystem", "Flysystem", "Laravel Flysystem", "Laravel-Flysystem", "Graham Campbell", "GrahamCampbell"],
     "license": "Apache-2.0",
     "authors": [
@@ -11,19 +11,17 @@
     ],
     "require": {
         "php": ">=5.4.7",
-        "laravel/framework": "4.1.*",
-        "symfony/config": "2.4.*",
-        "symfony/event-dispatcher": "2.4.*",
-        "symfony/filesystem": "2.4.*",
-        "graham-campbell/manager": "0.1.*",
-        "league/flysystem": "0.4.*"
+        "illuminate/cache": "~4.1",
+        "illuminate/support": "~4.1",
+        "graham-campbell/manager": "~1.0",
+        "league/flysystem": "0.5.*"
     },
     "require-dev": {
-        "graham-campbell/testbench": "0.3.*",
-        "aws/aws-sdk-php": "2.6.*",
-        "rackspace/php-opencloud": "1.9.*",
-        "dropbox/dropbox-sdk": "1.1.*",
-        "sabre/dav": "1.8.*"
+        "graham-campbell/testbench": "~1.0",
+        "aws/aws-sdk-php": "~2.4",
+        "dropbox/dropbox-sdk": "~1.1",
+        "rackspace/php-opencloud": "~1.8",
+        "sabre/dav": "~1.8"
     },
     "suggest": {
         "aws/aws-sdk-php": "Enables the aws connector.",
@@ -43,7 +41,7 @@
     },
     "extra": {
         "branch-alias": {
-            "dev-master": "0.4-dev"
+            "dev-develop": "0.5-dev"
         }
     },
     "minimum-stability": "dev",

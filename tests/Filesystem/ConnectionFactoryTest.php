@@ -18,7 +18,7 @@ namespace GrahamCampbell\Tests\Flysystem\Filesystem;
 
 use Mockery;
 use GrahamCampbell\Flysystem\Filesystem\ConnectionFactory;
-use GrahamCampbell\TestBench\Classes\AbstractTestCase;
+use GrahamCampbell\TestBench\AbstractTestCase;
 
 /**
  * This is the filesystem connection factory test class.

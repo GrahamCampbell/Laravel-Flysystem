@@ -18,7 +18,7 @@ namespace GrahamCampbell\Tests\Flysystem\Adapters;
 
 use Mockery;
 use GrahamCampbell\Flysystem\Adapters\AwsS3Connector;
-use GrahamCampbell\TestBench\Classes\AbstractTestCase;
+use GrahamCampbell\TestBench\AbstractTestCase;
 
 /**
  * This is the awss3 connector test class.
