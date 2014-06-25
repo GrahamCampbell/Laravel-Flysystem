@@ -8,9 +8,9 @@
     },
     "require-dev": {
         "graham-campbell/testbench": "~1.0",
-        "aws/aws-sdk-php": "2.6.*",
-        "dropbox/dropbox-sdk": "1.1.*",
-        "rackspace/php-opencloud": "1.9.*"
+        "aws/aws-sdk-php": "~2.4",
+        "dropbox/dropbox-sdk": "~1.1",
+        "rackspace/php-opencloud": "~1.8"
     },
     "autoload": {
         "psr-4": {
