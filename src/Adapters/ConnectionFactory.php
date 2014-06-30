@@ -30,7 +30,7 @@ class ConnectionFactory
     /**
      * Establish an adapter connection.
      *
-     * @param  array   $config
+     * @param  array  $config
      * @return \League\Flysystem\AdapterInterface
      */
     public function make(array $config)

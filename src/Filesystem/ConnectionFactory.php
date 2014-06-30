@@ -62,7 +62,7 @@ class ConnectionFactory
     /**
      * Establish a filesystem connection.
      *
-     * @param  array   $config
+     * @param  array  $config
      * @param  \GrahamCampbell\Flysystem\Managers\FlysystemManager  $manager
      * @return \League\Flysystem\FilesystemInterface
      */
@@ -78,7 +78,7 @@ class ConnectionFactory
     /**
      * Establish an adapter connection.
      *
-     * @param  array   $config
+     * @param  array  $config
      * @return \League\Flysystem\AdapterInterface
      */
     public function createAdapter(array $config)
@@ -91,7 +91,7 @@ class ConnectionFactory
     /**
      * Establish a cache connection.
      *
-     * @param  array   $config
+     * @param  array  $config
      * @param  \GrahamCampbell\Flysystem\Managers\FlysystemManager  $manager
      * @return \League\Flysystem\CacheInterface
      */

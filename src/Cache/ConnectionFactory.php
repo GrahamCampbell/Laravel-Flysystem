@@ -51,7 +51,7 @@ class ConnectionFactory
     /**
      * Establish a cache connection.
      *
-     * @param  array   $config
+     * @param  array  $config
      * @param  \GrahamCampbell\Flysystem\Managers\FlysystemManager  $manager
      * @return \League\Flysystem\CacheInterface
      */
