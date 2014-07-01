@@ -17,7 +17,7 @@
 namespace GrahamCampbell\Flysystem\Cache;
 
 use Illuminate\Cache\CacheManager;
-use GrahamCampbell\Flysystem\Managers\FlysystemManager;
+use GrahamCampbell\Flysystem\FlysystemManager;
 
 /**
  * This is the cache connection factory class.
@@ -52,7 +52,7 @@ class ConnectionFactory
      * Establish a cache connection.
      *
      * @param  array  $config
-     * @param  \GrahamCampbell\Flysystem\Managers\FlysystemManager  $manager
+     * @param  \GrahamCampbell\Flysystem\FlysystemManager  $manager
      * @return \League\Flysystem\CacheInterface
      */
     public function make(array $config, FlysystemManager $manager)
@@ -64,7 +64,7 @@ class ConnectionFactory
      * Create a connector instance based on the configuration.
      *
      * @param  array  $config
-     * @param  \GrahamCampbell\Flysystem\Managers\FlysystemManager  $manager
+     * @param  \GrahamCampbell\Flysystem\FlysystemManager  $manager
      * @return \GrahamCampbell\Manager\Interfaces\ConnectorInterface
      */
     public function createConnector(array $config, FlysystemManager $manager)

@@ -14,11 +14,11 @@
  * limitations under the License.
  */
 
-namespace GrahamCampbell\Flysystem\Managers;
+namespace GrahamCampbell\Flysystem;
 
 use Illuminate\Config\Repository;
-use GrahamCampbell\Flysystem\Filesystem\ConnectionFactory;
-use GrahamCampbell\Manager\Managers\AbstractManager;
+use GrahamCampbell\Flysystem\Factories\FlysystemFactory;
+use GrahamCampbell\Manager\AbstractManager;
 
 /**
  * This is the flysystem manager class.
@@ -32,9 +32,9 @@ use GrahamCampbell\Manager\Managers\AbstractManager;
 class FlysystemManager extends AbstractManager
 {
     /**
-     * The connection factory instance.
+     * The factory instance.
      *
-     * @var \GrahamCampbell\Flysystem\Filesystem\ConnectionFactory
+     * @var \GrahamCampbell\Flysystem\Factories\FlysystemFactory
      */
     protected $factory;
 
@@ -42,10 +42,10 @@ class FlysystemManager extends AbstractManager
      * Create a new flysystem manager instance.
      *
      * @param  \Illuminate\Config\Repository   $config
-     * @param  \GrahamCampbell\Flysystem\Filesystem\ConnectionFactory  $factory
+     * @param  \GrahamCampbell\Flysystem\Factories\FlysystemFactory  $factory
      * @return void
      */
-    public function __construct(Repository $config, ConnectionFactory $factory)
+    public function __construct(Repository $config, FlysystemFactory $factory)
     {
         $this->config = $config;
         $this->factory = $factory;
@@ -119,7 +119,7 @@ class FlysystemManager extends AbstractManager
     /**
      * Get the factory instance.
      *
-     * @return \GrahamCampbell\Flysystem\Filesystem\ConnectionFactory
+     * @return \GrahamCampbell\Flysystem\Factories\FlysystemFactory
      */
     public function getFactory()
     {

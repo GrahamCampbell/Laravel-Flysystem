@@ -14,14 +14,14 @@
  * limitations under the License.
  */
 
-namespace GrahamCampbell\Tests\Flysystem\Filesystem;
+namespace GrahamCampbell\Tests\Flysystem\Factories;
 
 use Mockery;
-use GrahamCampbell\Flysystem\Filesystem\ConnectionFactory;
 use GrahamCampbell\TestBench\AbstractTestCase;
+use GrahamCampbell\Flysystem\Factories\FlysystemFactory;
 
 /**
- * This is the filesystem connection factory test class.
+ * This is the filesystem factory test class.
  *
  * @package    Laravel-Flysystem
  * @author     Graham Campbell
@@ -29,13 +29,13 @@ use GrahamCampbell\TestBench\AbstractTestCase;
  * @license    https://github.com/GrahamCampbell/Laravel-Flysystem/blob/master/LICENSE.md
  * @link       https://github.com/GrahamCampbell/Laravel-Flysystem
  */
-class ConnectionFactoryTest extends AbstractTestCase
+class FlysystemFactoryTest extends AbstractTestCase
 {
     public function testMake()
     {
         $config = array('driver' => 'local', 'path' => __DIR__, 'name' => 'local');
 
-        $manager = Mockery::mock('GrahamCampbell\Flysystem\Managers\FlysystemManager');
+        $manager = Mockery::mock('GrahamCampbell\Flysystem\FlysystemManager');
 
         $factory = $this->getMockedFactory($config, $manager);
 
@@ -48,7 +48,7 @@ class ConnectionFactoryTest extends AbstractTestCase
     {
         $config = array('driver' => 'local', 'cache' => array('driver' => 'redis', 'name' => 'illuminate'), 'name' => 'local');
 
-        $manager = Mockery::mock('GrahamCampbell\Flysystem\Managers\FlysystemManager');
+        $manager = Mockery::mock('GrahamCampbell\Flysystem\FlysystemManager');
 
         $factory = $this->getMockedFactory($config, $manager);
 
@@ -59,7 +59,7 @@ class ConnectionFactoryTest extends AbstractTestCase
 
     public function testAdapter()
     {
-        $factory = $this->getConnectionFactory();
+        $factory = $this->getFlysystemFactory();
 
         $config = array('driver' => 'local', 'path' => __DIR__, 'name' => 'local');
 
@@ -73,9 +73,9 @@ class ConnectionFactoryTest extends AbstractTestCase
 
     public function testCache()
     {
-        $factory = $this->getConnectionFactory();
+        $factory = $this->getFlysystemFactory();
 
-        $manager = Mockery::mock('GrahamCampbell\Flysystem\Managers\FlysystemManager');
+        $manager = Mockery::mock('GrahamCampbell\Flysystem\FlysystemManager');
 
         $config = array('driver' => 'local', 'cache' => array('driver' => 'illuminate', 'connector' => 'redis', 'name' => 'foo'));
 
@@ -89,9 +89,9 @@ class ConnectionFactoryTest extends AbstractTestCase
 
     public function testCacheNull()
     {
-        $factory = $this->getConnectionFactory();
+        $factory = $this->getFlysystemFactory();
 
-        $manager = Mockery::mock('GrahamCampbell\Flysystem\Managers\FlysystemManager');
+        $manager = Mockery::mock('GrahamCampbell\Flysystem\FlysystemManager');
 
         $config = array('driver' => 'local', 'path' => __DIR__, 'name' => 'local');
 
@@ -100,12 +100,12 @@ class ConnectionFactoryTest extends AbstractTestCase
         $this->assertNull($return);
     }
 
-    protected function getConnectionFactory()
+    protected function getFlysystemFactory()
     {
         $adapter = Mockery::mock('GrahamCampbell\Flysystem\Adapters\ConnectionFactory');
         $cache = Mockery::mock('GrahamCampbell\Flysystem\Cache\ConnectionFactory');
 
-        return new ConnectionFactory($adapter, $cache);
+        return new FlysystemFactory($adapter, $cache);
     }
 
     protected function getMockedFactory($config, $manager)
@@ -115,7 +115,7 @@ class ConnectionFactoryTest extends AbstractTestCase
 
         $adapterMock = Mockery::mock('League\Flysystem\AdapterInterface');
 
-        $mock = Mockery::mock('GrahamCampbell\Flysystem\Filesystem\ConnectionFactory[createAdapter,createCache]', array($adapter, $cache));
+        $mock = Mockery::mock('GrahamCampbell\Flysystem\Factories\FlysystemFactory[createAdapter,createCache]', array($adapter, $cache));
 
         $mock->shouldReceive('createAdapter')->once()
             ->with($config)
@@ -137,7 +137,7 @@ class ConnectionFactoryTest extends AbstractTestCase
         $cacheMock = Mockery::mock('League\Flysystem\CacheInterface');
         $cacheMock->shouldReceive('load')->once();
 
-        $mock = Mockery::mock('GrahamCampbell\Flysystem\Filesystem\ConnectionFactory[createAdapter,createCache]', array($adapter, $cache));
+        $mock = Mockery::mock('GrahamCampbell\Flysystem\Factories\FlysystemFactory[createAdapter,createCache]', array($adapter, $cache));
 
         $mock->shouldReceive('createAdapter')->once()
             ->with($config)

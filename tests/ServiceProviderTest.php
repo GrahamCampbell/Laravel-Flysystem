@@ -33,6 +33,6 @@ class ServiceProviderTest extends AbstractTestCase
 
     public function testFlysystemManagerIsInjectable()
     {
-        $this->assertIsInjectable('GrahamCampbell\Flysystem\Managers\FlysystemManager');
+        $this->assertIsInjectable('GrahamCampbell\Flysystem\FlysystemManager');
     }
 }

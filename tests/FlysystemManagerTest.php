@@ -14,11 +14,11 @@
  * limitations under the License.
  */
 
-namespace GrahamCampbell\Tests\Flysystem\Managers;
+namespace GrahamCampbell\Tests\Flysystem;
 
 use Mockery;
-use GrahamCampbell\Flysystem\Managers\FlysystemManager;
-use GrahamCampbell\TestBench\AbstractTestCase;
+use GrahamCampbell\Flysystem\FlysystemManager;
+use GrahamCampbell\TestBench\AbstractTestCase as AbstractTestBenchTestCase;
 
 /**
  * This is the flysystem manager test class.
@@ -29,7 +29,7 @@ use GrahamCampbell\TestBench\AbstractTestCase;
  * @license    https://github.com/GrahamCampbell/Laravel-Flysystem/blob/master/LICENSE.md
  * @link       https://github.com/GrahamCampbell/Laravel-Flysystem
  */
-class FlysystemManagerTest extends AbstractTestCase
+class FlysystemManagerTest extends AbstractTestBenchTestCase
 {
     public function testConnectionName()
     {
@@ -133,7 +133,7 @@ class FlysystemManagerTest extends AbstractTestCase
     protected function getManager()
     {
         $config = Mockery::mock('Illuminate\Config\Repository');
-        $factory = Mockery::mock('GrahamCampbell\Flysystem\Filesystem\ConnectionFactory');
+        $factory = Mockery::mock('GrahamCampbell\Flysystem\Factories\FlysystemFactory');
 
         return new FlysystemManager($config, $factory);
     }

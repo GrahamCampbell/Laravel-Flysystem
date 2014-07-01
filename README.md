@@ -63,13 +63,13 @@ This option (`'cache'`) is where each of the cache configurations setup for your
 
 ## Usage
 
-**Managers\FlysystemManager**
+**FlysystemManager**
 
 This is the class of most interest. It is bound to the ioc container as `'flysystem'` and can be accessed using the `Facades\Flysystem` facade. This class implements the ManagerInterface by extending AbstractManager. The interface and abstract class are both part of my [Laravel Manager](https://github.com/GrahamCampbell/Laravel-Manager) package so you may want to go and checkout the docs for how to use the manager class over at [that repo](https://github.com/GrahamCampbell/Laravel-Manager#usage). Note that the connection class returned will always be an instance of a class that implements `\League\Flysystem\FilesystemInterface` which will be `\League\Flysystem\Filesystem` by default.
 
 **Facades\Flysystem**
 
-This facade will dynamically pass static method calls to the `'flysystem'` object in the ioc container which by default is the `Managers\FlysystemManager` class.
+This facade will dynamically pass static method calls to the `'flysystem'` object in the ioc container which by default is the `FlysystemManager` class.
 
 **FlysystemServiceProvider**
 
@@ -125,7 +125,7 @@ Flysystem::setDefaultConnection('foo'); // the default is now foo
 If you prefer to use dependency injection over facades like me, then you can easily inject the manager like so:
 
 ```php
-use GrahamCampbell\Flysystem\Managers\FlysystemManager;
+use GrahamCampbell\Flysystem\FlysystemManager;
 
 class Foo
 {

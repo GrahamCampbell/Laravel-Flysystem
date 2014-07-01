@@ -14,15 +14,15 @@
  * limitations under the License.
  */
 
-namespace GrahamCampbell\Flysystem\Filesystem;
+namespace GrahamCampbell\Flysystem\Factories;
 
 use League\Flysystem\Filesystem;
-use GrahamCampbell\Flysystem\Managers\FlysystemManager;
+use GrahamCampbell\Flysystem\FlysystemManager;
 use GrahamCampbell\Flysystem\Adapters\ConnectionFactory as AdapterFactory;
 use GrahamCampbell\Flysystem\Cache\ConnectionFactory as CacheFactory;
 
 /**
- * This is the filesystem connection factory class.
+ * This is the filesystem factory class.
  *
  * @package    Laravel-Flysystem
  * @author     Graham Campbell
@@ -30,7 +30,7 @@ use GrahamCampbell\Flysystem\Cache\ConnectionFactory as CacheFactory;
  * @license    https://github.com/GrahamCampbell/Laravel-Flysystem/blob/master/LICENSE.md
  * @link       https://github.com/GrahamCampbell/Laravel-Flysystem
  */
-class ConnectionFactory
+class FlysystemFactory
 {
     /**
      * The adapter factory instance.
@@ -47,7 +47,7 @@ class ConnectionFactory
     protected $cache;
 
     /**
-     * Create a new filesystem connection factory instance.
+     * Create a new filesystem factory instance.
      *
      * @param  \GrahamCampbell\Flysystem\Adapters\ConnectionFactory  $adapter
      * @param  \GrahamCampbell\Flysystem\Cache\ConnectionFactory  $cache
@@ -60,10 +60,10 @@ class ConnectionFactory
     }
 
     /**
-     * Establish a filesystem connection.
+     * Make a new flysystem instance.
      *
      * @param  array  $config
-     * @param  \GrahamCampbell\Flysystem\Managers\FlysystemManager  $manager
+     * @param  \GrahamCampbell\Flysystem\FlysystemManager  $manager
      * @return \League\Flysystem\FilesystemInterface
      */
     public function make(array $config, FlysystemManager $manager)
@@ -92,7 +92,7 @@ class ConnectionFactory
      * Establish a cache connection.
      *
      * @param  array  $config
-     * @param  \GrahamCampbell\Flysystem\Managers\FlysystemManager  $manager
+     * @param  \GrahamCampbell\Flysystem\FlysystemManager  $manager
      * @return \League\Flysystem\CacheInterface
      */
     public function createCache(array $config, FlysystemManager $manager)

@@ -67,12 +67,12 @@ class FlysystemServiceProvider extends ServiceProvider
             $config = $app['config'];
             $adapter = new Adapters\ConnectionFactory();
             $cache = new Cache\ConnectionFactory($app['cache']);
-            $factory = new Filesystem\ConnectionFactory($adapter, $cache);
+            $factory = new Factories\FlysystemFactory($adapter, $cache);
 
-            return new Managers\FlysystemManager($config, $factory);
+            return new FlysystemManager($config, $factory);
         });
 
-        $this->app->alias('flysystem', 'GrahamCampbell\Flysystem\Managers\FlysystemManager');
+        $this->app->alias('flysystem', 'GrahamCampbell\Flysystem\FlysystemManager');
     }
 
     /**

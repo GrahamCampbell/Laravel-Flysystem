@@ -33,7 +33,7 @@ class ConnectionFactoryTest extends AbstractTestCase
 {
     public function testMake()
     {
-        $manager = Mockery::mock('GrahamCampbell\Flysystem\Managers\FlysystemManager');
+        $manager = Mockery::mock('GrahamCampbell\Flysystem\FlysystemManager');
 
         $factory = $this->getMockedFactory($manager);
 
@@ -44,7 +44,7 @@ class ConnectionFactoryTest extends AbstractTestCase
 
     public function testCreateIlluminateConnector()
     {
-        $manager = Mockery::mock('GrahamCampbell\Flysystem\Managers\FlysystemManager');
+        $manager = Mockery::mock('GrahamCampbell\Flysystem\FlysystemManager');
 
         $factory = $this->getConnectionFactory();
 
@@ -55,7 +55,7 @@ class ConnectionFactoryTest extends AbstractTestCase
 
     public function testCreateAdapterConnector()
     {
-        $manager = Mockery::mock('GrahamCampbell\Flysystem\Managers\FlysystemManager');
+        $manager = Mockery::mock('GrahamCampbell\Flysystem\FlysystemManager');
 
         $factory = $this->getConnectionFactory();
 
@@ -66,7 +66,7 @@ class ConnectionFactoryTest extends AbstractTestCase
 
     public function testCreateEmptyDriverConnector()
     {
-        $manager = Mockery::mock('GrahamCampbell\Flysystem\Managers\FlysystemManager');
+        $manager = Mockery::mock('GrahamCampbell\Flysystem\FlysystemManager');
 
         $factory = $this->getConnectionFactory();
 
@@ -83,7 +83,7 @@ class ConnectionFactoryTest extends AbstractTestCase
 
     public function testCreateUnsupportedDriverConnector()
     {
-        $manager = Mockery::mock('GrahamCampbell\Flysystem\Managers\FlysystemManager');
+        $manager = Mockery::mock('GrahamCampbell\Flysystem\FlysystemManager');
 
         $factory = $this->getConnectionFactory();
 

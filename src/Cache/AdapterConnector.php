@@ -18,7 +18,7 @@ namespace GrahamCampbell\Flysystem\Cache;
 
 use League\Flysystem\Cache\Adapter;
 use League\Flysystem\AdapterInterface;
-use GrahamCampbell\Flysystem\Managers\FlysystemManager;
+use GrahamCampbell\Flysystem\FlysystemManager;
 use GrahamCampbell\Manager\Interfaces\ConnectorInterface;
 
 /**
@@ -35,14 +35,14 @@ class AdapterConnector implements ConnectorInterface
     /**
      * The flysysten manager instance.
      *
-     * @var \GrahamCampbell\Flysystem\Managers\FlysystemManager
+     * @var \GrahamCampbell\Flysystem\FlysystemManager
      */
     protected $manager;
 
     /**
      * Create a new connection factory instance.
      *
-     * @param  \GrahamCampbell\Flysystem\Managers\FlysystemManager  $manager
+     * @param  \GrahamCampbell\Flysystem\FlysystemManager  $manager
      * @return void
      */
     public function __construct(FlysystemManager $manager)
@@ -109,7 +109,7 @@ class AdapterConnector implements ConnectorInterface
     /**
      * Get the flysystem manager instance.
      *
-     * @return \GrahamCampbell\Flysystem\Managers\FlysystemManager
+     * @return \GrahamCampbell\Flysystem\FlysystemManager
      */
     public function getManager()
     {
