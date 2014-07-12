@@ -151,8 +151,7 @@ For more information on how to use the `\League\Flysystem\Filesystem` class we a
 
 There are other classes in this package that are not documented here. This is because they are not intended for public use and are used internally by this package.
 
-Feel free to check out the [API Documentation](http://grahamcampbell.github.io/Laravel-Flysystem
-) for Laravel Flysystem.
+Feel free to check out the [API Documentation](http://docs.grahamjcampbell.co.uk) for Laravel Flysystem.
 
 You will eventually be able to see an example of implementation in [Laravel Assets](https://github.com/GrahamCampbell/Laravel-Assets) whenever I get around to actually writing that package.
 
