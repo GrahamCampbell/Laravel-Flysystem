@@ -18,7 +18,7 @@ namespace GrahamCampbell\Flysystem\Adapters;
 
 use Aws\S3\S3Client;
 use League\Flysystem\Adapter\AwsS3;
-use GrahamCampbell\Manager\Interfaces\ConnectorInterface;
+use GrahamCampbell\Manager\ConnectorInterface;
 
 /**
  * This is the awss3 connector class.

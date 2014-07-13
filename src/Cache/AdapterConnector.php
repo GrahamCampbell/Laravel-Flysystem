@@ -19,7 +19,7 @@ namespace GrahamCampbell\Flysystem\Cache;
 use League\Flysystem\Cache\Adapter;
 use League\Flysystem\AdapterInterface;
 use GrahamCampbell\Flysystem\FlysystemManager;
-use GrahamCampbell\Manager\Interfaces\ConnectorInterface;
+use GrahamCampbell\Manager\ConnectorInterface;
 
 /**
  * This is the adapter connector class.
