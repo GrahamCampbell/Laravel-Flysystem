@@ -21,7 +21,7 @@
         "aws/aws-sdk-php": "~2.4",
         "dropbox/dropbox-sdk": "~1.1",
         "rackspace/php-opencloud": "~1.8",
-        "sabre/dav": "~1.8"
+        "sabre/dav": "~2.0.2"
     },
     "suggest": {
         "aws/aws-sdk-php": "Enables the aws connector.",
