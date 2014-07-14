@@ -81,6 +81,9 @@ class FlysystemManagerTest extends AbstractTestBenchTestCase
         $this->assertArrayHasKey('local', $manager->getConnections());
     }
 
+    /**
+     * @expectedException \InvalidArgumentException
+     */
     public function testConnectionError()
     {
         $manager = $this->getManager();
@@ -94,15 +97,12 @@ class FlysystemManagerTest extends AbstractTestBenchTestCase
 
         $return = null;
 
-        try {
-            $manager->connection('error');
-        } catch (\Exception $e) {
-            $return = $e;
-        }
-
-        $this->assertInstanceOf('InvalidArgumentException', $return);
+        $manager->connection('error');
     }
 
+    /**
+     * @expectedException \InvalidArgumentException
+     */
     public function testConnectionErrorCache()
     {
         $manager = $this->getManager();
@@ -121,13 +121,7 @@ class FlysystemManagerTest extends AbstractTestBenchTestCase
 
         $return = null;
 
-        try {
-            $manager->connection('local');
-        } catch (\Exception $e) {
-            $return = $e;
-        }
-
-        $this->assertInstanceOf('InvalidArgumentException', $return);
+        $manager->connection('local');
     }
 
     protected function getManager()

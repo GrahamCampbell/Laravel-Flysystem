@@ -121,34 +121,24 @@ class ConnectionFactoryTest extends AbstractTestCase
         $this->assertInstanceOf('GrahamCampbell\Flysystem\Adapters\ZipConnector', $return);
     }
 
+    /**
+     * @expectedException \InvalidArgumentException
+     */
     public function testCreateEmptyDriverConnector()
     {
         $factory = $this->getConnectionFactory();
 
-        $return = null;
-
-        try {
-            $factory->createConnector(array());
-        } catch (\Exception $e) {
-            $return = $e;
-        }
-
-        $this->assertInstanceOf('InvalidArgumentException', $return);
+        $factory->createConnector(array());
     }
 
+    /**
+     * @expectedException \InvalidArgumentException
+     */
     public function testCreateUnsupportedDriverConnector()
     {
         $factory = $this->getConnectionFactory();
 
-        $return = null;
-
-        try {
-            $factory->createConnector(array('driver' => 'unsupported'));
-        } catch (\Exception $e) {
-            $return = $e;
-        }
-
-        $this->assertInstanceOf('InvalidArgumentException', $return);
+        $factory->createConnector(array('driver' => 'unsupported'));
     }
 
     protected function getConnectionFactory()

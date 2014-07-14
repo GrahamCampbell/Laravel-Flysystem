@@ -56,34 +56,24 @@ class DropboxConnectorTest extends AbstractTestCase
         $this->assertInstanceOf('League\Flysystem\Adapter\Dropbox', $return);
     }
 
+    /**
+     * @expectedException \InvalidArgumentException
+     */
     public function testConnectWithoutToken()
     {
         $connector = $this->getDropboxConnector();
 
-        $return = null;
-
-        try {
-            $connector->connect(array('app' => 'your-app'));
-        } catch (\Exception $e) {
-            $return = $e;
-        }
-
-        $this->assertInstanceOf('InvalidArgumentException', $return);
+        $connector->connect(array('app' => 'your-app'));
     }
 
+    /**
+     * @expectedException \InvalidArgumentException
+     */
     public function testConnectWithoutSecret()
     {
         $connector = $this->getDropboxConnector();
 
-        $return = null;
-
-        try {
-            $connector->connect(array('token' => 'your-token'));
-        } catch (\Exception $e) {
-            $return = $e;
-        }
-
-        $this->assertInstanceOf('InvalidArgumentException', $return);
+        $connector->connect(array('token' => 'your-token'));
     }
 
     protected function getDropboxConnector()

@@ -72,49 +72,34 @@ class AwsS3ConnectorTest extends AbstractTestCase
         $this->assertInstanceOf('League\Flysystem\Adapter\AwsS3', $return);
     }
 
+    /**
+     * @expectedException \InvalidArgumentException
+     */
     public function testConnectWithoutBucket()
     {
         $connector = $this->getAwsS3Connector();
 
-        $return = null;
-
-        try {
-            $connector->connect(array('key' => 'your-key', 'secret' => 'your-secret'));
-        } catch (\Exception $e) {
-            $return = $e;
-        }
-
-        $this->assertInstanceOf('InvalidArgumentException', $return);
+        $connector->connect(array('key' => 'your-key', 'secret' => 'your-secret'));
     }
 
+    /**
+     * @expectedException \InvalidArgumentException
+     */
     public function testConnectWithoutKey()
     {
         $connector = $this->getAwsS3Connector();
 
-        $return = null;
-
-        try {
-            $connector->connect(array('secret' => 'your-secret', 'bucket' => 'your-bucket'));
-        } catch (\Exception $e) {
-            $return = $e;
-        }
-
-        $this->assertInstanceOf('InvalidArgumentException', $return);
+        $connector->connect(array('secret' => 'your-secret', 'bucket' => 'your-bucket'));
     }
 
+    /**
+     * @expectedException \InvalidArgumentException
+     */
     public function testConnectWithoutSecret()
     {
         $connector = $this->getAwsS3Connector();
 
-        $return = null;
-
-        try {
-            $connector->connect(array('key' => 'your-key', 'bucket' => 'your-bucket'));
-        } catch (\Exception $e) {
-            $return = $e;
-        }
-
-        $this->assertInstanceOf('InvalidArgumentException', $return);
+        $connector->connect(array('key' => 'your-key', 'bucket' => 'your-bucket'));
     }
 
     protected function getAwsS3Connector()

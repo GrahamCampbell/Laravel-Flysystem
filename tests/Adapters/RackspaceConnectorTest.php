@@ -31,60 +31,45 @@ use GrahamCampbell\TestBench\AbstractTestCase;
  */
 class RackspaceConnectorTest extends AbstractTestCase
 {
+    /**
+     * @expectedException \Guzzle\Http\Exception\ClientErrorResponseException
+     */
     public function testConnect()
     {
         $connector = $this->getRackspaceConnector();
 
-        $return = null;
-
-        try {
-            $connector->connect(array(
-                'endpoint'  => 'https://lon.identity.api.rackspacecloud.com/v2.0/',
-                'username'  => 'your-username',
-                'password'  => 'your-password',
-                'container' => 'your-container'
-            ));
-        } catch (\Exception $e) {
-            $return = $e;
-        }
-
-        $this->assertInstanceOf('Guzzle\Http\Exception\ClientErrorResponseException', $return);
+        $connector->connect(array(
+            'endpoint'  => 'https://lon.identity.api.rackspacecloud.com/v2.0/',
+            'username'  => 'your-username',
+            'password'  => 'your-password',
+            'container' => 'your-container'
+        ));
     }
 
+    /**
+     * @expectedException \InvalidArgumentException
+     */
     public function testConnectWithoutAuth()
     {
         $connector = $this->getRackspaceConnector();
 
-        $return = null;
-
-        try {
-            $connector->connect(array(
-                'endpoint'  => 'https://lon.identity.api.rackspacecloud.com/v2.0/',
-                'container' => 'your-container'
-            ));
-        } catch (\Exception $e) {
-            $return = $e;
-        }
-
-        $this->assertInstanceOf('InvalidArgumentException', $return);
+        $connector->connect(array(
+            'endpoint'  => 'https://lon.identity.api.rackspacecloud.com/v2.0/',
+            'container' => 'your-container'
+        ));
     }
 
+    /**
+     * @expectedException \InvalidArgumentException
+     */
     public function testConnectWithoutConfig()
     {
         $connector = $this->getRackspaceConnector();
 
-        $return = null;
-
-        try {
-            $connector->connect(array(
-                'username'  => 'your-username',
-                'password'  => 'your-password'
-            ));
-        } catch (\Exception $e) {
-            $return = $e;
-        }
-
-        $this->assertInstanceOf('InvalidArgumentException', $return);
+        $connector->connect(array(
+            'username'  => 'your-username',
+            'password'  => 'your-password'
+        ));
     }
 
     protected function getRackspaceConnector()

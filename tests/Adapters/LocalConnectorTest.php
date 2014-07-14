@@ -49,19 +49,14 @@ class LocalConnectorTest extends AbstractTestCase
         $this->assertInstanceOf('League\Flysystem\Adapter\Local', $return);
     }
 
+    /**
+     * @expectedException \InvalidArgumentException
+     */
     public function testConnectWithoutPath()
     {
         $connector = $this->getLocalConnector();
 
-        $return = null;
-
-        try {
-            $connector->connect(array());
-        } catch (\Exception $e) {
-            $return = $e;
-        }
-
-        $this->assertInstanceOf('InvalidArgumentException', $return);
+        $connector->connect(array());
     }
 
     protected function getLocalConnector()

@@ -64,38 +64,28 @@ class ConnectionFactoryTest extends AbstractTestCase
         $this->assertInstanceOf('GrahamCampbell\Flysystem\Cache\AdapterConnector', $return);
     }
 
+    /**
+     * @expectedException \InvalidArgumentException
+     */
     public function testCreateEmptyDriverConnector()
     {
         $manager = Mockery::mock('GrahamCampbell\Flysystem\FlysystemManager');
 
         $factory = $this->getConnectionFactory();
 
-        $return = null;
-
-        try {
-            $factory->createConnector(array(), $manager);
-        } catch (\Exception $e) {
-            $return = $e;
-        }
-
-        $this->assertInstanceOf('InvalidArgumentException', $return);
+        $factory->createConnector(array(), $manager);
     }
 
+    /**
+     * @expectedException \InvalidArgumentException
+     */
     public function testCreateUnsupportedDriverConnector()
     {
         $manager = Mockery::mock('GrahamCampbell\Flysystem\FlysystemManager');
 
         $factory = $this->getConnectionFactory();
 
-        $return = null;
-
-        try {
-            $factory->createConnector(array('driver' => 'unsupported'), $manager);
-        } catch (\Exception $e) {
-            $return = $e;
-        }
-
-        $this->assertInstanceOf('InvalidArgumentException', $return);
+        $factory->createConnector(array('driver' => 'unsupported'), $manager);
     }
 
     protected function getConnectionFactory()

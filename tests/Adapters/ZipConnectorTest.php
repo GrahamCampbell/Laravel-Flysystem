@@ -49,19 +49,14 @@ class ZipConnectorTest extends AbstractTestCase
         $this->assertInstanceOf('League\Flysystem\Adapter\Zip', $return);
     }
 
+    /**
+     * @expectedException \InvalidArgumentException
+     */
     public function testConnectWithoutPath()
     {
         $connector = $this->getZipConnector();
 
-        $return = null;
-
-        try {
-            $connector->connect(array());
-        } catch (\Exception $e) {
-            $return = $e;
-        }
-
-        $this->assertInstanceOf('InvalidArgumentException', $return);
+        $connector->connect(array());
     }
 
     protected function getZipConnector()
