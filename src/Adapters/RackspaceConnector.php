@@ -35,6 +35,8 @@ class RackspaceConnector implements ConnectorInterface
     /**
      * Establish an adapter connection.
      *
+     * @codeCoverageIgnore
+     *
      * @param  array  $config
      * @return \League\Flysystem\Adapter\Rackspace
      */
@@ -61,7 +63,7 @@ class RackspaceConnector implements ConnectorInterface
             throw new \InvalidArgumentException('The rackspace connector requires configuration.');
         }
 
-        return $config;
+        return array_only($config, array('username', 'password', 'endpoint', 'container'));
     }
 
     /**
@@ -83,11 +85,12 @@ class RackspaceConnector implements ConnectorInterface
     /**
      * Get the rackspace adapter.
      *
+     * @codeCoverageIgnore
+     *
      * @param  \OpenCloud\ObjectStore\Resource\Container  $client
-     * @param  array  $config
      * @return \League\Flysystem\Adapter\Rackspace
      */
-    protected function getAdapter(Container $client, array $config)
+    protected function getAdapter(Container $client)
     {
         return new Rackspace($client);
     }

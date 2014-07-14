@@ -57,7 +57,7 @@ class DropboxConnector implements ConnectorInterface
             throw new \InvalidArgumentException('The dropbox connector requires authentication.');
         }
 
-        return array('token' => $config['token'], 'app' => $config['app']);
+        return array_only($config, array('token', 'app'));
     }
 
     /**
@@ -83,7 +83,7 @@ class DropboxConnector implements ConnectorInterface
             $config['prefix'] = null;
         }
 
-        return array('prefix' => $config['prefix']);
+        return array_only($config, array('prefix'));
     }
 
     /**

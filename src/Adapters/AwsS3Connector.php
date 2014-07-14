@@ -58,9 +58,9 @@ class AwsS3Connector implements ConnectorInterface
         }
 
         if (array_key_exists('region', $config)) {
-            return array('key' => $config['key'], 'secret' => $config['secret'], 'region' => $config['region']);
+            return array_only($config, array('key', 'secret', 'region'));
         } else {
-            return array('key' => $config['key'], 'secret' => $config['secret']);
+            return array_only($config, array('key', 'secret'));
         }
     }
 
@@ -91,7 +91,7 @@ class AwsS3Connector implements ConnectorInterface
             throw new \InvalidArgumentException('The awss3 connector requires a bucket.');
         }
 
-        return array('bucket' => $config['bucket'], 'prefix' => $config['prefix']);
+        return array_only($config, array('bucket', 'prefix'));
     }
 
     /**

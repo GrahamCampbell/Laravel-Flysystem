@@ -54,7 +54,7 @@ class ZipConnector implements ConnectorInterface
             throw new \InvalidArgumentException('The zip connector requires a path.');
         }
 
-        return array('path' => $config['path']);
+        return array_only($config, array('path'));
     }
 
     /**

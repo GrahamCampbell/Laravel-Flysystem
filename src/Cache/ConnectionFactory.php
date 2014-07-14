@@ -86,6 +86,8 @@ class ConnectionFactory
     /**
      * Get the cache manager instance.
      *
+     * @codeCoverageIgnore
+     *
      * @return \Illuminate\Cache\CacheManager
      */
     public function getCache()
