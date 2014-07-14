@@ -33,10 +33,6 @@ class WebDavConnectorTest extends AbstractTestCase
 {
     public function testConnect()
     {
-        if (defined('HHVM_VERSION')) {
-            return $this->markTestSkipped('WebDav is broken on this version of HHVM.');
-        }
-
         $connector = $this->getWebDavConnector();
 
         $return = $connector->connect(array(
