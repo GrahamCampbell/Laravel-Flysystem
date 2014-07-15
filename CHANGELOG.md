@@ -8,6 +8,7 @@ CHANGE LOG
 * Refactoring
 * Added di aliases
 * Null adapter support
+* Added more tests
 
 
 ## V0.4 Alpha (31/05/2014)
