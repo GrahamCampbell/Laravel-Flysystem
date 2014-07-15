@@ -50,7 +50,8 @@ return array(
 
         'zip' => array(
             'driver' => 'zip',
-            'path'   => storage_path('files.zip')
+            'path'   => storage_path('files.zip'),
+            // 'cache'  => 'foo'
         ),
 
         'awss3' => array(
@@ -72,21 +73,21 @@ return array(
         ),
 
         'ftp' => array(
-            'driver' => 'ftp',
-            'host' => 'ftp.example.com',
-            'port' => 21,
+            'driver'   => 'ftp',
+            'host'     => 'ftp.example.com',
+            'port'     => 21,
             'username' => 'your-username',
             'password' => 'your-password',
-            // 'root' => '/path/to/root',
-            // 'passive' => true,
-            // 'ssl' => true,
-            // 'timeout' => 20,
-            // 'cache'  => 'foo'
+            // 'root'     => '/path/to/root',
+            // 'passive'  => true,
+            // 'ssl'      => true,
+            // 'timeout'  => 20,
+            // 'cache'    => 'foo'
         ),
 
         'null' => array(
             'driver'    => 'null',
-            // 'cache'  => 'foo'
+            // 'cache'     => 'foo'
         ),
 
         'rackspace' => array(
@@ -95,27 +96,27 @@ return array(
             'username'  => 'your-username',
             'password'  => 'your-password',
             'container' => 'your-container',
-            // 'cache'  => 'foo'
+            // 'cache'     => 'foo'
         ),
 
         'sftp' => array(
-            'driver' => 'sftp',
-            'host' => 'sftp.example.com',
-            'port' => 22,
-            'username' => 'your-username',
-            'password' => 'your-password',
+            'driver'     => 'sftp',
+            'host'       => 'sftp.example.com',
+            'port'       => 22,
+            'username'   => 'your-username',
+            'password'   => 'your-password',
             // 'privateKey' => 'path/to/or/contents/of/privatekey',
-            // 'root' => '/path/to/root',
-            // 'timeout' => 20,
-            // 'cache'  => 'foo'
+            // 'root'       => '/path/to/root',
+            // 'timeout'    => 20,
+            // 'cache'      => 'foo'
         ),
 
         'webdav' => array(
-            'driver' => 'webdav',
-            'baseUri' => 'http://example.org/dav/',
+            'driver'   => 'webdav',
+            'baseUri'  => 'http://example.org/dav/',
             'userName' => 'your-username',
             'password' => 'your-password',
-            // 'cache'  => 'foo'
+            // 'cache'    => 'foo'
         )
 
     ),
