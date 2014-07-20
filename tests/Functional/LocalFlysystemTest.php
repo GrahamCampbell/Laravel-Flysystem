@@ -38,14 +38,14 @@ class LocalFlysystemTest extends AbstractTestCase
      */
     protected function additionalSetup($app)
     {
-        $app['files']->deleteDirectory(realpath($this->getBasePath().'/../') . '/temp');
+        $app['files']->deleteDirectory(realpath(__DIR__.'/../../') . '/temp');
 
         $old = $app['config']->get('graham-campbell/flysystem::connections');
 
         $new = array_merge($old, array(
             'testing' => array(
                 'driver' => 'local',
-                'path'   => realpath($this->getBasePath().'/../') . '/temp'
+                'path'   => realpath(__DIR__.'/../../') . '/temp'
             ),
         ));
 
@@ -60,7 +60,7 @@ class LocalFlysystemTest extends AbstractTestCase
      */
     protected function finish()
     {
-        $this->app['files']->deleteDirectory(realpath($this->getBasePath().'/../') . '/temp');
+        $this->app['files']->deleteDirectory(realpath(__DIR__.'/../../') . '/temp');
     }
 
     public function testName()
