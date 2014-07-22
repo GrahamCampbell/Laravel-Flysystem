@@ -16,9 +16,9 @@
 
 namespace GrahamCampbell\Flysystem\Cache;
 
+use GrahamCampbell\Manager\ConnectorInterface;
 use Illuminate\Cache\CacheManager;
 use Illuminate\Cache\StoreInterface;
-use GrahamCampbell\Manager\ConnectorInterface;
 
 /**
  * This is the illuminate connector class.

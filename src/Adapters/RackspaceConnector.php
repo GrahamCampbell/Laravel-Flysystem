@@ -16,10 +16,10 @@
 
 namespace GrahamCampbell\Flysystem\Adapters;
 
-use OpenCloud\OpenStack;
+use GrahamCampbell\Manager\ConnectorInterface;
 use League\Flysystem\Adapter\Rackspace;
 use OpenCloud\ObjectStore\Resource\Container;
-use GrahamCampbell\Manager\ConnectorInterface;
+use OpenCloud\OpenStack;
 
 /**
  * This is the rackspace connector class.

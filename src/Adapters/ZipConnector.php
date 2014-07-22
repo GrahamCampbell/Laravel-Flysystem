@@ -16,8 +16,8 @@
 
 namespace GrahamCampbell\Flysystem\Adapters;
 
-use League\Flysystem\Adapter\Zip;
 use GrahamCampbell\Manager\ConnectorInterface;
+use League\Flysystem\Adapter\Zip;
 
 /**
  * This is the zip connector class.

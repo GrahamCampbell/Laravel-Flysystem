@@ -16,8 +16,8 @@
 
 namespace GrahamCampbell\Flysystem\Adapters;
 
-use League\Flysystem\Adapter\Local;
 use GrahamCampbell\Manager\ConnectorInterface;
+use League\Flysystem\Adapter\Local;
 
 /**
  * This is the local connector class.

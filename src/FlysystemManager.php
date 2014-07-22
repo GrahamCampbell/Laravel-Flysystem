@@ -16,9 +16,9 @@
 
 namespace GrahamCampbell\Flysystem;
 
-use Illuminate\Config\Repository;
 use GrahamCampbell\Flysystem\Factories\FlysystemFactory;
 use GrahamCampbell\Manager\AbstractManager;
+use Illuminate\Config\Repository;
 
 /**
  * This is the flysystem manager class.
@@ -55,7 +55,7 @@ class FlysystemManager extends AbstractManager
      * Create the connection instance.
      *
      * @param  array  $config
-     * @return string
+     * @return \League\Flysystem\Filesystem
      */
     protected function createConnection(array $config)
     {

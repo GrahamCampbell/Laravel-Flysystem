@@ -16,10 +16,10 @@
 
 namespace GrahamCampbell\Flysystem\Factories;
 
-use League\Flysystem\Filesystem;
-use GrahamCampbell\Flysystem\FlysystemManager;
 use GrahamCampbell\Flysystem\Adapters\ConnectionFactory as AdapterFactory;
 use GrahamCampbell\Flysystem\Cache\ConnectionFactory as CacheFactory;
+use GrahamCampbell\Flysystem\FlysystemManager;
+use League\Flysystem\Filesystem;
 
 /**
  * This is the filesystem factory class.

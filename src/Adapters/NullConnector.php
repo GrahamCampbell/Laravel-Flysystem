@@ -16,8 +16,8 @@
 
 namespace GrahamCampbell\Flysystem\Adapters;
 
-use League\Flysystem\Adapter\NullAdapter;
 use GrahamCampbell\Manager\ConnectorInterface;
+use League\Flysystem\Adapter\NullAdapter;
 
 /**
  * This is the null connector class.

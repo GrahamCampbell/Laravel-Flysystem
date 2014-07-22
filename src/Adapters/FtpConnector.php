@@ -16,8 +16,8 @@
 
 namespace GrahamCampbell\Flysystem\Adapters;
 
-use League\Flysystem\Adapter\Ftp;
 use GrahamCampbell\Manager\ConnectorInterface;
+use League\Flysystem\Adapter\Ftp;
 
 /**
  * This is the ftp connector class.

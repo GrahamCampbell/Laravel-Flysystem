@@ -16,9 +16,9 @@
 
 namespace GrahamCampbell\Flysystem\Adapters;
 
-use Sabre\DAV\Client;
-use League\Flysystem\Adapter\WebDav;
 use GrahamCampbell\Manager\ConnectorInterface;
+use League\Flysystem\Adapter\WebDav;
+use Sabre\DAV\Client;
 
 /**
  * This is the webdav connector class.

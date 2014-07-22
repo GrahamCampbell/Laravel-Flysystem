@@ -16,10 +16,10 @@
 
 namespace GrahamCampbell\Flysystem\Cache;
 
-use League\Flysystem\Cache\Adapter;
-use League\Flysystem\AdapterInterface;
 use GrahamCampbell\Flysystem\FlysystemManager;
 use GrahamCampbell\Manager\ConnectorInterface;
+use League\Flysystem\AdapterInterface;
+use League\Flysystem\Cache\Adapter;
 
 /**
  * This is the adapter connector class.

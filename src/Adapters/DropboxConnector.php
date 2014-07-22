@@ -17,8 +17,8 @@
 namespace GrahamCampbell\Flysystem\Adapters;
 
 use Dropbox\Client;
-use League\Flysystem\Adapter\Dropbox;
 use GrahamCampbell\Manager\ConnectorInterface;
+use League\Flysystem\Adapter\Dropbox;
 
 /**
  * This is the dropbox connector class.
