@@ -63,7 +63,7 @@ class IlluminateCache extends AbstractCache
         $this->client = $client;
         $this->key = $key;
         if ($ttl) {
-            $this->ttl = ceil($ttl / 60);
+            $this->ttl = (int) ceil($ttl / 60);
         }
     }
 
