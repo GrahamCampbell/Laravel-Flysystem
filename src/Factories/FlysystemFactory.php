@@ -97,7 +97,7 @@ class FlysystemFactory
      */
     public function createCache(array $config, FlysystemManager $manager)
     {
-        if (!is_null($config = array_get($config, 'cache'))) {
+        if (is_array($cache = array_get($config, 'cache')) && $config) {
             return $this->cache->make($config, $manager);
         }
     }
