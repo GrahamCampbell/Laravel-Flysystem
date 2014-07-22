@@ -84,11 +84,11 @@ class FlysystemManager extends AbstractManager
 
         $connections = $this->config->get($this->getConfigName().'::connections');
 
-        if (is_null($config = array_get($connections, $name))) {
+        if (!is_array($config = array_get($connections, $name)) && !$config) {
             throw new \InvalidArgumentException("Adapter [$name] not configured.");
         }
 
-        if (!is_null($cache = array_get($config, 'cache'))) {
+        if (is_string($cache = array_get($config, 'cache'))) {
             $config['cache'] = $this->getCacheConfig($cache);
         }
 
@@ -107,7 +107,7 @@ class FlysystemManager extends AbstractManager
     {
         $cache = $this->config->get($this->getConfigName().'::cache');
 
-        if (is_null($config = array_get($cache, $name))) {
+        if (!is_array($config = array_get($cache, $name)) && !$config) {
             throw new \InvalidArgumentException("Cache [$name] not configured.");
         }
 
