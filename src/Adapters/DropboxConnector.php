@@ -50,6 +50,8 @@ class DropboxConnector implements ConnectorInterface
      *
      * @param  array  $config
      * @return array
+     *
+     * @throws \InvalidArgumentException
      */
     protected function getAuth(array $config)
     {

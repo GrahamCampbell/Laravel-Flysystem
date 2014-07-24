@@ -47,6 +47,8 @@ class ZipConnector implements ConnectorInterface
      *
      * @param  array  $config
      * @return array
+     *
+     * @throws \InvalidArgumentException
      */
     protected function getConfig(array $config)
     {

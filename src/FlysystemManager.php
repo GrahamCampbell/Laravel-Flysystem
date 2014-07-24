@@ -77,6 +77,8 @@ class FlysystemManager extends AbstractManager
      *
      * @param  string  $name
      * @return array
+     *
+     * @throws \InvalidArgumentException
      */
     public function getConnectionConfig($name)
     {
@@ -102,6 +104,8 @@ class FlysystemManager extends AbstractManager
      *
      * @param  string  $name
      * @return array
+     *
+     * @throws \InvalidArgumentException
      */
     protected function getCacheConfig($name)
     {

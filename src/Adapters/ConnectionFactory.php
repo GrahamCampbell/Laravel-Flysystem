@@ -43,6 +43,8 @@ class ConnectionFactory
      *
      * @param  array  $config
      * @return \GrahamCampbell\Manager\ConnectorInterface
+     *
+     * @throws \InvalidArgumentException
      */
     public function createConnector(array $config)
     {

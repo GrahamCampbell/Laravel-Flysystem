@@ -50,6 +50,8 @@ class AwsS3Connector implements ConnectorInterface
      *
      * @param  array  $config
      * @return array
+     *
+     * @throws \InvalidArgumentException
      */
     protected function getAuth(array $config)
     {
@@ -80,6 +82,8 @@ class AwsS3Connector implements ConnectorInterface
      *
      * @param  array  $config
      * @return array
+     *
+     * @throws \InvalidArgumentException
      */
     protected function getConfig(array $config)
     {
