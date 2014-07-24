@@ -2,6 +2,12 @@ CHANGE LOG
 ==========
 
 
+## V0.5.1 Alpha (Upcoming - August 2014)
+
+* Stricter config validation
+* Minor tweaks and fixes
+
+
 ## V0.5 Alpha (20/07/2014)
 
 * Upgrade to Laravel 4.1+
