@@ -153,8 +153,6 @@ There are other classes in this package that are not documented here. This is be
 
 Feel free to check out the [API Documentation](http://docs.grahamjcampbell.co.uk) for Laravel Flysystem.
 
-You will eventually be able to see an example of implementation in [Laravel Assets](https://github.com/GrahamCampbell/Laravel-Assets) whenever I get around to actually writing that package.
-
 
 ## License
 
