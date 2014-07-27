@@ -23,25 +23,24 @@ use Illuminate\Cache\StoreInterface;
 /**
  * This is the illuminate connector class.
  *
- * @package    Laravel-Flysystem
- * @author     Graham Campbell
- * @copyright  Copyright 2014 Graham Campbell
- * @license    https://github.com/GrahamCampbell/Laravel-Flysystem/blob/master/LICENSE.md
- * @link       https://github.com/GrahamCampbell/Laravel-Flysystem
+ * @author    Graham Campbell <graham@mineuk.com>
+ * @copyright 2014 Graham Campbell
+ * @license   <https://github.com/GrahamCampbell/Laravel-Flysystem/blob/master/LICENSE.md> Apache 2.0
  */
 class IlluminateConnector implements ConnectorInterface
 {
     /**
      * The cache manager instance.
      *
-     * @var \Illuminate\Cache\CacheManager
+     * @type \Illuminate\Cache\CacheManager
      */
     protected $cache;
 
     /**
      * Create a new connection factory instance.
      *
-     * @param  \Illuminate\Cache\CacheManager  $cache
+     * @param \Illuminate\Cache\CacheManager $cache
+     *
      * @return void
      */
     public function __construct(CacheManager $cache)
@@ -52,7 +51,8 @@ class IlluminateConnector implements ConnectorInterface
     /**
      * Establish a cache connection.
      *
-     * @param  array  $config
+     * @param array $config
+     *
      * @return \GrahamCampbell\Flysystem\Cache\IlluminateCache
      */
     public function connect(array $config)
@@ -64,7 +64,8 @@ class IlluminateConnector implements ConnectorInterface
     /**
      * Get the cache client.
      *
-     * @param  array  $config
+     * @param array $config
+     *
      * @return \Illuminate\Cache\StoreInterface
      */
     protected function getClient(array $config)
@@ -76,8 +77,9 @@ class IlluminateConnector implements ConnectorInterface
     /**
      * Get the illuminate cache adapter.
      *
-     * @param  \Illuminate\Cache\StoreInterface  $client
-     * @param  array  $config
+     * @param \Illuminate\Cache\StoreInterface $client
+     * @param array                            $config
+     *
      * @return \GrahamCampbell\Flysystem\Cache\IlluminateCache
      */
     protected function getAdapter(StoreInterface $client, array $config)

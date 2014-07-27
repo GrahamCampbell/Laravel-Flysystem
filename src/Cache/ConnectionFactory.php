@@ -22,25 +22,24 @@ use Illuminate\Cache\CacheManager;
 /**
  * This is the cache connection factory class.
  *
- * @package    Laravel-Flysystem
- * @author     Graham Campbell
- * @copyright  Copyright 2014 Graham Campbell
- * @license    https://github.com/GrahamCampbell/Laravel-Flysystem/blob/master/LICENSE.md
- * @link       https://github.com/GrahamCampbell/Laravel-Flysystem
+ * @author    Graham Campbell <graham@mineuk.com>
+ * @copyright 2014 Graham Campbell
+ * @license   <https://github.com/GrahamCampbell/Laravel-Flysystem/blob/master/LICENSE.md> Apache 2.0
  */
 class ConnectionFactory
 {
     /**
      * The cache manager instance.
      *
-     * @var \Illuminate\Cache\CacheManager
+     * @type \Illuminate\Cache\CacheManager
      */
     protected $cache;
 
     /**
      * Create a new connection factory instance.
      *
-     * @param  \Illuminate\Cache\CacheManager  $cache
+     * @param \Illuminate\Cache\CacheManager $cache
+     *
      * @return void
      */
     public function __construct(CacheManager $cache)
@@ -51,8 +50,9 @@ class ConnectionFactory
     /**
      * Establish a cache connection.
      *
-     * @param  array  $config
-     * @param  \GrahamCampbell\Flysystem\FlysystemManager  $manager
+     * @param array                                      $config
+     * @param \GrahamCampbell\Flysystem\FlysystemManager $manager
+     *
      * @return \League\Flysystem\CacheInterface
      */
     public function make(array $config, FlysystemManager $manager)
@@ -63,11 +63,12 @@ class ConnectionFactory
     /**
      * Create a connector instance based on the configuration.
      *
-     * @param  array  $config
-     * @param  \GrahamCampbell\Flysystem\FlysystemManager  $manager
-     * @return \GrahamCampbell\Manager\ConnectorInterface
+     * @param array                                      $config
+     * @param \GrahamCampbell\Flysystem\FlysystemManager $manager
      *
      * @throws \InvalidArgumentException
+     *
+     * @return \GrahamCampbell\Manager\ConnectorInterface
      */
     public function createConnector(array $config, FlysystemManager $manager)
     {

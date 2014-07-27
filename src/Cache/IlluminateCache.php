@@ -22,41 +22,39 @@ use League\Flysystem\Cache\AbstractCache;
 /**
  * This is the illuminate cache class.
  *
- * @package    Laravel-Flysystem
- * @author     Graham Campbell
- * @copyright  Copyright 2014 Graham Campbell
- * @license    https://github.com/GrahamCampbell/Laravel-Flysystem/blob/master/LICENSE.md
- * @link       https://github.com/GrahamCampbell/Laravel-Flysystem
+ * @author    Graham Campbell <graham@mineuk.com>
+ * @copyright 2014 Graham Campbell
+ * @license   <https://github.com/GrahamCampbell/Laravel-Flysystem/blob/master/LICENSE.md> Apache 2.0
  */
 class IlluminateCache extends AbstractCache
 {
     /**
      * The cache store instance.
      *
-     * @var \Illuminate\Cache\StoreInterface
+     * @type \Illuminate\Cache\StoreInterface
      */
     protected $client;
 
     /**
      * The cache key.
      *
-     * @var string
+     * @type string
      */
     protected $key;
 
     /**
      * The cache ttl in mins.
      *
-     * @var int
+     * @type int
      */
     protected $ttl;
 
     /**
      * Constructor
      *
-     * @param  \Illuminate\Cache\StoreInterface  $client
-     * @param  string  $key
-     * @param  int     $ttl
+     * @param \Illuminate\Cache\StoreInterface $client
+     * @param string                           $key
+     * @param int                              $ttl
      */
     public function __construct(StoreInterface $client, $key = 'flysystem', $ttl = null)
     {

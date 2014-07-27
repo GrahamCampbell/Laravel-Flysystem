@@ -19,18 +19,17 @@ namespace GrahamCampbell\Flysystem\Adapters;
 /**
  * This is the adapter connection factory class.
  *
- * @package    Laravel-Flysystem
- * @author     Graham Campbell
- * @copyright  Copyright 2014 Graham Campbell
- * @license    https://github.com/GrahamCampbell/Laravel-Flysystem/blob/master/LICENSE.md
- * @link       https://github.com/GrahamCampbell/Laravel-Flysystem
+ * @author    Graham Campbell <graham@mineuk.com>
+ * @copyright 2014 Graham Campbell
+ * @license   <https://github.com/GrahamCampbell/Laravel-Flysystem/blob/master/LICENSE.md> Apache 2.0
  */
 class ConnectionFactory
 {
     /**
      * Establish an adapter connection.
      *
-     * @param  array  $config
+     * @param array $config
+     *
      * @return \League\Flysystem\AdapterInterface
      */
     public function make(array $config)
@@ -41,10 +40,11 @@ class ConnectionFactory
     /**
      * Create a connector instance based on the configuration.
      *
-     * @param  array  $config
-     * @return \GrahamCampbell\Manager\ConnectorInterface
+     * @param array $config
      *
      * @throws \InvalidArgumentException
+     *
+     * @return \GrahamCampbell\Manager\ConnectorInterface
      */
     public function createConnector(array $config)
     {

@@ -22,18 +22,17 @@ use League\Flysystem\Adapter\Local;
 /**
  * This is the local connector class.
  *
- * @package    Laravel-Flysystem
- * @author     Graham Campbell
- * @copyright  Copyright 2014 Graham Campbell
- * @license    https://github.com/GrahamCampbell/Laravel-Flysystem/blob/master/LICENSE.md
- * @link       https://github.com/GrahamCampbell/Laravel-Flysystem
+ * @author    Graham Campbell <graham@mineuk.com>
+ * @copyright 2014 Graham Campbell
+ * @license   <https://github.com/GrahamCampbell/Laravel-Flysystem/blob/master/LICENSE.md> Apache 2.0
  */
 class LocalConnector implements ConnectorInterface
 {
     /**
      * Establish an adapter connection.
      *
-     * @param  array  $config
+     * @param array $config
+     *
      * @return \League\Flysystem\Adapter\Local
      */
     public function connect(array $config)
@@ -45,10 +44,11 @@ class LocalConnector implements ConnectorInterface
     /**
      * Get the configuration.
      *
-     * @param  array  $config
-     * @return array
+     * @param array $config
      *
      * @throws \InvalidArgumentException
+     *
+     * @return string[]
      */
     protected function getConfig(array $config)
     {
@@ -62,7 +62,8 @@ class LocalConnector implements ConnectorInterface
     /**
      * Get the local adapter.
      *
-     * @param  array  $config
+     * @param array $config
+     *
      * @return \League\Flysystem\Adapter\Local
      */
     protected function getAdapter(array $config)

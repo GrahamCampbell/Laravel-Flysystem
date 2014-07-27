@@ -22,18 +22,17 @@ use League\Flysystem\Adapter\Zip;
 /**
  * This is the zip connector class.
  *
- * @package    Laravel-Flysystem
- * @author     Graham Campbell
- * @copyright  Copyright 2014 Graham Campbell
- * @license    https://github.com/GrahamCampbell/Laravel-Flysystem/blob/master/LICENSE.md
- * @link       https://github.com/GrahamCampbell/Laravel-Flysystem
+ * @author    Graham Campbell <graham@mineuk.com>
+ * @copyright 2014 Graham Campbell
+ * @license   <https://github.com/GrahamCampbell/Laravel-Flysystem/blob/master/LICENSE.md> Apache 2.0
  */
 class ZipConnector implements ConnectorInterface
 {
     /**
      * Establish an adapter connection.
      *
-     * @param  array  $config
+     * @param array $config
+     *
      * @return \League\Flysystem\Adapter\Zip
      */
     public function connect(array $config)
@@ -45,10 +44,11 @@ class ZipConnector implements ConnectorInterface
     /**
      * Get the configuration.
      *
-     * @param  array  $config
-     * @return array
+     * @param array $config
      *
      * @throws \InvalidArgumentException
+     *
+     * @return string[]
      */
     protected function getConfig(array $config)
     {
@@ -62,7 +62,8 @@ class ZipConnector implements ConnectorInterface
     /**
      * Get the zip adapter.
      *
-     * @param  array  $config
+     * @param array $config
+     *
      * @return \League\Flysystem\Adapter\Zip
      */
     protected function getAdapter(array $config)

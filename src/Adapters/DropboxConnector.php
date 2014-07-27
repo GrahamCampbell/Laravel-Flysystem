@@ -23,18 +23,17 @@ use League\Flysystem\Adapter\Dropbox;
 /**
  * This is the dropbox connector class.
  *
- * @package    Laravel-Flysystem
- * @author     Graham Campbell
- * @copyright  Copyright 2014 Graham Campbell
- * @license    https://github.com/GrahamCampbell/Laravel-Flysystem/blob/master/LICENSE.md
- * @link       https://github.com/GrahamCampbell/Laravel-Flysystem
+ * @author    Graham Campbell <graham@mineuk.com>
+ * @copyright 2014 Graham Campbell
+ * @license   <https://github.com/GrahamCampbell/Laravel-Flysystem/blob/master/LICENSE.md> Apache 2.0
  */
 class DropboxConnector implements ConnectorInterface
 {
     /**
      * Establish an adapter connection.
      *
-     * @param  array  $config
+     * @param array $config
+     *
      * @return \League\Flysystem\Adapter\Dropbox
      */
     public function connect(array $config)
@@ -48,10 +47,11 @@ class DropboxConnector implements ConnectorInterface
     /**
      * Get the authentication data.
      *
-     * @param  array  $config
-     * @return array
+     * @param array $config
      *
      * @throws \InvalidArgumentException
+     *
+     * @return string[]
      */
     protected function getAuth(array $config)
     {
@@ -65,7 +65,8 @@ class DropboxConnector implements ConnectorInterface
     /**
      * Get the dropbox client.
      *
-     * @param  array  $auth
+     * @param array $auth
+     *
      * @return \Dropbox\Client
      */
     protected function getClient(array $auth)
@@ -76,8 +77,9 @@ class DropboxConnector implements ConnectorInterface
     /**
      * Get the configuration.
      *
-     * @param  array  $config
-     * @return array
+     * @param array $config
+     *
+     * @return string[]
      */
     protected function getConfig(array $config)
     {
@@ -91,8 +93,9 @@ class DropboxConnector implements ConnectorInterface
     /**
      * Get the dropbox adapter.
      *
-     * @param  \Dropbox\Client  $client
-     * @param  array  $config
+     * @param \Dropbox\Client $client
+     * @param array           $config
+     *
      * @return \League\Flysystem\Adapter\Dropbox
      */
     protected function getAdapter(Client $client, array $config)

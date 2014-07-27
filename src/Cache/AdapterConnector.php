@@ -24,25 +24,24 @@ use League\Flysystem\Cache\Adapter;
 /**
  * This is the adapter connector class.
  *
- * @package    Laravel-Flysystem
- * @author     Graham Campbell
- * @copyright  Copyright 2014 Graham Campbell
- * @license    https://github.com/GrahamCampbell/Laravel-Flysystem/blob/master/LICENSE.md
- * @link       https://github.com/GrahamCampbell/Laravel-Flysystem
+ * @author    Graham Campbell <graham@mineuk.com>
+ * @copyright 2014 Graham Campbell
+ * @license   <https://github.com/GrahamCampbell/Laravel-Flysystem/blob/master/LICENSE.md> Apache 2.0
  */
 class AdapterConnector implements ConnectorInterface
 {
     /**
      * The flysysten manager instance.
      *
-     * @var \GrahamCampbell\Flysystem\FlysystemManager
+     * @type \GrahamCampbell\Flysystem\FlysystemManager
      */
     protected $manager;
 
     /**
      * Create a new connection factory instance.
      *
-     * @param  \GrahamCampbell\Flysystem\FlysystemManager  $manager
+     * @param \GrahamCampbell\Flysystem\FlysystemManager $manager
+     *
      * @return void
      */
     public function __construct(FlysystemManager $manager)
@@ -53,7 +52,8 @@ class AdapterConnector implements ConnectorInterface
     /**
      * Establish a cache connection.
      *
-     * @param  array  $config
+     * @param array $config
+     *
      * @return \League\Flysystem\Cache\Adapter
      */
     public function connect(array $config)
@@ -66,10 +66,11 @@ class AdapterConnector implements ConnectorInterface
     /**
      * Get the configuration.
      *
-     * @param  array  $config
-     * @return array
+     * @param array $config
      *
      * @throws \InvalidArgumentException
+     *
+     * @return string[]
      */
     protected function getConfig(array $config)
     {
@@ -83,7 +84,8 @@ class AdapterConnector implements ConnectorInterface
     /**
      * Get the cache client.
      *
-     * @param  array  $config
+     * @param array $config
+     *
      * @return \League\Flysystem\AdapterInterface
      */
     protected function getClient(array $config)
@@ -96,8 +98,9 @@ class AdapterConnector implements ConnectorInterface
     /**
      * Get the adapter cache adapter.
      *
-     * @param  \League\Flysystem\AdapterInterface  $client
-     * @param  array  $config
+     * @param \League\Flysystem\AdapterInterface $client
+     * @param array                              $config
+     *
      * @return \League\Flysystem\Cache\Adapter
      */
     protected function getAdapter(AdapterInterface $client, array $config)

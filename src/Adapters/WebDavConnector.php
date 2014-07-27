@@ -23,18 +23,17 @@ use Sabre\DAV\Client;
 /**
  * This is the webdav connector class.
  *
- * @package    Laravel-Flysystem
- * @author     Graham Campbell
- * @copyright  Copyright 2014 Graham Campbell
- * @license    https://github.com/GrahamCampbell/Laravel-Flysystem/blob/master/LICENSE.md
- * @link       https://github.com/GrahamCampbell/Laravel-Flysystem
+ * @author    Graham Campbell <graham@mineuk.com>
+ * @copyright 2014 Graham Campbell
+ * @license   <https://github.com/GrahamCampbell/Laravel-Flysystem/blob/master/LICENSE.md> Apache 2.0
  */
 class WebDavConnector implements ConnectorInterface
 {
     /**
      * Establish an adapter connection.
      *
-     * @param  array  $config
+     * @param array $config
+     *
      * @return \League\Flysystem\Adapter\WebDav
      */
     public function connect(array $config)
@@ -46,7 +45,8 @@ class WebDavConnector implements ConnectorInterface
     /**
      * Get the webdav client.
      *
-     * @param  array  $config
+     * @param array $config
+     *
      * @return \Sabre\DAV\Client
      */
     protected function getClient(array $config)
@@ -57,7 +57,8 @@ class WebDavConnector implements ConnectorInterface
     /**
      * Get the webdav adapter.
      *
-     * @param  \Sabre\DAV\Client  $client
+     * @param \Sabre\DAV\Client $client
+     *
      * @return \League\Flysystem\Adapter\WebDav
      */
     protected function getAdapter(Client $client)

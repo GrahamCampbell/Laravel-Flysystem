@@ -24,11 +24,9 @@ use OpenCloud\OpenStack;
 /**
  * This is the rackspace connector class.
  *
- * @package    Laravel-Flysystem
- * @author     Graham Campbell
- * @copyright  Copyright 2014 Graham Campbell
- * @license    https://github.com/GrahamCampbell/Laravel-Flysystem/blob/master/LICENSE.md
- * @link       https://github.com/GrahamCampbell/Laravel-Flysystem
+ * @author    Graham Campbell <graham@mineuk.com>
+ * @copyright 2014 Graham Campbell
+ * @license   <https://github.com/GrahamCampbell/Laravel-Flysystem/blob/master/LICENSE.md> Apache 2.0
  */
 class RackspaceConnector implements ConnectorInterface
 {
@@ -37,7 +35,8 @@ class RackspaceConnector implements ConnectorInterface
      *
      * @codeCoverageIgnore
      *
-     * @param  array  $config
+     * @param array $config
+     *
      * @return \League\Flysystem\Adapter\Rackspace
      */
     public function connect(array $config)
@@ -50,10 +49,11 @@ class RackspaceConnector implements ConnectorInterface
     /**
      * Get the authentication data.
      *
-     * @param  array  $config
-     * @return array
+     * @param array $config
      *
      * @throws \InvalidArgumentException
+     *
+     * @return string[]
      */
     protected function getAuth(array $config)
     {
@@ -71,7 +71,8 @@ class RackspaceConnector implements ConnectorInterface
     /**
      * Get the rackspace client.
      *
-     * @param  array  $auth
+     * @param array $auth
+     *
      * @return \OpenCloud\ObjectStore\Resource\Container
      */
     protected function getClient(array $auth)
@@ -89,7 +90,8 @@ class RackspaceConnector implements ConnectorInterface
      *
      * @codeCoverageIgnore
      *
-     * @param  \OpenCloud\ObjectStore\Resource\Container  $client
+     * @param \OpenCloud\ObjectStore\Resource\Container $client
+     *
      * @return \League\Flysystem\Adapter\Rackspace
      */
     protected function getAdapter(Container $client)

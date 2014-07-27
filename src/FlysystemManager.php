@@ -23,26 +23,25 @@ use Illuminate\Config\Repository;
 /**
  * This is the flysystem manager class.
  *
- * @package    Laravel-Flysystem
- * @author     Graham Campbell
- * @copyright  Copyright 2014 Graham Campbell
- * @license    https://github.com/GrahamCampbell/Laravel-Flysystem/blob/master/LICENSE.md
- * @link       https://github.com/GrahamCampbell/Laravel-Flysystem
+ * @author    Graham Campbell <graham@mineuk.com>
+ * @copyright 2014 Graham Campbell
+ * @license   <https://github.com/GrahamCampbell/Laravel-Flysystem/blob/master/LICENSE.md> Apache 2.0
  */
 class FlysystemManager extends AbstractManager
 {
     /**
      * The factory instance.
      *
-     * @var \GrahamCampbell\Flysystem\Factories\FlysystemFactory
+     * @type \GrahamCampbell\Flysystem\Factories\FlysystemFactory
      */
     protected $factory;
 
     /**
      * Create a new flysystem manager instance.
      *
-     * @param  \Illuminate\Config\Repository   $config
-     * @param  \GrahamCampbell\Flysystem\Factories\FlysystemFactory  $factory
+     * @param \Illuminate\Config\Repository                        $config
+     * @param \GrahamCampbell\Flysystem\Factories\FlysystemFactory $factory
+     *
      * @return void
      */
     public function __construct(Repository $config, FlysystemFactory $factory)
@@ -54,7 +53,8 @@ class FlysystemManager extends AbstractManager
     /**
      * Create the connection instance.
      *
-     * @param  array  $config
+     * @param array $config
+     *
      * @return \League\Flysystem\Filesystem
      */
     protected function createConnection(array $config)
@@ -75,10 +75,11 @@ class FlysystemManager extends AbstractManager
     /**
      * Get the configuration for a connection.
      *
-     * @param  string  $name
-     * @return array
+     * @param string $name
      *
      * @throws \InvalidArgumentException
+     *
+     * @return array
      */
     public function getConnectionConfig($name)
     {
@@ -102,10 +103,11 @@ class FlysystemManager extends AbstractManager
     /**
      * Get the cache configuration.
      *
-     * @param  string  $name
-     * @return array
+     * @param string $name
      *
      * @throws \InvalidArgumentException
+     *
+     * @return array
      */
     protected function getCacheConfig($name)
     {

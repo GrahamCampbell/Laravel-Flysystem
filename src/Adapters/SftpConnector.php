@@ -22,18 +22,17 @@ use League\Flysystem\Adapter\Sftp;
 /**
  * This is the sftp connector class.
  *
- * @package    Laravel-Flysystem
- * @author     Graham Campbell
- * @copyright  Copyright 2014 Graham Campbell
- * @license    https://github.com/GrahamCampbell/Laravel-Flysystem/blob/master/LICENSE.md
- * @link       https://github.com/GrahamCampbell/Laravel-Flysystem
+ * @author    Graham Campbell <graham@mineuk.com>
+ * @copyright 2014 Graham Campbell
+ * @license   <https://github.com/GrahamCampbell/Laravel-Flysystem/blob/master/LICENSE.md> Apache 2.0
  */
 class SftpConnector implements ConnectorInterface
 {
     /**
      * Establish an adapter connection.
      *
-     * @param  array  $config
+     * @param array $config
+     *
      * @return \League\Flysystem\Adapter\Sftp
      */
     public function connect(array $config)
@@ -44,7 +43,8 @@ class SftpConnector implements ConnectorInterface
     /**
      * Get the sftp adapter.
      *
-     * @param  array  $config
+     * @param array $config
+     *
      * @return \League\Flysystem\Adapter\Sftp
      */
     protected function getAdapter(array $config)

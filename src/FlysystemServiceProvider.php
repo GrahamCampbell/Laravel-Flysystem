@@ -21,18 +21,16 @@ use Illuminate\Support\ServiceProvider;
 /**
  * This is the flysystem service provider class.
  *
- * @package    Laravel-Flysystem
- * @author     Graham Campbell
- * @copyright  Copyright 2014 Graham Campbell
- * @license    https://github.com/GrahamCampbell/Laravel-Flysystem/blob/master/LICENSE.md
- * @link       https://github.com/GrahamCampbell/Laravel-Flysystem
+ * @author    Graham Campbell <graham@mineuk.com>
+ * @copyright 2014 Graham Campbell
+ * @license   <https://github.com/GrahamCampbell/Laravel-Flysystem/blob/master/LICENSE.md> Apache 2.0
  */
 class FlysystemServiceProvider extends ServiceProvider
 {
     /**
      * Indicates if loading of the provider is deferred.
      *
-     * @var bool
+     * @type bool
      */
     protected $defer = false;
 
