@@ -40,6 +40,7 @@ class FlysystemFactoryTest extends AbstractTestCase
         $return = $factory->make($config, $manager);
 
         $this->assertInstanceOf('League\Flysystem\FilesystemInterface', $return);
+        $this->assertInstanceOf('League\Flysystem\Filesystem', $return);
     }
 
     public function testMakeCache()
@@ -53,6 +54,21 @@ class FlysystemFactoryTest extends AbstractTestCase
         $return = $factory->make($config, $manager);
 
         $this->assertInstanceOf('League\Flysystem\FilesystemInterface', $return);
+        $this->assertInstanceOf('League\Flysystem\Filesystem', $return);
+    }
+
+    public function testMakeEventable()
+    {
+        $config = array('driver' => 'local', 'path' => __DIR__, 'name' => 'local', 'eventable' => true);
+
+        $manager = Mockery::mock('GrahamCampbell\Flysystem\FlysystemManager');
+
+        $factory = $this->getMockedFactory($config, $manager);
+
+        $return = $factory->make($config, $manager);
+
+        $this->assertInstanceOf('League\Flysystem\FilesystemInterface', $return);
+        $this->assertInstanceOf('League\Flysystem\EventableFilesystem', $return);
     }
 
     public function testAdapter()

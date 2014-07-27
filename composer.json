@@ -18,12 +18,14 @@
     },
     "require-dev": {
         "graham-campbell/testbench": "~1.0",
+        "league/event": "~0.2.0",
         "aws/aws-sdk-php": "~2.4",
         "dropbox/dropbox-sdk": "~1.1",
         "rackspace/php-opencloud": "~1.8",
         "sabre/dav": "~2.0.2"
     },
     "suggest": {
+        "league/event": "Enables usage of the eventable flysystem.",
         "aws/aws-sdk-php": "Enables the aws connector.",
         "rackspace/php-opencloud": "Enables the rackspace connector.",
         "dropbox/dropbox-sdk": "Enables the dropbox connector.",

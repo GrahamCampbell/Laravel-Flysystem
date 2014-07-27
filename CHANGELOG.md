@@ -6,6 +6,7 @@ CHANGE LOG
 
 * Stricter config validation
 * Minor tweaks and fixes
+* Support eventable flysystem
 
 
 ## V0.5 Alpha (20/07/2014)
