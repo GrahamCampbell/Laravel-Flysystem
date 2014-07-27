@@ -96,7 +96,7 @@ class IlluminateCache extends AbstractCache
     /**
      * Get the cache store instance.
      *
-     * @return \Illuminate\Cache\CacheStore
+     * @return \Illuminate\Cache\StoreInterface
      */
     public function getClient()
     {
