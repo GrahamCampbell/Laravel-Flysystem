@@ -114,7 +114,7 @@ class FlysystemFactory
     /**
      * Get the adapter factory instance.
      *
-     * @return \GrahamCampbell\Flysystem\Adapters\AdapterFactory
+     * @return \GrahamCampbell\Flysystem\Adapters\ConnectionFactory
      */
     public function getAdapter()
     {

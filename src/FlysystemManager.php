@@ -55,7 +55,7 @@ class FlysystemManager extends AbstractManager
      *
      * @param array $config
      *
-     * @return \League\Flysystem\Filesystem
+     * @return \League\Flysystem\FilesystemInterface
      */
     protected function createConnection(array $config)
     {
