@@ -68,7 +68,7 @@ class IlluminateCache extends AbstractCache
     /**
      * Load the cache
      *
-     * @return null
+     * @return void
      */
     public function load()
     {
@@ -80,7 +80,7 @@ class IlluminateCache extends AbstractCache
     /**
      * Store the cache
      *
-     * @return null
+     * @return void
      */
     public function save()
     {
