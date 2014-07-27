@@ -31,7 +31,7 @@ class FtpConnector implements ConnectorInterface
     /**
      * Establish an adapter connection.
      *
-     * @param array $config
+     * @param string[] $config
      *
      * @return \League\Flysystem\Adapter\Ftp
      */
@@ -43,7 +43,7 @@ class FtpConnector implements ConnectorInterface
     /**
      * Get the ftp adapter.
      *
-     * @param array $config
+     * @param string[] $config
      *
      * @return \League\Flysystem\Adapter\Ftp
      */

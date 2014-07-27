@@ -35,7 +35,7 @@ class RackspaceConnector implements ConnectorInterface
      *
      * @codeCoverageIgnore
      *
-     * @param array $config
+     * @param string[] $config
      *
      * @return \League\Flysystem\Adapter\Rackspace
      */
@@ -49,7 +49,7 @@ class RackspaceConnector implements ConnectorInterface
     /**
      * Get the authentication data.
      *
-     * @param array $config
+     * @param string[] $config
      *
      * @throws \InvalidArgumentException
      *
@@ -71,7 +71,7 @@ class RackspaceConnector implements ConnectorInterface
     /**
      * Get the rackspace client.
      *
-     * @param array $auth
+     * @param string[] $auth
      *
      * @return \OpenCloud\ObjectStore\Resource\Container
      */

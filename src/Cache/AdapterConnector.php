@@ -52,7 +52,7 @@ class AdapterConnector implements ConnectorInterface
     /**
      * Establish a cache connection.
      *
-     * @param array $config
+     * @param string[] $config
      *
      * @return \League\Flysystem\Cache\Adapter
      */
@@ -66,7 +66,7 @@ class AdapterConnector implements ConnectorInterface
     /**
      * Get the configuration.
      *
-     * @param array $config
+     * @param string[] $config
      *
      * @throws \InvalidArgumentException
      *
@@ -84,7 +84,7 @@ class AdapterConnector implements ConnectorInterface
     /**
      * Get the cache client.
      *
-     * @param array $config
+     * @param string[] $config
      *
      * @return \League\Flysystem\AdapterInterface
      */
@@ -99,7 +99,7 @@ class AdapterConnector implements ConnectorInterface
      * Get the adapter cache adapter.
      *
      * @param \League\Flysystem\AdapterInterface $client
-     * @param array                              $config
+     * @param string[]                           $config
      *
      * @return \League\Flysystem\Cache\Adapter
      */

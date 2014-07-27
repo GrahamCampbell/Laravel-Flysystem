@@ -31,7 +31,7 @@ class SftpConnector implements ConnectorInterface
     /**
      * Establish an adapter connection.
      *
-     * @param array $config
+     * @param string[] $config
      *
      * @return \League\Flysystem\Adapter\Sftp
      */
@@ -43,7 +43,7 @@ class SftpConnector implements ConnectorInterface
     /**
      * Get the sftp adapter.
      *
-     * @param array $config
+     * @param string[] $config
      *
      * @return \League\Flysystem\Adapter\Sftp
      */

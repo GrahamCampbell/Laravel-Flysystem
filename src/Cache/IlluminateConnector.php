@@ -51,7 +51,7 @@ class IlluminateConnector implements ConnectorInterface
     /**
      * Establish a cache connection.
      *
-     * @param array $config
+     * @param string[] $config
      *
      * @return \GrahamCampbell\Flysystem\Cache\IlluminateCache
      */
@@ -64,7 +64,7 @@ class IlluminateConnector implements ConnectorInterface
     /**
      * Get the cache client.
      *
-     * @param array $config
+     * @param string[] $config
      *
      * @return \Illuminate\Cache\StoreInterface
      */
@@ -78,7 +78,7 @@ class IlluminateConnector implements ConnectorInterface
      * Get the illuminate cache adapter.
      *
      * @param \Illuminate\Cache\StoreInterface $client
-     * @param array                            $config
+     * @param string[]                         $config
      *
      * @return \GrahamCampbell\Flysystem\Cache\IlluminateCache
      */

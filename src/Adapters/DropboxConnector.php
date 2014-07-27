@@ -32,7 +32,7 @@ class DropboxConnector implements ConnectorInterface
     /**
      * Establish an adapter connection.
      *
-     * @param array $config
+     * @param string[] $config
      *
      * @return \League\Flysystem\Adapter\Dropbox
      */
@@ -47,7 +47,7 @@ class DropboxConnector implements ConnectorInterface
     /**
      * Get the authentication data.
      *
-     * @param array $config
+     * @param string[] $config
      *
      * @throws \InvalidArgumentException
      *
@@ -65,7 +65,7 @@ class DropboxConnector implements ConnectorInterface
     /**
      * Get the dropbox client.
      *
-     * @param array $auth
+     * @param string[] $auth
      *
      * @return \Dropbox\Client
      */
@@ -77,7 +77,7 @@ class DropboxConnector implements ConnectorInterface
     /**
      * Get the configuration.
      *
-     * @param array $config
+     * @param string[] $config
      *
      * @return string[]
      */
@@ -94,7 +94,7 @@ class DropboxConnector implements ConnectorInterface
      * Get the dropbox adapter.
      *
      * @param \Dropbox\Client $client
-     * @param array           $config
+     * @param string[]        $config
      *
      * @return \League\Flysystem\Adapter\Dropbox
      */

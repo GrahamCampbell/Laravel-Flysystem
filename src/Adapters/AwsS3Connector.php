@@ -32,7 +32,7 @@ class AwsS3Connector implements ConnectorInterface
     /**
      * Establish an adapter connection.
      *
-     * @param array $config
+     * @param string[] $config
      *
      * @return \League\Flysystem\Adapter\AwsS3
      */
@@ -47,7 +47,7 @@ class AwsS3Connector implements ConnectorInterface
     /**
      * Get the authentication data.
      *
-     * @param array $config
+     * @param string[] $config
      *
      * @throws \InvalidArgumentException
      *
@@ -69,7 +69,7 @@ class AwsS3Connector implements ConnectorInterface
     /**
      * Get the awss3 client.
      *
-     * @param array $auth
+     * @param string[] $auth
      *
      * @return \Aws\S3\S3Client
      */
@@ -81,7 +81,7 @@ class AwsS3Connector implements ConnectorInterface
     /**
      * Get the configuration.
      *
-     * @param array $config
+     * @param string[] $config
      *
      * @throws \InvalidArgumentException
      *
@@ -104,7 +104,7 @@ class AwsS3Connector implements ConnectorInterface
      * Get the awss3 adapter.
      *
      * @param \Aws\S3\S3Client $client
-     * @param array            $config
+     * @param string[]         $config
      *
      * @return \League\Flysystem\Adapter\AwsS3
      */

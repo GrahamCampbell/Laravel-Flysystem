@@ -31,7 +31,7 @@ class NullConnector implements ConnectorInterface
     /**
      * Establish an adapter connection.
      *
-     * @param array $config
+     * @param string[] $config
      *
      * @return \League\Flysystem\Adapter\NullAdapter
      */

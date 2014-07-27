@@ -32,7 +32,7 @@ class WebDavConnector implements ConnectorInterface
     /**
      * Establish an adapter connection.
      *
-     * @param array $config
+     * @param string[] $config
      *
      * @return \League\Flysystem\Adapter\WebDav
      */
@@ -45,7 +45,7 @@ class WebDavConnector implements ConnectorInterface
     /**
      * Get the webdav client.
      *
-     * @param array $config
+     * @param string[] $config
      *
      * @return \Sabre\DAV\Client
      */

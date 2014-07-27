@@ -31,7 +31,7 @@ class LocalConnector implements ConnectorInterface
     /**
      * Establish an adapter connection.
      *
-     * @param array $config
+     * @param string[] $config
      *
      * @return \League\Flysystem\Adapter\Local
      */
@@ -44,7 +44,7 @@ class LocalConnector implements ConnectorInterface
     /**
      * Get the configuration.
      *
-     * @param array $config
+     * @param string[] $config
      *
      * @throws \InvalidArgumentException
      *
@@ -62,7 +62,7 @@ class LocalConnector implements ConnectorInterface
     /**
      * Get the local adapter.
      *
-     * @param array $config
+     * @param string[] $config
      *
      * @return \League\Flysystem\Adapter\Local
      */
