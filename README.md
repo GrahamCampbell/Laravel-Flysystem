@@ -45,7 +45,9 @@ Laravel Flysystem requires connection configuration.
 
 To get started, first publish the package config file:
 
-    php artisan config:publish graham-campbell/flysystem
+```bash
+$ php artisan config:publish graham-campbell/flysystem
+```
 
 There are three config options:
 
