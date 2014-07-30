@@ -29,6 +29,11 @@ class ServiceProviderTest extends AbstractTestCase
 {
     use ServiceProviderTestCaseTrait;
 
+    public function testFlysystemFactoryIsInjectable()
+    {
+        $this->assertIsInjectable('GrahamCampbell\Flysystem\Factories\FlysystemFactory');
+    }
+
     public function testFlysystemManagerIsInjectable()
     {
         $this->assertIsInjectable('GrahamCampbell\Flysystem\FlysystemManager');

@@ -51,21 +51,37 @@ class FlysystemServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        $this->registerFlysystem();
+        $this->registerFactory();
+        $this->registerManager();
     }
 
     /**
-     * Register the flysystem class.
+     * Register the factory class.
      *
      * @return void
      */
-    protected function registerFlysystem()
+    protected function registerFactory()
+    {
+        $this->app->bindShared('flysystem.factory', function ($app) {
+            $adapter = new Adapters\ConnectionFactory();
+            $cache = new Cache\ConnectionFactory($app['cache']);
+
+            return new Factories\FlysystemFactory($adapter, $cache);
+        });
+
+        $this->app->alias('flysystem.factory', 'GrahamCampbell\Flysystem\Factories\FlysystemFactory');
+    }
+
+    /**
+     * Register the manager class.
+     *
+     * @return void
+     */
+    protected function registerManager()
     {
         $this->app->bindShared('flysystem', function ($app) {
             $config = $app['config'];
-            $adapter = new Adapters\ConnectionFactory();
-            $cache = new Cache\ConnectionFactory($app['cache']);
-            $factory = new Factories\FlysystemFactory($adapter, $cache);
+            $factory = $app['flysystem.factory'];
 
             return new FlysystemManager($config, $factory);
         });
@@ -81,7 +97,8 @@ class FlysystemServiceProvider extends ServiceProvider
     public function provides()
     {
         return array(
-            'flysystem'
+            'flysystem',
+            'flysystem.factory'
         );
     }
 }
