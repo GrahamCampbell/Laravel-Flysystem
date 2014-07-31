@@ -19,8 +19,6 @@ namespace GrahamCampbell\Flysystem\Factories;
 use GrahamCampbell\Flysystem\Adapters\ConnectionFactory as AdapterFactory;
 use GrahamCampbell\Flysystem\Cache\ConnectionFactory as CacheFactory;
 use GrahamCampbell\Flysystem\FlysystemManager;
-use League\Flysystem\AdapterInterface;
-use League\Flysystem\CacheInterface;
 use League\Flysystem\EventableFilesystem;
 use League\Flysystem\Filesystem;
 
