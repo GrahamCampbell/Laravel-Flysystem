@@ -31,21 +31,21 @@ class IlluminateCache extends AbstractCache
     /**
      * The cache store instance.
      *
-     * @type \Illuminate\Cache\StoreInterface
+     * @var \Illuminate\Cache\StoreInterface
      */
     protected $client;
 
     /**
      * The cache key.
      *
-     * @type string
+     * @var string
      */
     protected $key;
 
     /**
      * The cache ttl in mins.
      *
-     * @type int
+     * @var int
      */
     protected $ttl;
 

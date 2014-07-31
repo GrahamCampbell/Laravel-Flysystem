@@ -36,14 +36,14 @@ class FlysystemFactory
     /**
      * The adapter factory instance.
      *
-     * @type \GrahamCampbell\Flysystem\Adapters\ConnectionFactory
+     * @var \GrahamCampbell\Flysystem\Adapters\ConnectionFactory
      */
     protected $adapter;
 
     /**
      * The cache factory instance.
      *
-     * @type \GrahamCampbell\Flysystem\Cache\ConnectionFactory
+     * @var \GrahamCampbell\Flysystem\Cache\ConnectionFactory
      */
     protected $cache;
 

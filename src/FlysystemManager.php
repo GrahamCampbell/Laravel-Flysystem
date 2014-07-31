@@ -32,7 +32,7 @@ class FlysystemManager extends AbstractManager
     /**
      * The factory instance.
      *
-     * @type \GrahamCampbell\Flysystem\Factories\FlysystemFactory
+     * @var \GrahamCampbell\Flysystem\Factories\FlysystemFactory
      */
     protected $factory;
 

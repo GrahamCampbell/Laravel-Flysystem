@@ -33,7 +33,7 @@ class AdapterConnector implements ConnectorInterface
     /**
      * The flysysten manager instance.
      *
-     * @type \GrahamCampbell\Flysystem\FlysystemManager
+     * @var \GrahamCampbell\Flysystem\FlysystemManager
      */
     protected $manager;
 

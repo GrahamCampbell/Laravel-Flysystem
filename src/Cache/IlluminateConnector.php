@@ -32,7 +32,7 @@ class IlluminateConnector implements ConnectorInterface
     /**
      * The cache manager instance.
      *
-     * @type \Illuminate\Cache\CacheManager
+     * @var \Illuminate\Cache\CacheManager
      */
     protected $cache;
 
