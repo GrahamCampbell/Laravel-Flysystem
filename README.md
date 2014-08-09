@@ -129,6 +129,7 @@ If you prefer to use dependency injection over facades like me, then you can eas
 
 ```php
 use GrahamCampbell\Flysystem\FlysystemManager;
+use Illuminate\Support\Facades\App; // you probably have this aliased already
 
 class Foo
 {
