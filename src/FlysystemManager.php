@@ -23,6 +23,35 @@ use Illuminate\Config\Repository;
 /**
  * This is the flysystem manager class.
  *
+ * @method bool put(string $path, string $contents, mixed $visibility = null)
+ * @method bool putStream(string $path, resource $resource, mixed $visibility = null)
+ * @method string readAndDelete(string $path)
+ * @method array listPaths(string $directory = '', bool $recursive = false)
+ * @method array listWith(array $keys = array(), string $directory = '', bool $recursive = false)
+ * @method array getWithMetadata(string $path, array $metadata)
+ * @method \League\Flysystem\Handler get(string $path, \League\Flysystem\Handler $handler = null)
+ * @method \League\Flysystem\FilesystemInterface flushCache()
+ * @method \League\Flysystem\FilesystemInterface addPlugin(\League\Flysystem\PluginInterface $plugin)
+ * @method false|array write(string $path, string $contents, mixed $config = null)
+ * @method false|array update(string $path, string $contents, mixed $config = null)
+ * @method false|array writeStream(string $path, resource $resource, mixed $config = null)
+ * @method false|array updateStream(string $path, resource $resource, mixed $config = null)
+ * @method bool rename(string $path, string $newpath)
+ * @method bool copy(string $path, string $newpath)
+ * @method bool delete(string $path)
+ * @method bool deleteDir(string $dirname)
+ * @method bool createDir(string $dirname, array $options = null)
+ * @method bool setVisibility(string $path, string $visibility)
+ * @method bool has(string $path)
+ * @method string|false read(string $path)
+ * @method resource|false readStream(string $path)
+ * @method false|array listContents(string $directory = '', bool $recursive = false)
+ * @method false|array getMetadata(string $path)
+ * @method int|false getSize(string $path)
+ * @method string|false getMimetype(string $path)
+ * @method string|false getTimestamp(string $path)
+ * @method string|false getVisibility(string $path)
+ *
  * @author    Graham Campbell <graham@mineuk.com>
  * @copyright 2014 Graham Campbell
  * @license   <https://github.com/GrahamCampbell/Laravel-Flysystem/blob/master/LICENSE.md> Apache 2.0
