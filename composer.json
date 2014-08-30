@@ -18,7 +18,7 @@
     },
     "require-dev": {
         "graham-campbell/testbench": "~1.0",
-        "league/event": "~0.2.0",
+        "league/event": "~0.3.0",
         "aws/aws-sdk-php": "~2.4",
         "dropbox/dropbox-sdk": "~1.1",
         "rackspace/php-opencloud": "~1.8",
