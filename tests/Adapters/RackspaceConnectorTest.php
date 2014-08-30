@@ -16,7 +16,6 @@
 
 namespace GrahamCampbell\Tests\Flysystem\Adapters;
 
-use Mockery;
 use GrahamCampbell\Flysystem\Adapters\RackspaceConnector;
 use GrahamCampbell\TestBench\AbstractTestCase;
 
