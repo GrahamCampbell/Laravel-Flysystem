@@ -64,7 +64,7 @@ class LocalFlysystemTest extends AbstractTestCase
 
     public function testName()
     {
-        $this->assertEquals('testing', Flysystem::getDefaultConnection());
+        $this->assertSame('testing', Flysystem::getDefaultConnection());
     }
 
     public function testActions()
@@ -75,7 +75,7 @@ class LocalFlysystemTest extends AbstractTestCase
 
         $this->assertTrue(Flysystem::has('foo'));
 
-        $this->assertEquals('bar', Flysystem::read('foo'));
+        $this->assertSame('bar', Flysystem::read('foo'));
 
         Flysystem::delete('foo');
 

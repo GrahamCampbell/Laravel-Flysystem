@@ -35,7 +35,7 @@ class FlysystemManagerTest extends AbstractTestBenchTestCase
 
         $manager = $this->getConfigManager($config);
 
-        $this->assertEquals($manager->getConnections(), array());
+        $this->assertSame(array(), $manager->getConnections());
 
         $return = $manager->connection('local');
 
@@ -53,7 +53,7 @@ class FlysystemManagerTest extends AbstractTestBenchTestCase
         $manager->getConfig()->shouldReceive('get')->once()
             ->with('graham-campbell/flysystem::default')->andReturn('local');
 
-        $this->assertEquals($manager->getConnections(), array());
+        $this->assertSame(array(), $manager->getConnections());
 
         $return = $manager->connection();
 
@@ -70,7 +70,7 @@ class FlysystemManagerTest extends AbstractTestBenchTestCase
 
         $manager = $this->getConfigManagerCache($config, $cache);
 
-        $this->assertEquals($manager->getConnections(), array());
+        $this->assertSame(array(), $manager->getConnections());
 
         $return = $manager->connection('local');
 
@@ -91,7 +91,7 @@ class FlysystemManagerTest extends AbstractTestBenchTestCase
         $manager->getConfig()->shouldReceive('get')->once()
             ->with('graham-campbell/flysystem::connections')->andReturn(array('local' => $config));
 
-        $this->assertEquals($manager->getConnections(), array());
+        $this->assertSame(array(), $manager->getConnections());
 
         $return = null;
 
@@ -115,7 +115,7 @@ class FlysystemManagerTest extends AbstractTestBenchTestCase
         $manager->getConfig()->shouldReceive('get')->once()
             ->with('graham-campbell/flysystem::cache')->andReturn(array('error' => $cache));
 
-        $this->assertEquals($manager->getConnections(), array());
+        $this->assertSame(array(), $manager->getConnections());
 
         $return = null;
 
