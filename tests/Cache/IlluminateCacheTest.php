@@ -36,7 +36,7 @@ class IlluminateCacheTest extends AbstractTestCase
 
         $cache->shouldReceive('setFromStorage')->once()->with('herro');
 
-        $cache->load();
+        $this->assertNull($cache->load());
     }
 
     public function testloadEmpty()
@@ -45,7 +45,7 @@ class IlluminateCacheTest extends AbstractTestCase
 
         $cache->getClient()->shouldReceive('get')->once()->with('foobarkey');
 
-        $cache->load();
+        $this->assertNull($cache->load());
     }
 
     public function testSave()
@@ -56,7 +56,7 @@ class IlluminateCacheTest extends AbstractTestCase
 
         $cache->getClient()->shouldReceive('put')->once()->with('foobarkey', 'herro', 2);
 
-        $cache->save();
+        $this->assertNull($cache->save());
     }
 
     public function testSaveForever()
@@ -67,7 +67,7 @@ class IlluminateCacheTest extends AbstractTestCase
 
         $cache->getClient()->shouldReceive('forever')->once()->with('foobarkey', 'herro');
 
-        $cache->save();
+        $this->assertNull($cache->save());
     }
 
     protected function getIlluminateCache($key, $ttl = null)
