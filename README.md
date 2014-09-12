@@ -22,7 +22,7 @@ To get the latest version of Laravel Flysystem, simply require `"graham-campbell
 
 There are some additional dependencies you will need to install for some of the features:
 
-* The eventable flysystem requires `"league/event": "~0.3.0"` in your `composer.json`.
+* The eventable flysystem requires `"league/event": "~1.0"` in your `composer.json`.
 * The awss3 connector requires `"aws/aws-sdk-php": "~2.4"` in your `composer.json`.
 * The dropbox connector requires `"dropbox/dropbox-sdk": "~1.1"` in your `composer.json`.
 * The rackspace connector requires `"rackspace/php-opencloud": "~1.8"` in your `composer.json`.
