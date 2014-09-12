@@ -19,7 +19,7 @@ CHANGE LOG
 
 ## V0.5 Alpha (20/07/2014)
 
-* Upgrade to Laravel 4.1+
+* Upgrade to Laravel 4.1/4.2
 * Refactoring
 * Added di aliases
 * Null adapter support
