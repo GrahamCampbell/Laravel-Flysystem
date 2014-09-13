@@ -42,20 +42,6 @@ return array(
 
     'connections' => array(
 
-        'local' => array(
-            'driver'    => 'local',
-            'path'      => storage_path('files'),
-            // 'eventable' => true,
-            // 'cache'     => 'foo'
-        ),
-
-        'zip' => array(
-            'driver'    => 'zip',
-            'path'      => storage_path('files.zip'),
-            // 'eventable' => true,
-            // 'cache'     => 'foo'
-        ),
-
         'awss3' => array(
             'driver'    => 'awss3',
             'key'       => 'your-key',
@@ -65,6 +51,17 @@ return array(
             // 'prefix'    => 'your-prefix',
             // 'eventable' => true,
             // 'cache'     => 'foo'
+        ),
+
+        'copy' => array(
+            'driver'          => 'copy',
+            'consumer-key'    => 'your-consumer-key',
+            'consumer-secret' => 'your-consumer-secret',
+            'access-token'    => 'your-access-token',
+            'token-secret'    => 'your-token-secret',
+            // 'prefix'          => 'your-prefix',
+            // 'eventable'       => true,
+            // 'cache'           => 'foo'
         ),
 
         'dropbox' => array(
@@ -86,6 +83,13 @@ return array(
             // 'passive'   => true,
             // 'ssl'       => true,
             // 'timeout'   => 20,
+            // 'eventable' => true,
+            // 'cache'     => 'foo'
+        ),
+
+        'local' => array(
+            'driver'    => 'local',
+            'path'      => storage_path('files'),
             // 'eventable' => true,
             // 'cache'     => 'foo'
         ),
@@ -124,6 +128,13 @@ return array(
             'baseUri'   => 'http://example.org/dav/',
             'userName'  => 'your-username',
             'password'  => 'your-password',
+            // 'eventable' => true,
+            // 'cache'     => 'foo'
+        ),
+
+        'zip' => array(
+            'driver'    => 'zip',
+            'path'      => storage_path('files.zip'),
             // 'eventable' => true,
             // 'cache'     => 'foo'
         )

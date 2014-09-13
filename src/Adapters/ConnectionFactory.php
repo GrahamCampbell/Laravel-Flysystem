@@ -55,6 +55,8 @@ class ConnectionFactory
         switch ($config['driver']) {
             case 'awss3':
                 return new AwsS3Connector();
+            case 'copy':
+                return new CopyConnector();
             case 'dropbox':
                 return new DropboxConnector();
             case 'ftp':
