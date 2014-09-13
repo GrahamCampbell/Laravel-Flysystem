@@ -2,6 +2,13 @@ CHANGE LOG
 ==========
 
 
+## V0.6 Alpha (Upcoming)
+
+* Improved the test suite
+* Copy adapter support
+* Other minor fixes
+
+
 ## V0.5.2 Alpha (10/08/2014)
 
 * Expose the factory class in the ioc
