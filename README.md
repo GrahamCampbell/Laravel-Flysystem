@@ -18,12 +18,13 @@ Laravel Flysystem was created by, and is maintained by [Graham Campbell](https:/
 
 [PHP](https://php.net) 5.4+ or [HHVM](http://hhvm.com) 3.2+, and [Composer](https://getcomposer.org) are required.
 
-To get the latest version of Laravel Flysystem, simply require `"graham-campbell/flysystem": "~0.5"` in your `composer.json` file.
+To get the latest version of Laravel Flysystem, simply require `"graham-campbell/flysystem": "~0.6"` in your `composer.json` file.
 
 There are some additional dependencies you will need to install for some of the features:
 
 * The eventable flysystem requires `"league/event": "~1.0"` in your `composer.json`.
 * The awss3 connector requires `"aws/aws-sdk-php": "~2.4"` in your `composer.json`.
+* The copy connector requires `"barracuda/copy": "~1.1"` in your `composer.json`.
 * The dropbox connector requires `"dropbox/dropbox-sdk": "~1.1"` in your `composer.json`.
 * The rackspace connector requires `"rackspace/php-opencloud": "~1.8"` in your `composer.json`.
 * The webdav connector requires `"sabre/dav": "~2.0.2"` in your `composer.json`.

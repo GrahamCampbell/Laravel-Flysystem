@@ -14,12 +14,13 @@
         "illuminate/cache": "~4.1",
         "illuminate/support": "~4.1",
         "graham-campbell/manager": "~1.0",
-        "league/flysystem": "0.5.*"
+        "league/flysystem": "~0.5.6"
     },
     "require-dev": {
         "graham-campbell/testbench": "~1.0",
         "league/event": "~1.0",
         "aws/aws-sdk-php": "~2.4",
+        "barracuda/copy": "~1.1",
         "dropbox/dropbox-sdk": "~1.1",
         "rackspace/php-opencloud": "~1.8",
         "sabre/dav": "~2.0.2"
@@ -27,6 +28,7 @@
     "suggest": {
         "league/event": "Enables usage of the eventable flysystem.",
         "aws/aws-sdk-php": "Enables the aws connector.",
+        "barracuda/copy": "Enables the copy connector.",
         "rackspace/php-opencloud": "Enables the rackspace connector.",
         "dropbox/dropbox-sdk": "Enables the dropbox connector.",
         "sabre/dav": "Enables the webdav connector."
@@ -43,7 +45,7 @@
     },
     "extra": {
         "branch-alias": {
-            "dev-master": "0.5-dev"
+            "dev-master": "0.6-dev"
         }
     },
     "minimum-stability": "dev",
