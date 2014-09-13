@@ -38,85 +38,32 @@ class ConnectionFactoryTest extends AbstractTestCase
         $this->assertInstanceOf('League\Flysystem\AdapterInterface', $return);
     }
 
-    public function testCreateAwsS3Connector()
+    public function createDataProvider()
     {
-        $factory = $this->getConnectionFactory();
-
-        $return = $factory->createConnector(array('driver' => 'awss3'));
-
-        $this->assertInstanceOf('GrahamCampbell\Flysystem\Adapters\AwsS3Connector', $return);
+        return array(
+            array('awss3', 'AwsS3Connector'),
+            array('copy', 'CopyConnector'),
+            array('dropbox', 'DropboxConnector'),
+            array('ftp', 'FtpConnector'),
+            array('local', 'LocalConnector'),
+            array('null', 'NullConnector'),
+            array('rackspace', 'RackspaceConnector'),
+            array('sftp', 'SftpConnector'),
+            array('webdav', 'WebDavConnector'),
+            array('zip', 'ZipConnector')
+        );
     }
 
-    public function testCreateDropboxConnector()
+    /**
+     * @dataProvider createDataProvider
+     */
+    public function testCreateWorkingDriver($driver, $class)
     {
         $factory = $this->getConnectionFactory();
 
-        $return = $factory->createConnector(array('driver' => 'dropbox'));
+        $return = $factory->createConnector(array('driver' => $driver));
 
-        $this->assertInstanceOf('GrahamCampbell\Flysystem\Adapters\DropboxConnector', $return);
-    }
-
-    public function testCreateFtpConnector()
-    {
-        $factory = $this->getConnectionFactory();
-
-        $return = $factory->createConnector(array('driver' => 'ftp'));
-
-        $this->assertInstanceOf('GrahamCampbell\Flysystem\Adapters\FTPConnector', $return);
-    }
-
-    public function testCreateLocalConnector()
-    {
-        $factory = $this->getConnectionFactory();
-
-        $return = $factory->createConnector(array('driver' => 'local'));
-
-        $this->assertInstanceOf('GrahamCampbell\Flysystem\Adapters\LocalConnector', $return);
-    }
-
-    public function testCreateNullConnector()
-    {
-        $factory = $this->getConnectionFactory();
-
-        $return = $factory->createConnector(array('driver' => 'null'));
-
-        $this->assertInstanceOf('GrahamCampbell\Flysystem\Adapters\NullConnector', $return);
-    }
-
-    public function testCreateRackspaceConnector()
-    {
-        $factory = $this->getConnectionFactory();
-
-        $return = $factory->createConnector(array('driver' => 'rackspace'));
-
-        $this->assertInstanceOf('GrahamCampbell\Flysystem\Adapters\RackspaceConnector', $return);
-    }
-
-    public function testCreateSftpConnector()
-    {
-        $factory = $this->getConnectionFactory();
-
-        $return = $factory->createConnector(array('driver' => 'sftp'));
-
-        $this->assertInstanceOf('GrahamCampbell\Flysystem\Adapters\SftpConnector', $return);
-    }
-
-    public function testCreateWebDavConnector()
-    {
-        $factory = $this->getConnectionFactory();
-
-        $return = $factory->createConnector(array('driver' => 'webdav'));
-
-        $this->assertInstanceOf('GrahamCampbell\Flysystem\Adapters\WebDavConnector', $return);
-    }
-
-    public function testCreateZipConnector()
-    {
-        $factory = $this->getConnectionFactory();
-
-        $return = $factory->createConnector(array('driver' => 'zip'));
-
-        $this->assertInstanceOf('GrahamCampbell\Flysystem\Adapters\ZipConnector', $return);
+        $this->assertInstanceOf('GrahamCampbell\Flysystem\Adapters\\'.$class, $return);
     }
 
     /**
