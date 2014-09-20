@@ -2,6 +2,11 @@ CHANGE LOG
 ==========
 
 
+## V1.0 RC 1 (Upcoming)
+
+* Http adapter support
+
+
 ## V0.6 Alpha (20/09/2014)
 
 * Improved the test suite
