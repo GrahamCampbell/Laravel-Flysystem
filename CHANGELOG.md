@@ -2,7 +2,7 @@ CHANGE LOG
 ==========
 
 
-## V0.6 Alpha (Upcoming)
+## V0.6 Alpha (20/09/2014)
 
 * Improved the test suite
 * Copy adapter support
