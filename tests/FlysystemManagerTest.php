@@ -124,7 +124,7 @@ class FlysystemManagerTest extends AbstractTestBenchTestCase
 
     protected function getManager()
     {
-        $config = Mockery::mock('Illuminate\Config\Repository');
+        $config = Mockery::mock('Illuminate\Contracts\Config\Config');
         $factory = Mockery::mock('GrahamCampbell\Flysystem\Factories\FlysystemFactory');
 
         return new FlysystemManager($config, $factory);

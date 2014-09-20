@@ -88,14 +88,14 @@ class ConnectionFactoryTest extends AbstractTestCase
 
     protected function getConnectionFactory()
     {
-        $cache = Mockery::mock('Illuminate\Cache\CacheManager');
+        $cache = Mockery::mock('Illuminate\Contracts\Cache\Factory');
 
         return new ConnectionFactory($cache);
     }
 
     protected function getMockedFactory($manager)
     {
-        $cache = Mockery::mock('Illuminate\Cache\CacheManager');
+        $cache = Mockery::mock('Illuminate\Contracts\Cache\Factory');
 
         $mock = Mockery::mock('GrahamCampbell\Flysystem\Cache\ConnectionFactory[createConnector]', array($cache));
 

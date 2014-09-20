@@ -70,7 +70,7 @@ class IlluminateConnectorTest extends AbstractTestCase
 
     protected function getIlluminateConnector()
     {
-        $cache = Mockery::mock('Illuminate\Cache\CacheManager');
+        $cache = Mockery::mock('Illuminate\Contracts\Cache\Factory');
 
         return new IlluminateConnector($cache);
     }

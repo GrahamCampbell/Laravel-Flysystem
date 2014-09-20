@@ -17,7 +17,7 @@
 namespace GrahamCampbell\Flysystem\Cache;
 
 use GrahamCampbell\Flysystem\FlysystemManager;
-use Illuminate\Cache\CacheManager;
+use Illuminate\Contracts\Cache\Factory;
 
 /**
  * This is the cache connection factory class.
@@ -29,20 +29,20 @@ use Illuminate\Cache\CacheManager;
 class ConnectionFactory
 {
     /**
-     * The cache manager instance.
+     * The cache factory instance.
      *
-     * @var \Illuminate\Cache\CacheManager
+     * @var \Illuminate\Contracts\Cache\Factory
      */
     protected $cache;
 
     /**
      * Create a new connection factory instance.
      *
-     * @param \Illuminate\Cache\CacheManager $cache
+     * @param \Illuminate\Contracts\Cache\Factory $cache
      *
      * @return void
      */
-    public function __construct(CacheManager $cache)
+    public function __construct(Factory $cache)
     {
         $this->cache = $cache;
     }
@@ -87,11 +87,11 @@ class ConnectionFactory
     }
 
     /**
-     * Get the cache manager instance.
+     * Get the cache factory instance.
      *
      * @codeCoverageIgnore
      *
-     * @return \Illuminate\Cache\CacheManager
+     * @return \Illuminate\Contracts\Cache\Factory
      */
     public function getCache()
     {
