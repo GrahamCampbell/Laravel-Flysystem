@@ -18,7 +18,7 @@ namespace GrahamCampbell\Flysystem;
 
 use GrahamCampbell\Flysystem\Factories\FlysystemFactory;
 use GrahamCampbell\Manager\AbstractManager;
-use Illuminate\Contracts\Config\Config;
+use Illuminate\Contracts\Config\Repository;
 
 /**
  * This is the flysystem manager class.
@@ -68,12 +68,12 @@ class FlysystemManager extends AbstractManager
     /**
      * Create a new flysystem manager instance.
      *
-     * @param \Illuminate\Contracts\Config\Config                  $config
+     * @param \Illuminate\Contracts\Config\Repository              $config
      * @param \GrahamCampbell\Flysystem\Factories\FlysystemFactory $factory
      *
      * @return void
      */
-    public function __construct(Config $config, FlysystemFactory $factory)
+    public function __construct(Repository $config, FlysystemFactory $factory)
     {
         $this->config = $config;
         $this->factory = $factory;
