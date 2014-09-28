@@ -4,6 +4,7 @@ CHANGE LOG
 
 ## V1.0 RC 1 (Upcoming)
 
+* Support aws base_url
 * Http adapter support
 
 

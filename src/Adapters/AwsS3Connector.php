@@ -59,11 +59,19 @@ class AwsS3Connector implements ConnectorInterface
             throw new \InvalidArgumentException('The awss3 connector requires authentication.');
         }
 
+        if (array_key_exists('region', $config) && array_key_exists('base_url', $config)) {
+            return array_only($config, array('key', 'secret', 'region', 'base_url'));
+        }
+
         if (array_key_exists('region', $config)) {
             return array_only($config, array('key', 'secret', 'region'));
-        } else {
-            return array_only($config, array('key', 'secret'));
         }
+
+        if (array_key_exists('base_url', $config)) {
+            return array_only($config, array('key', 'secret', 'base_url'));
+        }
+
+        return array_only($config, array('key', 'secret'));
     }
 
     /**

@@ -48,6 +48,7 @@ return array(
             'secret'    => 'your-secret',
             'bucket'    => 'your-bucket',
             // 'region'    => 'your-region',
+            // 'base_url'  => 'your-url',
             // 'prefix'    => 'your-prefix',
             // 'eventable' => true,
             // 'cache'     => 'foo'
