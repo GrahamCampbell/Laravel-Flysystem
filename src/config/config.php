@@ -49,6 +49,7 @@ return array(
             'bucket'    => 'your-bucket',
             // 'region'    => 'your-region',
             // 'base_url'  => 'your-url',
+            // 'options'   => array(),
             // 'prefix'    => 'your-prefix',
             // 'eventable' => true,
             // 'cache'     => 'foo'
