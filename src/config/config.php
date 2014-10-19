@@ -138,7 +138,7 @@ return array(
             'path'      => storage_path('files.zip'),
             // 'eventable' => true,
             // 'cache'     => 'foo'
-        )
+        ),
 
     ),
 
@@ -167,16 +167,16 @@ return array(
             'driver'    => 'illuminate',
             'connector' => 'redis', // app/config/cache.php
             'key'       => 'bar',
-            'ttl'       => 600
+            'ttl'       => 600,
         ),
 
         'adapter' => array(
             'driver'  => 'adapter',
             'adapter' => 'local', // as defined in connections
             'file'    => 'flysystem.json',
-            'ttl'     => 600
-        )
+            'ttl'     => 600,
+        ),
 
-    )
+    ),
 
 );

@@ -16,9 +16,9 @@
 
 namespace GrahamCampbell\Tests\Flysystem\Cache;
 
-use Mockery;
 use GrahamCampbell\Flysystem\Cache\IlluminateConnector;
 use GrahamCampbell\TestBench\AbstractTestCase;
+use Mockery;
 
 /**
  * This is the illuminate connector test class.
@@ -62,7 +62,7 @@ class IlluminateConnectorTest extends AbstractTestCase
             'driver'    => 'illuminate',
             'connector' => 'redis',
             'key'       => 'bar',
-            'ttl'       => 600
+            'ttl'       => 600,
         ));
 
         $this->assertInstanceOf('GrahamCampbell\Flysystem\Cache\IlluminateCache', $return);

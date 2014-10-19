@@ -16,9 +16,9 @@
 
 namespace GrahamCampbell\Tests\Flysystem\Cache;
 
-use Mockery;
 use GrahamCampbell\Flysystem\Cache\AdapterConnector;
 use GrahamCampbell\TestBench\AbstractTestCase;
+use Mockery;
 
 /**
  * This is the adapter connector test class.

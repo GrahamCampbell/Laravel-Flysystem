@@ -44,7 +44,7 @@ class LocalFlysystemTest extends AbstractTestCase
         $new = array_merge($old, array(
             'testing' => array(
                 'driver' => 'local',
-                'path'   => realpath(__DIR__.'/../../').'/temp'
+                'path'   => realpath(__DIR__.'/../../').'/temp',
             ),
         ));
 

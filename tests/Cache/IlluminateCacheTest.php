@@ -16,8 +16,8 @@
 
 namespace GrahamCampbell\Tests\Flysystem\Cache;
 
-use Mockery;
 use GrahamCampbell\TestBench\AbstractTestCase;
+use Mockery;
 
 /**
  * This is the illuminate cache test class.

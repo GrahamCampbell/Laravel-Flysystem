@@ -16,8 +16,8 @@
 
 namespace GrahamCampbell\Tests\Flysystem\Facades;
 
-use GrahamCampbell\Tests\Flysystem\AbstractTestCase;
 use GrahamCampbell\TestBench\Traits\FacadeTestCaseTrait;
+use GrahamCampbell\Tests\Flysystem\AbstractTestCase;
 
 /**
  * This is the flysystem facade test class.
