@@ -12,6 +12,13 @@ CHANGE LOG
 * Http adapter support
 
 
+## V0.6.1 Alpha (Upcoming)
+
+* Support aws base_url
+* Added cs fixers to the test suite
+* Improved the docs
+
+
 ## V0.6 Alpha (20/09/2014)
 
 * Improved the test suite

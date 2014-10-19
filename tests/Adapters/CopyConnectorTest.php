@@ -36,7 +36,7 @@ class CopyConnectorTest extends AbstractTestCase
             'consumer-key'    => 'your-consumer-key',
             'consumer-secret' => 'your-consumer-secret',
             'access-token'    => 'your-access-token',
-            'token-secret'    => 'your-token-secret'
+            'token-secret'    => 'your-token-secret',
         ));
 
         $this->assertInstanceOf('League\Flysystem\Adapter\Copy', $return);
@@ -51,7 +51,7 @@ class CopyConnectorTest extends AbstractTestCase
             'consumer-secret' => 'your-consumer-secret',
             'access-token'    => 'your-access-token',
             'token-secret'    => 'your-token-secret',
-            'prefix'          => 'your-prefix'
+            'prefix'          => 'your-prefix',
         ));
 
         $this->assertInstanceOf('League\Flysystem\Adapter\Copy', $return);
@@ -67,7 +67,7 @@ class CopyConnectorTest extends AbstractTestCase
         $connector->connect(array(
             'consumer-secret' => 'your-consumer-secret',
             'access-token'    => 'your-access-token',
-            'token-secret'    => 'your-token-secret'
+            'token-secret'    => 'your-token-secret',
         ));
     }
 
@@ -81,7 +81,7 @@ class CopyConnectorTest extends AbstractTestCase
         $connector->connect(array(
             'consumer-key'    => 'your-consumer-key',
             'access-token'    => 'your-access-token',
-            'token-secret'    => 'your-token-secret'
+            'token-secret'    => 'your-token-secret',
         ));
     }
 
@@ -95,7 +95,7 @@ class CopyConnectorTest extends AbstractTestCase
         $connector->connect(array(
             'consumer-key'    => 'your-consumer-key',
             'consumer-secret' => 'your-consumer-secret',
-            'token-secret'    => 'your-token-secret'
+            'token-secret'    => 'your-token-secret',
         ));
     }
 
@@ -109,7 +109,7 @@ class CopyConnectorTest extends AbstractTestCase
         $connector->connect(array(
             'consumer-key'    => 'your-consumer-key',
             'consumer-secret' => 'your-consumer-secret',
-            'access-token'    => 'your-access-token'
+            'access-token'    => 'your-access-token',
         ));
     }
 

@@ -16,9 +16,9 @@
 
 namespace GrahamCampbell\Tests\Flysystem\Adapters;
 
-use Mockery;
 use GrahamCampbell\Flysystem\Adapters\ConnectionFactory;
 use GrahamCampbell\TestBench\AbstractTestCase;
+use Mockery;
 
 /**
  * This is the adapter connection factory test class.
@@ -50,7 +50,7 @@ class ConnectionFactoryTest extends AbstractTestCase
             array('rackspace', 'RackspaceConnector'),
             array('sftp', 'SftpConnector'),
             array('webdav', 'WebDavConnector'),
-            array('zip', 'ZipConnector')
+            array('zip', 'ZipConnector'),
         );
     }
 

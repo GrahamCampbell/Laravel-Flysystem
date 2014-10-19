@@ -98,7 +98,7 @@ class FlysystemServiceProvider extends ServiceProvider
     {
         return array(
             'flysystem',
-            'flysystem.factory'
+            'flysystem.factory',
         );
     }
 }

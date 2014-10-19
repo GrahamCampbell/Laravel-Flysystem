@@ -34,7 +34,7 @@ class DropboxConnectorTest extends AbstractTestCase
 
         $return = $connector->connect(array(
             'token'  => 'your-token',
-            'app'    => 'your-app'
+            'app'    => 'your-app',
         ));
 
         $this->assertInstanceOf('League\Flysystem\Adapter\Dropbox', $return);
@@ -47,7 +47,7 @@ class DropboxConnectorTest extends AbstractTestCase
         $return = $connector->connect(array(
             'token'  => 'your-token',
             'app'    => 'your-app',
-            'prefix' => 'your-prefix'
+            'prefix' => 'your-prefix',
         ));
 
         $this->assertInstanceOf('League\Flysystem\Adapter\Dropbox', $return);

@@ -36,7 +36,7 @@ class SftpConnectorTest extends AbstractTestCase
             'host' => 'sftp.example.com',
             'port' => 22,
             'username' => 'your-username',
-            'password' => 'your-password'
+            'password' => 'your-password',
         ));
 
         $this->assertInstanceOf('League\Flysystem\Adapter\Sftp', $return);

@@ -1,22 +1,17 @@
 Laravel Flysystem
 =================
 
-
-[![Build Status](https://img.shields.io/travis/GrahamCampbell/Laravel-Flysystem/master.svg?style=flat-square)](https://travis-ci.org/GrahamCampbell/Laravel-Flysystem)
-[![Coverage Status](https://img.shields.io/scrutinizer/coverage/g/GrahamCampbell/Laravel-Flysystem.svg?style=flat-square)](https://scrutinizer-ci.com/g/GrahamCampbell/Laravel-Flysystem/code-structure)
-[![Quality Score](https://img.shields.io/scrutinizer/g/GrahamCampbell/Laravel-Flysystem.svg?style=flat-square)](https://scrutinizer-ci.com/g/GrahamCampbell/Laravel-Flysystem)
-[![Software License](https://img.shields.io/badge/license-Apache%202.0-brightgreen.svg?style=flat-square)](LICENSE.md)
-[![Latest Version](https://img.shields.io/github/release/GrahamCampbell/Laravel-Flysystem.svg?style=flat-square)](https://github.com/GrahamCampbell/Laravel-Flysystem/releases)
-
-
-### Looking for a laravel 4 compatable version?
-
-Checkout the [1.0 branch](https://github.com/GrahamCampbell/Laravel-Flysystem/tree/1.0), installable by requiring `"graham-campbell/flysystem": "~1.0"`.
-
-
-## Introduction
-
 Laravel Flysystem was created by, and is maintained by [Graham Campbell](https://github.com/GrahamCampbell), and is a [Flysystem](https://github.com/thephpleague/flysystem) bridge for [Laravel 5](http://laravel.com). It utilises my [Laravel Manager](https://github.com/GrahamCampbell/Laravel-Manager) package. Feel free to check out the [change log](CHANGELOG.md), [releases](https://github.com/GrahamCampbell/Laravel-Flysystem/releases), [license](LICENSE.md), [api docs](http://docs.grahamjcampbell.co.uk), and [contribution guidelines](CONTRIBUTING.md).
+
+![Laravel Flysystem](https://cloud.githubusercontent.com/assets/2829600/4432299/c12eac50-468c-11e4-93c3-5d587a2a56fa.PNG)
+
+<p align="center">
+<a href="https://travis-ci.org/GrahamCampbell/Laravel-Flysystem"><img src="https://img.shields.io/travis/GrahamCampbell/Laravel-Flysystem/master.svg?style=flat-square" alt="Build Status"></img></a>
+<a href="https://scrutinizer-ci.com/g/GrahamCampbell/Laravel-Flysystem/code-structure"><img src="https://img.shields.io/scrutinizer/coverage/g/GrahamCampbell/Laravel-Flysystem.svg?style=flat-square" alt="Coverage Status"></img></a>
+<a href="https://scrutinizer-ci.com/g/GrahamCampbell/Laravel-Flysystem"><img src="https://img.shields.io/scrutinizer/g/GrahamCampbell/Laravel-Flysystem.svg?style=flat-square" alt="Quality Score"></img></a>
+<a href="LICENSE.md"><img src="https://img.shields.io/badge/license-Apache%202.0-brightgreen.svg?style=flat-square" alt="Software License"></img></a>
+<a href="https://github.com/GrahamCampbell/Laravel-Flysystem/releases"><img src="https://img.shields.io/github/release/GrahamCampbell/Laravel-Flysystem.svg?style=flat-square" alt="Latest Version"></img></a>
+</p>
 
 
 ## Installation
@@ -44,6 +39,10 @@ You can register the Flysystem facade in the `aliases` key of your `app/config/a
 
 * `'Flysystem' => 'GrahamCampbell\Flysystem\Facades\Flysystem'`
 
+#### Looking for a laravel 4 compatable version?
+
+Checkout the [1.0 branch](https://github.com/GrahamCampbell/Laravel-Flysystem/tree/1.0), installable by requiring `"graham-campbell/flysystem": "~1.0"`.
+
 
 ## Configuration
 
@@ -52,7 +51,7 @@ Laravel Flysystem requires connection configuration.
 To get started, first publish the package config file:
 
 ```bash
-$ php artisan config:publish graham-campbell/flysystem
+$ php artisan publish:config graham-campbell/flysystem
 ```
 
 There are three config options:

@@ -16,9 +16,9 @@
 
 namespace GrahamCampbell\Tests\Flysystem\Factories;
 
-use Mockery;
-use GrahamCampbell\TestBench\AbstractTestCase;
 use GrahamCampbell\Flysystem\Factories\FlysystemFactory;
+use GrahamCampbell\TestBench\AbstractTestCase;
+use Mockery;
 
 /**
  * This is the filesystem factory test class.

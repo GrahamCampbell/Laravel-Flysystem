@@ -79,7 +79,7 @@ class RackspaceConnector implements ConnectorInterface
     {
         $client = new OpenStack($auth['endpoint'], array(
             'username' => $auth['username'],
-            'password' => $auth['password']
+            'password' => $auth['password'],
         ));
 
         return $client->objectStoreService('cloudFiles', 'LON')->getContainer($auth['container']);

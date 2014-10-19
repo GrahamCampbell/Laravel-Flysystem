@@ -41,7 +41,7 @@ class FtpConnectorTest extends AbstractTestCase
             'host' => 'ftp.example.com',
             'port' => 21,
             'username' => 'your-username',
-            'password' => 'your-password'
+            'password' => 'your-password',
         ));
 
         $this->assertInstanceOf('League\Flysystem\Adapter\Ftp', $return);
