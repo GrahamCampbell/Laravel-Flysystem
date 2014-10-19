@@ -93,7 +93,7 @@ class AwsS3Connector implements ConnectorInterface
      *
      * @throws \InvalidArgumentException
      *
-     * @return string[]
+     * @return array
      */
     protected function getConfig(array $config)
     {
