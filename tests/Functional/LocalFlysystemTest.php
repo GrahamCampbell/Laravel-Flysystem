@@ -18,6 +18,7 @@ namespace GrahamCampbell\Tests\Flysystem\Functional;
 
 use GrahamCampbell\Flysystem\Facades\Flysystem;
 use GrahamCampbell\Tests\Flysystem\AbstractTestCase;
+use Illuminate\Contracts\Foundation\Application;
 
 /**
  * This is the local flysystem test class.
@@ -35,7 +36,7 @@ class LocalFlysystemTest extends AbstractTestCase
      *
      * @return void
      */
-    protected function additionalSetup($app)
+    protected function additionalSetup(Application $app)
     {
         $app['files']->deleteDirectory(realpath(__DIR__.'/../../').'/temp');
 
