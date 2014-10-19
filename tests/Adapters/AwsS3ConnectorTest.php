@@ -83,6 +83,20 @@ class AwsS3ConnectorTest extends AbstractTestCase
         $this->assertInstanceOf('League\Flysystem\Adapter\AwsS3', $return);
     }
 
+    public function testConnectWithOptions()
+    {
+        $connector = $this->getAwsS3Connector();
+
+        $return = $connector->connect(array(
+            'key'      => 'your-key',
+            'secret'   => 'your-secret',
+            'bucket'   => 'your-bucket',
+            'options'  => array('foo' => 'bar'),
+        ));
+
+        $this->assertInstanceOf('League\Flysystem\Adapter\AwsS3', $return);
+    }
+
     public function testConnectWithEverything()
     {
         $connector = $this->getAwsS3Connector();
@@ -93,6 +107,7 @@ class AwsS3ConnectorTest extends AbstractTestCase
             'bucket'   => 'your-bucket',
             'region'   => 'eu-west-1',
             'base_url' => 'your-url',
+            'options'  => array('foo' => 'bar'),
         ));
 
         $this->assertInstanceOf('League\Flysystem\Adapter\AwsS3', $return);
