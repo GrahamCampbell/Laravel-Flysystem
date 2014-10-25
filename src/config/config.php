@@ -106,7 +106,7 @@ return array(
             'driver'    => 'rackspace',
             'endpoint'  => 'your-endpoint',
             'username'  => 'your-username',
-            'password'  => 'your-password',
+            'apiKey'    => 'your-api-key',
             'container' => 'your-container',
             // 'eventable' => true,
             // 'cache'     => 'foo'

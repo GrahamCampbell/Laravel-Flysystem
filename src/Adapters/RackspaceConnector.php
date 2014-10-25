@@ -57,7 +57,7 @@ class RackspaceConnector implements ConnectorInterface
      */
     protected function getAuth(array $config)
     {
-        if (!array_key_exists('username', $config) || !array_key_exists('password', $config)) {
+        if (!array_key_exists('username', $config) || !array_key_exists('apiKey', $config)) {
             throw new \InvalidArgumentException('The rackspace connector requires authentication.');
         }
 
@@ -65,7 +65,7 @@ class RackspaceConnector implements ConnectorInterface
             throw new \InvalidArgumentException('The rackspace connector requires configuration.');
         }
 
-        return array_only($config, array('username', 'password', 'endpoint', 'container'));
+        return array_only($config, array('username', 'apiKey', 'endpoint', 'container'));
     }
 
     /**
@@ -79,7 +79,7 @@ class RackspaceConnector implements ConnectorInterface
     {
         $client = new OpenStackRackspace($auth['endpoint'], array(
             'username' => $auth['username'],
-            'apiKey' => $auth['password'],
+            'apiKey'   => $auth['apiKey'],
         ));
 
         return $client->objectStoreService('cloudFiles', 'LON')->getContainer($auth['container']);

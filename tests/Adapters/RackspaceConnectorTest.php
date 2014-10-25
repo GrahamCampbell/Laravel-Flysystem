@@ -38,7 +38,7 @@ class RackspaceConnectorTest extends AbstractTestCase
         $connector->connect(array(
             'endpoint'  => 'https://lon.identity.api.rackspacecloud.com/v2.0/',
             'username'  => 'your-username',
-            'password'  => 'your-password',
+            'apiKey'    => 'your-api-key',
             'container' => 'your-container',
         ));
     }
@@ -65,7 +65,7 @@ class RackspaceConnectorTest extends AbstractTestCase
 
         $connector->connect(array(
             'username'  => 'your-username',
-            'password'  => 'your-password',
+            'apiKey'    => 'your-api-key',
         ));
     }
 
