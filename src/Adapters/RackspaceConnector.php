@@ -19,7 +19,7 @@ namespace GrahamCampbell\Flysystem\Adapters;
 use GrahamCampbell\Manager\ConnectorInterface;
 use League\Flysystem\Adapter\Rackspace;
 use OpenCloud\ObjectStore\Resource\Container;
-use OpenCloud\OpenStack;
+use OpenCloud\Rackspace as OpenStackRackspace;
 
 /**
  * This is the rackspace connector class.
@@ -77,9 +77,9 @@ class RackspaceConnector implements ConnectorInterface
      */
     protected function getClient(array $auth)
     {
-        $client = new OpenStack($auth['endpoint'], array(
+        $client = new OpenStackRackspace($auth['endpoint'], array(
             'username' => $auth['username'],
-            'password' => $auth['password'],
+            'apiKey' => $auth['password'],
         ));
 
         return $client->objectStoreService('cloudFiles', 'LON')->getContainer($auth['container']);
