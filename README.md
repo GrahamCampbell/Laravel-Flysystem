@@ -35,11 +35,11 @@ There are some additional dependencies you will need to install for some of the 
 
 You'll then need to run `composer install` or `composer update` to download it and have the autoloader updated.
 
-Once Laravel Flysystem is installed, you need to register the service provider. Open up `app/config/app.php` and add the following to the `providers` key.
+Once Laravel Flysystem is installed, you need to register the service provider. Open up `config/app.php` and add the following to the `providers` key.
 
 * `'GrahamCampbell\Flysystem\FlysystemServiceProvider'`
 
-You can register the Flysystem facade in the `aliases` key of your `app/config/app.php` file if you like.
+You can register the Flysystem facade in the `aliases` key of your `config/app.php` file if you like.
 
 * `'Flysystem' => 'GrahamCampbell\Flysystem\Facades\Flysystem'`
 
@@ -85,7 +85,7 @@ This facade will dynamically pass static method calls to the `'flysystem'` objec
 
 ##### FlysystemServiceProvider
 
-This class contains no public methods of interest. This class should be added to the providers array in `app/config/app.php`. This class will setup ioc bindings.
+This class contains no public methods of interest. This class should be added to the providers array in `config/app.php`. This class will setup ioc bindings.
 
 ##### Real Examples
 
@@ -93,7 +93,7 @@ Here you can see an example of just how simple this package is to use. Out of th
 
 ```php
 use GrahamCampbell\Flysystem\Facades\Flysystem;
-// you can alias this in app/config/app.php if you like
+// you can alias this in config/app.php if you like
 
 Flysystem::put('hi.txt', 'foo');
 // we're done here - how easy was that, it just works!
