@@ -16,9 +16,13 @@ Laravel Flysystem was created by, and is maintained by [Graham Campbell](https:/
 
 ## Installation
 
-[PHP](https://php.net) 5.4+ or [HHVM](http://hhvm.com) 3.2+, and [Composer](https://getcomposer.org) are required.
+[PHP](https://php.net) 5.4+ or [HHVM](http://hhvm.com) 3.3+, and [Composer](https://getcomposer.org) are required.
 
-To get the latest version of Laravel Flysystem, simply require `"graham-campbell/flysystem": "~1.0"` in your `composer.json` file.
+To get the latest version of Laravel Flysystem, simply add the following line to the require block of your `composer.json` file:
+
+```
+"graham-campbell/flysystem": "~1.0"
+```
 
 There are some additional dependencies you will need to install for some of the features:
 
