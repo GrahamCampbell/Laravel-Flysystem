@@ -62,7 +62,7 @@ class FlysystemServiceProvider extends ServiceProvider
      */
     protected function registerFactory()
     {
-        $this->app->bindShared('flysystem.factory', function ($app) {
+        $this->app->singleton('flysystem.factory', function ($app) {
             $adapter = new Adapters\ConnectionFactory();
             $cache = new Cache\ConnectionFactory($app['cache']);
 
@@ -79,7 +79,7 @@ class FlysystemServiceProvider extends ServiceProvider
      */
     protected function registerManager()
     {
-        $this->app->bindShared('flysystem', function ($app) {
+        $this->app->singleton('flysystem', function ($app) {
             $config = $app['config'];
             $factory = $app['flysystem.factory'];
 
