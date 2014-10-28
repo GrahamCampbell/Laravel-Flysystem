@@ -166,7 +166,7 @@ return array(
 
         'bar' => array(
             'driver'    => 'illuminate',
-            'connector' => 'redis', // app/config/cache.php
+            'connector' => 'redis', // config/cache.php
             'key'       => 'bar',
             'ttl'       => 600,
         ),
