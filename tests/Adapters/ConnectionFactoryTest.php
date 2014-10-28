@@ -33,25 +33,25 @@ class ConnectionFactoryTest extends AbstractTestCase
     {
         $factory = $this->getMockedFactory();
 
-        $return = $factory->make(array('driver' => 'local', 'path' => __DIR__, 'name' => 'local'));
+        $return = $factory->make(['driver' => 'local', 'path' => __DIR__, 'name' => 'local']);
 
         $this->assertInstanceOf('League\Flysystem\AdapterInterface', $return);
     }
 
     public function createDataProvider()
     {
-        return array(
-            array('awss3', 'AwsS3Connector'),
-            array('copy', 'CopyConnector'),
-            array('dropbox', 'DropboxConnector'),
-            array('ftp', 'FtpConnector'),
-            array('local', 'LocalConnector'),
-            array('null', 'NullConnector'),
-            array('rackspace', 'RackspaceConnector'),
-            array('sftp', 'SftpConnector'),
-            array('webdav', 'WebDavConnector'),
-            array('zip', 'ZipConnector'),
-        );
+        return [
+            ['awss3', 'AwsS3Connector'],
+            ['copy', 'CopyConnector'],
+            ['dropbox', 'DropboxConnector'],
+            ['ftp', 'FtpConnector'],
+            ['local', 'LocalConnector'],
+            ['null', 'NullConnector'],
+            ['rackspace', 'RackspaceConnector'],
+            ['sftp', 'SftpConnector'],
+            ['webdav', 'WebDavConnector'],
+            ['zip', 'ZipConnector'],
+        ];
     }
 
     /**
@@ -61,7 +61,7 @@ class ConnectionFactoryTest extends AbstractTestCase
     {
         $factory = $this->getConnectionFactory();
 
-        $return = $factory->createConnector(array('driver' => $driver));
+        $return = $factory->createConnector(['driver' => $driver]);
 
         $this->assertInstanceOf('GrahamCampbell\Flysystem\Adapters\\'.$class, $return);
     }
@@ -73,7 +73,7 @@ class ConnectionFactoryTest extends AbstractTestCase
     {
         $factory = $this->getConnectionFactory();
 
-        $factory->createConnector(array());
+        $factory->createConnector([]);
     }
 
     /**
@@ -83,7 +83,7 @@ class ConnectionFactoryTest extends AbstractTestCase
     {
         $factory = $this->getConnectionFactory();
 
-        $factory->createConnector(array('driver' => 'unsupported'));
+        $factory->createConnector(['driver' => 'unsupported']);
     }
 
     protected function getConnectionFactory()
@@ -98,11 +98,11 @@ class ConnectionFactoryTest extends AbstractTestCase
         $connector = Mockery::mock('GrahamCampbell\Flysystem\Adapters\LocalConnector');
 
         $connector->shouldReceive('connect')->once()
-            ->with(array('name' => 'local', 'driver' => 'local', 'path' => __DIR__))
+            ->with(['name' => 'local', 'driver' => 'local', 'path' => __DIR__])
             ->andReturn(Mockery::mock('League\Flysystem\Adapter\Local'));
 
         $mock->shouldReceive('createConnector')->once()
-            ->with(array('name' => 'local', 'driver' => 'local', 'path' => __DIR__))
+            ->with(['name' => 'local', 'driver' => 'local', 'path' => __DIR__])
             ->andReturn($connector);
 
         return $mock;

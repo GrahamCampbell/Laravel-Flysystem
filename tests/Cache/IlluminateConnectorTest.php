@@ -41,7 +41,7 @@ class IlluminateConnectorTest extends AbstractTestCase
 
         $repo->shouldReceive('getStore')->once()->andReturn($store);
 
-        $return = $connector->connect(array());
+        $return = $connector->connect([]);
 
         $this->assertInstanceOf('GrahamCampbell\Flysystem\Cache\IlluminateCache', $return);
     }
@@ -58,12 +58,12 @@ class IlluminateConnectorTest extends AbstractTestCase
 
         $repo->shouldReceive('getStore')->once()->andReturn($store);
 
-        $return = $connector->connect(array(
+        $return = $connector->connect([
             'driver'    => 'illuminate',
             'connector' => 'redis',
             'key'       => 'bar',
             'ttl'       => 600,
-        ));
+        ]);
 
         $this->assertInstanceOf('GrahamCampbell\Flysystem\Cache\IlluminateCache', $return);
     }

@@ -32,12 +32,12 @@ class CopyConnectorTest extends AbstractTestCase
     {
         $connector = $this->getCopyConnector();
 
-        $return = $connector->connect(array(
+        $return = $connector->connect([
             'consumer-key'    => 'your-consumer-key',
             'consumer-secret' => 'your-consumer-secret',
             'access-token'    => 'your-access-token',
             'token-secret'    => 'your-token-secret',
-        ));
+        ]);
 
         $this->assertInstanceOf('League\Flysystem\Adapter\Copy', $return);
     }
@@ -46,13 +46,13 @@ class CopyConnectorTest extends AbstractTestCase
     {
         $connector = $this->getCopyConnector();
 
-        $return = $connector->connect(array(
+        $return = $connector->connect([
             'consumer-key'    => 'your-consumer-key',
             'consumer-secret' => 'your-consumer-secret',
             'access-token'    => 'your-access-token',
             'token-secret'    => 'your-token-secret',
             'prefix'          => 'your-prefix',
-        ));
+        ]);
 
         $this->assertInstanceOf('League\Flysystem\Adapter\Copy', $return);
     }
@@ -64,11 +64,11 @@ class CopyConnectorTest extends AbstractTestCase
     {
         $connector = $this->getCopyConnector();
 
-        $connector->connect(array(
+        $connector->connect([
             'consumer-secret' => 'your-consumer-secret',
             'access-token'    => 'your-access-token',
             'token-secret'    => 'your-token-secret',
-        ));
+        ]);
     }
 
     /**
@@ -78,11 +78,11 @@ class CopyConnectorTest extends AbstractTestCase
     {
         $connector = $this->getCopyConnector();
 
-        $connector->connect(array(
+        $connector->connect([
             'consumer-key'    => 'your-consumer-key',
             'access-token'    => 'your-access-token',
             'token-secret'    => 'your-token-secret',
-        ));
+        ]);
     }
 
     /**
@@ -92,11 +92,11 @@ class CopyConnectorTest extends AbstractTestCase
     {
         $connector = $this->getCopyConnector();
 
-        $connector->connect(array(
+        $connector->connect([
             'consumer-key'    => 'your-consumer-key',
             'consumer-secret' => 'your-consumer-secret',
             'token-secret'    => 'your-token-secret',
-        ));
+        ]);
     }
 
     /**
@@ -106,11 +106,11 @@ class CopyConnectorTest extends AbstractTestCase
     {
         $connector = $this->getCopyConnector();
 
-        $connector->connect(array(
+        $connector->connect([
             'consumer-key'    => 'your-consumer-key',
             'consumer-secret' => 'your-consumer-secret',
             'access-token'    => 'your-access-token',
-        ));
+        ]);
     }
 
     protected function getCopyConnector()

@@ -31,7 +31,7 @@ class FlysystemFactoryTest extends AbstractTestCase
 {
     public function testMake()
     {
-        $config = array('driver' => 'local', 'path' => __DIR__, 'name' => 'local');
+        $config = ['driver' => 'local', 'path' => __DIR__, 'name' => 'local'];
 
         $manager = Mockery::mock('GrahamCampbell\Flysystem\FlysystemManager');
 
@@ -45,7 +45,7 @@ class FlysystemFactoryTest extends AbstractTestCase
 
     public function testMakeCache()
     {
-        $config = array('driver' => 'local', 'cache' => array('driver' => 'redis', 'name' => 'illuminate'), 'name' => 'local');
+        $config = ['driver' => 'local', 'cache' => ['driver' => 'redis', 'name' => 'illuminate'], 'name' => 'local'];
 
         $manager = Mockery::mock('GrahamCampbell\Flysystem\FlysystemManager');
 
@@ -59,7 +59,7 @@ class FlysystemFactoryTest extends AbstractTestCase
 
     public function testMakeEventable()
     {
-        $config = array('driver' => 'local', 'path' => __DIR__, 'name' => 'local', 'eventable' => true);
+        $config = ['driver' => 'local', 'path' => __DIR__, 'name' => 'local', 'eventable' => true];
 
         $manager = Mockery::mock('GrahamCampbell\Flysystem\FlysystemManager');
 
@@ -75,7 +75,7 @@ class FlysystemFactoryTest extends AbstractTestCase
     {
         $factory = $this->getFlysystemFactory();
 
-        $config = array('driver' => 'local', 'path' => __DIR__, 'name' => 'local');
+        $config = ['driver' => 'local', 'path' => __DIR__, 'name' => 'local'];
 
         $factory->getAdapter()->shouldReceive('make')->once()
             ->with($config)->andReturn(Mockery::mock('League\Flysystem\AdapterInterface'));
@@ -91,7 +91,7 @@ class FlysystemFactoryTest extends AbstractTestCase
 
         $manager = Mockery::mock('GrahamCampbell\Flysystem\FlysystemManager');
 
-        $config = array('driver' => 'local', 'cache' => array('driver' => 'illuminate', 'connector' => 'redis', 'name' => 'foo'));
+        $config = ['driver' => 'local', 'cache' => ['driver' => 'illuminate', 'connector' => 'redis', 'name' => 'foo']];
 
         $factory->getCache()->shouldReceive('make')->once()
             ->with($config['cache'], $manager)->andReturn(Mockery::mock('League\Flysystem\CacheInterface'));
@@ -107,7 +107,7 @@ class FlysystemFactoryTest extends AbstractTestCase
 
         $manager = Mockery::mock('GrahamCampbell\Flysystem\FlysystemManager');
 
-        $config = array('driver' => 'local', 'path' => __DIR__, 'name' => 'local');
+        $config = ['driver' => 'local', 'path' => __DIR__, 'name' => 'local'];
 
         $return = $factory->createCache($config, $manager);
 
@@ -129,7 +129,7 @@ class FlysystemFactoryTest extends AbstractTestCase
 
         $adapterMock = Mockery::mock('League\Flysystem\AdapterInterface');
 
-        $mock = Mockery::mock('GrahamCampbell\Flysystem\Factories\FlysystemFactory[createAdapter,createCache]', array($adapter, $cache));
+        $mock = Mockery::mock('GrahamCampbell\Flysystem\Factories\FlysystemFactory[createAdapter,createCache]', [$adapter, $cache]);
 
         $mock->shouldReceive('createAdapter')->once()
             ->with($config)
@@ -151,7 +151,7 @@ class FlysystemFactoryTest extends AbstractTestCase
         $cacheMock = Mockery::mock('League\Flysystem\CacheInterface');
         $cacheMock->shouldReceive('load')->once();
 
-        $mock = Mockery::mock('GrahamCampbell\Flysystem\Factories\FlysystemFactory[createAdapter,createCache]', array($adapter, $cache));
+        $mock = Mockery::mock('GrahamCampbell\Flysystem\Factories\FlysystemFactory[createAdapter,createCache]', [$adapter, $cache]);
 
         $mock->shouldReceive('createAdapter')->once()
             ->with($config)

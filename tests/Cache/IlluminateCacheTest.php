@@ -76,7 +76,7 @@ class IlluminateCacheTest extends AbstractTestCase
 
         return Mockery::mock(
             'GrahamCampbell\Flysystem\Cache\IlluminateCache[setFromStorage,getForStorage]',
-            array($client, $key, $ttl)
+            [$client, $key, $ttl]
         );
     }
 }

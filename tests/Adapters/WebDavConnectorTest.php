@@ -32,11 +32,11 @@ class WebDavConnectorTest extends AbstractTestCase
     {
         $connector = $this->getWebDavConnector();
 
-        $return = $connector->connect(array(
+        $return = $connector->connect([
             'baseUri'  => 'http://example.org/dav/',
             'userName' => 'your-username',
             'password' => 'your-password',
-        ));
+        ]);
 
         $this->assertInstanceOf('League\Flysystem\Adapter\WebDav', $return);
     }

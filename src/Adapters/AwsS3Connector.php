@@ -60,18 +60,18 @@ class AwsS3Connector implements ConnectorInterface
         }
 
         if (array_key_exists('region', $config) && array_key_exists('base_url', $config)) {
-            return array_only($config, array('key', 'secret', 'region', 'base_url'));
+            return array_only($config, ['key', 'secret', 'region', 'base_url']);
         }
 
         if (array_key_exists('region', $config)) {
-            return array_only($config, array('key', 'secret', 'region'));
+            return array_only($config, ['key', 'secret', 'region']);
         }
 
         if (array_key_exists('base_url', $config)) {
-            return array_only($config, array('key', 'secret', 'base_url'));
+            return array_only($config, ['key', 'secret', 'base_url']);
         }
 
-        return array_only($config, array('key', 'secret'));
+        return array_only($config, ['key', 'secret']);
     }
 
     /**
@@ -106,10 +106,10 @@ class AwsS3Connector implements ConnectorInterface
         }
 
         if (!array_key_exists('options', $config)) {
-            $config['options'] = array();
+            $config['options'] = [];
         }
 
-        return array_only($config, array('bucket', 'prefix', 'options'));
+        return array_only($config, ['bucket', 'prefix', 'options']);
     }
 
     /**

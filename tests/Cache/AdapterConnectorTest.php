@@ -34,7 +34,7 @@ class AdapterConnectorTest extends AbstractTestCase
         $connector = $this->getAdapterConnector();
 
         $connector->getManager()->shouldReceive('getConnectionConfig')->once()
-            ->with('local')->andReturn(array('driver' => 'local', 'path' => __DIR__));
+            ->with('local')->andReturn(['driver' => 'local', 'path' => __DIR__]);
 
         $factory = Mockery::mock('GrahamCampbell\Flysystem\Factories\FlysystemFactory');
 
@@ -43,9 +43,9 @@ class AdapterConnectorTest extends AbstractTestCase
         $adapter = Mockery::mock('League\Flysystem\Adapter\Local');
 
         $factory->shouldReceive('createAdapter')->once()
-            ->with(array('driver' => 'local', 'path' => __DIR__))->andReturn($adapter);
+            ->with(['driver' => 'local', 'path' => __DIR__])->andReturn($adapter);
 
-        $return = $connector->connect(array('adapter' => 'local'));
+        $return = $connector->connect(['adapter' => 'local']);
 
         $this->assertInstanceOf('League\Flysystem\Cache\Adapter', $return);
     }
@@ -57,7 +57,7 @@ class AdapterConnectorTest extends AbstractTestCase
     {
         $connector = $this->getAdapterConnector();
 
-        $connector->connect(array());
+        $connector->connect([]);
     }
 
     protected function getAdapterConnector()

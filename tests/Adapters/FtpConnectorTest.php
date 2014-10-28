@@ -37,12 +37,12 @@ class FtpConnectorTest extends AbstractTestCase
 
         $connector = $this->getFtpConnector();
 
-        $return = $connector->connect(array(
+        $return = $connector->connect([
             'host' => 'ftp.example.com',
             'port' => 21,
             'username' => 'your-username',
             'password' => 'your-password',
-        ));
+        ]);
 
         $this->assertInstanceOf('League\Flysystem\Adapter\Ftp', $return);
     }

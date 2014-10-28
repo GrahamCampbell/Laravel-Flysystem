@@ -56,7 +56,7 @@ class LocalConnector implements ConnectorInterface
             throw new \InvalidArgumentException('The local connector requires a path.');
         }
 
-        return array_only($config, array('path'));
+        return array_only($config, ['path']);
     }
 
     /**

@@ -31,11 +31,11 @@ class FlysystemManagerTest extends AbstractTestBenchTestCase
 {
     public function testConnectionName()
     {
-        $config = array('driver' => 'local', 'path' => __DIR__);
+        $config = ['driver' => 'local', 'path' => __DIR__];
 
         $manager = $this->getConfigManager($config);
 
-        $this->assertSame(array(), $manager->getConnections());
+        $this->assertSame([], $manager->getConnections());
 
         $return = $manager->connection('local');
 
@@ -46,14 +46,14 @@ class FlysystemManagerTest extends AbstractTestBenchTestCase
 
     public function testConnectionNull()
     {
-        $config = array('driver' => 'local', 'path' => __DIR__);
+        $config = ['driver' => 'local', 'path' => __DIR__];
 
         $manager = $this->getConfigManager($config);
 
         $manager->getConfig()->shouldReceive('get')->once()
             ->with('graham-campbell/flysystem::default')->andReturn('local');
 
-        $this->assertSame(array(), $manager->getConnections());
+        $this->assertSame([], $manager->getConnections());
 
         $return = $manager->connection();
 
@@ -64,13 +64,13 @@ class FlysystemManagerTest extends AbstractTestBenchTestCase
 
     public function testConnectionCache()
     {
-        $config = array('driver' => 'local', 'path' => __DIR__, 'cache' => 'foo');
+        $config = ['driver' => 'local', 'path' => __DIR__, 'cache' => 'foo'];
 
-        $cache = array('driver' => 'illuminate', 'connection' => 'redis', 'key' => 'bar', 'ttl' => 300);
+        $cache = ['driver' => 'illuminate', 'connection' => 'redis', 'key' => 'bar', 'ttl' => 300];
 
         $manager = $this->getConfigManagerCache($config, $cache);
 
-        $this->assertSame(array(), $manager->getConnections());
+        $this->assertSame([], $manager->getConnections());
 
         $return = $manager->connection('local');
 
@@ -86,12 +86,12 @@ class FlysystemManagerTest extends AbstractTestBenchTestCase
     {
         $manager = $this->getManager();
 
-        $config = array('driver' => 'error', 'path' => __DIR__);
+        $config = ['driver' => 'error', 'path' => __DIR__];
 
         $manager->getConfig()->shouldReceive('get')->once()
-            ->with('graham-campbell/flysystem::connections')->andReturn(array('local' => $config));
+            ->with('graham-campbell/flysystem::connections')->andReturn(['local' => $config]);
 
-        $this->assertSame(array(), $manager->getConnections());
+        $this->assertSame([], $manager->getConnections());
 
         $return = null;
 
@@ -105,17 +105,17 @@ class FlysystemManagerTest extends AbstractTestBenchTestCase
     {
         $manager = $this->getManager();
 
-        $config = array('driver' => 'local', 'path' => __DIR__, 'cache' => 'foo');
+        $config = ['driver' => 'local', 'path' => __DIR__, 'cache' => 'foo'];
 
-        $cache = array('driver' => 'illuminate', 'connection' => 'redis', 'key' => 'bar', 'ttl' => 300);
-
-        $manager->getConfig()->shouldReceive('get')->once()
-            ->with('graham-campbell/flysystem::connections')->andReturn(array('local' => $config));
+        $cache = ['driver' => 'illuminate', 'connection' => 'redis', 'key' => 'bar', 'ttl' => 300];
 
         $manager->getConfig()->shouldReceive('get')->once()
-            ->with('graham-campbell/flysystem::cache')->andReturn(array('error' => $cache));
+            ->with('graham-campbell/flysystem::connections')->andReturn(['local' => $config]);
 
-        $this->assertSame(array(), $manager->getConnections());
+        $manager->getConfig()->shouldReceive('get')->once()
+            ->with('graham-campbell/flysystem::cache')->andReturn(['error' => $cache]);
+
+        $this->assertSame([], $manager->getConnections());
 
         $return = null;
 
@@ -135,7 +135,7 @@ class FlysystemManagerTest extends AbstractTestBenchTestCase
         $manager = $this->getManager();
 
         $manager->getConfig()->shouldReceive('get')->once()
-            ->with('graham-campbell/flysystem::connections')->andReturn(array('local' => $config));
+            ->with('graham-campbell/flysystem::connections')->andReturn(['local' => $config]);
 
         $config['name'] = 'local';
 
@@ -150,10 +150,10 @@ class FlysystemManagerTest extends AbstractTestBenchTestCase
         $manager = $this->getManager();
 
         $manager->getConfig()->shouldReceive('get')->once()
-            ->with('graham-campbell/flysystem::connections')->andReturn(array('local' => $config));
+            ->with('graham-campbell/flysystem::connections')->andReturn(['local' => $config]);
 
         $manager->getConfig()->shouldReceive('get')->once()
-            ->with('graham-campbell/flysystem::cache')->andReturn(array('foo' => $cache));
+            ->with('graham-campbell/flysystem::cache')->andReturn(['foo' => $cache]);
 
         $cache['name'] = 'foo';
         $config['name'] = 'local';

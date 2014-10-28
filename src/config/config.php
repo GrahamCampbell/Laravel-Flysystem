@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-return array(
+return [
 
     /*
     |--------------------------------------------------------------------------
@@ -40,9 +40,9 @@ return array(
     |
     */
 
-    'connections' => array(
+    'connections' => [
 
-        'awss3' => array(
+        'awss3' => [
             'driver'    => 'awss3',
             'key'       => 'your-key',
             'secret'    => 'your-secret',
@@ -53,9 +53,9 @@ return array(
             // 'prefix'    => 'your-prefix',
             // 'eventable' => true,
             // 'cache'     => 'foo'
-        ),
+        ],
 
-        'copy' => array(
+        'copy' => [
             'driver'          => 'copy',
             'consumer-key'    => 'your-consumer-key',
             'consumer-secret' => 'your-consumer-secret',
@@ -64,18 +64,18 @@ return array(
             // 'prefix'          => 'your-prefix',
             // 'eventable'       => true,
             // 'cache'           => 'foo'
-        ),
+        ],
 
-        'dropbox' => array(
+        'dropbox' => [
             'driver'    => 'dropbox',
             'token'     => 'your-token',
             'app'       => 'your-app',
             // 'prefix'    => 'your-prefix',
             // 'eventable' => true,
             // 'cache'     => 'foo'
-        ),
+        ],
 
-        'ftp' => array(
+        'ftp' => [
             'driver'    => 'ftp',
             'host'      => 'ftp.example.com',
             'port'      => 21,
@@ -87,22 +87,22 @@ return array(
             // 'timeout'   => 20,
             // 'eventable' => true,
             // 'cache'     => 'foo'
-        ),
+        ],
 
-        'local' => array(
+        'local' => [
             'driver'    => 'local',
             'path'      => storage_path('files'),
             // 'eventable' => true,
             // 'cache'     => 'foo'
-        ),
+        ],
 
-        'null' => array(
+        'null' => [
             'driver'    => 'null',
             // 'eventable' => true,
             // 'cache'     => 'foo'
-        ),
+        ],
 
-        'rackspace' => array(
+        'rackspace' => [
             'driver'    => 'rackspace',
             'endpoint'  => 'your-endpoint',
             'username'  => 'your-username',
@@ -110,9 +110,9 @@ return array(
             'container' => 'your-container',
             // 'eventable' => true,
             // 'cache'     => 'foo'
-        ),
+        ],
 
-        'sftp' => array(
+        'sftp' => [
             'driver'     => 'sftp',
             'host'       => 'sftp.example.com',
             'port'       => 22,
@@ -123,25 +123,25 @@ return array(
             // 'timeout'    => 20,
             // 'eventable'  => true,
             // 'cache'      => 'foo'
-        ),
+        ],
 
-        'webdav' => array(
+        'webdav' => [
             'driver'    => 'webdav',
             'baseUri'   => 'http://example.org/dav/',
             'userName'  => 'your-username',
             'password'  => 'your-password',
             // 'eventable' => true,
             // 'cache'     => 'foo'
-        ),
+        ],
 
-        'zip' => array(
+        'zip' => [
             'driver'    => 'zip',
             'path'      => storage_path('files.zip'),
             // 'eventable' => true,
             // 'cache'     => 'foo'
-        ),
+        ],
 
-    ),
+    ],
 
     /*
     |--------------------------------------------------------------------------
@@ -155,29 +155,29 @@ return array(
     |
     */
 
-    'cache' => array(
+    'cache' => [
 
-        'foo' => array(
+        'foo' => [
             'driver'    => 'illuminate',
             'connector' => null, // null means use default driver
             'key'       => 'foo',
             // 'ttl'       => 300
-        ),
+        ],
 
-        'bar' => array(
+        'bar' => [
             'driver'    => 'illuminate',
             'connector' => 'redis', // config/cache.php
             'key'       => 'bar',
             'ttl'       => 600,
-        ),
+        ],
 
-        'adapter' => array(
+        'adapter' => [
             'driver'  => 'adapter',
             'adapter' => 'local', // as defined in connections
             'file'    => 'flysystem.json',
             'ttl'     => 600,
-        ),
+        ],
 
-    ),
+    ],
 
-);
+];
