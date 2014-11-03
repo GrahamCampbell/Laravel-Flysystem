@@ -9,6 +9,12 @@
             "email": "graham@mineuk.com"
         }
     ],
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "https://github.com/GrahamCampbell/testbench"
+        }
+    ],
     "require": {
         "php": ">=5.4.7",
         "illuminate/cache": "~5.0",
@@ -18,6 +24,7 @@
         "league/flysystem": "~0.5.10"
     },
     "require-dev": {
+        "orchestra/testbench": "dev-fix-logging as 3.0.x-dev",
         "graham-campbell/testbench": "~2.0",
         "league/event": "~1.0",
         "aws/aws-sdk-php": "~2.4",
