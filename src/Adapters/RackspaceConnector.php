@@ -43,6 +43,7 @@ class RackspaceConnector implements ConnectorInterface
     {
         $auth = $this->getAuth($config);
         $client = $this->getClient($auth);
+
         return $this->getAdapter($client);
     }
 

@@ -60,6 +60,7 @@ class AdapterConnector implements ConnectorInterface
     {
         $config = $this->getConfig($config);
         $client = $this->getClient($config);
+
         return $this->getAdapter($client, $config);
     }
 
@@ -92,6 +93,7 @@ class AdapterConnector implements ConnectorInterface
     {
         $name = array_get($config, 'adapter');
         $config = $this->manager->getConnectionConfig($name);
+
         return $this->manager->getFactory()->createAdapter($config);
     }
 

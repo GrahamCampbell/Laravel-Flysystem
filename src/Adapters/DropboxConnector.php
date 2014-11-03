@@ -41,6 +41,7 @@ class DropboxConnector implements ConnectorInterface
         $auth = $this->getAuth($config);
         $client = $this->getClient($auth);
         $config = $this->getConfig($config);
+
         return $this->getAdapter($client, $config);
     }
 

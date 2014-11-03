@@ -32,6 +32,7 @@ class FtpConnectorTest extends AbstractTestCase
     {
         if (!defined('FTP_BINARY')) {
             $this->markTestSkipped('The FTP_BINARY constant is not defined');
+
             return;
         }
 
