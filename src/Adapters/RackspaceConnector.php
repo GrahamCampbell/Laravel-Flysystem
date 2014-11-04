@@ -62,11 +62,15 @@ class RackspaceConnector implements ConnectorInterface
             throw new \InvalidArgumentException('The rackspace connector requires authentication.');
         }
 
-        if (!array_key_exists('endpoint', $config) || !array_key_exists('container', $config)) {
-            throw new \InvalidArgumentException('The rackspace connector requires configuration.');
+        if (!array_key_exists('endpoint', $config) || !array_key_exists('region', $config)) {
+            throw new \InvalidArgumentException('The rackspace connector requires both an endpoint an a region.');
         }
 
-        return array_only($config, ['username', 'apiKey', 'endpoint', 'container']);
+        if (!array_key_exists('container', $config)) {
+            throw new \InvalidArgumentException('The rackspace connector requires a container.');
+        }
+
+        return array_only($config, ['username', 'apiKey', 'endpoint', 'region', 'container']);
     }
 
     /**
@@ -83,7 +87,7 @@ class RackspaceConnector implements ConnectorInterface
             'apiKey'   => $auth['apiKey'],
         ]);
 
-        return $client->objectStoreService('cloudFiles', 'LON')->getContainer($auth['container']);
+        return $client->objectStoreService('cloudFiles', $auth['region'])->getContainer($auth['container']);
     }
 
     /**

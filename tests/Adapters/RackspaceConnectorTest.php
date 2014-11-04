@@ -37,6 +37,7 @@ class RackspaceConnectorTest extends AbstractTestCase
 
         $connector->connect([
             'endpoint'  => 'https://lon.identity.api.rackspacecloud.com/v2.0/',
+            'region'    => 'LON',
             'username'  => 'your-username',
             'apiKey'    => 'your-api-key',
             'container' => 'your-container',
@@ -46,12 +47,14 @@ class RackspaceConnectorTest extends AbstractTestCase
     /**
      * @expectedException \InvalidArgumentException
      */
-    public function testConnectWithoutAuth()
+    public function testConnectWithoutEndpoint()
     {
         $connector = $this->getRackspaceConnector();
 
         $connector->connect([
-            'endpoint'  => 'https://lon.identity.api.rackspacecloud.com/v2.0/',
+            'region'    => 'LON',
+            'username'  => 'your-username',
+            'apiKey'    => 'your-api-key',
             'container' => 'your-container',
         ]);
     }
@@ -59,11 +62,58 @@ class RackspaceConnectorTest extends AbstractTestCase
     /**
      * @expectedException \InvalidArgumentException
      */
-    public function testConnectWithoutConfig()
+    public function testConnectWithoutRegion()
     {
         $connector = $this->getRackspaceConnector();
 
         $connector->connect([
+            'endpoint'  => 'https://lon.identity.api.rackspacecloud.com/v2.0/',
+            'username'  => 'your-username',
+            'apiKey'    => 'your-api-key',
+            'container' => 'your-container',
+        ]);
+    }
+
+    /**
+     * @expectedException \InvalidArgumentException
+     */
+    public function testConnectWithoutUsername()
+    {
+        $connector = $this->getRackspaceConnector();
+
+        $connector->connect([
+            'endpoint'  => 'https://lon.identity.api.rackspacecloud.com/v2.0/',
+            'region'    => 'LON',
+            'apiKey'    => 'your-api-key',
+            'container' => 'your-container',
+        ]);
+    }
+
+    /**
+     * @expectedException \InvalidArgumentException
+     */
+    public function testConnectWithoutApiKey()
+    {
+        $connector = $this->getRackspaceConnector();
+
+        $connector->connect([
+            'endpoint'  => 'https://lon.identity.api.rackspacecloud.com/v2.0/',
+            'region'    => 'LON',
+            'username'  => 'your-username',
+            'container' => 'your-container',
+        ]);
+    }
+
+    /**
+     * @expectedException \InvalidArgumentException
+     */
+    public function testConnectWithoutContainer()
+    {
+        $connector = $this->getRackspaceConnector();
+
+        $connector->connect([
+            'endpoint'  => 'https://lon.identity.api.rackspacecloud.com/v2.0/',
+            'region'    => 'LON',
             'username'  => 'your-username',
             'apiKey'    => 'your-api-key',
         ]);

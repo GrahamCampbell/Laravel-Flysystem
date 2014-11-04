@@ -105,6 +105,7 @@ return [
         'rackspace' => [
             'driver'    => 'rackspace',
             'endpoint'  => 'your-endpoint',
+            'region'    => 'your-region',
             'username'  => 'your-username',
             'apiKey'    => 'your-api-key',
             'container' => 'your-container',

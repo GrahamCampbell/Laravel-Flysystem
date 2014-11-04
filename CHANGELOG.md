@@ -5,12 +5,16 @@ CHANGE LOG
 ## V2.0 Beta 1 (Upcoming)
 
 * Upgraded to laravel 5
-* Renamed the rackspace "password" config to "apiKey"
 
 
 ## V1.0 RC 1 (Upcoming)
 
 * Http adapter support
+
+
+## V0.7 Alpha (Upcoming)
+
+* More rackspace fixes
 
 
 ## V0.6.2 Alpha (30/10/2014)
