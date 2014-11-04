@@ -7,6 +7,11 @@ CHANGE LOG
 * Http adapter support
 
 
+## V0.7 Alpha (Upcoming)
+
+* More rackspace fixes
+
+
 ## V0.6.2 Alpha (30/10/2014)
 
 * Fixed the rackspace adapter
