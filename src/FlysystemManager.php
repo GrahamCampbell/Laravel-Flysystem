@@ -27,7 +27,7 @@ use Illuminate\Contracts\Config\Repository;
  * @method bool putStream(string $path, resource $resource, mixed $visibility = null)
  * @method string readAndDelete(string $path)
  * @method array listPaths(string $directory = '', bool $recursive = false)
- * @method array listWith(array $keys = array(), string $directory = '', bool $recursive = false)
+ * @method array listWith(array $keys = [], string $directory = '', bool $recursive = false)
  * @method array getWithMetadata(string $path, array $metadata)
  * @method \League\Flysystem\Handler get(string $path, \League\Flysystem\Handler $handler = null)
  * @method \League\Flysystem\FilesystemInterface flushCache()
