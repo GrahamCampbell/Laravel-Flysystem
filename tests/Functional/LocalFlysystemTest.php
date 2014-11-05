@@ -36,7 +36,7 @@ class LocalFlysystemTest extends AbstractTestCase
      *
      * @return void
      */
-    protected function additionalSetup(Application $app)
+    protected function additionalSetup($app)
     {
         $app['files']->deleteDirectory(realpath(__DIR__.'/../../').'/temp');
 
