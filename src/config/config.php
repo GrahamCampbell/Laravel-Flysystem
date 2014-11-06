@@ -43,16 +43,17 @@ return array(
     'connections' => array(
 
         'awss3' => array(
-            'driver'    => 'awss3',
-            'key'       => 'your-key',
-            'secret'    => 'your-secret',
-            'bucket'    => 'your-bucket',
-            // 'region'    => 'your-region',
-            // 'base_url'  => 'your-url',
-            // 'options'   => array(),
-            // 'prefix'    => 'your-prefix',
-            // 'eventable' => true,
-            // 'cache'     => 'foo'
+            'driver'     => 'awss3',
+            'key'        => 'your-key',
+            'secret'     => 'your-secret',
+            'bucket'     => 'your-bucket',
+            // 'region'     => 'your-region',
+            // 'base_url'   => 'your-url',
+            // 'options'    => array(),
+            // 'prefix'     => 'your-prefix',
+            // 'visibility' => 'public',
+            // 'eventable'  => true,
+            // 'cache'      => 'foo'
         ),
 
         'copy' => array(
@@ -62,38 +63,42 @@ return array(
             'access-token'    => 'your-access-token',
             'token-secret'    => 'your-token-secret',
             // 'prefix'          => 'your-prefix',
+            // 'visibility'      => 'public',
             // 'eventable'       => true,
             // 'cache'           => 'foo'
         ),
 
         'dropbox' => array(
-            'driver'    => 'dropbox',
-            'token'     => 'your-token',
-            'app'       => 'your-app',
-            // 'prefix'    => 'your-prefix',
-            // 'eventable' => true,
-            // 'cache'     => 'foo'
+            'driver'     => 'dropbox',
+            'token'      => 'your-token',
+            'app'        => 'your-app',
+            // 'prefix'     => 'your-prefix',
+            // 'visibility' => 'public',
+            // 'eventable'  => true,
+            // 'cache'      => 'foo'
         ),
 
         'ftp' => array(
-            'driver'    => 'ftp',
-            'host'      => 'ftp.example.com',
-            'port'      => 21,
-            'username'  => 'your-username',
-            'password'  => 'your-password',
-            // 'root'      => '/path/to/root',
-            // 'passive'   => true,
-            // 'ssl'       => true,
-            // 'timeout'   => 20,
-            // 'eventable' => true,
-            // 'cache'     => 'foo'
+            'driver'     => 'ftp',
+            'host'       => 'ftp.example.com',
+            'port'       => 21,
+            'username'   => 'your-username',
+            'password'   => 'your-password',
+            // 'root'       => '/path/to/root',
+            // 'passive'    => true,
+            // 'ssl'        => true,
+            // 'timeout'    => 20,
+            // 'visibility' => 'public',
+            // 'eventable'  => true,
+            // 'cache'      => 'foo'
         ),
 
         'local' => array(
-            'driver'    => 'local',
-            'path'      => storage_path('files'),
-            // 'eventable' => true,
-            // 'cache'     => 'foo'
+            'driver'     => 'local',
+            'path'       => storage_path('files'),
+            // 'visibility' => 'public',
+            // 'eventable'  => true,
+            // 'cache'      => 'foo'
         ),
 
         'null' => array(
@@ -103,14 +108,15 @@ return array(
         ),
 
         'rackspace' => array(
-            'driver'    => 'rackspace',
-            'endpoint'  => 'your-endpoint',
-            'region'    => 'your-region',
-            'username'  => 'your-username',
-            'apiKey'    => 'your-api-key',
-            'container' => 'your-container',
-            // 'eventable' => true,
-            // 'cache'     => 'foo'
+            'driver'     => 'rackspace',
+            'endpoint'   => 'your-endpoint',
+            'region'     => 'your-region',
+            'username'   => 'your-username',
+            'apiKey'     => 'your-api-key',
+            'container'  => 'your-container',
+            // 'visibility' => 'public',
+            // 'eventable'  => true,
+            // 'cache'      => 'foo'
         ),
 
         'sftp' => array(
@@ -122,24 +128,27 @@ return array(
             // 'privateKey' => 'path/to/or/contents/of/privatekey',
             // 'root'       => '/path/to/root',
             // 'timeout'    => 20,
+            // 'visibility' => 'public',
             // 'eventable'  => true,
             // 'cache'      => 'foo'
         ),
 
         'webdav' => array(
-            'driver'    => 'webdav',
-            'baseUri'   => 'http://example.org/dav/',
-            'userName'  => 'your-username',
-            'password'  => 'your-password',
-            // 'eventable' => true,
-            // 'cache'     => 'foo'
+            'driver'     => 'webdav',
+            'baseUri'    => 'http://example.org/dav/',
+            'userName'   => 'your-username',
+            'password'   => 'your-password',
+            // 'visibility' => 'public',
+            // 'eventable'  => true,
+            // 'cache'      => 'foo'
         ),
 
         'zip' => array(
-            'driver'    => 'zip',
-            'path'      => storage_path('files.zip'),
-            // 'eventable' => true,
-            // 'cache'     => 'foo'
+            'driver'     => 'zip',
+            'path'       => storage_path('files.zip'),
+            // 'visibility' => 'public',
+            // 'eventable'  => true,
+            // 'cache'      => 'foo'
         ),
 
     ),

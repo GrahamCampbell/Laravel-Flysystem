@@ -10,6 +10,7 @@ CHANGE LOG
 ## V0.7 Alpha (Upcoming)
 
 * More rackspace fixes
+* Support setting global visibility
 
 
 ## V0.6.2 Alpha (30/10/2014)
