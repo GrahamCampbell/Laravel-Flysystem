@@ -73,11 +73,13 @@ class FlysystemFactory
 
         $cache = $this->createCache($config, $manager);
 
+        $options = $this->getOptions($config);
+
         if (array_get($config, 'eventable', false)) {
-            return new EventableFilesystem($adapter, $cache);
+            return new EventableFilesystem($adapter, $cache, $options);
         }
 
-        return new Filesystem($adapter, $cache);
+        return new Filesystem($adapter, $cache, $options);
     }
 
     /**
@@ -89,7 +91,7 @@ class FlysystemFactory
      */
     public function createAdapter(array $config)
     {
-        $config = array_except($config, ['cache', 'eventable']);
+        $config = array_except($config, ['cache', 'eventable', 'visibility']);
 
         return $this->adapter->make($config);
     }
@@ -106,6 +108,20 @@ class FlysystemFactory
     {
         if (is_array($config = array_get($config, 'cache')) && $config) {
             return $this->cache->make($config, $manager);
+        }
+    }
+
+    /**
+     * Get the flysystem options.
+     *
+     * @param array $config
+     *
+     * @return array|null
+     */
+    protected function getOptions(array $config)
+    {
+        if ($visibility = array_get($config, 'visibility')) {
+            return compact('visibility');
         }
     }
 

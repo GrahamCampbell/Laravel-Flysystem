@@ -43,9 +43,23 @@ class FlysystemFactoryTest extends AbstractTestCase
         $this->assertInstanceOf('League\Flysystem\Filesystem', $return);
     }
 
-    public function testMakeCache()
+    public function testMakeWithCache()
     {
         $config = ['driver' => 'local', 'cache' => ['driver' => 'redis', 'name' => 'illuminate'], 'name' => 'local'];
+
+        $manager = Mockery::mock('GrahamCampbell\Flysystem\FlysystemManager');
+
+        $factory = $this->getMockedFactory($config, $manager);
+
+        $return = $factory->make($config, $manager);
+
+        $this->assertInstanceOf('League\Flysystem\FilesystemInterface', $return);
+        $this->assertInstanceOf('League\Flysystem\Filesystem', $return);
+    }
+
+    public function testMakeWithVisibility()
+    {
+        $config = ['driver' => 'local', 'path' => __DIR__, 'name' => 'local', 'visibility' => 'public'];
 
         $manager = Mockery::mock('GrahamCampbell\Flysystem\FlysystemManager');
 
@@ -60,6 +74,34 @@ class FlysystemFactoryTest extends AbstractTestCase
     public function testMakeEventable()
     {
         $config = ['driver' => 'local', 'path' => __DIR__, 'name' => 'local', 'eventable' => true];
+
+        $manager = Mockery::mock('GrahamCampbell\Flysystem\FlysystemManager');
+
+        $factory = $this->getMockedFactory($config, $manager);
+
+        $return = $factory->make($config, $manager);
+
+        $this->assertInstanceOf('League\Flysystem\FilesystemInterface', $return);
+        $this->assertInstanceOf('League\Flysystem\EventableFilesystem', $return);
+    }
+
+    public function testMakeWithEventableCache()
+    {
+        $config = ['driver' => 'local', 'cache' => ['driver' => 'redis', 'name' => 'illuminate'], 'name' => 'local', 'eventable' => true];
+
+        $manager = Mockery::mock('GrahamCampbell\Flysystem\FlysystemManager');
+
+        $factory = $this->getMockedFactory($config, $manager);
+
+        $return = $factory->make($config, $manager);
+
+        $this->assertInstanceOf('League\Flysystem\FilesystemInterface', $return);
+        $this->assertInstanceOf('League\Flysystem\EventableFilesystem', $return);
+    }
+
+    public function testMakeEventableWithVisibility()
+    {
+        $config = ['driver' => 'local', 'path' => __DIR__, 'name' => 'local', 'eventable' => true, 'visibility' => 'public'];
 
         $manager = Mockery::mock('GrahamCampbell\Flysystem\FlysystemManager');
 
