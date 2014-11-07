@@ -7,7 +7,7 @@ CHANGE LOG
 * Http adapter support
 
 
-## V0.7 Alpha (Upcoming)
+## V0.7 Alpha (07/11/2014)
 
 * More rackspace fixes
 * Support setting global visibility
