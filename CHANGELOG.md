@@ -12,6 +12,11 @@ CHANGE LOG
 * Http adapter support
 
 
+## V0.8 Alpha (Upcoming)
+
+* Upgraded to flysystem 0.6
+
+
 ## V0.7 Alpha (07/11/2014)
 
 * More rackspace fixes
