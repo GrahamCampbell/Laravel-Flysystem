@@ -39,8 +39,8 @@ class FtpConnectorTest extends AbstractTestCase
         $connector = $this->getFtpConnector();
 
         $return = $connector->connect([
-            'host' => 'ftp.example.com',
-            'port' => 21,
+            'host'     => 'ftp.example.com',
+            'port'     => 21,
             'username' => 'your-username',
             'password' => 'your-password',
         ]);
