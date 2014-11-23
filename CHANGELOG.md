@@ -15,6 +15,7 @@ CHANGE LOG
 ## V0.8 Alpha (Upcoming)
 
 * Upgraded to flysystem 0.6
+* Removed the cs fixers
 
 
 ## V0.7 Alpha (07/11/2014)
