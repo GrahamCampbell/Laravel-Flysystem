@@ -9,12 +9,7 @@ CHANGE LOG
 
 ## V1.0 RC 1 (Upcoming)
 
-* Http adapter support
-
-
-## V0.8 Alpha (Upcoming)
-
-* Upgraded to flysystem 0.6
+* Upgraded to flysystem 1.0
 * Removed the cs fixers
 
 
