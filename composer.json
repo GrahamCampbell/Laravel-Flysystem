@@ -9,6 +9,12 @@
             "email": "graham@mineuk.com"
         }
     ],
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "https://github.com/thephpleague/flysystem-webdav"
+        }
+    ],
     "require": {
         "php": ">=5.4.7",
         "illuminate/cache": "~4.1",
@@ -23,7 +29,7 @@
         "barracuda/copy": "~1.1",
         "dropbox/dropbox-sdk": "~1.1",
         "rackspace/php-opencloud": "~1.8",
-        "sabre/dav": "~2.0.2"
+        "league/flysystem-webdav": "~1.0"
     },
     "suggest": {
         "league/event": "Enables usage of the eventable flysystem.",

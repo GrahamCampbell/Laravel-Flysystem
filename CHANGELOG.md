@@ -5,6 +5,7 @@ CHANGE LOG
 ## V1.0 RC 1 (Upcoming)
 
 * Upgraded to flysystem 1.0
+* Upgraded to the new webdev adapter
 * Removed the cs fixers
 
 

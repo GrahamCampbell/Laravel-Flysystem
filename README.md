@@ -31,7 +31,7 @@ There are some additional dependencies you will need to install for some of the 
 * The copy connector requires `"barracuda/copy": "~1.1"` in your `composer.json`.
 * The dropbox connector requires `"dropbox/dropbox-sdk": "~1.1"` in your `composer.json`.
 * The rackspace connector requires `"rackspace/php-opencloud": "~1.8"` in your `composer.json`.
-* The webdav connector requires `"sabre/dav": "~2.0.2"` in your `composer.json`.
+* The webdav connector requires `"league/flysystem-webdav": "~1.0"` in your `composer.json`.
 
 You'll then need to run `composer install` or `composer update` to download it and have the autoloader updated.
 
