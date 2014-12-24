@@ -32,11 +32,11 @@ class AwsS3ConnectorTest extends AbstractTestCase
     {
         $connector = $this->getAwsS3Connector();
 
-        $return = $connector->connect(array(
+        $return = $connector->connect([
             'key'    => 'your-key',
             'secret' => 'your-secret',
             'bucket' => 'your-bucket',
-        ));
+        ]);
 
         $this->assertInstanceOf('League\Flysystem\Adapter\AwsS3', $return);
     }
@@ -45,12 +45,12 @@ class AwsS3ConnectorTest extends AbstractTestCase
     {
         $connector = $this->getAwsS3Connector();
 
-        $return = $connector->connect(array(
+        $return = $connector->connect([
             'key'    => 'your-key',
             'secret' => 'your-secret',
             'bucket' => 'your-bucket',
             'prefix' => 'your-prefix',
-        ));
+        ]);
 
         $this->assertInstanceOf('League\Flysystem\Adapter\AwsS3', $return);
     }
@@ -59,12 +59,12 @@ class AwsS3ConnectorTest extends AbstractTestCase
     {
         $connector = $this->getAwsS3Connector();
 
-        $return = $connector->connect(array(
+        $return = $connector->connect([
             'key'    => 'your-key',
             'secret' => 'your-secret',
             'bucket' => 'your-bucket',
             'region' => 'eu-west-1',
-        ));
+        ]);
 
         $this->assertInstanceOf('League\Flysystem\Adapter\AwsS3', $return);
     }
@@ -73,12 +73,12 @@ class AwsS3ConnectorTest extends AbstractTestCase
     {
         $connector = $this->getAwsS3Connector();
 
-        $return = $connector->connect(array(
+        $return = $connector->connect([
             'key'      => 'your-key',
             'secret'   => 'your-secret',
             'bucket'   => 'your-bucket',
             'base_url' => 'your-url',
-        ));
+        ]);
 
         $this->assertInstanceOf('League\Flysystem\Adapter\AwsS3', $return);
     }
@@ -87,12 +87,12 @@ class AwsS3ConnectorTest extends AbstractTestCase
     {
         $connector = $this->getAwsS3Connector();
 
-        $return = $connector->connect(array(
+        $return = $connector->connect([
             'key'      => 'your-key',
             'secret'   => 'your-secret',
             'bucket'   => 'your-bucket',
-            'options'  => array('foo' => 'bar'),
-        ));
+            'options'  => ['foo' => 'bar'],
+        ]);
 
         $this->assertInstanceOf('League\Flysystem\Adapter\AwsS3', $return);
     }
@@ -101,14 +101,14 @@ class AwsS3ConnectorTest extends AbstractTestCase
     {
         $connector = $this->getAwsS3Connector();
 
-        $return = $connector->connect(array(
+        $return = $connector->connect([
             'key'      => 'your-key',
             'secret'   => 'your-secret',
             'bucket'   => 'your-bucket',
             'region'   => 'eu-west-1',
             'base_url' => 'your-url',
-            'options'  => array('foo' => 'bar'),
-        ));
+            'options'  => ['foo' => 'bar'],
+        ]);
 
         $this->assertInstanceOf('League\Flysystem\Adapter\AwsS3', $return);
     }
@@ -120,7 +120,7 @@ class AwsS3ConnectorTest extends AbstractTestCase
     {
         $connector = $this->getAwsS3Connector();
 
-        $connector->connect(array('key' => 'your-key', 'secret' => 'your-secret'));
+        $connector->connect(['key' => 'your-key', 'secret' => 'your-secret']);
     }
 
     /**
@@ -130,7 +130,7 @@ class AwsS3ConnectorTest extends AbstractTestCase
     {
         $connector = $this->getAwsS3Connector();
 
-        $connector->connect(array('secret' => 'your-secret', 'bucket' => 'your-bucket'));
+        $connector->connect(['secret' => 'your-secret', 'bucket' => 'your-bucket']);
     }
 
     /**
@@ -140,7 +140,7 @@ class AwsS3ConnectorTest extends AbstractTestCase
     {
         $connector = $this->getAwsS3Connector();
 
-        $connector->connect(array('key' => 'your-key', 'bucket' => 'your-bucket'));
+        $connector->connect(['key' => 'your-key', 'bucket' => 'your-bucket']);
     }
 
     protected function getAwsS3Connector()

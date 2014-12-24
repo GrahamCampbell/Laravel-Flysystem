@@ -43,6 +43,7 @@ class RackspaceConnector implements ConnectorInterface
     {
         $auth = $this->getAuth($config);
         $client = $this->getClient($auth);
+
         return $this->getAdapter($client);
     }
 
@@ -69,7 +70,7 @@ class RackspaceConnector implements ConnectorInterface
             throw new \InvalidArgumentException('The rackspace connector requires a container.');
         }
 
-        return array_only($config, array('username', 'apiKey', 'endpoint', 'region', 'container'));
+        return array_only($config, ['username', 'apiKey', 'endpoint', 'region', 'container']);
     }
 
     /**
@@ -81,10 +82,10 @@ class RackspaceConnector implements ConnectorInterface
      */
     protected function getClient(array $auth)
     {
-        $client = new OpenStackRackspace($auth['endpoint'], array(
+        $client = new OpenStackRackspace($auth['endpoint'], [
             'username' => $auth['username'],
-            'apiKey' => $auth['apiKey'],
-        ));
+            'apiKey'   => $auth['apiKey'],
+        ]);
 
         return $client->objectStoreService('cloudFiles', $auth['region'])->getContainer($auth['container']);
     }

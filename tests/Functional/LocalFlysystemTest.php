@@ -41,12 +41,12 @@ class LocalFlysystemTest extends AbstractTestCase
 
         $old = $app['config']->get('graham-campbell/flysystem::connections');
 
-        $new = array_merge($old, array(
-            'testing' => array(
+        $new = array_merge($old, [
+            'testing' => [
                 'driver' => 'local',
                 'path'   => realpath(__DIR__.'/../../').'/temp',
-            ),
-        ));
+            ],
+        ]);
 
         $app['config']->set('graham-campbell/flysystem::connections', $new);
         $app['config']->set('graham-campbell/flysystem::default', 'testing');

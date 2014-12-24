@@ -41,6 +41,7 @@ class CopyConnector implements ConnectorInterface
         $auth = $this->getAuth($config);
         $client = $this->getClient($auth);
         $config = $this->getConfig($config);
+
         return $this->getAdapter($client, $config);
     }
 
@@ -63,7 +64,7 @@ class CopyConnector implements ConnectorInterface
             throw new \InvalidArgumentException('The copy connector requires authentication.');
         }
 
-        return array_only($config, array('consumer-key', 'consumer-secret', 'access-token', 'token-secret'));
+        return array_only($config, ['consumer-key', 'consumer-secret', 'access-token', 'token-secret']);
     }
 
     /**
@@ -91,7 +92,7 @@ class CopyConnector implements ConnectorInterface
             $config['prefix'] = null;
         }
 
-        return array_only($config, array('prefix'));
+        return array_only($config, ['prefix']);
     }
 
     /**

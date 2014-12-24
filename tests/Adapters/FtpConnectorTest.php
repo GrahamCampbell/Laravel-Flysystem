@@ -32,17 +32,18 @@ class FtpConnectorTest extends AbstractTestCase
     {
         if (!defined('FTP_BINARY')) {
             $this->markTestSkipped('The FTP_BINARY constant is not defined');
+
             return;
         }
 
         $connector = $this->getFtpConnector();
 
-        $return = $connector->connect(array(
-            'host' => 'ftp.example.com',
-            'port' => 21,
+        $return = $connector->connect([
+            'host'     => 'ftp.example.com',
+            'port'     => 21,
             'username' => 'your-username',
             'password' => 'your-password',
-        ));
+        ]);
 
         $this->assertInstanceOf('League\Flysystem\Adapter\Ftp', $return);
     }

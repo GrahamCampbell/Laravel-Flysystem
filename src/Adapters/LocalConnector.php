@@ -38,6 +38,7 @@ class LocalConnector implements ConnectorInterface
     public function connect(array $config)
     {
         $config = $this->getConfig($config);
+
         return $this->getAdapter($config);
     }
 
@@ -56,7 +57,7 @@ class LocalConnector implements ConnectorInterface
             throw new \InvalidArgumentException('The local connector requires a path.');
         }
 
-        return array_only($config, array('path'));
+        return array_only($config, ['path']);
     }
 
     /**

@@ -32,7 +32,7 @@ class LocalConnectorTest extends AbstractTestCase
     {
         $connector = $this->getLocalConnector();
 
-        $return = $connector->connect(array('path' => __DIR__));
+        $return = $connector->connect(['path' => __DIR__]);
 
         $this->assertInstanceOf('League\Flysystem\Adapter\Local', $return);
     }
@@ -41,7 +41,7 @@ class LocalConnectorTest extends AbstractTestCase
     {
         $connector = $this->getLocalConnector();
 
-        $return = $connector->connect(array('path' => __DIR__, 'prefix' => 'your-prefix'));
+        $return = $connector->connect(['path' => __DIR__, 'prefix' => 'your-prefix']);
 
         $this->assertInstanceOf('League\Flysystem\Adapter\Local', $return);
     }
@@ -53,7 +53,7 @@ class LocalConnectorTest extends AbstractTestCase
     {
         $connector = $this->getLocalConnector();
 
-        $connector->connect(array());
+        $connector->connect([]);
     }
 
     protected function getLocalConnector()

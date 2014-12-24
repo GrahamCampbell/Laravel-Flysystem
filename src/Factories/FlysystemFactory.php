@@ -91,7 +91,7 @@ class FlysystemFactory
      */
     public function createAdapter(array $config)
     {
-        $config = array_except($config, array('cache', 'eventable', 'visibility'));
+        $config = array_except($config, ['cache', 'eventable', 'visibility']);
 
         return $this->adapter->make($config);
     }

@@ -35,7 +35,7 @@ class ConnectionFactoryTest extends AbstractTestCase
 
         $factory = $this->getMockedFactory($manager);
 
-        $return = $factory->make(array('name' => 'foo', 'driver' => 'illuminate', 'connector' => 'redis'), $manager);
+        $return = $factory->make(['name' => 'foo', 'driver' => 'illuminate', 'connector' => 'redis'], $manager);
 
         $this->assertInstanceOf('League\Flysystem\CacheInterface', $return);
     }
@@ -46,7 +46,7 @@ class ConnectionFactoryTest extends AbstractTestCase
 
         $factory = $this->getConnectionFactory();
 
-        $return = $factory->createConnector(array('name' => 'foo', 'driver' => 'illuminate', 'connector' => 'redis'), $manager);
+        $return = $factory->createConnector(['name' => 'foo', 'driver' => 'illuminate', 'connector' => 'redis'], $manager);
 
         $this->assertInstanceOf('GrahamCampbell\Flysystem\Cache\IlluminateConnector', $return);
     }
@@ -57,7 +57,7 @@ class ConnectionFactoryTest extends AbstractTestCase
 
         $factory = $this->getConnectionFactory();
 
-        $return = $factory->createConnector(array('name' => 'foo', 'driver' => 'adapter', 'adapter' => 'local'), $manager);
+        $return = $factory->createConnector(['name' => 'foo', 'driver' => 'adapter', 'adapter' => 'local'], $manager);
 
         $this->assertInstanceOf('GrahamCampbell\Flysystem\Cache\AdapterConnector', $return);
     }
@@ -71,7 +71,7 @@ class ConnectionFactoryTest extends AbstractTestCase
 
         $factory = $this->getConnectionFactory();
 
-        $factory->createConnector(array(), $manager);
+        $factory->createConnector([], $manager);
     }
 
     /**
@@ -83,7 +83,7 @@ class ConnectionFactoryTest extends AbstractTestCase
 
         $factory = $this->getConnectionFactory();
 
-        $factory->createConnector(array('driver' => 'unsupported'), $manager);
+        $factory->createConnector(['driver' => 'unsupported'], $manager);
     }
 
     protected function getConnectionFactory()
@@ -97,16 +97,16 @@ class ConnectionFactoryTest extends AbstractTestCase
     {
         $cache = Mockery::mock('Illuminate\Cache\CacheManager');
 
-        $mock = Mockery::mock('GrahamCampbell\Flysystem\Cache\ConnectionFactory[createConnector]', array($cache));
+        $mock = Mockery::mock('GrahamCampbell\Flysystem\Cache\ConnectionFactory[createConnector]', [$cache]);
 
-        $connector = Mockery::mock('GrahamCampbell\Flysystem\Cache\IlluminateConnector', array($cache));
+        $connector = Mockery::mock('GrahamCampbell\Flysystem\Cache\IlluminateConnector', [$cache]);
 
         $connector->shouldReceive('connect')->once()
-            ->with(array('name' => 'foo', 'driver' => 'illuminate', 'connector' => 'redis'))
+            ->with(['name' => 'foo', 'driver' => 'illuminate', 'connector' => 'redis'])
             ->andReturn(Mockery::mock('League\Flysystem\CacheInterface'));
 
         $mock->shouldReceive('createConnector')->once()
-            ->with(array('name' => 'foo', 'driver' => 'illuminate', 'connector' => 'redis'), $manager)
+            ->with(['name' => 'foo', 'driver' => 'illuminate', 'connector' => 'redis'], $manager)
             ->andReturn($connector);
 
         return $mock;

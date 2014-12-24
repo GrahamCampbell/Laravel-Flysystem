@@ -41,6 +41,7 @@ class DropboxConnector implements ConnectorInterface
         $auth = $this->getAuth($config);
         $client = $this->getClient($auth);
         $config = $this->getConfig($config);
+
         return $this->getAdapter($client, $config);
     }
 
@@ -59,7 +60,7 @@ class DropboxConnector implements ConnectorInterface
             throw new \InvalidArgumentException('The dropbox connector requires authentication.');
         }
 
-        return array_only($config, array('token', 'app'));
+        return array_only($config, ['token', 'app']);
     }
 
     /**
@@ -87,7 +88,7 @@ class DropboxConnector implements ConnectorInterface
             $config['prefix'] = null;
         }
 
-        return array_only($config, array('prefix'));
+        return array_only($config, ['prefix']);
     }
 
     /**

@@ -58,6 +58,7 @@ class IlluminateConnector implements ConnectorInterface
     public function connect(array $config)
     {
         $client = $this->getClient($config);
+
         return $this->getAdapter($client, $config);
     }
 
@@ -71,6 +72,7 @@ class IlluminateConnector implements ConnectorInterface
     protected function getClient(array $config)
     {
         $name = array_get($config, 'connector');
+
         return $this->cache->driver($name)->getStore();
     }
 

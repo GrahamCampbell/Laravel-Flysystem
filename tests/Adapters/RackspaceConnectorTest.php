@@ -35,13 +35,13 @@ class RackspaceConnectorTest extends AbstractTestCase
     {
         $connector = $this->getRackspaceConnector();
 
-        $connector->connect(array(
+        $connector->connect([
             'endpoint'  => 'https://lon.identity.api.rackspacecloud.com/v2.0/',
             'region'    => 'LON',
             'username'  => 'your-username',
             'apiKey'    => 'your-api-key',
             'container' => 'your-container',
-        ));
+        ]);
     }
 
     /**
@@ -51,12 +51,12 @@ class RackspaceConnectorTest extends AbstractTestCase
     {
         $connector = $this->getRackspaceConnector();
 
-        $connector->connect(array(
+        $connector->connect([
             'region'    => 'LON',
             'username'  => 'your-username',
             'apiKey'    => 'your-api-key',
             'container' => 'your-container',
-        ));
+        ]);
     }
 
     /**
@@ -66,12 +66,12 @@ class RackspaceConnectorTest extends AbstractTestCase
     {
         $connector = $this->getRackspaceConnector();
 
-        $connector->connect(array(
+        $connector->connect([
             'endpoint'  => 'https://lon.identity.api.rackspacecloud.com/v2.0/',
             'username'  => 'your-username',
             'apiKey'    => 'your-api-key',
             'container' => 'your-container',
-        ));
+        ]);
     }
 
     /**
@@ -81,12 +81,12 @@ class RackspaceConnectorTest extends AbstractTestCase
     {
         $connector = $this->getRackspaceConnector();
 
-        $connector->connect(array(
+        $connector->connect([
             'endpoint'  => 'https://lon.identity.api.rackspacecloud.com/v2.0/',
             'region'    => 'LON',
             'apiKey'    => 'your-api-key',
             'container' => 'your-container',
-        ));
+        ]);
     }
 
     /**
@@ -96,12 +96,12 @@ class RackspaceConnectorTest extends AbstractTestCase
     {
         $connector = $this->getRackspaceConnector();
 
-        $connector->connect(array(
+        $connector->connect([
             'endpoint'  => 'https://lon.identity.api.rackspacecloud.com/v2.0/',
             'region'    => 'LON',
             'username'  => 'your-username',
             'container' => 'your-container',
-        ));
+        ]);
     }
 
     /**
@@ -111,12 +111,12 @@ class RackspaceConnectorTest extends AbstractTestCase
     {
         $connector = $this->getRackspaceConnector();
 
-        $connector->connect(array(
+        $connector->connect([
             'endpoint'  => 'https://lon.identity.api.rackspacecloud.com/v2.0/',
             'region'    => 'LON',
             'username'  => 'your-username',
             'apiKey'    => 'your-api-key',
-        ));
+        ]);
     }
 
     protected function getRackspaceConnector()
