@@ -1,6 +1,6 @@
 <?php
 
-/**
+/*
  * This file is part of Laravel Flysystem by Graham Campbell.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -38,7 +38,7 @@ class WebDavConnectorTest extends AbstractTestCase
             'password' => 'your-password',
         ]);
 
-        $this->assertInstanceOf('League\Flysystem\Adapter\WebDav', $return);
+        $this->assertInstanceOf('League\Flysystem\WebDAV\Adapter', $return);
     }
 
     protected function getWebDavConnector()

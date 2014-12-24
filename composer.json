@@ -24,7 +24,7 @@
         "barracuda/copy": "~1.1",
         "dropbox/dropbox-sdk": "~1.1",
         "rackspace/php-opencloud": "~1.8",
-        "sabre/dav": "~2.0.2"
+        "league/flysystem-webdav": "~1.0"
     },
     "suggest": {
         "league/event": "Enables usage of the eventable flysystem.",

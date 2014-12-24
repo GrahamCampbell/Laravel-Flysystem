@@ -1,6 +1,6 @@
 <?php
 
-/**
+/*
  * This file is part of Laravel Flysystem by Graham Campbell.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -17,7 +17,7 @@
 namespace GrahamCampbell\Flysystem\Adapters;
 
 use GrahamCampbell\Manager\ConnectorInterface;
-use League\Flysystem\Adapter\WebDav;
+use League\Flysystem\WebDAV\Adapter;
 use Sabre\DAV\Client;
 
 /**
@@ -34,7 +34,7 @@ class WebDavConnector implements ConnectorInterface
      *
      * @param string[] $config
      *
-     * @return \League\Flysystem\Adapter\WebDav
+     * @return \League\Flysystem\WebDAV\Adapter
      */
     public function connect(array $config)
     {
@@ -60,10 +60,10 @@ class WebDavConnector implements ConnectorInterface
      *
      * @param \Sabre\DAV\Client $client
      *
-     * @return \League\Flysystem\Adapter\WebDav
+     * @return \League\Flysystem\WebDAV\Adapter
      */
     protected function getAdapter(Client $client)
     {
-        return new WebDav($client);
+        return new Adapter($client);
     }
 }
