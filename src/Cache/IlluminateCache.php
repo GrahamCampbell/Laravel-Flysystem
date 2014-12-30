@@ -50,7 +50,7 @@ class IlluminateCache extends AbstractCache
     protected $ttl;
 
     /**
-     * Constructor
+     * Create a new illuminate cache instance.
      *
      * @param \Illuminate\Cache\StoreInterface $client
      * @param string                           $key
@@ -66,7 +66,7 @@ class IlluminateCache extends AbstractCache
     }
 
     /**
-     * Load the cache
+     * Load the cache.
      *
      * @return void
      */
@@ -78,7 +78,7 @@ class IlluminateCache extends AbstractCache
     }
 
     /**
-     * Store the cache
+     * Store the cache.
      *
      * @return void
      */

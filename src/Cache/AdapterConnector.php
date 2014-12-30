@@ -38,7 +38,7 @@ class AdapterConnector implements ConnectorInterface
     protected $manager;
 
     /**
-     * Create a new connection factory instance.
+     * Create a new adapter connector instance.
      *
      * @param \GrahamCampbell\Flysystem\FlysystemManager $manager
      *

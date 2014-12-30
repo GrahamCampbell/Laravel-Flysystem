@@ -37,7 +37,7 @@ class IlluminateConnector implements ConnectorInterface
     protected $cache;
 
     /**
-     * Create a new connection factory instance.
+     * Create a new illuminate connector instance.
      *
      * @param \Illuminate\Contracts\Cache\Factory $cache
      *
