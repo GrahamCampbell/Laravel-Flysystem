@@ -2,7 +2,7 @@
     "name": "graham-campbell/flysystem",
     "description": "Flysystem Is A Flysystem Bridge For Laravel 4.1/4.2",
     "keywords": ["laravel", "framework", "files", "aws", "s3", "dropbox", "flysystem", "Flysystem", "Laravel Flysystem", "Laravel-Flysystem", "Graham Campbell", "GrahamCampbell"],
-    "license": "Apache-2.0",
+    "license": "MIT",
     "authors": [
         {
             "name": "Graham Campbell",
