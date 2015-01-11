@@ -12,6 +12,8 @@ CHANGE LOG
 * Upgraded to flysystem 1.0
 * Upgraded to the new webdev adapter
 * Removed the cs fixers
+* CS fixes
+* Moved to the MIT license
 
 
 ## V0.7 Alpha (07/11/2014)
