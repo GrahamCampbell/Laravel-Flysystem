@@ -31,7 +31,7 @@ class WebDavConnectorTest extends AbstractTestCase
             'password' => 'your-password',
         ]);
 
-        $this->assertInstanceOf('League\Flysystem\WebDAV\Adapter', $return);
+        $this->assertInstanceOf('League\Flysystem\WebDAV\WebDAVAdapter', $return);
     }
 
     protected function getWebDavConnector()

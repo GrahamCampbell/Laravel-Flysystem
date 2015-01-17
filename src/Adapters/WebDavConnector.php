@@ -12,7 +12,7 @@
 namespace GrahamCampbell\Flysystem\Adapters;
 
 use GrahamCampbell\Manager\ConnectorInterface;
-use League\Flysystem\WebDAV\Adapter;
+use League\Flysystem\WebDAV\WebDAVAdapter;
 use Sabre\DAV\Client;
 
 /**
@@ -27,7 +27,7 @@ class WebDavConnector implements ConnectorInterface
      *
      * @param string[] $config
      *
-     * @return \League\Flysystem\WebDAV\Adapter
+     * @return \League\Flysystem\WebDAV\WebDAVAdapter
      */
     public function connect(array $config)
     {
@@ -53,10 +53,10 @@ class WebDavConnector implements ConnectorInterface
      *
      * @param \Sabre\DAV\Client $client
      *
-     * @return \League\Flysystem\WebDAV\Adapter
+     * @return \League\Flysystem\WebDAV\WebDAVAdapter
      */
     protected function getAdapter(Client $client)
     {
-        return new Adapter($client);
+        return new WebDAVAdapter($client);
     }
 }
