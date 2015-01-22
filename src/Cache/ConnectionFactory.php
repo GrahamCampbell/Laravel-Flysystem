@@ -46,7 +46,7 @@ class ConnectionFactory
      * @param array                                      $config
      * @param \GrahamCampbell\Flysystem\FlysystemManager $manager
      *
-     * @return \League\Flysystem\CacheInterface
+     * @return \League\Flysystem\Cached\CacheInterface
      */
     public function make(array $config, FlysystemManager $manager)
     {

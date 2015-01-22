@@ -14,7 +14,7 @@ namespace GrahamCampbell\Flysystem\Cache;
 use GrahamCampbell\Flysystem\FlysystemManager;
 use GrahamCampbell\Manager\ConnectorInterface;
 use League\Flysystem\AdapterInterface;
-use League\Flysystem\Cache\Adapter;
+use League\Flysystem\Cached\Storage\Adapter;
 
 /**
  * This is the adapter connector class.
@@ -47,7 +47,7 @@ class AdapterConnector implements ConnectorInterface
      *
      * @param string[] $config
      *
-     * @return \League\Flysystem\Cache\Adapter
+     * @return \League\Flysystem\Cached\Storage\Adapter
      */
     public function connect(array $config)
     {
@@ -96,7 +96,7 @@ class AdapterConnector implements ConnectorInterface
      * @param \League\Flysystem\AdapterInterface $client
      * @param string[]                           $config
      *
-     * @return \League\Flysystem\Cache\Adapter
+     * @return \League\Flysystem\Cached\Storage\Adapter
      */
     protected function getAdapter(AdapterInterface $client, array $config)
     {

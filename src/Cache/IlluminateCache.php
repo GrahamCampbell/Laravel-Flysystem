@@ -12,7 +12,7 @@
 namespace GrahamCampbell\Flysystem\Cache;
 
 use Illuminate\Cache\StoreInterface;
-use League\Flysystem\Cache\AbstractCache;
+use League\Flysystem\Cached\Storage\AbstractCache;
 
 /**
  * This is the illuminate cache class.

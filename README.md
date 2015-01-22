@@ -26,12 +26,15 @@ To get the latest version of Laravel Flysystem, simply add the following line to
 
 There are some additional dependencies you will need to install for some of the features:
 
-* The eventable flysystem requires `"league/event": "~1.0"` in your `composer.json`.
-* The awss3 connector requires `"aws/aws-sdk-php": "~2.4"` in your `composer.json`.
-* The copy connector requires `"barracuda/copy": "~1.1"` in your `composer.json`.
-* The dropbox connector requires `"dropbox/dropbox-sdk": "~1.1"` in your `composer.json`.
-* The rackspace connector requires `"rackspace/php-opencloud": "~1.8"` in your `composer.json`.
+* The adapter caching support requires `"league/flysystem-cached-adapter": "~1.0"` in your `composer.json`.
+* The eventable flysystem support requires `"league/flysystem-eventable-filesystem": "~1.0"` in your `composer.json`.
+* The awss3 connector requires `"league/flysystem-aws-s3-v2": "~1.0"` in your `composer.json`.
+* The copy connector requires `"league/flysystem-copy": "~1.0"` in your `composer.json`.
+* The dropbox connector requires `"league/flysystem-dropbox": "~1.0"` in your `composer.json`.
+* The rackspace connector requires `"league/flysystem-rackspace": "~1.0"` in your `composer.json`.
+* The sftp connector requires `"league/flysystem-sftp": "~1.0"` in your `composer.json`.
 * The webdav connector requires `"league/flysystem-webdav": "~1.0"` in your `composer.json`.
+* The zip connector requires `"league/flysystem-ziparchive": "~1.0"` in your `composer.json`.
 
 You'll then need to run `composer install` or `composer update` to download it and have the autoloader updated.
 

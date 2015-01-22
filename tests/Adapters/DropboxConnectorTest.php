@@ -30,7 +30,7 @@ class DropboxConnectorTest extends AbstractTestCase
             'app'    => 'your-app',
         ]);
 
-        $this->assertInstanceOf('League\Flysystem\Adapter\Dropbox', $return);
+        $this->assertInstanceOf('League\Flysystem\Dropbox\DropboxAdapter', $return);
     }
 
     public function testConnectWithPrefix()
@@ -43,7 +43,7 @@ class DropboxConnectorTest extends AbstractTestCase
             'prefix' => 'your-prefix',
         ]);
 
-        $this->assertInstanceOf('League\Flysystem\Adapter\Dropbox', $return);
+        $this->assertInstanceOf('League\Flysystem\Dropbox\DropboxAdapter', $return);
     }
 
     /**

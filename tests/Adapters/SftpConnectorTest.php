@@ -32,7 +32,7 @@ class SftpConnectorTest extends AbstractTestCase
             'password' => 'your-password',
         ]);
 
-        $this->assertInstanceOf('League\Flysystem\Adapter\Sftp', $return);
+        $this->assertInstanceOf('League\Flysystem\Sftp\SftpAdapter', $return);
     }
 
     protected function getSftpConnector()

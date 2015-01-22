@@ -13,7 +13,7 @@ namespace GrahamCampbell\Flysystem\Adapters;
 
 use Barracuda\Copy\API;
 use GrahamCampbell\Manager\ConnectorInterface;
-use League\Flysystem\Adapter\Copy;
+use League\Flysystem\Copy\CopyAdapter;
 
 /**
  * This is the copy connector class.
@@ -27,7 +27,7 @@ class CopyConnector implements ConnectorInterface
      *
      * @param string[] $config
      *
-     * @return \League\Flysystem\Adapter\Copy
+     * @return \League\Flysystem\Copy\CopyAdapter
      */
     public function connect(array $config)
     {
@@ -94,10 +94,10 @@ class CopyConnector implements ConnectorInterface
      * @param \Barracuda\Copy\API $client
      * @param string[]            $config
      *
-     * @return \League\Flysystem\Adapter\Copy
+     * @return \League\Flysystem\Copy\CopyAdapter
      */
     protected function getAdapter(API $client, array $config)
     {
-        return new Copy($client, $config['prefix']);
+        return new CopyAdapter($client, $config['prefix']);
     }
 }

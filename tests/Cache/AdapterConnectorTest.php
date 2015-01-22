@@ -40,7 +40,7 @@ class AdapterConnectorTest extends AbstractTestCase
 
         $return = $connector->connect(['adapter' => 'local']);
 
-        $this->assertInstanceOf('League\Flysystem\Cache\Adapter', $return);
+        $this->assertInstanceOf('League\Flysystem\Cached\Storage\Adapter', $return);
     }
 
     /**

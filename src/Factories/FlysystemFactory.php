@@ -14,7 +14,8 @@ namespace GrahamCampbell\Flysystem\Factories;
 use GrahamCampbell\Flysystem\Adapters\ConnectionFactory as AdapterFactory;
 use GrahamCampbell\Flysystem\Cache\ConnectionFactory as CacheFactory;
 use GrahamCampbell\Flysystem\FlysystemManager;
-use League\Flysystem\EventableFilesystem;
+use League\Flysystem\Cached\CachedAdapter;
+use League\Flysystem\EventableFilesystem\EventableFilesystem;
 use League\Flysystem\Filesystem;
 
 /**
@@ -64,15 +65,17 @@ class FlysystemFactory
     {
         $adapter = $this->createAdapter($config);
 
-        $cache = $this->createCache($config, $manager);
+        if (is_array($cache = array_get($config, 'cache', false))) {
+            $adapter = new CachedAdapter($adapter, $this->createCache($cache, $manager));
+        }
 
         $options = $this->getOptions($config);
 
         if (array_get($config, 'eventable', false)) {
-            return new EventableFilesystem($adapter, $cache, $options);
+            return new EventableFilesystem($adapter, $options);
         }
 
-        return new Filesystem($adapter, $cache, $options);
+        return new Filesystem($adapter, $options);
     }
 
     /**
@@ -95,13 +98,11 @@ class FlysystemFactory
      * @param array                                      $config
      * @param \GrahamCampbell\Flysystem\FlysystemManager $manager
      *
-     * @return \League\Flysystem\CacheInterface
+     * @return \League\Flysystem\Cached\CacheInterface
      */
     public function createCache(array $config, FlysystemManager $manager)
     {
-        if (is_array($config = array_get($config, 'cache')) && $config) {
-            return $this->cache->make($config, $manager);
-        }
+        return $this->cache->make($config, $manager);
     }
 
     /**
