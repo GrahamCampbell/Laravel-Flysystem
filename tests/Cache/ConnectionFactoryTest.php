@@ -30,7 +30,7 @@ class ConnectionFactoryTest extends AbstractTestCase
 
         $return = $factory->make(['name' => 'foo', 'driver' => 'illuminate', 'connector' => 'redis'], $manager);
 
-        $this->assertInstanceOf('League\Flysystem\CacheInterface', $return);
+        $this->assertInstanceOf('League\Flysystem\Cached\CacheInterface', $return);
     }
 
     public function testCreateIlluminateConnector()
@@ -96,7 +96,7 @@ class ConnectionFactoryTest extends AbstractTestCase
 
         $connector->shouldReceive('connect')->once()
             ->with(['name' => 'foo', 'driver' => 'illuminate', 'connector' => 'redis'])
-            ->andReturn(Mockery::mock('League\Flysystem\CacheInterface'));
+            ->andReturn(Mockery::mock('League\Flysystem\Cached\CacheInterface'));
 
         $mock->shouldReceive('createConnector')->once()
             ->with(['name' => 'foo', 'driver' => 'illuminate', 'connector' => 'redis'], $manager)

@@ -12,7 +12,7 @@
 namespace GrahamCampbell\Flysystem\Adapters;
 
 use GrahamCampbell\Manager\ConnectorInterface;
-use League\Flysystem\Adapter\Zip;
+use League\Flysystem\ZipArchive\ZipArchiveAdapter;
 
 /**
  * This is the zip connector class.
@@ -26,7 +26,7 @@ class ZipConnector implements ConnectorInterface
      *
      * @param string[] $config
      *
-     * @return \League\Flysystem\Adapter\Zip
+     * @return \League\Flysystem\ZipArchive\ZipArchiveAdapter
      */
     public function connect(array $config)
     {
@@ -58,10 +58,10 @@ class ZipConnector implements ConnectorInterface
      *
      * @param string[] $config
      *
-     * @return \League\Flysystem\Adapter\Zip
+     * @return \League\Flysystem\ZipArchive\ZipArchiveAdapter
      */
     protected function getAdapter(array $config)
     {
-        return new Zip($config['path']);
+        return new ZipArchiveAdapter($config['path']);
     }
 }

@@ -31,7 +31,7 @@ class AwsS3ConnectorTest extends AbstractTestCase
             'bucket' => 'your-bucket',
         ]);
 
-        $this->assertInstanceOf('League\Flysystem\Adapter\AwsS3', $return);
+        $this->assertInstanceOf('League\Flysystem\AwsS3v2\AwsS3Adapter', $return);
     }
 
     public function testConnectWithPrefix()
@@ -45,7 +45,7 @@ class AwsS3ConnectorTest extends AbstractTestCase
             'prefix' => 'your-prefix',
         ]);
 
-        $this->assertInstanceOf('League\Flysystem\Adapter\AwsS3', $return);
+        $this->assertInstanceOf('League\Flysystem\AwsS3v2\AwsS3Adapter', $return);
     }
 
     public function testConnectWithRegion()
@@ -59,7 +59,7 @@ class AwsS3ConnectorTest extends AbstractTestCase
             'region' => 'eu-west-1',
         ]);
 
-        $this->assertInstanceOf('League\Flysystem\Adapter\AwsS3', $return);
+        $this->assertInstanceOf('League\Flysystem\AwsS3v2\AwsS3Adapter', $return);
     }
 
     public function testConnectWithBaseUrl()
@@ -73,7 +73,7 @@ class AwsS3ConnectorTest extends AbstractTestCase
             'base_url' => 'your-url',
         ]);
 
-        $this->assertInstanceOf('League\Flysystem\Adapter\AwsS3', $return);
+        $this->assertInstanceOf('League\Flysystem\AwsS3v2\AwsS3Adapter', $return);
     }
 
     public function testConnectWithOptions()
@@ -87,7 +87,7 @@ class AwsS3ConnectorTest extends AbstractTestCase
             'options'  => ['foo' => 'bar'],
         ]);
 
-        $this->assertInstanceOf('League\Flysystem\Adapter\AwsS3', $return);
+        $this->assertInstanceOf('League\Flysystem\AwsS3v2\AwsS3Adapter', $return);
     }
 
     public function testConnectWithEverything()
@@ -103,7 +103,7 @@ class AwsS3ConnectorTest extends AbstractTestCase
             'options'  => ['foo' => 'bar'],
         ]);
 
-        $this->assertInstanceOf('League\Flysystem\Adapter\AwsS3', $return);
+        $this->assertInstanceOf('League\Flysystem\AwsS3v2\AwsS3Adapter', $return);
     }
 
     /**

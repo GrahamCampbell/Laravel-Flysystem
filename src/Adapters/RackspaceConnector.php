@@ -12,7 +12,7 @@
 namespace GrahamCampbell\Flysystem\Adapters;
 
 use GrahamCampbell\Manager\ConnectorInterface;
-use League\Flysystem\Adapter\Rackspace;
+use League\Flysystem\Rackspace\RackspaceAdapter;
 use OpenCloud\ObjectStore\Resource\Container;
 use OpenCloud\Rackspace as OpenStackRackspace;
 
@@ -30,7 +30,7 @@ class RackspaceConnector implements ConnectorInterface
      *
      * @param string[] $config
      *
-     * @return \League\Flysystem\Adapter\Rackspace
+     * @return \League\Flysystem\Rackspace\RackspaceAdapter
      */
     public function connect(array $config)
     {
@@ -90,10 +90,10 @@ class RackspaceConnector implements ConnectorInterface
      *
      * @param \OpenCloud\ObjectStore\Resource\Container $client
      *
-     * @return \League\Flysystem\Adapter\Rackspace
+     * @return \League\Flysystem\Rackspace\RackspaceAdapter
      */
     protected function getAdapter(Container $client)
     {
-        return new Rackspace($client);
+        return new RackspaceAdapter($client);
     }
 }

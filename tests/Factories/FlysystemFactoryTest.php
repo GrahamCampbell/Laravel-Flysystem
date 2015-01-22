@@ -42,7 +42,7 @@ class FlysystemFactoryTest extends AbstractTestCase
 
         $manager = Mockery::mock('GrahamCampbell\Flysystem\FlysystemManager');
 
-        $factory = $this->getMockedFactory($config, $manager);
+        $factory = $this->getMockedFactoryCache($config, $manager);
 
         $return = $factory->make($config, $manager);
 
@@ -75,7 +75,7 @@ class FlysystemFactoryTest extends AbstractTestCase
         $return = $factory->make($config, $manager);
 
         $this->assertInstanceOf('League\Flysystem\FilesystemInterface', $return);
-        $this->assertInstanceOf('League\Flysystem\EventableFilesystem', $return);
+        $this->assertInstanceOf('League\Flysystem\EventableFilesystem\EventableFilesystem', $return);
     }
 
     public function testMakeWithEventableCache()
@@ -84,12 +84,12 @@ class FlysystemFactoryTest extends AbstractTestCase
 
         $manager = Mockery::mock('GrahamCampbell\Flysystem\FlysystemManager');
 
-        $factory = $this->getMockedFactory($config, $manager);
+        $factory = $this->getMockedFactoryCache($config, $manager);
 
         $return = $factory->make($config, $manager);
 
         $this->assertInstanceOf('League\Flysystem\FilesystemInterface', $return);
-        $this->assertInstanceOf('League\Flysystem\EventableFilesystem', $return);
+        $this->assertInstanceOf('League\Flysystem\EventableFilesystem\EventableFilesystem', $return);
     }
 
     public function testMakeEventableWithVisibility()
@@ -103,7 +103,7 @@ class FlysystemFactoryTest extends AbstractTestCase
         $return = $factory->make($config, $manager);
 
         $this->assertInstanceOf('League\Flysystem\FilesystemInterface', $return);
-        $this->assertInstanceOf('League\Flysystem\EventableFilesystem', $return);
+        $this->assertInstanceOf('League\Flysystem\EventableFilesystem\EventableFilesystem', $return);
     }
 
     public function testAdapter()
@@ -126,27 +126,14 @@ class FlysystemFactoryTest extends AbstractTestCase
 
         $manager = Mockery::mock('GrahamCampbell\Flysystem\FlysystemManager');
 
-        $config = ['driver' => 'local', 'cache' => ['driver' => 'illuminate', 'connector' => 'redis', 'name' => 'foo']];
+        $config = ['driver' => 'illuminate', 'connector' => 'redis', 'name' => 'foo'];
 
         $factory->getCache()->shouldReceive('make')->once()
-            ->with($config['cache'], $manager)->andReturn(Mockery::mock('League\Flysystem\CacheInterface'));
+            ->with($config, $manager)->andReturn(Mockery::mock('League\Flysystem\Cached\CacheInterface'));
 
         $return = $factory->createCache($config, $manager);
 
-        $this->assertInstanceOf('League\Flysystem\CacheInterface', $return);
-    }
-
-    public function testCacheNull()
-    {
-        $factory = $this->getFlysystemFactory();
-
-        $manager = Mockery::mock('GrahamCampbell\Flysystem\FlysystemManager');
-
-        $config = ['driver' => 'local', 'path' => __DIR__, 'name' => 'local'];
-
-        $return = $factory->createCache($config, $manager);
-
-        $this->assertNull($return);
+        $this->assertInstanceOf('League\Flysystem\Cached\CacheInterface', $return);
     }
 
     protected function getFlysystemFactory()
@@ -170,10 +157,6 @@ class FlysystemFactoryTest extends AbstractTestCase
             ->with($config)
             ->andReturn($adapterMock);
 
-        $mock->shouldReceive('createCache')->once()
-            ->with($config, $manager)
-            ->andReturn(null);
-
         return $mock;
     }
 
@@ -183,7 +166,7 @@ class FlysystemFactoryTest extends AbstractTestCase
         $cache = Mockery::mock('GrahamCampbell\Flysystem\Cache\ConnectionFactory');
 
         $adapterMock = Mockery::mock('League\Flysystem\AdapterInterface');
-        $cacheMock = Mockery::mock('League\Flysystem\CacheInterface');
+        $cacheMock = Mockery::mock('League\Flysystem\Cached\CacheInterface');
         $cacheMock->shouldReceive('load')->once();
 
         $mock = Mockery::mock('GrahamCampbell\Flysystem\Factories\FlysystemFactory[createAdapter,createCache]', [$adapter, $cache]);
@@ -193,7 +176,7 @@ class FlysystemFactoryTest extends AbstractTestCase
             ->andReturn($adapterMock);
 
         $mock->shouldReceive('createCache')->once()
-            ->with($config, $manager)
+            ->with($config['cache'], $manager)
             ->andReturn($cacheMock);
 
         return $mock;

@@ -11,7 +11,7 @@
 
 namespace GrahamCampbell\Tests\Flysystem\Adapters;
 
-use GrahamCampbell\Flysystem\Adapters\zipConnector;
+use GrahamCampbell\Flysystem\Adapters\ZipConnector;
 use GrahamCampbell\TestBench\AbstractTestCase;
 
 /**
@@ -27,7 +27,7 @@ class ZipConnectorTest extends AbstractTestCase
 
         $return = $connector->connect(['path' => __DIR__.'\stubs\test.zip']);
 
-        $this->assertInstanceOf('League\Flysystem\Adapter\Zip', $return);
+        $this->assertInstanceOf('League\Flysystem\ZipArchive\ZipArchiveAdapter', $return);
     }
 
     public function testConnectWithPrefix()
@@ -36,7 +36,7 @@ class ZipConnectorTest extends AbstractTestCase
 
         $return = $connector->connect(['path' => __DIR__.'\stubs\test.zip', 'prefix' => 'your-prefix']);
 
-        $this->assertInstanceOf('League\Flysystem\Adapter\Zip', $return);
+        $this->assertInstanceOf('League\Flysystem\ZipArchive\ZipArchiveAdapter', $return);
     }
 
     /**

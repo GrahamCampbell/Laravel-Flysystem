@@ -32,7 +32,7 @@ class CopyConnectorTest extends AbstractTestCase
             'token-secret'    => 'your-token-secret',
         ]);
 
-        $this->assertInstanceOf('League\Flysystem\Adapter\Copy', $return);
+        $this->assertInstanceOf('League\Flysystem\Copy\CopyAdapter', $return);
     }
 
     public function testConnectWithPrefix()
@@ -47,7 +47,7 @@ class CopyConnectorTest extends AbstractTestCase
             'prefix'          => 'your-prefix',
         ]);
 
-        $this->assertInstanceOf('League\Flysystem\Adapter\Copy', $return);
+        $this->assertInstanceOf('League\Flysystem\Copy\CopyAdapter', $return);
     }
 
     /**
