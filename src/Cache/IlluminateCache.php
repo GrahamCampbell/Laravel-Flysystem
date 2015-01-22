@@ -11,7 +11,7 @@
 
 namespace GrahamCampbell\Flysystem\Cache;
 
-use Illuminate\Cache\StoreInterface;
+use Illuminate\Contracts\Cache\Store;
 use League\Flysystem\Cached\Storage\AbstractCache;
 
 /**
@@ -24,7 +24,7 @@ class IlluminateCache extends AbstractCache
     /**
      * The cache store instance.
      *
-     * @var \Illuminate\Cache\StoreInterface
+     * @var \Illuminate\Contracts\Cache\Store
      */
     protected $client;
 
@@ -45,14 +45,15 @@ class IlluminateCache extends AbstractCache
     /**
      * Create a new illuminate cache instance.
      *
-     * @param \Illuminate\Cache\StoreInterface $client
-     * @param string                           $key
-     * @param int                              $ttl
+     * @param \Illuminate\Contracts\Cache\Store $client
+     * @param string                            $key
+     * @param int                               $ttl
      */
-    public function __construct(StoreInterface $client, $key = 'flysystem', $ttl = null)
+    public function __construct(Store $client, $key = 'flysystem', $ttl = null)
     {
         $this->client = $client;
         $this->key = $key;
+
         if ($ttl) {
             $this->ttl = (int) ceil($ttl / 60);
         }
@@ -89,7 +90,7 @@ class IlluminateCache extends AbstractCache
     /**
      * Get the cache store instance.
      *
-     * @return \Illuminate\Cache\StoreInterface
+     * @return \Illuminate\Contracts\Cache\Store
      */
     public function getClient()
     {

@@ -65,7 +65,7 @@ class IlluminateCacheTest extends AbstractTestCase
 
     protected function getIlluminateCache($key, $ttl = null)
     {
-        $client = Mockery::mock('Illuminate\Cache\StoreInterface');
+        $client = Mockery::mock('Illuminate\Contracts\Cache\Store');
 
         return Mockery::mock(
             'GrahamCampbell\Flysystem\Cache\IlluminateCache[setFromStorage,getForStorage]',
