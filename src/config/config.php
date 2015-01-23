@@ -108,6 +108,7 @@ return array(
             'username'  => 'your-username',
             'password'  => 'your-password',
             'container' => 'your-container',
+            'urltype'   => 'internalURL', // The URL type ("publicURL" or "internalURL")
             // 'eventable' => true,
             // 'cache'     => 'foo'
         ),
