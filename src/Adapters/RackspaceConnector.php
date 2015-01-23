@@ -64,8 +64,12 @@ class RackspaceConnector implements ConnectorInterface
         if (!array_key_exists('endpoint', $config) || !array_key_exists('container', $config)) {
             throw new \InvalidArgumentException('The rackspace connector requires configuration.');
         }
+        
+        if(!array_key_exists('urltype', $config)) {
+            $config['urltype'] = null;
+        }
 
-        return array_only($config, array('username', 'password', 'endpoint', 'container'));
+        return array_only($config, array('username', 'password', 'endpoint', 'container', 'urltype'));
     }
 
     /**
@@ -82,7 +86,7 @@ class RackspaceConnector implements ConnectorInterface
             'apiKey' => $auth['password'],
         ));
 
-        return $client->objectStoreService('cloudFiles', 'LON')->getContainer($auth['container']);
+        return $client->objectStoreService('cloudFiles', 'LON', $auth['urltype'])->getContainer($auth['container']);
     }
 
     /**
