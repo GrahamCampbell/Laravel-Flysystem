@@ -13,6 +13,7 @@ namespace GrahamCampbell\Flysystem\Adapters;
 
 use Dropbox\Client;
 use GrahamCampbell\Manager\ConnectorInterface;
+use InvalidArgumentException;
 use League\Flysystem\Dropbox\DropboxAdapter;
 
 /**
@@ -50,7 +51,7 @@ class DropboxConnector implements ConnectorInterface
     protected function getAuth(array $config)
     {
         if (!array_key_exists('token', $config) || !array_key_exists('app', $config)) {
-            throw new \InvalidArgumentException('The dropbox connector requires authentication.');
+            throw new InvalidArgumentException('The dropbox connector requires authentication.');
         }
 
         return array_only($config, ['token', 'app']);

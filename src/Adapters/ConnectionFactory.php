@@ -11,6 +11,8 @@
 
 namespace GrahamCampbell\Flysystem\Adapters;
 
+use InvalidArgumentException;
+
 /**
  * This is the adapter connection factory class.
  *
@@ -42,18 +44,22 @@ class ConnectionFactory
     public function createConnector(array $config)
     {
         if (!isset($config['driver'])) {
-            throw new \InvalidArgumentException("A driver must be specified.");
+            throw new InvalidArgumentException('A driver must be specified.');
         }
 
         switch ($config['driver']) {
             case 'awss3':
                 return new AwsS3Connector();
+            case 'azure':
+                return new AzureConnector();
             case 'copy':
                 return new CopyConnector();
             case 'dropbox':
                 return new DropboxConnector();
             case 'ftp':
                 return new FtpConnector();
+            case 'gridfs':
+                return new GridFSConnector();
             case 'local':
                 return new LocalConnector();
             case 'null':
@@ -68,6 +74,6 @@ class ConnectionFactory
                 return new ZipConnector();
         }
 
-        throw new \InvalidArgumentException("Unsupported driver [{$config['driver']}]");
+        throw new InvalidArgumentException("Unsupported driver [{$config['driver']}]");
     }
 }

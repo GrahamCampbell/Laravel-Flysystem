@@ -51,6 +51,16 @@ return [
             // 'cache'      => 'foo'
         ],
 
+        'azure' => [
+            'driver'       => 'azure',
+            'account-name' => 'your-account-name'
+            'api-key'      => 'your-api-key',
+            'container'    => 'your-container',
+            // 'visibility'   => 'public',
+            // 'eventable'    => true,
+            // 'cache'        => 'foo'
+        ],
+
         'copy' => [
             'driver'          => 'copy',
             'consumer-key'    => 'your-consumer-key',
@@ -88,6 +98,15 @@ return [
             // 'cache'      => 'foo'
         ],
 
+        'gridfs' => [
+            'driver'     => 'gridfs',
+            'server'     => 'mongodb://localhost:27017',
+            'database'   => 'your-database',
+            // 'visibility' => 'public',
+            // 'eventable'  => true,
+            // 'cache'      => 'foo'
+        ],
+
         'local' => [
             'driver'     => 'local',
             'path'       => storage_path('files'),
@@ -109,6 +128,15 @@ return [
             'username'   => 'your-username',
             'apiKey'     => 'your-api-key',
             'container'  => 'your-container',
+            // 'visibility' => 'public',
+            // 'eventable'  => true,
+            // 'cache'      => 'foo'
+        ],
+
+        'replicate' => [
+            'driver'     => 'replicate',
+            'source'     => 'your-source-adapter',
+            'replica'    => 'your-replica-adapter',
             // 'visibility' => 'public',
             // 'eventable'  => true,
             // 'cache'      => 'foo'

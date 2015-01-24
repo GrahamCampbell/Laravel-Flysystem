@@ -8,6 +8,9 @@ php:
 
 sudo: false
 
+services:
+  - mongodb
+
 install:
   - travis_retry composer install --no-interaction --prefer-source
 

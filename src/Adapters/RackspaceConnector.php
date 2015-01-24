@@ -12,6 +12,7 @@
 namespace GrahamCampbell\Flysystem\Adapters;
 
 use GrahamCampbell\Manager\ConnectorInterface;
+use InvalidArgumentException;
 use League\Flysystem\Rackspace\RackspaceAdapter;
 use OpenCloud\ObjectStore\Resource\Container;
 use OpenCloud\Rackspace as OpenStackRackspace;
@@ -52,15 +53,15 @@ class RackspaceConnector implements ConnectorInterface
     protected function getAuth(array $config)
     {
         if (!array_key_exists('username', $config) || !array_key_exists('apiKey', $config)) {
-            throw new \InvalidArgumentException('The rackspace connector requires authentication.');
+            throw new InvalidArgumentException('The rackspace connector requires authentication.');
         }
 
         if (!array_key_exists('endpoint', $config) || !array_key_exists('region', $config)) {
-            throw new \InvalidArgumentException('The rackspace connector requires both an endpoint an a region.');
+            throw new InvalidArgumentException('The rackspace connector requires both an endpoint an a region.');
         }
 
         if (!array_key_exists('container', $config)) {
-            throw new \InvalidArgumentException('The rackspace connector requires a container.');
+            throw new InvalidArgumentException('The rackspace connector requires a container.');
         }
 
         return array_only($config, ['username', 'apiKey', 'endpoint', 'region', 'container']);
