@@ -11,6 +11,8 @@ sudo: false
 services:
   - mongodb
 
+before_install: phpenv config-add travis.ini
+
 install:
   - travis_retry composer install --no-interaction --prefer-source
 

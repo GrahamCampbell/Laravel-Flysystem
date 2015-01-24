@@ -54,6 +54,10 @@ class GridFSConnectorTest extends AbstractTestCase
      */
     public function testConnectWithoutDatabase()
     {
+        if (class_exists('MongoClient')) {
+            $this->markTestSkipped('The MongoClient client does not exist');
+        }
+
         $connector = $this->getGridFSConnector();
 
         $connector->connect([
