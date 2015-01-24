@@ -12,6 +12,7 @@
 namespace GrahamCampbell\Flysystem\Adapters;
 
 use GrahamCampbell\Manager\ConnectorInterface;
+use InvalidArgumentException;
 use League\Flysystem\ZipArchive\ZipArchiveAdapter;
 
 /**
@@ -47,7 +48,7 @@ class ZipConnector implements ConnectorInterface
     protected function getConfig(array $config)
     {
         if (!array_key_exists('path', $config)) {
-            throw new \InvalidArgumentException('The zip connector requires a path.');
+            throw new InvalidArgumentException('The zip connector requires a path.');
         }
 
         return array_only($config, ['path']);

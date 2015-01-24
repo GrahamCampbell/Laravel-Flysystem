@@ -10,6 +10,8 @@ CHANGE LOG
 ## V1.0 RC 1 (Upcoming)
 
 * Upgraded to flysystem 1.0
+* Added support for the azure adapter
+* Added support for the gridfs adapter
 * Removed the cs fixers
 * CS fixes
 * Moved to the MIT license

@@ -13,6 +13,7 @@ namespace GrahamCampbell\Flysystem\Cache;
 
 use GrahamCampbell\Flysystem\FlysystemManager;
 use Illuminate\Contracts\Cache\Factory;
+use InvalidArgumentException;
 
 /**
  * This is the cache connection factory class.
@@ -66,7 +67,7 @@ class ConnectionFactory
     public function createConnector(array $config, FlysystemManager $manager)
     {
         if (!isset($config['driver'])) {
-            throw new \InvalidArgumentException("A driver must be specified.");
+            throw new InvalidArgumentException('A driver must be specified.');
         }
 
         switch ($config['driver']) {
@@ -76,7 +77,7 @@ class ConnectionFactory
                 return new AdapterConnector($manager);
         }
 
-        throw new \InvalidArgumentException("Unsupported driver [{$config['driver']}]");
+        throw new InvalidArgumentException("Unsupported driver [{$config['driver']}]");
     }
 
     /**

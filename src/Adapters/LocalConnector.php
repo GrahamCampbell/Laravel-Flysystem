@@ -12,6 +12,7 @@
 namespace GrahamCampbell\Flysystem\Adapters;
 
 use GrahamCampbell\Manager\ConnectorInterface;
+use InvalidArgumentException;
 use League\Flysystem\Adapter\Local;
 
 /**
@@ -47,7 +48,7 @@ class LocalConnector implements ConnectorInterface
     protected function getConfig(array $config)
     {
         if (!array_key_exists('path', $config)) {
-            throw new \InvalidArgumentException('The local connector requires a path.');
+            throw new InvalidArgumentException('The local connector requires a path.');
         }
 
         return array_only($config, ['path']);

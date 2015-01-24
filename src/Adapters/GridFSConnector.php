@@ -11,24 +11,24 @@
 
 namespace GrahamCampbell\Flysystem\Adapters;
 
-use Barracuda\Copy\API;
 use GrahamCampbell\Manager\ConnectorInterface;
 use InvalidArgumentException;
-use League\Flysystem\Copy\CopyAdapter;
+use League\Flysystem\GridFS\GridFSAdapter;
+use MongoClient;
 
 /**
- * This is the copy connector class.
+ * This is the gridfs connector class.
  *
  * @author Graham Campbell <graham@mineuk.com>
  */
-class CopyConnector implements ConnectorInterface
+class GridFSConnector implements ConnectorInterface
 {
     /**
      * Establish an adapter connection.
      *
      * @param string[] $config
      *
-     * @return \League\Flysystem\Copy\CopyAdapter
+     * @return \League\Flysystem\GridFS\GridFSAdapter
      */
     public function connect(array $config)
     {
@@ -50,27 +50,23 @@ class CopyConnector implements ConnectorInterface
      */
     protected function getAuth(array $config)
     {
-        if (!array_key_exists('consumer-key', $config) || !array_key_exists('consumer-secret', $config)) {
-            throw new InvalidArgumentException('The copy connector requires consumer configuration.');
+        if (!array_key_exists('server', $config)) {
+            throw new InvalidArgumentException('The gridfs connector requires server configuration.');
         }
 
-        if (!array_key_exists('access-token', $config) || !array_key_exists('token-secret', $config)) {
-            throw new InvalidArgumentException('The copy connector requires authentication.');
-        }
-
-        return array_only($config, ['consumer-key', 'consumer-secret', 'access-token', 'token-secret']);
+        return array_only($config, ['server']);
     }
 
     /**
-     * Get the copy client.
+     * Get the gridfs client.
      *
      * @param string[] $auth
      *
-     * @return \Barracuda\Copy\API
+     * @return \MongoClient
      */
     protected function getClient(array $auth)
     {
-        return new API($auth['consumer-key'], $auth['consumer-secret'], $auth['access-token'], $auth['token-secret']);
+        return new MongoClient($auth['server']);
     }
 
     /**
@@ -82,23 +78,25 @@ class CopyConnector implements ConnectorInterface
      */
     protected function getConfig(array $config)
     {
-        if (!array_key_exists('prefix', $config)) {
-            $config['prefix'] = null;
+        if (!array_key_exists('database', $config)) {
+            throw new InvalidArgumentException('The gridfs connector requires database configuration.');
         }
 
-        return array_only($config, ['prefix']);
+        return array_only($config, ['database']);
     }
 
     /**
-     * Get the copy adapter.
+     * Get the gridfs adapter.
      *
-     * @param \Barracuda\Copy\API $client
-     * @param string[]            $config
+     * @param \MongoClient $client
+     * @param string[]     $config
      *
-     * @return \League\Flysystem\Copy\CopyAdapter
+     * @return \League\Flysystem\GridFS\GridFSAdapter
      */
-    protected function getAdapter(API $client, array $config)
+    protected function getAdapter(MongoClient $client, array $config)
     {
-        return new CopyAdapter($client, $config['prefix']);
+        $fs = $client->selectDB($config['database'])->getGridFS();
+
+        return new GridFSAdapter($fs);
     }
 }

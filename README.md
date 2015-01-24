@@ -26,15 +26,17 @@ To get the latest version of Laravel Flysystem, simply add the following line to
 
 There are some additional dependencies you will need to install for some of the features:
 
+* The AwsS3 adapter requires `"league/flysystem-aws-s3-v2": "~1.0"` in your `composer.json`.
+* The Azure adapter requires `"league/flysystem-azure": "~1.0"` in your `composer.json`.
+* The Copy adapter requires `"league/flysystem-copy": "~1.0"` in your `composer.json`.
+* The Dropbox adapter requires `"league/flysystem-dropbox": "~1.0"` in your `composer.json`.
+* The GridFS adapter requires `"league/flysystem-gridfs": "~1.0"` in your `composer.json`.
+* The Rackspace adapter requires `"league/flysystem-rackspace": "~1.0"` in your `composer.json`.
+* The Sftp adapter requires `"league/flysystem-sftp": "~1.0"` in your `composer.json`.
+* The WebDav adapter requires `"league/flysystem-webdav": "~1.0"` in your `composer.json`.
+* The ZipAdapter adapter requires `"league/flysystem-ziparchive": "~1.0"` in your `composer.json`.
 * The adapter caching support requires `"league/flysystem-cached-adapter": "~1.0"` in your `composer.json`.
-* The eventable flysystem support requires `"league/flysystem-eventable-filesystem": "~1.0"` in your `composer.json`.
-* The awss3 connector requires `"league/flysystem-aws-s3-v2": "~1.0"` in your `composer.json`.
-* The copy connector requires `"league/flysystem-copy": "~1.0"` in your `composer.json`.
-* The dropbox connector requires `"league/flysystem-dropbox": "~1.0"` in your `composer.json`.
-* The rackspace connector requires `"league/flysystem-rackspace": "~1.0"` in your `composer.json`.
-* The sftp connector requires `"league/flysystem-sftp": "~1.0"` in your `composer.json`.
-* The webdav connector requires `"league/flysystem-webdav": "~1.0"` in your `composer.json`.
-* The zip connector requires `"league/flysystem-ziparchive": "~1.0"` in your `composer.json`.
+* The eventable filesystem support requires `"league/flysystem-eventable-filesystem": "~1.0"` in your `composer.json`.
 
 You'll then need to run `composer install` or `composer update` to download it and have the autoloader updated.
 

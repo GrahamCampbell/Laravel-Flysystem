@@ -13,6 +13,7 @@ namespace GrahamCampbell\Flysystem\Cache;
 
 use GrahamCampbell\Flysystem\FlysystemManager;
 use GrahamCampbell\Manager\ConnectorInterface;
+use InvalidArgumentException;
 use League\Flysystem\AdapterInterface;
 use League\Flysystem\Cached\Storage\Adapter;
 
@@ -69,7 +70,7 @@ class AdapterConnector implements ConnectorInterface
     protected function getConfig(array $config)
     {
         if (!array_key_exists('adapter', $config)) {
-            throw new \InvalidArgumentException('The adapter connector requires an adapter.');
+            throw new InvalidArgumentException('The adapter connector requires an adapter.');
         }
 
         return $config;
