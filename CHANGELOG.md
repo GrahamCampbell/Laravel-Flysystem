@@ -2,7 +2,7 @@ CHANGE LOG
 ==========
 
 
-## V1.0 RC 1 (Upcoming)
+## V1.0 RC 1 (24/01/2015)
 
 * Upgraded to flysystem 1.0
 * Added support for the azure adapter
