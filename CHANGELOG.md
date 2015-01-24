@@ -2,6 +2,11 @@ CHANGE LOG
 ==========
 
 
+## V1.0 (Upcoming)
+
+* TBC
+
+
 ## V1.0 RC 1 (24/01/2015)
 
 * Upgraded to flysystem 1.0
