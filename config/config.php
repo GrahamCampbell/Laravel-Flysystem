@@ -53,7 +53,7 @@ return [
 
         'azure' => [
             'driver'       => 'azure',
-            'account-name' => 'your-account-name'
+            'account-name' => 'your-account-name',
             'api-key'      => 'your-api-key',
             'container'    => 'your-container',
             // 'visibility'   => 'public',
