@@ -44,7 +44,7 @@ class FlysystemManagerTest extends AbstractTestBenchTestCase
         $manager = $this->getConfigManager($config);
 
         $manager->getConfig()->shouldReceive('get')->once()
-            ->with('graham-campbell/flysystem::default')->andReturn('local');
+            ->with('flysystem.default')->andReturn('local');
 
         $this->assertSame([], $manager->getConnections());
 
@@ -82,7 +82,7 @@ class FlysystemManagerTest extends AbstractTestBenchTestCase
         $config = ['driver' => 'error', 'path' => __DIR__];
 
         $manager->getConfig()->shouldReceive('get')->once()
-            ->with('graham-campbell/flysystem::connections')->andReturn(['local' => $config]);
+            ->with('flysystem.connections')->andReturn(['local' => $config]);
 
         $this->assertSame([], $manager->getConnections());
 
@@ -103,10 +103,10 @@ class FlysystemManagerTest extends AbstractTestBenchTestCase
         $cache = ['driver' => 'illuminate', 'connection' => 'redis', 'key' => 'bar', 'ttl' => 300];
 
         $manager->getConfig()->shouldReceive('get')->once()
-            ->with('graham-campbell/flysystem::connections')->andReturn(['local' => $config]);
+            ->with('flysystem.connections')->andReturn(['local' => $config]);
 
         $manager->getConfig()->shouldReceive('get')->once()
-            ->with('graham-campbell/flysystem::cache')->andReturn(['error' => $cache]);
+            ->with('flysystem.cache')->andReturn(['error' => $cache]);
 
         $this->assertSame([], $manager->getConnections());
 
@@ -128,7 +128,7 @@ class FlysystemManagerTest extends AbstractTestBenchTestCase
         $manager = $this->getManager();
 
         $manager->getConfig()->shouldReceive('get')->once()
-            ->with('graham-campbell/flysystem::connections')->andReturn(['local' => $config]);
+            ->with('flysystem.connections')->andReturn(['local' => $config]);
 
         $config['name'] = 'local';
 
@@ -143,10 +143,10 @@ class FlysystemManagerTest extends AbstractTestBenchTestCase
         $manager = $this->getManager();
 
         $manager->getConfig()->shouldReceive('get')->once()
-            ->with('graham-campbell/flysystem::connections')->andReturn(['local' => $config]);
+            ->with('flysystem.connections')->andReturn(['local' => $config]);
 
         $manager->getConfig()->shouldReceive('get')->once()
-            ->with('graham-campbell/flysystem::cache')->andReturn(['foo' => $cache]);
+            ->with('flysystem.cache')->andReturn(['foo' => $cache]);
 
         $cache['name'] = 'foo';
         $config['name'] = 'local';

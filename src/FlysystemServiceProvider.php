@@ -11,7 +11,8 @@
 
 namespace GrahamCampbell\Flysystem;
 
-use Orchestra\Support\Providers\ServiceProvider;
+use Illuminate\Contracts\Foundation\Application;
+use Illuminate\Support\ServiceProvider;
 
 /**
  * This is the flysystem service provider class.
@@ -27,7 +28,21 @@ class FlysystemServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        $this->addConfigComponent('graham-campbell/flysystem', 'graham-campbell/flysystem', realpath(__DIR__.'/../config'));
+        $this->setupConfig();
+    }
+
+    /**
+     * Setup the config.
+     *
+     * @return void
+     */
+    protected function setupConfig()
+    {
+        $source = realpath(__DIR__.'/../config/flysystem.php');
+
+        $this->publishes([$source => config_path('flysystem.php')]);
+
+        $this->mergeConfigFrom('flysystem', $source);
     }
 
     /**
@@ -37,42 +52,46 @@ class FlysystemServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        $this->registerFactory();
-        $this->registerManager();
+        $this->registerFactory($this->app);
+        $this->registerManager($this->app);
     }
 
     /**
      * Register the factory class.
      *
+     * @param \Illuminate\Contracts\Foundation\Application $app
+     *
      * @return void
      */
-    protected function registerFactory()
+    protected function registerFactory(Application $app)
     {
-        $this->app->singleton('flysystem.factory', function ($app) {
+        $app->singleton('flysystem.factory', function ($app) {
             $adapter = new Adapters\ConnectionFactory();
             $cache = new Cache\ConnectionFactory($app['cache']);
 
             return new Factories\FlysystemFactory($adapter, $cache);
         });
 
-        $this->app->alias('flysystem.factory', 'GrahamCampbell\Flysystem\Factories\FlysystemFactory');
+        $app->alias('flysystem.factory', 'GrahamCampbell\Flysystem\Factories\FlysystemFactory');
     }
 
     /**
      * Register the manager class.
      *
+     * @param \Illuminate\Contracts\Foundation\Application $app
+     *
      * @return void
      */
-    protected function registerManager()
+    protected function registerManager(Application $app)
     {
-        $this->app->singleton('flysystem', function ($app) {
+        $app->singleton('flysystem', function ($app) {
             $config = $app['config'];
             $factory = $app['flysystem.factory'];
 
             return new FlysystemManager($config, $factory);
         });
 
-        $this->app->alias('flysystem', 'GrahamCampbell\Flysystem\FlysystemManager');
+        $app->alias('flysystem', 'GrahamCampbell\Flysystem\FlysystemManager');
     }
 
     /**

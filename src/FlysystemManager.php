@@ -92,7 +92,7 @@ class FlysystemManager extends AbstractManager
      */
     protected function getConfigName()
     {
-        return 'graham-campbell/flysystem';
+        return 'flysystem';
     }
 
     /**
