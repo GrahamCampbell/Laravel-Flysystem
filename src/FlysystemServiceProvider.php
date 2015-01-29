@@ -42,7 +42,7 @@ class FlysystemServiceProvider extends ServiceProvider
 
         $this->publishes([$source => config_path('flysystem.php')]);
 
-        $this->mergeConfigFrom('flysystem', $source);
+        $this->mergeConfigFrom($source, 'flysystem');
     }
 
     /**
