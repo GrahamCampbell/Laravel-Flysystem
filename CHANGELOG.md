@@ -7,7 +7,7 @@ CHANGE LOG
 * Upgraded to laravel 5.0
 
 
-## V1.0 (Upcoming)
+## V1.0 (29/01/2015)
 
 * Fixed a syntax error in the config
 * Updated the method annotations
