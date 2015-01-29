@@ -4,7 +4,8 @@ CHANGE LOG
 
 ## V1.0 (Upcoming)
 
-* TBC
+* Fixed a syntax error in the config
+* Updated the method annotations
 
 
 ## V1.0 RC 1 (24/01/2015)
