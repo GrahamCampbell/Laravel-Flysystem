@@ -33,7 +33,7 @@ class LocalFlysystemTest extends AbstractTestCase
     {
         $app->files->deleteDirectory(realpath(__DIR__.'/../../').'/temp');
 
-        $old = $app->config->get('flysystem.connections') ? $app->config->get('flysystem.connections') : array();
+        $old = $app->config->get('flysystem.connections') ? $app->config->get('flysystem.connections') : [];
 
         $new = array_merge($old, [
             'testing' => [
