@@ -23,17 +23,15 @@ use Illuminate\Contracts\Foundation\Application;
 class LocalFlysystemTest extends AbstractTestCase
 {
     /**
-     * Additional application environment setup.
-     *
-     * @param \Illuminate\Contracts\Foundation\Application $app
+     * Run extra setup code.
      *
      * @return void
      */
-    protected function additionalSetup($app)
+    protected function start()
     {
-        $app->files->deleteDirectory(realpath(__DIR__.'/../../').'/temp');
+        $this->app->files->deleteDirectory(realpath(__DIR__.'/../../').'/temp');
 
-        $old = $app->config->get('flysystem.connections');
+        $old = $this->app->config->get('flysystem.connections');
 
         $new = array_merge($old, [
             'testing' => [
@@ -42,8 +40,8 @@ class LocalFlysystemTest extends AbstractTestCase
             ],
         ]);
 
-        $app->config->set('flysystem.connections', $new);
-        $app->config->set('flysystem.default', 'testing');
+        $this->app->config->set('flysystem.connections', $new);
+        $this->app->config->set('flysystem.default', 'testing');
     }
 
     /**
