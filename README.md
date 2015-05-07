@@ -21,7 +21,7 @@ Laravel Flysystem was created by, and is maintained by [Graham Campbell](https:/
 To get the latest version of Laravel Flysystem, simply add the following line to the require block of your `composer.json` file:
 
 ```
-"graham-campbell/flysystem": "~2.0"
+"graham-campbell/flysystem": "~2.1"
 ```
 
 There are some additional dependencies you will need to install for some of the features:
