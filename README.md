@@ -48,10 +48,6 @@ You can register the Flysystem facade in the `aliases` key of your `config/app.p
 
 * `'Flysystem' => 'GrahamCampbell\Flysystem\Facades\Flysystem'`
 
-#### Looking for a laravel 4 compatable version?
-
-Checkout the [1.0 branch](https://github.com/GrahamCampbell/Laravel-Flysystem/tree/1.0), installable by requiring `"graham-campbell/flysystem": "~1.0"`.
-
 
 ## Configuration
 
