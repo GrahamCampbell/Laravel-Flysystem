@@ -2,7 +2,7 @@ CHANGE LOG
 ==========
 
 
-## V2.1.1 (Upcoming)
+## V2.1.1 (20/05/2015)
 
 * Fixed the azure connector
 
