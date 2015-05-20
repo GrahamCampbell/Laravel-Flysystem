@@ -27,7 +27,7 @@ class AzureConnectorTest extends AbstractTestCase
 
         $return = $connector->connect([
             'account-name' => 'your-account-name',
-            'api-key'      => 'your-api-key',
+            'api-key'      => 'eW91ci1hcGkta2V5',
             'container'    => 'your-container',
         ]);
 
@@ -42,7 +42,7 @@ class AzureConnectorTest extends AbstractTestCase
         $connector = $this->getAzureConnector();
 
         $connector->connect([
-            'api-key'   => 'your-api-key',
+            'api-key'   => 'eW91ci1hcGkta2V5',
             'container' => 'your-container',
         ]);
     }
@@ -69,7 +69,7 @@ class AzureConnectorTest extends AbstractTestCase
 
         $connector->connect([
             'account-name' => 'your-account-name',
-            'api-key'      => 'your-api-key',
+            'api-key'      => 'eW91ci1hcGkta2V5',
         ]);
     }
 
