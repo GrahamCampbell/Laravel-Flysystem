@@ -31,7 +31,7 @@ class AzureConnectorTest extends AbstractTestCase
             'container'    => 'your-container',
         ]);
 
-        $this->assertInstanceOf('League\Flysystem\Azure\Adapter', $return);
+        $this->assertInstanceOf('League\Flysystem\Azure\AzureAdapter', $return);
     }
 
     /**

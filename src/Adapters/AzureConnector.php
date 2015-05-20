@@ -13,7 +13,7 @@ namespace GrahamCampbell\Flysystem\Adapters;
 
 use GrahamCampbell\Manager\ConnectorInterface;
 use InvalidArgumentException;
-use League\Flysystem\Azure\Adapter;
+use League\Flysystem\Azure\AzureAdapter;
 use WindowsAzure\Blob\Internal\IBlob;
 use WindowsAzure\Common\ServicesBuilder;
 
@@ -29,7 +29,7 @@ class AzureConnector implements ConnectorInterface
      *
      * @param string[] $config
      *
-     * @return \League\Flysystem\Azure\Adapter
+     * @return \League\Flysystem\Azure\AzureAdapter
      */
     public function connect(array $config)
     {
@@ -94,10 +94,10 @@ class AzureConnector implements ConnectorInterface
      * @param \WindowsAzure\Blob\Internal\IBlob $client
      * @param string[]                          $config
      *
-     * @return \League\Flysystem\Azure\Adapter
+     * @return \League\Flysystem\Azure\AzureAdapter
      */
     protected function getAdapter(IBlob $client, array $config)
     {
-        return new Adapter($client, $config['container']);
+        return new AzureAdapter($client, $config['container']);
     }
 }
