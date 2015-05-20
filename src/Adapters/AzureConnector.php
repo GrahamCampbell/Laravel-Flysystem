@@ -67,7 +67,7 @@ class AzureConnector implements ConnectorInterface
      */
     protected function getClient(array $auth)
     {
-        $endpoint = sprintf('DefaultEndpointsProtocol=https;AccountName=%s;AccountKey=%s', base64_encode($auth['account-name']), base64_encode($auth['api-key']));
+        $endpoint = sprintf('DefaultEndpointsProtocol=https;AccountName=%s;AccountKey=%s', $auth['account-name'], $auth['api-key']);
 
         return ServicesBuilder::getInstance()->createBlobService($endpoint);
     }
