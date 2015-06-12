@@ -4,6 +4,7 @@
  * This file is part of Laravel Flysystem.
  *
  * (c) Graham Campbell <graham@cachethq.io>
+ * with contributions by Raul Ruiz <publiux@gmail.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
@@ -29,9 +30,11 @@ class AwsS3ConnectorTest extends AbstractTestCase
             'key'    => 'your-key',
             'secret' => 'your-secret',
             'bucket' => 'your-bucket',
+            'region' => 'us-east-1',
+            'version' => 'latest',
         ]);
 
-        $this->assertInstanceOf('League\Flysystem\AwsS3v2\AwsS3Adapter', $return);
+        $this->assertInstanceOf('League\Flysystem\AwsS3v3\AwsS3Adapter', $return);
     }
 
     public function testConnectWithPrefix()
@@ -42,27 +45,15 @@ class AwsS3ConnectorTest extends AbstractTestCase
             'key'    => 'your-key',
             'secret' => 'your-secret',
             'bucket' => 'your-bucket',
+            'region' => 'us-east-1',
+            'version' => 'latest',
             'prefix' => 'your-prefix',
         ]);
 
-        $this->assertInstanceOf('League\Flysystem\AwsS3v2\AwsS3Adapter', $return);
+        $this->assertInstanceOf('League\Flysystem\AwsS3v3\AwsS3Adapter', $return);
     }
 
-    public function testConnectWithRegion()
-    {
-        $connector = $this->getAwsS3Connector();
-
-        $return = $connector->connect([
-            'key'    => 'your-key',
-            'secret' => 'your-secret',
-            'bucket' => 'your-bucket',
-            'region' => 'eu-west-1',
-        ]);
-
-        $this->assertInstanceOf('League\Flysystem\AwsS3v2\AwsS3Adapter', $return);
-    }
-
-    public function testConnectWithBaseUrl()
+    public function testConnectWithBucketEndPoint()
     {
         $connector = $this->getAwsS3Connector();
 
@@ -70,10 +61,12 @@ class AwsS3ConnectorTest extends AbstractTestCase
             'key'      => 'your-key',
             'secret'   => 'your-secret',
             'bucket'   => 'your-bucket',
-            'base_url' => 'your-url',
+            'region' => 'us-east-1',
+            'version' => 'latest',
+            'bucket_endpoint' => false,
         ]);
 
-        $this->assertInstanceOf('League\Flysystem\AwsS3v2\AwsS3Adapter', $return);
+        $this->assertInstanceOf('League\Flysystem\AwsS3v3\AwsS3Adapter', $return);
     }
 
     public function testConnectWithOptions()
@@ -84,10 +77,60 @@ class AwsS3ConnectorTest extends AbstractTestCase
             'key'      => 'your-key',
             'secret'   => 'your-secret',
             'bucket'   => 'your-bucket',
+            'region' => 'us-east-1',
+            'version' => 'latest',
             'options'  => ['foo' => 'bar'],
         ]);
 
-        $this->assertInstanceOf('League\Flysystem\AwsS3v2\AwsS3Adapter', $return);
+        $this->assertInstanceOf('League\Flysystem\AwsS3v3\AwsS3Adapter', $return);
+    }
+
+    public function testConnectWithCalculateMD5()
+    {
+        $connector = $this->getAwsS3Connector();
+
+        $return = $connector->connect([
+            'key'      => 'your-key',
+            'secret'   => 'your-secret',
+            'bucket'   => 'your-bucket',
+            'region' => 'us-east-1',
+            'version' => 'latest',
+            'calculate_md5' => true,
+        ]);
+
+        $this->assertInstanceOf('League\Flysystem\AwsS3v3\AwsS3Adapter', $return);
+    }
+
+    public function testConnectWithScheme()
+    {
+        $connector = $this->getAwsS3Connector();
+
+        $return = $connector->connect([
+            'key'      => 'your-key',
+            'secret'   => 'your-secret',
+            'bucket'   => 'your-bucket',
+            'region' => 'us-east-1',
+            'version' => 'latest',
+            'scheme' => 'https',
+        ]);
+
+        $this->assertInstanceOf('League\Flysystem\AwsS3v3\AwsS3Adapter', $return);
+    }
+
+    public function testConnectWithEndPoint()
+    {
+        $connector = $this->getAwsS3Connector();
+
+        $return = $connector->connect([
+            'key'      => 'your-key',
+            'secret'   => 'your-secret',
+            'bucket'   => 'your-bucket',
+            'region' => 'us-east-1',
+            'version' => 'latest',
+            'endpoint' => 'your-url',
+        ]);
+
+        $this->assertInstanceOf('League\Flysystem\AwsS3v3\AwsS3Adapter', $return);
     }
 
     public function testConnectWithEverything()
@@ -98,12 +141,16 @@ class AwsS3ConnectorTest extends AbstractTestCase
             'key'      => 'your-key',
             'secret'   => 'your-secret',
             'bucket'   => 'your-bucket',
-            'region'   => 'eu-west-1',
-            'base_url' => 'your-url',
+            'region' => 'us-east-1',
+            'version' => 'latest',
+            'bucket_endpoint' => false,
             'options'  => ['foo' => 'bar'],
+            'endpoint' => 'your-url',
+            'scheme' => 'https',
+            'calculate_md5' => true,
         ]);
 
-        $this->assertInstanceOf('League\Flysystem\AwsS3v2\AwsS3Adapter', $return);
+        $this->assertInstanceOf('League\Flysystem\AwsS3v3\AwsS3Adapter', $return);
     }
 
     /**
@@ -113,7 +160,12 @@ class AwsS3ConnectorTest extends AbstractTestCase
     {
         $connector = $this->getAwsS3Connector();
 
-        $connector->connect(['key' => 'your-key', 'secret' => 'your-secret']);
+        $connector->connect([
+            'key'    => 'your-key',
+            'secret' => 'your-secret',
+            'region' => 'us-east-1',
+            'version' => 'latest',
+        ]);
     }
 
     /**
@@ -123,7 +175,12 @@ class AwsS3ConnectorTest extends AbstractTestCase
     {
         $connector = $this->getAwsS3Connector();
 
-        $connector->connect(['secret' => 'your-secret', 'bucket' => 'your-bucket']);
+        $connector->connect([
+            'secret' => 'your-secret',
+            'bucket' => 'your-bucket',
+            'region' => 'us-east-1',
+            'version' => 'latest',
+        ]);
     }
 
     /**
@@ -133,7 +190,42 @@ class AwsS3ConnectorTest extends AbstractTestCase
     {
         $connector = $this->getAwsS3Connector();
 
-        $connector->connect(['key' => 'your-key', 'bucket' => 'your-bucket']);
+        $connector->connect([
+            'key'    => 'your-key',
+            'bucket' => 'your-bucket',
+            'region' => 'us-east-1',
+            'version' => 'latest',
+        ]);
+    }
+
+    /**
+     * @expectedException \InvalidArgumentException
+     */
+    public function testConnectWithoutRegion()
+    {
+        $connector = $this->getAwsS3Connector();
+
+        $connector->connect([
+            'key'    => 'your-key',
+            'secret' => 'your-secret',
+            'bucket' => 'your-bucket',
+            'version' => 'latest',
+        ]);
+    }
+
+    /**
+     * @expectedException \InvalidArgumentException
+     */
+    public function testConnectWithoutVersion()
+    {
+        $connector = $this->getAwsS3Connector();
+
+        $connector->connect([
+            'key'    => 'your-key',
+            'secret' => 'your-secret',
+            'bucket' => 'your-bucket',
+            'region' => 'us-east-1',
+        ]);
     }
 
     protected function getAwsS3Connector()
