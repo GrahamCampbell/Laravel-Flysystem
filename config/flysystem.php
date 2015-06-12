@@ -51,6 +51,23 @@ return [
             // 'cache'      => 'foo'
         ],
 
+        'awss3v3' => [
+            'driver'     => 'awss3v3',
+            'key'        => 'your-key',
+            'secret'     => 'your-secret',
+            'bucket'     => 'your-bucket',
+            'region'     => 'your-region',
+            'version'    => '2006-03-01',
+            // 'retries'    => '3',
+            // 'scheme'     => 'https',
+            // 'base_url'   => 'your-url',
+            // 'options'    => [],
+            // 'prefix'     => 'your-prefix',
+            // 'visibility' => 'public',
+            // 'eventable'  => true,
+            // 'cache'      => 'foo',
+        ],
+
         'azure' => [
             'driver'       => 'azure',
             'account-name' => 'your-account-name',
