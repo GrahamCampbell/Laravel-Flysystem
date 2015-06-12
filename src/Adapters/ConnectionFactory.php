@@ -50,6 +50,8 @@ class ConnectionFactory
         switch ($config['driver']) {
             case 'awss3':
                 return new AwsS3Connector();
+            case 'awss3v3':
+                return new AwsS3V3Connector();
             case 'azure':
                 return new AzureConnector();
             case 'copy':
