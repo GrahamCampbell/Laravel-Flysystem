@@ -17,9 +17,9 @@
     ],
     "require": {
         "php": ">=5.5.9",
-        "illuminate/cache": "5.0.*|5.1.*",
-        "illuminate/contracts": "5.0.*|5.1.*",
-        "illuminate/support": "5.0.*|5.1.*",
+        "illuminate/cache": "5.1.*",
+        "illuminate/contracts": "5.1.*",
+        "illuminate/support": "5.1.*",
         "graham-campbell/manager": "~2.1",
         "league/flysystem": "~1.0"
     },
@@ -63,7 +63,7 @@
     },
     "extra": {
         "branch-alias": {
-            "dev-master": "2.1-dev"
+            "dev-master": "3.0-dev"
         }
     },
     "minimum-stability": "dev",

@@ -2,6 +2,12 @@ CHANGE LOG
 ==========
 
 
+## V3.0 (Upcoming)
+
+* Drop support for laravel 5.0
+* Support the aws sdk v3
+
+
 ## V2.1.1 (20/05/2015)
 
 * Fixed the azure connector
