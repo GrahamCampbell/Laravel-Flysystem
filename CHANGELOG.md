@@ -6,6 +6,7 @@ CHANGE LOG
 
 * Drop support for laravel 5.0
 * Support the aws sdk v3
+* Lumen support
 
 
 ## V2.1.1 (20/05/2015)
