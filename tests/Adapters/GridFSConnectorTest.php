@@ -43,31 +43,27 @@ class GridFSConnectorTest extends AbstractTestCase
     }
 
     /**
-     * @expectedException \InvalidArgumentException
-     */
-    public function testConnectServer()
-    {
-        $connector = $this->getGridFSConnector();
-
-        $connector->connect([
-            'database' => 'your-database',
-        ]);
-    }
-
-    /**
      * @depends testConnectStandard
      * @expectedException \InvalidArgumentException
      */
     public function testConnectWithoutDatabase()
     {
-        if (!class_exists('MongoClient')) {
-            $this->markTestSkipped('The MongoClient class does not exist');
-        }
-
         $connector = $this->getGridFSConnector();
 
         $connector->connect([
             'server' => 'mongodb://localhost:27017',
+        ]);
+    }
+
+    /**
+     * @expectedException \InvalidArgumentException
+     */
+    public function testConnectWithoutServer()
+    {
+        $connector = $this->getGridFSConnector();
+
+        $connector->connect([
+            'database' => 'your-database',
         ]);
     }
 

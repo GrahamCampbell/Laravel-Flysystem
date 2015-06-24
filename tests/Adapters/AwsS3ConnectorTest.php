@@ -69,7 +69,6 @@ class AwsS3ConnectorTest extends AbstractTestCase
         $this->assertInstanceOf('League\Flysystem\AwsS3v3\AwsS3Adapter', $return);
     }
 
-
     public function testConnectWithCalculateMD5()
     {
         $connector = $this->getAwsS3Connector();
