@@ -11,6 +11,9 @@
 
 namespace GrahamCampbell\Flysystem;
 
+use GrahamCampbell\Flysystem\Adapters\ConnectionFactory as AdapterFactory;
+use GrahamCampbell\Flysystem\Cache\ConnectionFactory as CacheFactory;
+use GrahamCampbell\Flysystem\Factories\FlysystemFactory;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Support\ServiceProvider;
 
@@ -54,27 +57,63 @@ class FlysystemServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        $this->registerFactory($this->app);
+        $this->registerAdapterFactory($this->app);
+        $this->registerCacheFactory($this->app);
+        $this->registerFlysystemFactory($this->app);
         $this->registerManager($this->app);
     }
 
     /**
-     * Register the factory class.
+     * Register the adapter factory class.
      *
      * @param \Illuminate\Contracts\Foundation\Application $app
      *
      * @return void
      */
-    protected function registerFactory(Application $app)
+    protected function registerAdapterFactory(Application $app)
     {
-        $app->singleton('flysystem.factory', function ($app) {
-            $adapter = new Adapters\ConnectionFactory();
-            $cache = new Cache\ConnectionFactory($app['cache']);
-
-            return new Factories\FlysystemFactory($adapter, $cache);
+        $app->singleton('flysystem.adapterfactory', function ($app) {
+            return new AdapterFactory();
         });
 
-        $app->alias('flysystem.factory', 'GrahamCampbell\Flysystem\Factories\FlysystemFactory');
+        $app->alias('flysystem.adapterfactory', AdapterFactory::class);
+    }
+
+    /**
+     * Register the cache factory class.
+     *
+     * @param \Illuminate\Contracts\Foundation\Application $app
+     *
+     * @return void
+     */
+    protected function registerCacheFactory(Application $app)
+    {
+        $app->singleton('flysystem.cachefactory', function ($app) {
+            $cache = $app['cache'];
+
+            return new CacheFactory($cache);
+        });
+
+        $app->alias('flysystem.cachefactory', CacheFactory::class);
+    }
+
+    /**
+     * Register the flysystem factory class.
+     *
+     * @param \Illuminate\Contracts\Foundation\Application $app
+     *
+     * @return void
+     */
+    protected function registerFlysystemFactory(Application $app)
+    {
+        $app->singleton('flysystem.factory', function ($app) {
+            $adapter = $app['flysystem.adapterfactory'];
+            $cache = $app['flysystem.cachefactory'];
+
+            return new FlysystemFactory($adapter, $cache);
+        });
+
+        $app->alias('flysystem.factory', FlysystemFactory::class);
     }
 
     /**
@@ -93,7 +132,7 @@ class FlysystemServiceProvider extends ServiceProvider
             return new FlysystemManager($config, $factory);
         });
 
-        $app->alias('flysystem', 'GrahamCampbell\Flysystem\FlysystemManager');
+        $app->alias('flysystem', FlysystemManager::class);
     }
 
     /**
@@ -104,8 +143,10 @@ class FlysystemServiceProvider extends ServiceProvider
     public function provides()
     {
         return [
-            'flysystem',
+            'flysystem.adapterfactory',
+            'flysystem.cachefactory',
             'flysystem.factory',
+            'flysystem',
         ];
     }
 }
