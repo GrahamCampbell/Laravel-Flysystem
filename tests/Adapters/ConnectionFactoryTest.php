@@ -13,6 +13,7 @@ namespace GrahamCampbell\Tests\Flysystem\Adapters;
 
 use GrahamCampbell\Flysystem\Adapters\AwsS3Connector;
 use GrahamCampbell\Flysystem\Adapters\AzureConnector;
+use GrahamCampbell\Flysystem\Adapters\ConnectionFactory;
 use GrahamCampbell\Flysystem\Adapters\CopyConnector;
 use GrahamCampbell\Flysystem\Adapters\DropboxConnector;
 use GrahamCampbell\Flysystem\Adapters\FtpConnector;
@@ -23,7 +24,6 @@ use GrahamCampbell\Flysystem\Adapters\RackspaceConnector;
 use GrahamCampbell\Flysystem\Adapters\SftpConnector;
 use GrahamCampbell\Flysystem\Adapters\WebDavConnector;
 use GrahamCampbell\Flysystem\Adapters\ZipConnector;
-use GrahamCampbell\Flysystem\Adapters\ConnectionFactory;
 use GrahamCampbell\TestBench\AbstractTestCase;
 use League\Flysystem\Adapter\Local;
 use League\Flysystem\AdapterInterface;
