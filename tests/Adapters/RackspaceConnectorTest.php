@@ -13,6 +13,7 @@ namespace GrahamCampbell\Tests\Flysystem\Adapters;
 
 use GrahamCampbell\Flysystem\Adapters\RackspaceConnector;
 use GrahamCampbell\TestBench\AbstractTestCase;
+use Guzzle\Http\Exception\CurlException;
 
 /**
  * This is the rackspace connector test class.
@@ -28,13 +29,17 @@ class RackspaceConnectorTest extends AbstractTestCase
     {
         $connector = $this->getRackspaceConnector();
 
-        $connector->connect([
-            'endpoint'  => 'https://lon.identity.api.rackspacecloud.com/v2.0/',
-            'region'    => 'LON',
-            'username'  => 'your-username',
-            'apiKey'    => 'your-api-key',
-            'container' => 'your-container',
-        ]);
+        try {
+            $connector->connect([
+                'endpoint'  => 'https://lon.identity.api.rackspacecloud.com/v2.0/',
+                'region'    => 'LON',
+                'username'  => 'your-username',
+                'apiKey'    => 'your-api-key',
+                'container' => 'your-container',
+            ]);
+        } catch (CurlException $e) {
+            $this->markTestSkipped('No internet connection.');
+        }
     }
 
     /**
