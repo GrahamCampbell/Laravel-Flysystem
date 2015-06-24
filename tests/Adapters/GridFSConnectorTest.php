@@ -13,6 +13,7 @@ namespace GrahamCampbell\Tests\Flysystem\Adapters;
 
 use GrahamCampbell\Flysystem\Adapters\GridFSConnector;
 use GrahamCampbell\TestBench\AbstractTestCase;
+use MongoConnectionException;
 
 /**
  * This is the gridfs connector test class.
@@ -29,12 +30,16 @@ class GridFSConnectorTest extends AbstractTestCase
 
         $connector = $this->getGridFSConnector();
 
-        $return = $connector->connect([
-            'server'   => 'mongodb://localhost:27017',
-            'database' => 'your-database',
-        ]);
+        try {
+            $return = $connector->connect([
+                'server'   => 'mongodb://localhost:27017',
+                'database' => 'your-database',
+            ]);
 
-        $this->assertInstanceOf('League\Flysystem\GridFS\GridFSAdapter', $return);
+            $this->assertInstanceOf('League\Flysystem\GridFS\GridFSAdapter', $return);
+        } catch (MongoConnectionException $e) {
+            $this->markTestSkipped('No mongo serer running');
+        }
     }
 
     /**
@@ -50,6 +55,7 @@ class GridFSConnectorTest extends AbstractTestCase
     }
 
     /**
+     * @depends testConnectStandard
      * @expectedException \InvalidArgumentException
      */
     public function testConnectWithoutDatabase()
