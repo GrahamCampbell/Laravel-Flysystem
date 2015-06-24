@@ -13,7 +13,6 @@ namespace GrahamCampbell\Flysystem;
 
 use GrahamCampbell\Flysystem\Adapters\ConnectionFactory as AdapterFactory;
 use GrahamCampbell\Flysystem\Cache\ConnectionFactory as CacheFactory;
-use GrahamCampbell\Flysystem\FlysystemManager;
 use League\Flysystem\Cached\CachedAdapter;
 use League\Flysystem\EventableFilesystem\EventableFilesystem;
 use League\Flysystem\Filesystem;
