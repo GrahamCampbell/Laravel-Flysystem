@@ -38,17 +38,20 @@ return [
     'connections' => [
 
         'awss3' => [
-            'driver'     => 'awss3',
-            'key'        => 'your-key',
-            'secret'     => 'your-secret',
-            'bucket'     => 'your-bucket',
-            // 'region'     => 'your-region',
-            // 'base_url'   => 'your-url',
-            // 'options'    => [],
-            // 'prefix'     => 'your-prefix',
-            // 'visibility' => 'public',
-            // 'eventable'  => true,
-            // 'cache'      => 'foo'
+            'driver'          => 'awss3',
+            'key'             => 'your-key',
+            'secret'          => 'your-secret',
+            'bucket'          => 'your-bucket',
+            'region'          => 'your-region',
+            'version'         => 'latest',
+            // 'bucket_endpoint' => false,
+            // 'calculate_md5'   => true,
+            // 'scheme'          => 'https',
+            // 'endpoint'        => 'your-url',
+            // 'prefix'          => 'your-prefix',
+            // 'visibility'      => 'public',
+            // 'eventable'       => true,
+            // 'cache'           => 'foo'
         ],
 
         'azure' => [
