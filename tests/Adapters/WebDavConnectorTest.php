@@ -13,6 +13,7 @@ namespace GrahamCampbell\Tests\Flysystem\Adapters;
 
 use GrahamCampbell\Flysystem\Adapters\WebDavConnector;
 use GrahamCampbell\TestBench\AbstractTestCase;
+use League\Flysystem\WebDAV\WebDAVAdapter;
 
 /**
  * This is the webdav connector test class.
@@ -31,7 +32,7 @@ class WebDavConnectorTest extends AbstractTestCase
             'password' => 'your-password',
         ]);
 
-        $this->assertInstanceOf('League\Flysystem\WebDAV\WebDAVAdapter', $return);
+        $this->assertInstanceOf(WebDAVAdapter::class, $return);
     }
 
     protected function getWebDavConnector()

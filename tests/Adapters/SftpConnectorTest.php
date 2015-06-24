@@ -13,6 +13,7 @@ namespace GrahamCampbell\Tests\Flysystem\Adapters;
 
 use GrahamCampbell\Flysystem\Adapters\SftpConnector;
 use GrahamCampbell\TestBench\AbstractTestCase;
+use League\Flysystem\Sftp\SftpAdapter;
 
 /**
  * This is the sftp connector test class.
@@ -32,7 +33,7 @@ class SftpConnectorTest extends AbstractTestCase
             'password' => 'your-password',
         ]);
 
-        $this->assertInstanceOf('League\Flysystem\Sftp\SftpAdapter', $return);
+        $this->assertInstanceOf(SftpAdapter::class, $return);
     }
 
     protected function getSftpConnector()

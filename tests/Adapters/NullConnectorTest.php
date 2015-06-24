@@ -13,6 +13,7 @@ namespace GrahamCampbell\Tests\Flysystem\Adapters;
 
 use GrahamCampbell\Flysystem\Adapters\NullConnector;
 use GrahamCampbell\TestBench\AbstractTestCase;
+use League\Flysystem\Adapter\NullAdapter;
 
 /**
  * This is the null connector test class.
@@ -27,7 +28,7 @@ class NullConnectorTest extends AbstractTestCase
 
         $return = $connector->connect([]);
 
-        $this->assertInstanceOf('League\Flysystem\Adapter\NullAdapter', $return);
+        $this->assertInstanceOf(NullAdapter::class, $return);
     }
 
     protected function getNullConnector()

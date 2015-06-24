@@ -13,6 +13,7 @@ namespace GrahamCampbell\Tests\Flysystem\Adapters;
 
 use GrahamCampbell\Flysystem\Adapters\FtpConnector;
 use GrahamCampbell\TestBench\AbstractTestCase;
+use League\Flysystem\Adapter\Ftp;
 
 /**
  * This is the ftp connector test class.
@@ -36,7 +37,7 @@ class FtpConnectorTest extends AbstractTestCase
             'password' => 'your-password',
         ]);
 
-        $this->assertInstanceOf('League\Flysystem\Adapter\Ftp', $return);
+        $this->assertInstanceOf(Ftp::class, $return);
     }
 
     protected function getFtpConnector()

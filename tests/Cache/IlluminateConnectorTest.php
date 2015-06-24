@@ -11,8 +11,13 @@
 
 namespace GrahamCampbell\Tests\Flysystem\Cache;
 
+use GrahamCampbell\Flysystem\Cache\IlluminateCache;
 use GrahamCampbell\Flysystem\Cache\IlluminateConnector;
 use GrahamCampbell\TestBench\AbstractTestCase;
+use Illuminate\Cache\ArrayStore;
+use Illuminate\Cache\RedisStore;
+use Illuminate\Cache\Repository;
+use Illuminate\Contracts\Cache\Factory;
 use Mockery;
 
 /**
@@ -26,28 +31,28 @@ class IlluminateConnectorTest extends AbstractTestCase
     {
         $connector = $this->getIlluminateConnector();
 
-        $repo = Mockery::mock('Illuminate\Cache\Repository');
+        $repo = Mockery::mock(Repository::class);
 
         $connector->getCache()->shouldReceive('driver')->once()->andReturn($repo);
 
-        $store = Mockery::mock('Illuminate\Cache\ArrayStore');
+        $store = Mockery::mock(ArrayStore::class);
 
         $repo->shouldReceive('getStore')->once()->andReturn($store);
 
         $return = $connector->connect([]);
 
-        $this->assertInstanceOf('GrahamCampbell\Flysystem\Cache\IlluminateCache', $return);
+        $this->assertInstanceOf(IlluminateCache::class, $return);
     }
 
     public function testConnectFull()
     {
         $connector = $this->getIlluminateConnector();
 
-        $repo = Mockery::mock('Illuminate\Cache\Repository');
+        $repo = Mockery::mock(Repository::class);
 
         $connector->getCache()->shouldReceive('driver')->once()->with('redis')->andReturn($repo);
 
-        $store = Mockery::mock('Illuminate\Cache\RedisStore');
+        $store = Mockery::mock(RedisStore::class);
 
         $repo->shouldReceive('getStore')->once()->andReturn($store);
 
@@ -58,12 +63,12 @@ class IlluminateConnectorTest extends AbstractTestCase
             'ttl'       => 600,
         ]);
 
-        $this->assertInstanceOf('GrahamCampbell\Flysystem\Cache\IlluminateCache', $return);
+        $this->assertInstanceOf(IlluminateCache::class, $return);
     }
 
     protected function getIlluminateConnector()
     {
-        $cache = Mockery::mock('Illuminate\Contracts\Cache\Factory');
+        $cache = Mockery::mock(Factory::class);
 
         return new IlluminateConnector($cache);
     }

@@ -13,6 +13,7 @@ namespace GrahamCampbell\Tests\Flysystem\Adapters;
 
 use GrahamCampbell\Flysystem\Adapters\CopyConnector;
 use GrahamCampbell\TestBench\AbstractTestCase;
+use League\Flysystem\Copy\CopyAdapter;
 
 /**
  * This is the copy connector test class.
@@ -32,7 +33,7 @@ class CopyConnectorTest extends AbstractTestCase
             'token-secret'    => 'your-token-secret',
         ]);
 
-        $this->assertInstanceOf('League\Flysystem\Copy\CopyAdapter', $return);
+        $this->assertInstanceOf(CopyAdapter::class, $return);
     }
 
     public function testConnectWithPrefix()
@@ -47,7 +48,7 @@ class CopyConnectorTest extends AbstractTestCase
             'prefix'          => 'your-prefix',
         ]);
 
-        $this->assertInstanceOf('League\Flysystem\Copy\CopyAdapter', $return);
+        $this->assertInstanceOf(CopyAdapter::class, $return);
     }
 
     /**

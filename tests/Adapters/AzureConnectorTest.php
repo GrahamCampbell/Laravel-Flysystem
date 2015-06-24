@@ -13,6 +13,7 @@ namespace GrahamCampbell\Tests\Flysystem\Adapters;
 
 use GrahamCampbell\Flysystem\Adapters\AzureConnector;
 use GrahamCampbell\TestBench\AbstractTestCase;
+use League\Flysystem\Azure\AzureAdapter;
 
 /**
  * This is the adapter connector test class.
@@ -31,7 +32,7 @@ class AzureConnectorTest extends AbstractTestCase
             'container'    => 'your-container',
         ]);
 
-        $this->assertInstanceOf('League\Flysystem\Azure\AzureAdapter', $return);
+        $this->assertInstanceOf(AzureAdapter::class, $return);
     }
 
     /**

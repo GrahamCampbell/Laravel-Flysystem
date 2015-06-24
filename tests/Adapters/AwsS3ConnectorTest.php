@@ -13,6 +13,7 @@ namespace GrahamCampbell\Tests\Flysystem\Adapters;
 
 use GrahamCampbell\Flysystem\Adapters\AwsS3Connector;
 use GrahamCampbell\TestBench\AbstractTestCase;
+use League\Flysystem\AwsS3v3\AwsS3Adapter;
 
 /**
  * This is the awss3 connector test class.
@@ -34,7 +35,7 @@ class AwsS3ConnectorTest extends AbstractTestCase
             'version' => 'latest',
         ]);
 
-        $this->assertInstanceOf('League\Flysystem\AwsS3v3\AwsS3Adapter', $return);
+        $this->assertInstanceOf(AwsS3Adapter::class, $return);
     }
 
     public function testConnectWithPrefix()
@@ -50,7 +51,7 @@ class AwsS3ConnectorTest extends AbstractTestCase
             'prefix'  => 'your-prefix',
         ]);
 
-        $this->assertInstanceOf('League\Flysystem\AwsS3v3\AwsS3Adapter', $return);
+        $this->assertInstanceOf(AwsS3Adapter::class, $return);
     }
 
     public function testConnectWithBucketEndPoint()
@@ -66,7 +67,7 @@ class AwsS3ConnectorTest extends AbstractTestCase
             'bucket_endpoint' => false,
         ]);
 
-        $this->assertInstanceOf('League\Flysystem\AwsS3v3\AwsS3Adapter', $return);
+        $this->assertInstanceOf(AwsS3Adapter::class, $return);
     }
 
     public function testConnectWithCalculateMD5()
@@ -82,7 +83,7 @@ class AwsS3ConnectorTest extends AbstractTestCase
             'calculate_md5' => true,
         ]);
 
-        $this->assertInstanceOf('League\Flysystem\AwsS3v3\AwsS3Adapter', $return);
+        $this->assertInstanceOf(AwsS3Adapter::class, $return);
     }
 
     public function testConnectWithScheme()
@@ -98,7 +99,7 @@ class AwsS3ConnectorTest extends AbstractTestCase
             'scheme'  => 'https',
         ]);
 
-        $this->assertInstanceOf('League\Flysystem\AwsS3v3\AwsS3Adapter', $return);
+        $this->assertInstanceOf(AwsS3Adapter::class, $return);
     }
 
     public function testConnectWithEndPoint()
@@ -114,7 +115,7 @@ class AwsS3ConnectorTest extends AbstractTestCase
             'endpoint' => 'your-url',
         ]);
 
-        $this->assertInstanceOf('League\Flysystem\AwsS3v3\AwsS3Adapter', $return);
+        $this->assertInstanceOf(AwsS3Adapter::class, $return);
     }
 
     public function testConnectWithEverything()
@@ -133,7 +134,7 @@ class AwsS3ConnectorTest extends AbstractTestCase
             'endpoint'        => 'your-url',
         ]);
 
-        $this->assertInstanceOf('League\Flysystem\AwsS3v3\AwsS3Adapter', $return);
+        $this->assertInstanceOf(AwsS3Adapter::class, $return);
     }
 
     /**

@@ -11,8 +11,13 @@
 
 namespace GrahamCampbell\Tests\Flysystem\Cache;
 
+use GrahamCampbell\Flysystem\Cache\AdapterConnector;
 use GrahamCampbell\Flysystem\Cache\ConnectionFactory;
+use GrahamCampbell\Flysystem\Cache\IlluminateConnector;
+use GrahamCampbell\Flysystem\FlysystemManager;
 use GrahamCampbell\TestBench\AbstractTestCase;
+use Illuminate\Contracts\Cache\Factory;
+use League\Flysystem\Cached\CacheInterface;
 use Mockery;
 
 /**
@@ -24,35 +29,35 @@ class ConnectionFactoryTest extends AbstractTestCase
 {
     public function testMake()
     {
-        $manager = Mockery::mock('GrahamCampbell\Flysystem\FlysystemManager');
+        $manager = Mockery::mock(FlysystemManager::class);
 
         $factory = $this->getMockedFactory($manager);
 
         $return = $factory->make(['name' => 'foo', 'driver' => 'illuminate', 'connector' => 'redis'], $manager);
 
-        $this->assertInstanceOf('League\Flysystem\Cached\CacheInterface', $return);
+        $this->assertInstanceOf(CacheInterface::class, $return);
     }
 
     public function testCreateIlluminateConnector()
     {
-        $manager = Mockery::mock('GrahamCampbell\Flysystem\FlysystemManager');
+        $manager = Mockery::mock(FlysystemManager::class);
 
         $factory = $this->getConnectionFactory();
 
         $return = $factory->createConnector(['name' => 'foo', 'driver' => 'illuminate', 'connector' => 'redis'], $manager);
 
-        $this->assertInstanceOf('GrahamCampbell\Flysystem\Cache\IlluminateConnector', $return);
+        $this->assertInstanceOf(IlluminateConnector::class, $return);
     }
 
     public function testCreateAdapterConnector()
     {
-        $manager = Mockery::mock('GrahamCampbell\Flysystem\FlysystemManager');
+        $manager = Mockery::mock(FlysystemManager::class);
 
         $factory = $this->getConnectionFactory();
 
         $return = $factory->createConnector(['name' => 'foo', 'driver' => 'adapter', 'adapter' => 'local'], $manager);
 
-        $this->assertInstanceOf('GrahamCampbell\Flysystem\Cache\AdapterConnector', $return);
+        $this->assertInstanceOf(AdapterConnector::class, $return);
     }
 
     /**
@@ -60,7 +65,7 @@ class ConnectionFactoryTest extends AbstractTestCase
      */
     public function testCreateEmptyDriverConnector()
     {
-        $manager = Mockery::mock('GrahamCampbell\Flysystem\FlysystemManager');
+        $manager = Mockery::mock(FlysystemManager::class);
 
         $factory = $this->getConnectionFactory();
 
@@ -72,7 +77,7 @@ class ConnectionFactoryTest extends AbstractTestCase
      */
     public function testCreateUnsupportedDriverConnector()
     {
-        $manager = Mockery::mock('GrahamCampbell\Flysystem\FlysystemManager');
+        $manager = Mockery::mock(FlysystemManager::class);
 
         $factory = $this->getConnectionFactory();
 
@@ -81,22 +86,22 @@ class ConnectionFactoryTest extends AbstractTestCase
 
     protected function getConnectionFactory()
     {
-        $cache = Mockery::mock('Illuminate\Contracts\Cache\Factory');
+        $cache = Mockery::mock(Factory::class);
 
         return new ConnectionFactory($cache);
     }
 
     protected function getMockedFactory($manager)
     {
-        $cache = Mockery::mock('Illuminate\Contracts\Cache\Factory');
+        $cache = Mockery::mock(Factory::class);
 
-        $mock = Mockery::mock('GrahamCampbell\Flysystem\Cache\ConnectionFactory[createConnector]', [$cache]);
+        $mock = Mockery::mock(ConnectionFactory::class.'[createConnector]', [$cache]);
 
-        $connector = Mockery::mock('GrahamCampbell\Flysystem\Cache\IlluminateConnector', [$cache]);
+        $connector = Mockery::mock(IlluminateConnector::class, [$cache]);
 
         $connector->shouldReceive('connect')->once()
             ->with(['name' => 'foo', 'driver' => 'illuminate', 'connector' => 'redis'])
-            ->andReturn(Mockery::mock('League\Flysystem\Cached\CacheInterface'));
+            ->andReturn(Mockery::mock(CacheInterface::class));
 
         $mock->shouldReceive('createConnector')->once()
             ->with(['name' => 'foo', 'driver' => 'illuminate', 'connector' => 'redis'], $manager)

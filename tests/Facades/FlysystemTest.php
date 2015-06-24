@@ -11,6 +11,8 @@
 
 namespace GrahamCampbell\Tests\Flysystem\Facades;
 
+use GrahamCampbell\Flysystem\Facades\Flysystem;
+use GrahamCampbell\Flysystem\FlysystemManager;
 use GrahamCampbell\TestBenchCore\FacadeTrait;
 use GrahamCampbell\Tests\Flysystem\AbstractTestCase;
 
@@ -40,7 +42,7 @@ class FlysystemTest extends AbstractTestCase
      */
     protected function getFacadeClass()
     {
-        return 'GrahamCampbell\Flysystem\Facades\Flysystem';
+        return Flysystem::class;
     }
 
     /**
@@ -50,6 +52,6 @@ class FlysystemTest extends AbstractTestCase
      */
     protected function getFacadeRoot()
     {
-        return 'GrahamCampbell\Flysystem\FlysystemManager';
+        return FlysystemManager::class;
     }
 }

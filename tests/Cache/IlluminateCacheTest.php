@@ -11,7 +11,9 @@
 
 namespace GrahamCampbell\Tests\Flysystem\Cache;
 
+use GrahamCampbell\Flysystem\Cache\IlluminateCache;
 use GrahamCampbell\TestBench\AbstractTestCase;
+use Illuminate\Contracts\Cache\Store;
 use Mockery;
 
 /**
@@ -65,11 +67,8 @@ class IlluminateCacheTest extends AbstractTestCase
 
     protected function getIlluminateCache($key, $ttl = null)
     {
-        $client = Mockery::mock('Illuminate\Contracts\Cache\Store');
+        $client = Mockery::mock(Store::class);
 
-        return Mockery::mock(
-            'GrahamCampbell\Flysystem\Cache\IlluminateCache[setFromStorage,getForStorage]',
-            [$client, $key, $ttl]
-        );
+        return Mockery::mock(IlluminateCache::class.'[setFromStorage,getForStorage]', [$client, $key, $ttl]);
     }
 }

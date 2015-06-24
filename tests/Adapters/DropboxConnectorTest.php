@@ -13,6 +13,7 @@ namespace GrahamCampbell\Tests\Flysystem\Adapters;
 
 use GrahamCampbell\Flysystem\Adapters\DropboxConnector;
 use GrahamCampbell\TestBench\AbstractTestCase;
+use League\Flysystem\Dropbox\DropboxAdapter;
 
 /**
  * This is the dropbox connector test class.
@@ -30,7 +31,7 @@ class DropboxConnectorTest extends AbstractTestCase
             'app'    => 'your-app',
         ]);
 
-        $this->assertInstanceOf('League\Flysystem\Dropbox\DropboxAdapter', $return);
+        $this->assertInstanceOf(DropboxAdapter::class, $return);
     }
 
     public function testConnectWithPrefix()
@@ -43,7 +44,7 @@ class DropboxConnectorTest extends AbstractTestCase
             'prefix' => 'your-prefix',
         ]);
 
-        $this->assertInstanceOf('League\Flysystem\Dropbox\DropboxAdapter', $return);
+        $this->assertInstanceOf(DropboxAdapter::class, $return);
     }
 
     /**

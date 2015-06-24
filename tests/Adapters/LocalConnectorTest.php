@@ -13,6 +13,7 @@ namespace GrahamCampbell\Tests\Flysystem\Adapters;
 
 use GrahamCampbell\Flysystem\Adapters\LocalConnector;
 use GrahamCampbell\TestBench\AbstractTestCase;
+use League\Flysystem\Adapter\Local;
 
 /**
  * This is the local connector test class.
@@ -27,7 +28,7 @@ class LocalConnectorTest extends AbstractTestCase
 
         $return = $connector->connect(['path' => __DIR__]);
 
-        $this->assertInstanceOf('League\Flysystem\Adapter\Local', $return);
+        $this->assertInstanceOf(Local::class, $return);
     }
 
     public function testConnectWithPrefix()
@@ -36,7 +37,7 @@ class LocalConnectorTest extends AbstractTestCase
 
         $return = $connector->connect(['path' => __DIR__, 'prefix' => 'your-prefix']);
 
-        $this->assertInstanceOf('League\Flysystem\Adapter\Local', $return);
+        $this->assertInstanceOf(Local::class, $return);
     }
 
     /**
