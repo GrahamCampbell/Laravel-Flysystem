@@ -11,8 +11,11 @@
 
 namespace GrahamCampbell\Tests\Flysystem;
 
+use GrahamCampbell\Flysystem\Factories\FlysystemFactory;
 use GrahamCampbell\Flysystem\FlysystemManager;
 use GrahamCampbell\TestBench\AbstractTestCase as AbstractTestBenchTestCase;
+use Illuminate\Contracts\Config\Repository;
+use League\Flysystem\FilesystemInterface;
 use Mockery;
 
 /**
@@ -32,7 +35,7 @@ class FlysystemManagerTest extends AbstractTestBenchTestCase
 
         $return = $manager->connection('local');
 
-        $this->assertInstanceOf('League\Flysystem\FilesystemInterface', $return);
+        $this->assertInstanceOf(FilesystemInterface::class, $return);
 
         $this->assertArrayHasKey('local', $manager->getConnections());
     }
@@ -50,7 +53,7 @@ class FlysystemManagerTest extends AbstractTestBenchTestCase
 
         $return = $manager->connection();
 
-        $this->assertInstanceOf('League\Flysystem\FilesystemInterface', $return);
+        $this->assertInstanceOf(FilesystemInterface::class, $return);
 
         $this->assertArrayHasKey('local', $manager->getConnections());
     }
@@ -67,7 +70,7 @@ class FlysystemManagerTest extends AbstractTestBenchTestCase
 
         $return = $manager->connection('local');
 
-        $this->assertInstanceOf('League\Flysystem\FilesystemInterface', $return);
+        $this->assertInstanceOf(FilesystemInterface::class, $return);
 
         $this->assertArrayHasKey('local', $manager->getConnections());
     }
@@ -117,8 +120,8 @@ class FlysystemManagerTest extends AbstractTestBenchTestCase
 
     protected function getManager()
     {
-        $config = Mockery::mock('Illuminate\Contracts\Config\Repository');
-        $factory = Mockery::mock('GrahamCampbell\Flysystem\Factories\FlysystemFactory');
+        $config = Mockery::mock(Repository::class);
+        $factory = Mockery::mock(FlysystemFactory::class);
 
         return new FlysystemManager($config, $factory);
     }
@@ -133,7 +136,7 @@ class FlysystemManagerTest extends AbstractTestBenchTestCase
         $config['name'] = 'local';
 
         $manager->getFactory()->shouldReceive('make')->once()
-            ->with($config, $manager)->andReturn(Mockery::mock('League\Flysystem\FilesystemInterface'));
+            ->with($config, $manager)->andReturn(Mockery::mock(FilesystemInterface::class));
 
         return $manager;
     }
@@ -153,7 +156,7 @@ class FlysystemManagerTest extends AbstractTestBenchTestCase
         $config['cache'] = $cache;
 
         $manager->getFactory()->shouldReceive('make')->once()
-            ->with($config, $manager)->andReturn(Mockery::mock('League\Flysystem\FilesystemInterface'));
+            ->with($config, $manager)->andReturn(Mockery::mock(FilesystemInterface::class));
 
         return $manager;
     }

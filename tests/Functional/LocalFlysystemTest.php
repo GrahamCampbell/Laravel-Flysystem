@@ -21,55 +21,38 @@ use GrahamCampbell\Tests\Flysystem\AbstractTestCase;
  */
 class LocalFlysystemTest extends AbstractTestCase
 {
-    /**
-     * Run extra setup code.
-     *
-     * @return void
-     */
-    protected function start()
+    public function testStuff()
     {
-        $this->app->files->deleteDirectory(realpath(__DIR__.'/../../').'/temp');
+        try {
+            $this->app->files->deleteDirectory(realpath(__DIR__.'/../../').'/temp');
 
-        $old = $this->app->config->get('flysystem.connections');
+            $old = $this->app->config->get('flysystem.connections');
 
-        $new = array_merge($old, [
-            'testing' => [
-                'driver' => 'local',
-                'path'   => realpath(__DIR__.'/../../').'/temp',
-            ],
-        ]);
+            $new = array_merge($old, [
+                'testing' => [
+                    'driver' => 'local',
+                    'path'   => realpath(__DIR__.'/../../').'/temp',
+                ],
+            ]);
 
-        $this->app->config->set('flysystem.connections', $new);
-        $this->app->config->set('flysystem.default', 'testing');
-    }
+            $this->app->config->set('flysystem.connections', $new);
+            $this->app->config->set('flysystem.default', 'testing');
 
-    /**
-     * Run extra tear down code.
-     *
-     * @return void
-     */
-    protected function finish()
-    {
-        $this->app->files->deleteDirectory(realpath(__DIR__.'/../../').'/temp');
-    }
+            $this->assertSame('testing', Flysystem::getDefaultConnection());
 
-    public function testName()
-    {
-        $this->assertSame('testing', Flysystem::getDefaultConnection());
-    }
+            $this->assertFalse(Flysystem::has('foo'));
 
-    public function testActions()
-    {
-        $this->assertFalse(Flysystem::has('foo'));
+            Flysystem::put('foo', 'bar');
 
-        Flysystem::put('foo', 'bar');
+            $this->assertTrue(Flysystem::has('foo'));
 
-        $this->assertTrue(Flysystem::has('foo'));
+            $this->assertSame('bar', Flysystem::read('foo'));
 
-        $this->assertSame('bar', Flysystem::read('foo'));
+            Flysystem::delete('foo');
 
-        Flysystem::delete('foo');
-
-        $this->assertFalse(Flysystem::has('foo'));
+            $this->assertFalse(Flysystem::has('foo'));
+        } finally {
+            $this->app->files->deleteDirectory(realpath(__DIR__.'/../../').'/temp');
+        }
     }
 }

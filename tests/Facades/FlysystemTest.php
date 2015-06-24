@@ -11,7 +11,7 @@
 
 namespace GrahamCampbell\Tests\Flysystem\Facades;
 
-use GrahamCampbell\TestBench\Traits\FacadeTestCaseTrait;
+use GrahamCampbell\TestBenchCore\FacadeTrait;
 use GrahamCampbell\Tests\Flysystem\AbstractTestCase;
 
 /**
@@ -21,7 +21,7 @@ use GrahamCampbell\Tests\Flysystem\AbstractTestCase;
  */
 class FlysystemTest extends AbstractTestCase
 {
-    use FacadeTestCaseTrait;
+    use FacadeTrait;
 
     /**
      * Get the facade accessor.

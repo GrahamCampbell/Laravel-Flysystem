@@ -11,7 +11,11 @@
 
 namespace GrahamCampbell\Tests\Flysystem;
 
-use GrahamCampbell\TestBench\Traits\ServiceProviderTestCaseTrait;
+use GrahamCampbell\Flysystem\Adapters\ConnectionFactory as AdapterFactory;
+use GrahamCampbell\Flysystem\Cache\ConnectionFactory as CacheFactory;
+use GrahamCampbell\Flysystem\Factories\FlysystemFactory;
+use GrahamCampbell\Flysystem\FlysystemManager;
+use GrahamCampbell\TestBenchCore\ServiceProviderTrait;
 
 /**
  * This is the service provider test class.
@@ -20,15 +24,25 @@ use GrahamCampbell\TestBench\Traits\ServiceProviderTestCaseTrait;
  */
 class ServiceProviderTest extends AbstractTestCase
 {
-    use ServiceProviderTestCaseTrait;
+    use ServiceProviderTrait;
+
+    public function testAdapterFactoryIsInjectable()
+    {
+        $this->assertIsInjectable(AdapterFactory::class);
+    }
+
+    public function testCacheFactoryIsInjectable()
+    {
+        $this->assertIsInjectable(CacheFactory::class);
+    }
 
     public function testFlysystemFactoryIsInjectable()
     {
-        $this->assertIsInjectable('GrahamCampbell\Flysystem\Factories\FlysystemFactory');
+        $this->assertIsInjectable(FlysystemFactory::class);
     }
 
     public function testFlysystemManagerIsInjectable()
     {
-        $this->assertIsInjectable('GrahamCampbell\Flysystem\FlysystemManager');
+        $this->assertIsInjectable(FlysystemManager::class);
     }
 }

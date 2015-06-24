@@ -11,6 +11,7 @@
 
 namespace GrahamCampbell\Tests\Flysystem;
 
+use GrahamCampbell\Flysystem\FlysystemServiceProvider;
 use GrahamCampbell\TestBench\AbstractPackageTestCase;
 
 /**
@@ -29,6 +30,6 @@ abstract class AbstractTestCase extends AbstractPackageTestCase
      */
     protected function getServiceProviderClass($app)
     {
-        return 'GrahamCampbell\Flysystem\FlysystemServiceProvider';
+        return FlysystemServiceProvider::class;
     }
 }
