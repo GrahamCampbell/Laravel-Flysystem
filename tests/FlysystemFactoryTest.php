@@ -11,8 +11,16 @@
 
 namespace GrahamCampbell\Tests\Flysystem;
 
+use GrahamCampbell\Flysystem\Adapters\ConnectionFactory as AdapterFactory;
+use GrahamCampbell\Flysystem\Cache\ConnectionFactory as CacheFactory;
 use GrahamCampbell\Flysystem\FlysystemFactory;
+use GrahamCampbell\Flysystem\FlysystemManager;
 use GrahamCampbell\TestBench\AbstractTestCase as AbstractTestBenchTestCase;
+use League\Flysystem\AdapterInterface;
+use League\Flysystem\Cached\CacheInterface;
+use League\Flysystem\EventableFilesystem\EventableFilesystem;
+use League\Flysystem\Filesystem;
+use League\Flysystem\FilesystemInterface;
 use Mockery;
 
 /**
@@ -26,84 +34,84 @@ class FlysystemFactoryTest extends AbstractTestBenchTestCase
     {
         $config = ['driver' => 'local', 'path' => __DIR__, 'name' => 'local'];
 
-        $manager = Mockery::mock('GrahamCampbell\Flysystem\FlysystemManager');
+        $manager = Mockery::mock(FlysystemManager::class);
 
         $factory = $this->getMockedFactory($config, $manager);
 
         $return = $factory->make($config, $manager);
 
-        $this->assertInstanceOf('League\Flysystem\FilesystemInterface', $return);
-        $this->assertInstanceOf('League\Flysystem\Filesystem', $return);
+        $this->assertInstanceOf(Filesystem::class, $return);
+        $this->assertInstanceOf(FilesystemInterface::class, $return);
     }
 
     public function testMakeWithCache()
     {
         $config = ['driver' => 'local', 'cache' => ['driver' => 'redis', 'name' => 'illuminate'], 'name' => 'local'];
 
-        $manager = Mockery::mock('GrahamCampbell\Flysystem\FlysystemManager');
+        $manager = Mockery::mock(FlysystemManager::class);
 
         $factory = $this->getMockedFactoryCache($config, $manager);
 
         $return = $factory->make($config, $manager);
 
-        $this->assertInstanceOf('League\Flysystem\FilesystemInterface', $return);
-        $this->assertInstanceOf('League\Flysystem\Filesystem', $return);
+        $this->assertInstanceOf(FilesystemInterface::class, $return);
+        $this->assertInstanceOf(Filesystem::class, $return);
     }
 
     public function testMakeWithVisibility()
     {
         $config = ['driver' => 'local', 'path' => __DIR__, 'name' => 'local', 'visibility' => 'public'];
 
-        $manager = Mockery::mock('GrahamCampbell\Flysystem\FlysystemManager');
+        $manager = Mockery::mock(FlysystemManager::class);
 
         $factory = $this->getMockedFactory($config, $manager);
 
         $return = $factory->make($config, $manager);
 
-        $this->assertInstanceOf('League\Flysystem\FilesystemInterface', $return);
-        $this->assertInstanceOf('League\Flysystem\Filesystem', $return);
+        $this->assertInstanceOf(FilesystemInterface::class, $return);
+        $this->assertInstanceOf(Filesystem::class, $return);
     }
 
     public function testMakeEventable()
     {
         $config = ['driver' => 'local', 'path' => __DIR__, 'name' => 'local', 'eventable' => true];
 
-        $manager = Mockery::mock('GrahamCampbell\Flysystem\FlysystemManager');
+        $manager = Mockery::mock(FlysystemManager::class);
 
         $factory = $this->getMockedFactory($config, $manager);
 
         $return = $factory->make($config, $manager);
 
-        $this->assertInstanceOf('League\Flysystem\FilesystemInterface', $return);
-        $this->assertInstanceOf('League\Flysystem\EventableFilesystem\EventableFilesystem', $return);
+        $this->assertInstanceOf(FilesystemInterface::class, $return);
+        $this->assertInstanceOf(EventableFilesystem::class, $return);
     }
 
     public function testMakeWithEventableCache()
     {
         $config = ['driver' => 'local', 'cache' => ['driver' => 'redis', 'name' => 'illuminate'], 'name' => 'local', 'eventable' => true];
 
-        $manager = Mockery::mock('GrahamCampbell\Flysystem\FlysystemManager');
+        $manager = Mockery::mock(FlysystemManager::class);
 
         $factory = $this->getMockedFactoryCache($config, $manager);
 
         $return = $factory->make($config, $manager);
 
-        $this->assertInstanceOf('League\Flysystem\FilesystemInterface', $return);
-        $this->assertInstanceOf('League\Flysystem\EventableFilesystem\EventableFilesystem', $return);
+        $this->assertInstanceOf(FilesystemInterface::class, $return);
+        $this->assertInstanceOf(EventableFilesystem::class, $return);
     }
 
     public function testMakeEventableWithVisibility()
     {
         $config = ['driver' => 'local', 'path' => __DIR__, 'name' => 'local', 'eventable' => true, 'visibility' => 'public'];
 
-        $manager = Mockery::mock('GrahamCampbell\Flysystem\FlysystemManager');
+        $manager = Mockery::mock(FlysystemManager::class);
 
         $factory = $this->getMockedFactory($config, $manager);
 
         $return = $factory->make($config, $manager);
 
-        $this->assertInstanceOf('League\Flysystem\FilesystemInterface', $return);
-        $this->assertInstanceOf('League\Flysystem\EventableFilesystem\EventableFilesystem', $return);
+        $this->assertInstanceOf(FilesystemInterface::class, $return);
+        $this->assertInstanceOf(EventableFilesystem::class, $return);
     }
 
     public function testAdapter()
@@ -113,71 +121,65 @@ class FlysystemFactoryTest extends AbstractTestBenchTestCase
         $config = ['driver' => 'local', 'path' => __DIR__, 'name' => 'local'];
 
         $factory->getAdapter()->shouldReceive('make')->once()
-            ->with($config)->andReturn(Mockery::mock('League\Flysystem\AdapterInterface'));
+            ->with($config)->andReturn(Mockery::mock(AdapterInterface::class));
 
         $return = $factory->createAdapter($config);
 
-        $this->assertInstanceOf('League\Flysystem\AdapterInterface', $return);
+        $this->assertInstanceOf(AdapterInterface::class, $return);
     }
 
     public function testCache()
     {
         $factory = $this->getFlysystemFactory();
 
-        $manager = Mockery::mock('GrahamCampbell\Flysystem\FlysystemManager');
+        $manager = Mockery::mock(FlysystemManager::class);
 
         $config = ['driver' => 'illuminate', 'connector' => 'redis', 'name' => 'foo'];
 
         $factory->getCache()->shouldReceive('make')->once()
-            ->with($config, $manager)->andReturn(Mockery::mock('League\Flysystem\Cached\CacheInterface'));
+            ->with($config, $manager)->andReturn(Mockery::mock(CacheInterface::class));
 
         $return = $factory->createCache($config, $manager);
 
-        $this->assertInstanceOf('League\Flysystem\Cached\CacheInterface', $return);
+        $this->assertInstanceOf(CacheInterface::class, $return);
     }
 
     protected function getFlysystemFactory()
     {
-        $adapter = Mockery::mock('GrahamCampbell\Flysystem\Adapters\ConnectionFactory');
-        $cache = Mockery::mock('GrahamCampbell\Flysystem\Cache\ConnectionFactory');
+        $adapter = Mockery::mock(AdapterFactory::class);
+        $cache = Mockery::mock(CacheFactory::class);
 
         return new FlysystemFactory($adapter, $cache);
     }
 
     protected function getMockedFactory($config, $manager)
     {
-        $adapter = Mockery::mock('GrahamCampbell\Flysystem\Adapters\ConnectionFactory');
-        $cache = Mockery::mock('GrahamCampbell\Flysystem\Cache\ConnectionFactory');
+        $adapter = Mockery::mock(AdapterFactory::class);
+        $cache = Mockery::mock(CacheFactory::class);
 
-        $adapterMock = Mockery::mock('League\Flysystem\AdapterInterface');
-
-        $mock = Mockery::mock('GrahamCampbell\Flysystem\FlysystemFactory[createAdapter,createCache]', [$adapter, $cache]);
+        $mock = Mockery::mock(FlysystemFactory::class.'[createAdapter,createCache]', [$adapter, $cache]);
 
         $mock->shouldReceive('createAdapter')->once()
-            ->with($config)
-            ->andReturn($adapterMock);
+            ->with($config)->andReturn(Mockery::mock(AdapterInterface::class));
 
         return $mock;
     }
 
     protected function getMockedFactoryCache($config, $manager)
     {
-        $adapter = Mockery::mock('GrahamCampbell\Flysystem\Adapters\ConnectionFactory');
-        $cache = Mockery::mock('GrahamCampbell\Flysystem\Cache\ConnectionFactory');
+        $adapter = Mockery::mock(AdapterFactory::class);
+        $cache = Mockery::mock(CacheFactory::class);
 
-        $adapterMock = Mockery::mock('League\Flysystem\AdapterInterface');
-        $cacheMock = Mockery::mock('League\Flysystem\Cached\CacheInterface');
+        $cacheMock = Mockery::mock(CacheInterface::class);
         $cacheMock->shouldReceive('load')->once();
 
-        $mock = Mockery::mock('GrahamCampbell\Flysystem\FlysystemFactory[createAdapter,createCache]', [$adapter, $cache]);
+        $mock = Mockery::mock(FlysystemFactory::class.'[createAdapter,createCache]', [$adapter, $cache]);
 
         $mock->shouldReceive('createAdapter')->once()
-            ->with($config)
-            ->andReturn($adapterMock);
+            ->with($config)->andReturn(Mockery::mock(AdapterInterface::class));
 
         $mock->shouldReceive('createCache')->once()
-            ->with($config['cache'], $manager)
-            ->andReturn($cacheMock);
+            ->with($config['cache'], $manager)->andReturn($cacheMock);
 
         return $mock;
     }

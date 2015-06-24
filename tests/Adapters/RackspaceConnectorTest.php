@@ -38,7 +38,7 @@ class RackspaceConnectorTest extends AbstractTestCase
                 'container' => 'your-container',
             ]);
         } catch (CurlException $e) {
-            $this->markTestSkipped('No internet connection.');
+            $this->markTestSkipped('No internet connection');
         }
     }
 

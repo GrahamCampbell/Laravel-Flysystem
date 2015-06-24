@@ -89,8 +89,6 @@ class FlysystemManagerTest extends AbstractTestBenchTestCase
 
         $this->assertSame([], $manager->getConnections());
 
-        $return = null;
-
         $manager->connection('error');
     }
 
@@ -112,8 +110,6 @@ class FlysystemManagerTest extends AbstractTestBenchTestCase
             ->with('flysystem.cache')->andReturn(['error' => $cache]);
 
         $this->assertSame([], $manager->getConnections());
-
-        $return = null;
 
         $manager->connection('local');
     }
