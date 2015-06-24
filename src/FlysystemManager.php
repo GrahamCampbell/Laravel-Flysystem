@@ -11,7 +11,6 @@
 
 namespace GrahamCampbell\Flysystem;
 
-use GrahamCampbell\Flysystem\Factories\FlysystemFactory;
 use GrahamCampbell\Manager\AbstractManager;
 use Illuminate\Contracts\Config\Repository;
 use InvalidArgumentException;
@@ -51,15 +50,15 @@ class FlysystemManager extends AbstractManager
     /**
      * The factory instance.
      *
-     * @var \GrahamCampbell\Flysystem\Factories\FlysystemFactory
+     * @var \GrahamCampbell\Flysystem\FlysystemFactory
      */
     protected $factory;
 
     /**
      * Create a new flysystem manager instance.
      *
-     * @param \Illuminate\Contracts\Config\Repository              $config
-     * @param \GrahamCampbell\Flysystem\Factories\FlysystemFactory $factory
+     * @param \Illuminate\Contracts\Config\Repository    $config
+     * @param \GrahamCampbell\Flysystem\FlysystemFactory $factory
      *
      * @return void
      */
@@ -144,7 +143,7 @@ class FlysystemManager extends AbstractManager
     /**
      * Get the factory instance.
      *
-     * @return \GrahamCampbell\Flysystem\Factories\FlysystemFactory
+     * @return \GrahamCampbell\Flysystem\FlysystemFactory
      */
     public function getFactory()
     {

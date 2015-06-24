@@ -29,7 +29,7 @@ class AdapterConnectorTest extends AbstractTestCase
         $connector->getManager()->shouldReceive('getConnectionConfig')->once()
             ->with('local')->andReturn(['driver' => 'local', 'path' => __DIR__]);
 
-        $factory = Mockery::mock('GrahamCampbell\Flysystem\Factories\FlysystemFactory');
+        $factory = Mockery::mock('GrahamCampbell\Flysystem\FlysystemFactory');
 
         $connector->getManager()->shouldReceive('getFactory')->once()->andReturn($factory);
 

@@ -11,7 +11,7 @@
 
 namespace GrahamCampbell\Tests\Flysystem;
 
-use GrahamCampbell\Flysystem\Factories\FlysystemFactory;
+use GrahamCampbell\Flysystem\FlysystemFactory;
 use GrahamCampbell\Flysystem\FlysystemManager;
 use GrahamCampbell\TestBench\AbstractTestCase as AbstractTestBenchTestCase;
 use Illuminate\Contracts\Config\Repository;

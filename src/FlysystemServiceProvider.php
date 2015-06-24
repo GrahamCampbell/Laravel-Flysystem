@@ -13,7 +13,6 @@ namespace GrahamCampbell\Flysystem;
 
 use GrahamCampbell\Flysystem\Adapters\ConnectionFactory as AdapterFactory;
 use GrahamCampbell\Flysystem\Cache\ConnectionFactory as CacheFactory;
-use GrahamCampbell\Flysystem\Factories\FlysystemFactory;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Support\ServiceProvider;
 

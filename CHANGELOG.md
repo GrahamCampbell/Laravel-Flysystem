@@ -8,6 +8,7 @@ CHANGE LOG
 * Support the aws sdk v3
 * Official lumen support
 * Code cleanup
+* Moved the factory
 
 
 ## V2.1.1 (20/05/2015)

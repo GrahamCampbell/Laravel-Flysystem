@@ -13,7 +13,7 @@ namespace GrahamCampbell\Tests\Flysystem;
 
 use GrahamCampbell\Flysystem\Adapters\ConnectionFactory as AdapterFactory;
 use GrahamCampbell\Flysystem\Cache\ConnectionFactory as CacheFactory;
-use GrahamCampbell\Flysystem\Factories\FlysystemFactory;
+use GrahamCampbell\Flysystem\FlysystemFactory;
 use GrahamCampbell\Flysystem\FlysystemManager;
 use GrahamCampbell\TestBenchCore\ServiceProviderTrait;
 

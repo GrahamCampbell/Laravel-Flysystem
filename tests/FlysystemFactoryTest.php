@@ -9,10 +9,10 @@
  * file that was distributed with this source code.
  */
 
-namespace GrahamCampbell\Tests\Flysystem\Factories;
+namespace GrahamCampbell\Tests\Flysystem;
 
-use GrahamCampbell\Flysystem\Factories\FlysystemFactory;
-use GrahamCampbell\TestBench\AbstractTestCase;
+use GrahamCampbell\Flysystem\FlysystemFactory;
+use GrahamCampbell\TestBench\AbstractTestCase as AbstractTestBenchTestCase;
 use Mockery;
 
 /**
@@ -20,7 +20,7 @@ use Mockery;
  *
  * @author Graham Campbell <graham@cachethq.io>
  */
-class FlysystemFactoryTest extends AbstractTestCase
+class FlysystemFactoryTest extends AbstractTestBenchTestCase
 {
     public function testMake()
     {
@@ -151,7 +151,7 @@ class FlysystemFactoryTest extends AbstractTestCase
 
         $adapterMock = Mockery::mock('League\Flysystem\AdapterInterface');
 
-        $mock = Mockery::mock('GrahamCampbell\Flysystem\Factories\FlysystemFactory[createAdapter,createCache]', [$adapter, $cache]);
+        $mock = Mockery::mock('GrahamCampbell\Flysystem\FlysystemFactory[createAdapter,createCache]', [$adapter, $cache]);
 
         $mock->shouldReceive('createAdapter')->once()
             ->with($config)
@@ -169,7 +169,7 @@ class FlysystemFactoryTest extends AbstractTestCase
         $cacheMock = Mockery::mock('League\Flysystem\Cached\CacheInterface');
         $cacheMock->shouldReceive('load')->once();
 
-        $mock = Mockery::mock('GrahamCampbell\Flysystem\Factories\FlysystemFactory[createAdapter,createCache]', [$adapter, $cache]);
+        $mock = Mockery::mock('GrahamCampbell\Flysystem\FlysystemFactory[createAdapter,createCache]', [$adapter, $cache]);
 
         $mock->shouldReceive('createAdapter')->once()
             ->with($config)
