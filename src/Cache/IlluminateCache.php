@@ -66,7 +66,9 @@ class IlluminateCache extends AbstractCache
      */
     public function load()
     {
-        if (($contents = $this->client->get($this->key)) !== null) {
+        $contents = $this->client->get($this->key);
+
+        if ($contents !== null) {
             $this->setFromStorage($contents);
         }
     }
