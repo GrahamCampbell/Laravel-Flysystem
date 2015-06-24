@@ -20,7 +20,7 @@
         "illuminate/cache": "5.1.*",
         "illuminate/contracts": "5.1.*",
         "illuminate/support": "5.1.*",
-        "graham-campbell/manager": "~2.1",
+        "graham-campbell/manager": "~2.2",
         "league/flysystem": "~1.0"
     },
     "require-dev": {
