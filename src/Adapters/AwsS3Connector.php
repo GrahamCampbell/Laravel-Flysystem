@@ -59,7 +59,7 @@ class AwsS3Connector implements ConnectorInterface
             throw new InvalidArgumentException('The awss3 connector requires version configuration.');
         }
 
-       if (!array_key_exists('region', $config)) {
+        if (!array_key_exists('region', $config)) {
             throw new InvalidArgumentException('The awss3 connector requires region configuration.');
         }
 
