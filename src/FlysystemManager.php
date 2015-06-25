@@ -3,7 +3,7 @@
 /*
  * This file is part of Laravel Flysystem.
  *
- * (c) Graham Campbell <graham@cachethq.io>
+ * (c) Graham Campbell <graham@alt-three.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
@@ -43,7 +43,7 @@ use InvalidArgumentException;
  * @method \League\Flysystem\Handler get(string $path, \League\Flysystem\Handler $handler = null)
  * @method \League\Flysystem\FilesystemInterface addPlugin(\League\Flysystem\PluginInterface $plugin)
  *
- * @author Graham Campbell <graham@cachethq.io>
+ * @author Graham Campbell <graham@alt-three.com>
  */
 class FlysystemManager extends AbstractManager
 {
