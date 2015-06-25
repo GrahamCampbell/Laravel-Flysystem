@@ -74,7 +74,7 @@ class FlysystemServiceProvider extends ServiceProvider
      */
     protected function registerAdapterFactory(Application $app)
     {
-        $app->singleton('flysystem.adapterfactory', function ($app) {
+        $app->singleton('flysystem.adapterfactory', function () {
             return new AdapterFactory();
         });
 
