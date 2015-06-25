@@ -15,6 +15,8 @@ use GrahamCampbell\Flysystem\Adapters\ConnectionFactory as AdapterFactory;
 use GrahamCampbell\Flysystem\Cache\ConnectionFactory as CacheFactory;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Support\ServiceProvider;
+use League\Flysystem\Filesystem;
+use League\Flysystem\FilesystemInterface;
 
 /**
  * This is the flysystem service provider class.
@@ -60,6 +62,7 @@ class FlysystemServiceProvider extends ServiceProvider
         $this->registerCacheFactory($this->app);
         $this->registerFlysystemFactory($this->app);
         $this->registerManager($this->app);
+        $this->registerBindings($this->app);
     }
 
     /**
@@ -135,6 +138,25 @@ class FlysystemServiceProvider extends ServiceProvider
     }
 
     /**
+     * Register the bindings.
+     *
+     * @param \Illuminate\Contracts\Foundation\Application $app
+     *
+     * @return void
+     */
+    protected function registerBindings(Application $app)
+    {
+        $app->bind('flysystem.connection', function ($app) {
+            $manager = $app['flysystem'];
+
+            return $manager->connection();
+        });
+
+        $app->alias('flysystem.connection', Filesystem::class);
+        $app->alias('flysystem.connection', FilesystemInterface::class);
+    }
+
+    /**
      * Get the services provided by the provider.
      *
      * @return string[]
@@ -146,6 +168,7 @@ class FlysystemServiceProvider extends ServiceProvider
             'flysystem.cachefactory',
             'flysystem.factory',
             'flysystem',
+            'flysystem.connection',
         ];
     }
 }

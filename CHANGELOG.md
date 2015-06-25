@@ -10,6 +10,7 @@ CHANGE LOG
 * Code cleanup
 * Moved the factory
 * Normalised exception messages
+* Container binding improvements
 
 
 ## V2.1.1 (20/05/2015)

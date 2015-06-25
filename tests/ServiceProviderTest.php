@@ -16,6 +16,8 @@ use GrahamCampbell\Flysystem\Cache\ConnectionFactory as CacheFactory;
 use GrahamCampbell\Flysystem\FlysystemFactory;
 use GrahamCampbell\Flysystem\FlysystemManager;
 use GrahamCampbell\TestBenchCore\ServiceProviderTrait;
+use League\Flysystem\Filesystem;
+use League\Flysystem\FilesystemInterface;
 
 /**
  * This is the service provider test class.
@@ -44,5 +46,18 @@ class ServiceProviderTest extends AbstractTestCase
     public function testFlysystemManagerIsInjectable()
     {
         $this->assertIsInjectable(FlysystemManager::class);
+    }
+
+    public function testBindings()
+    {
+        $this->assertIsInjectable(Filesystem::class);
+        $this->assertIsInjectable(FilesystemInterface::class);
+
+        $original = $this->app['flysystem.connection'];
+        $this->app['flysystem']->reconnect();
+        $new = $this->app['flysystem.connection'];
+
+        $this->assertNotSame($original, $new);
+        $this->assertEquals($original, $new);
     }
 }
