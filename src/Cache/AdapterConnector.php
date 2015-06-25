@@ -70,7 +70,7 @@ class AdapterConnector implements ConnectorInterface
     protected function getConfig(array $config)
     {
         if (!array_key_exists('adapter', $config)) {
-            throw new InvalidArgumentException('The adapter connector requires an adapter.');
+            throw new InvalidArgumentException('The adapter connector requires adapter configuration.');
         }
 
         return $config;

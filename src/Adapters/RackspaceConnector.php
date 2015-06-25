@@ -56,12 +56,16 @@ class RackspaceConnector implements ConnectorInterface
             throw new InvalidArgumentException('The rackspace connector requires authentication.');
         }
 
-        if (!array_key_exists('endpoint', $config) || !array_key_exists('region', $config)) {
-            throw new InvalidArgumentException('The rackspace connector requires both an endpoint an a region.');
+        if (!array_key_exists('endpoint', $config)) {
+            throw new InvalidArgumentException('The rackspace connector requires endpoint configuration.');
+        }
+
+        if (!array_key_exists('region', $config)) {
+            throw new InvalidArgumentException('The rackspace connector requires region configuration.');
         }
 
         if (!array_key_exists('container', $config)) {
-            throw new InvalidArgumentException('The rackspace connector requires a container.');
+            throw new InvalidArgumentException('The rackspace connector requires container configuration.');
         }
 
         return array_only($config, ['username', 'apiKey', 'endpoint', 'region', 'container']);

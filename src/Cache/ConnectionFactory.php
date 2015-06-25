@@ -77,7 +77,7 @@ class ConnectionFactory
                 return new AdapterConnector($manager);
         }
 
-        throw new InvalidArgumentException("Unsupported driver [{$config['driver']}]");
+        throw new InvalidArgumentException("Unsupported driver [{$config['driver']}].");
     }
 
     /**

@@ -74,6 +74,6 @@ class ConnectionFactory
                 return new ZipConnector();
         }
 
-        throw new InvalidArgumentException("Unsupported driver [{$config['driver']}]");
+        throw new InvalidArgumentException("Unsupported driver [{$config['driver']}].");
     }
 }

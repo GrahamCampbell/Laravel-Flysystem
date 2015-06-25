@@ -48,7 +48,7 @@ class LocalConnector implements ConnectorInterface
     protected function getConfig(array $config)
     {
         if (!array_key_exists('path', $config)) {
-            throw new InvalidArgumentException('The local connector requires a path.');
+            throw new InvalidArgumentException('The local connector requires path configuration.');
         }
 
         return array_only($config, ['path']);

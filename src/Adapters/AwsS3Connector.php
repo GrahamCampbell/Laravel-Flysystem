@@ -56,11 +56,11 @@ class AwsS3Connector implements ConnectorInterface
         }
 
         if (!array_key_exists('version', $config)) {
-            throw new InvalidArgumentException('The awss3 connector requires that you specify the api version.');
+            throw new InvalidArgumentException('The awss3 connector requires version configuration.');
         }
 
-        if (!array_key_exists('region', $config)) {
-            throw new InvalidArgumentException('The awss3 connector requires that you specify the region.');
+       if (!array_key_exists('region', $config)) {
+            throw new InvalidArgumentException('The awss3 connector requires region configuration.');
         }
 
         $auth = [
@@ -116,7 +116,7 @@ class AwsS3Connector implements ConnectorInterface
         }
 
         if (!array_key_exists('bucket', $config)) {
-            throw new InvalidArgumentException('The awss3 connector requires a bucket.');
+            throw new InvalidArgumentException('The awss3 connector requires bucket configuration.');
         }
 
         return array_only($config, ['bucket', 'prefix']);
