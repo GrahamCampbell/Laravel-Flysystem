@@ -3,7 +3,7 @@
 /*
  * This file is part of Laravel Flysystem.
  *
- * (c) Graham Campbell <graham@mineuk.com>
+ * (c) Graham Campbell <graham@cachethq.io>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
@@ -13,11 +13,12 @@ namespace GrahamCampbell\Tests\Flysystem\Adapters;
 
 use GrahamCampbell\Flysystem\Adapters\AzureConnector;
 use GrahamCampbell\TestBench\AbstractTestCase;
+use League\Flysystem\Azure\AzureAdapter;
 
 /**
  * This is the adapter connector test class.
  *
- * @author Graham Campbell <graham@mineuk.com>
+ * @author Graham Campbell <graham@cachethq.io>
  */
 class AzureConnectorTest extends AbstractTestCase
 {
@@ -27,11 +28,11 @@ class AzureConnectorTest extends AbstractTestCase
 
         $return = $connector->connect([
             'account-name' => 'your-account-name',
-            'api-key'      => 'your-api-key',
+            'api-key'      => 'eW91ci1hcGkta2V5',
             'container'    => 'your-container',
         ]);
 
-        $this->assertInstanceOf('League\Flysystem\Azure\Adapter', $return);
+        $this->assertInstanceOf(AzureAdapter::class, $return);
     }
 
     /**
@@ -42,7 +43,7 @@ class AzureConnectorTest extends AbstractTestCase
         $connector = $this->getAzureConnector();
 
         $connector->connect([
-            'api-key'   => 'your-api-key',
+            'api-key'   => 'eW91ci1hcGkta2V5',
             'container' => 'your-container',
         ]);
     }
@@ -69,7 +70,7 @@ class AzureConnectorTest extends AbstractTestCase
 
         $connector->connect([
             'account-name' => 'your-account-name',
-            'api-key'      => 'your-api-key',
+            'api-key'      => 'eW91ci1hcGkta2V5',
         ]);
     }
 

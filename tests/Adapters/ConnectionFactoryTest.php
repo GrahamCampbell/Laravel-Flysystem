@@ -3,7 +3,7 @@
 /*
  * This file is part of Laravel Flysystem.
  *
- * (c) Graham Campbell <graham@mineuk.com>
+ * (c) Graham Campbell <graham@cachethq.io>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
@@ -11,14 +11,28 @@
 
 namespace GrahamCampbell\Tests\Flysystem\Adapters;
 
+use GrahamCampbell\Flysystem\Adapters\AwsS3Connector;
+use GrahamCampbell\Flysystem\Adapters\AzureConnector;
 use GrahamCampbell\Flysystem\Adapters\ConnectionFactory;
+use GrahamCampbell\Flysystem\Adapters\CopyConnector;
+use GrahamCampbell\Flysystem\Adapters\DropboxConnector;
+use GrahamCampbell\Flysystem\Adapters\FtpConnector;
+use GrahamCampbell\Flysystem\Adapters\GridFSConnector;
+use GrahamCampbell\Flysystem\Adapters\LocalConnector;
+use GrahamCampbell\Flysystem\Adapters\NullConnector;
+use GrahamCampbell\Flysystem\Adapters\RackspaceConnector;
+use GrahamCampbell\Flysystem\Adapters\SftpConnector;
+use GrahamCampbell\Flysystem\Adapters\WebDavConnector;
+use GrahamCampbell\Flysystem\Adapters\ZipConnector;
 use GrahamCampbell\TestBench\AbstractTestCase;
+use League\Flysystem\Adapter\Local;
+use League\Flysystem\AdapterInterface;
 use Mockery;
 
 /**
  * This is the adapter connection factory test class.
  *
- * @author Graham Campbell <graham@mineuk.com>
+ * @author Graham Campbell <graham@cachethq.io>
  */
 class ConnectionFactoryTest extends AbstractTestCase
 {
@@ -28,24 +42,24 @@ class ConnectionFactoryTest extends AbstractTestCase
 
         $return = $factory->make(['driver' => 'local', 'path' => __DIR__, 'name' => 'local']);
 
-        $this->assertInstanceOf('League\Flysystem\AdapterInterface', $return);
+        $this->assertInstanceOf(AdapterInterface::class, $return);
     }
 
     public function createDataProvider()
     {
         return [
-            ['awss3', 'AwsS3Connector'],
-            ['azure', 'AzureConnector'],
-            ['copy', 'CopyConnector'],
-            ['dropbox', 'DropboxConnector'],
-            ['ftp', 'FtpConnector'],
-            ['gridfs', 'GridFSConnector'],
-            ['local', 'LocalConnector'],
-            ['null', 'NullConnector'],
-            ['rackspace', 'RackspaceConnector'],
-            ['sftp', 'SftpConnector'],
-            ['webdav', 'WebDavConnector'],
-            ['zip', 'ZipConnector'],
+            ['awss3', AwsS3Connector::class],
+            ['azure', AzureConnector::class],
+            ['copy', CopyConnector::class],
+            ['dropbox', DropboxConnector::class],
+            ['ftp', FtpConnector::class],
+            ['gridfs', GridFSConnector::class],
+            ['local', LocalConnector::class],
+            ['null', NullConnector::class],
+            ['rackspace', RackspaceConnector::class],
+            ['sftp', SftpConnector::class],
+            ['webdav', WebDavConnector::class],
+            ['zip', ZipConnector::class],
         ];
     }
 
@@ -58,7 +72,7 @@ class ConnectionFactoryTest extends AbstractTestCase
 
         $return = $factory->createConnector(['driver' => $driver]);
 
-        $this->assertInstanceOf('GrahamCampbell\Flysystem\Adapters\\'.$class, $return);
+        $this->assertInstanceOf($class, $return);
     }
 
     /**
@@ -88,13 +102,13 @@ class ConnectionFactoryTest extends AbstractTestCase
 
     protected function getMockedFactory()
     {
-        $mock = Mockery::mock('GrahamCampbell\Flysystem\Adapters\ConnectionFactory[createConnector]');
+        $mock = Mockery::mock(ConnectionFactory::class.'[createConnector]');
 
-        $connector = Mockery::mock('GrahamCampbell\Flysystem\Adapters\LocalConnector');
+        $connector = Mockery::mock(LocalConnector::class);
 
         $connector->shouldReceive('connect')->once()
             ->with(['name' => 'local', 'driver' => 'local', 'path' => __DIR__])
-            ->andReturn(Mockery::mock('League\Flysystem\Adapter\Local'));
+            ->andReturn(Mockery::mock(Local::class));
 
         $mock->shouldReceive('createConnector')->once()
             ->with(['name' => 'local', 'driver' => 'local', 'path' => __DIR__])

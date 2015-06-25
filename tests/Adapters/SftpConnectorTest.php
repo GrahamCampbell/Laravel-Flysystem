@@ -3,7 +3,7 @@
 /*
  * This file is part of Laravel Flysystem.
  *
- * (c) Graham Campbell <graham@mineuk.com>
+ * (c) Graham Campbell <graham@cachethq.io>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
@@ -13,11 +13,12 @@ namespace GrahamCampbell\Tests\Flysystem\Adapters;
 
 use GrahamCampbell\Flysystem\Adapters\SftpConnector;
 use GrahamCampbell\TestBench\AbstractTestCase;
+use League\Flysystem\Sftp\SftpAdapter;
 
 /**
  * This is the sftp connector test class.
  *
- * @author Graham Campbell <graham@mineuk.com>
+ * @author Graham Campbell <graham@cachethq.io>
  */
 class SftpConnectorTest extends AbstractTestCase
 {
@@ -32,7 +33,7 @@ class SftpConnectorTest extends AbstractTestCase
             'password' => 'your-password',
         ]);
 
-        $this->assertInstanceOf('League\Flysystem\Sftp\SftpAdapter', $return);
+        $this->assertInstanceOf(SftpAdapter::class, $return);
     }
 
     protected function getSftpConnector()

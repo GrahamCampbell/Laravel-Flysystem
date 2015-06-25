@@ -3,7 +3,7 @@
 /*
  * This file is part of Laravel Flysystem.
  *
- * (c) Graham Campbell <graham@mineuk.com>
+ * (c) Graham Campbell <graham@cachethq.io>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
@@ -13,11 +13,12 @@ namespace GrahamCampbell\Tests\Flysystem\Adapters;
 
 use GrahamCampbell\Flysystem\Adapters\RackspaceConnector;
 use GrahamCampbell\TestBench\AbstractTestCase;
+use Guzzle\Http\Exception\CurlException;
 
 /**
  * This is the rackspace connector test class.
  *
- * @author Graham Campbell <graham@mineuk.com>
+ * @author Graham Campbell <graham@cachethq.io>
  */
 class RackspaceConnectorTest extends AbstractTestCase
 {
@@ -28,13 +29,17 @@ class RackspaceConnectorTest extends AbstractTestCase
     {
         $connector = $this->getRackspaceConnector();
 
-        $connector->connect([
-            'endpoint'  => 'https://lon.identity.api.rackspacecloud.com/v2.0/',
-            'region'    => 'LON',
-            'username'  => 'your-username',
-            'apiKey'    => 'your-api-key',
-            'container' => 'your-container',
-        ]);
+        try {
+            $connector->connect([
+                'endpoint'  => 'https://lon.identity.api.rackspacecloud.com/v2.0/',
+                'region'    => 'LON',
+                'username'  => 'your-username',
+                'apiKey'    => 'your-api-key',
+                'container' => 'your-container',
+            ]);
+        } catch (CurlException $e) {
+            $this->markTestSkipped('No internet connection');
+        }
     }
 
     /**

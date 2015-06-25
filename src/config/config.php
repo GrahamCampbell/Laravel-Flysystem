@@ -3,7 +3,7 @@
 /*
  * This file is part of Laravel Flysystem.
  *
- * (c) Graham Campbell <graham@mineuk.com>
+ * (c) Graham Campbell <graham@cachethq.io>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
@@ -38,17 +38,20 @@ return [
     'connections' => [
 
         'awss3' => [
-            'driver'     => 'awss3',
-            'key'        => 'your-key',
-            'secret'     => 'your-secret',
-            'bucket'     => 'your-bucket',
-            // 'region'     => 'your-region',
-            // 'base_url'   => 'your-url',
-            // 'options'    => array(),
-            // 'prefix'     => 'your-prefix',
-            // 'visibility' => 'public',
-            // 'eventable'  => true,
-            // 'cache'      => 'foo'
+            'driver'          => 'awss3',
+            'key'             => 'your-key',
+            'secret'          => 'your-secret',
+            'bucket'          => 'your-bucket',
+            'region'          => 'your-region',
+            'version'         => 'latest',
+            // 'bucket_endpoint' => false,
+            // 'calculate_md5'   => true,
+            // 'scheme'          => 'https',
+            // 'endpoint'        => 'your-url',
+            // 'prefix'          => 'your-prefix',
+            // 'visibility'      => 'public',
+            // 'eventable'       => true,
+            // 'cache'           => 'foo'
         ],
 
         'azure' => [
@@ -199,7 +202,7 @@ return [
 
         'bar' => [
             'driver'    => 'illuminate',
-            'connector' => 'redis', // app/config/cache.php
+            'connector' => 'redis', // config/cache.php
             'key'       => 'bar',
             'ttl'       => 600,
         ],

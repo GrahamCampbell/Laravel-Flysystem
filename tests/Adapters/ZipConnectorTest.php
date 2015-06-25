@@ -3,7 +3,7 @@
 /*
  * This file is part of Laravel Flysystem.
  *
- * (c) Graham Campbell <graham@mineuk.com>
+ * (c) Graham Campbell <graham@cachethq.io>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
@@ -13,11 +13,12 @@ namespace GrahamCampbell\Tests\Flysystem\Adapters;
 
 use GrahamCampbell\Flysystem\Adapters\ZipConnector;
 use GrahamCampbell\TestBench\AbstractTestCase;
+use League\Flysystem\ZipArchive\ZipArchiveAdapter;
 
 /**
  * This is the zip connector test class.
  *
- * @author Graham Campbell <graham@mineuk.com>
+ * @author Graham Campbell <graham@cachethq.io>
  */
 class ZipConnectorTest extends AbstractTestCase
 {
@@ -27,7 +28,7 @@ class ZipConnectorTest extends AbstractTestCase
 
         $return = $connector->connect(['path' => __DIR__.'\stubs\test.zip']);
 
-        $this->assertInstanceOf('League\Flysystem\ZipArchive\ZipArchiveAdapter', $return);
+        $this->assertInstanceOf(ZipArchiveAdapter::class, $return);
     }
 
     public function testConnectWithPrefix()
@@ -36,7 +37,7 @@ class ZipConnectorTest extends AbstractTestCase
 
         $return = $connector->connect(['path' => __DIR__.'\stubs\test.zip', 'prefix' => 'your-prefix']);
 
-        $this->assertInstanceOf('League\Flysystem\ZipArchive\ZipArchiveAdapter', $return);
+        $this->assertInstanceOf(ZipArchiveAdapter::class, $return);
     }
 
     /**

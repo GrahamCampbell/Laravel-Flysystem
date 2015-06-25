@@ -3,7 +3,7 @@
 /*
  * This file is part of Laravel Flysystem.
  *
- * (c) Graham Campbell <graham@mineuk.com>
+ * (c) Graham Campbell <graham@cachethq.io>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
@@ -13,14 +13,14 @@ namespace GrahamCampbell\Flysystem\Adapters;
 
 use GrahamCampbell\Manager\ConnectorInterface;
 use InvalidArgumentException;
-use League\Flysystem\Azure\Adapter;
+use League\Flysystem\Azure\AzureAdapter;
 use WindowsAzure\Blob\Internal\IBlob;
 use WindowsAzure\Common\ServicesBuilder;
 
 /**
  * This is the azure connector class.
  *
- * @author Graham Campbell <graham@mineuk.com>
+ * @author Graham Campbell <graham@cachethq.io>
  */
 class AzureConnector implements ConnectorInterface
 {
@@ -29,7 +29,7 @@ class AzureConnector implements ConnectorInterface
      *
      * @param string[] $config
      *
-     * @return \League\Flysystem\Azure\Adapter
+     * @return \League\Flysystem\Azure\AzureAdapter
      */
     public function connect(array $config)
     {
@@ -67,7 +67,7 @@ class AzureConnector implements ConnectorInterface
      */
     protected function getClient(array $auth)
     {
-        $endpoint = sprintf('DefaultEndpointsProtocol=https;AccountName=%s;AccountKey=%s', base64_encode($auth['account-name']), base64_encode($auth['api-key']));
+        $endpoint = sprintf('DefaultEndpointsProtocol=https;AccountName=%s;AccountKey=%s', $auth['account-name'], $auth['api-key']);
 
         return ServicesBuilder::getInstance()->createBlobService($endpoint);
     }
@@ -94,10 +94,10 @@ class AzureConnector implements ConnectorInterface
      * @param \WindowsAzure\Blob\Internal\IBlob $client
      * @param string[]                          $config
      *
-     * @return \League\Flysystem\Azure\Adapter
+     * @return \League\Flysystem\Azure\AzureAdapter
      */
     protected function getAdapter(IBlob $client, array $config)
     {
-        return new Adapter($client, $config['container']);
+        return new AzureAdapter($client, $config['container']);
     }
 }

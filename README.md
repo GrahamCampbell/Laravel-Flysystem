@@ -26,7 +26,7 @@ To get the latest version of Laravel Flysystem, simply add the following line to
 
 There are some additional dependencies you will need to install for some of the features:
 
-* The AwsS3 adapter requires `"league/flysystem-aws-s3-v2": "~1.0"` in your `composer.json`.
+* The AwsS3 adapter requires `"league/flysystem-aws-s3-v3": "~1.0"` in your `composer.json`.
 * The Azure adapter requires `"league/flysystem-azure": "~1.0"` in your `composer.json`.
 * The Copy adapter requires `"league/flysystem-copy": "~1.0"` in your `composer.json`.
 * The Dropbox adapter requires `"league/flysystem-dropbox": "~1.0"` in your `composer.json`.

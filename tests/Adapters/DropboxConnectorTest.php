@@ -3,7 +3,7 @@
 /*
  * This file is part of Laravel Flysystem.
  *
- * (c) Graham Campbell <graham@mineuk.com>
+ * (c) Graham Campbell <graham@cachethq.io>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
@@ -13,11 +13,12 @@ namespace GrahamCampbell\Tests\Flysystem\Adapters;
 
 use GrahamCampbell\Flysystem\Adapters\DropboxConnector;
 use GrahamCampbell\TestBench\AbstractTestCase;
+use League\Flysystem\Dropbox\DropboxAdapter;
 
 /**
  * This is the dropbox connector test class.
  *
- * @author Graham Campbell <graham@mineuk.com>
+ * @author Graham Campbell <graham@cachethq.io>
  */
 class DropboxConnectorTest extends AbstractTestCase
 {
@@ -30,7 +31,7 @@ class DropboxConnectorTest extends AbstractTestCase
             'app'    => 'your-app',
         ]);
 
-        $this->assertInstanceOf('League\Flysystem\Dropbox\DropboxAdapter', $return);
+        $this->assertInstanceOf(DropboxAdapter::class, $return);
     }
 
     public function testConnectWithPrefix()
@@ -43,7 +44,7 @@ class DropboxConnectorTest extends AbstractTestCase
             'prefix' => 'your-prefix',
         ]);
 
-        $this->assertInstanceOf('League\Flysystem\Dropbox\DropboxAdapter', $return);
+        $this->assertInstanceOf(DropboxAdapter::class, $return);
     }
 
     /**
