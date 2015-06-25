@@ -47,6 +47,7 @@ class GridFSConnectorTest extends AbstractTestCase
     /**
      * @depends testConnectStandard
      * @expectedException \InvalidArgumentException
+     * @expectedExceptionMessage The gridfs connector requires database configuration.
      */
     public function testConnectWithoutDatabase()
     {
@@ -57,6 +58,7 @@ class GridFSConnectorTest extends AbstractTestCase
 
     /**
      * @expectedException \InvalidArgumentException
+     * @expectedExceptionMessage The gridfs connector requires server configuration.
      */
     public function testConnectWithoutServer()
     {

@@ -77,6 +77,7 @@ class FlysystemManagerTest extends AbstractTestBenchTestCase
 
     /**
      * @expectedException \InvalidArgumentException
+     * @expectedExceptionMessage Adapter [error] not configured.
      */
     public function testConnectionError()
     {
@@ -94,6 +95,7 @@ class FlysystemManagerTest extends AbstractTestBenchTestCase
 
     /**
      * @expectedException \InvalidArgumentException
+     * @expectedExceptionMessage Cache [foo] not configured.
      */
     public function testConnectionErrorCache()
     {

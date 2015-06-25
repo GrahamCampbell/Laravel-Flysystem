@@ -37,6 +37,7 @@ class AzureConnectorTest extends AbstractTestCase
 
     /**
      * @expectedException \InvalidArgumentException
+     * @expectedExceptionMessage The azure connector requires authentication.
      */
     public function testConnectWithoutAccountName()
     {
@@ -50,6 +51,7 @@ class AzureConnectorTest extends AbstractTestCase
 
     /**
      * @expectedException \InvalidArgumentException
+     * @expectedExceptionMessage The azure connector requires authentication.
      */
     public function testConnectWithoutApiKey()
     {
@@ -63,6 +65,7 @@ class AzureConnectorTest extends AbstractTestCase
 
     /**
      * @expectedException \InvalidArgumentException
+     * @expectedExceptionMessage The azure connector requires container configuration.
      */
     public function testConnectWithoutContainer()
     {

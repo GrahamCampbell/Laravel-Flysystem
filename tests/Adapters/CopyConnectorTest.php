@@ -53,6 +53,7 @@ class CopyConnectorTest extends AbstractTestCase
 
     /**
      * @expectedException \InvalidArgumentException
+     * @expectedExceptionMessage The copy connector requires consumer configuration.
      */
     public function testConnectWithoutConsumerKey()
     {
@@ -67,6 +68,7 @@ class CopyConnectorTest extends AbstractTestCase
 
     /**
      * @expectedException \InvalidArgumentException
+     * @expectedExceptionMessage The copy connector requires consumer configuration.
      */
     public function testConnectWithoutConsumerSecret()
     {
@@ -81,6 +83,7 @@ class CopyConnectorTest extends AbstractTestCase
 
     /**
      * @expectedException \InvalidArgumentException
+     * @expectedExceptionMessage The copy connector requires authentication.
      */
     public function testConnectWithoutAccessToken()
     {
@@ -95,6 +98,7 @@ class CopyConnectorTest extends AbstractTestCase
 
     /**
      * @expectedException \InvalidArgumentException
+     * @expectedExceptionMessage The copy connector requires authentication.
      */
     public function testConnectWithoutAccessSecret()
     {

@@ -44,6 +44,7 @@ class RackspaceConnectorTest extends AbstractTestCase
 
     /**
      * @expectedException \InvalidArgumentException
+     * @expectedExceptionMessage The rackspace connector requires endpoint configuration.
      */
     public function testConnectWithoutEndpoint()
     {
@@ -59,6 +60,7 @@ class RackspaceConnectorTest extends AbstractTestCase
 
     /**
      * @expectedException \InvalidArgumentException
+     * @expectedExceptionMessage The rackspace connector requires region configuration.
      */
     public function testConnectWithoutRegion()
     {
@@ -74,6 +76,7 @@ class RackspaceConnectorTest extends AbstractTestCase
 
     /**
      * @expectedException \InvalidArgumentException
+     * @expectedExceptionMessage The rackspace connector requires authentication.
      */
     public function testConnectWithoutUsername()
     {
@@ -89,6 +92,7 @@ class RackspaceConnectorTest extends AbstractTestCase
 
     /**
      * @expectedException \InvalidArgumentException
+     * @expectedExceptionMessage The rackspace connector requires authentication.
      */
     public function testConnectWithoutApiKey()
     {
@@ -104,6 +108,7 @@ class RackspaceConnectorTest extends AbstractTestCase
 
     /**
      * @expectedException \InvalidArgumentException
+     * @expectedExceptionMessage The rackspace connector requires container configuration.
      */
     public function testConnectWithoutContainer()
     {

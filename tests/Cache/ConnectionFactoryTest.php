@@ -62,6 +62,7 @@ class ConnectionFactoryTest extends AbstractTestCase
 
     /**
      * @expectedException \InvalidArgumentException
+     * @expectedExceptionMessage A driver must be specified.
      */
     public function testCreateEmptyDriverConnector()
     {
@@ -74,6 +75,7 @@ class ConnectionFactoryTest extends AbstractTestCase
 
     /**
      * @expectedException \InvalidArgumentException
+     * @expectedExceptionMessage Unsupported driver [unsupported].
      */
     public function testCreateUnsupportedDriverConnector()
     {

@@ -42,6 +42,7 @@ class ZipConnectorTest extends AbstractTestCase
 
     /**
      * @expectedException \InvalidArgumentException
+     * @expectedExceptionMessage The zip connector requires path configuration.
      */
     public function testConnectWithoutPath()
     {

@@ -42,6 +42,7 @@ class LocalConnectorTest extends AbstractTestCase
 
     /**
      * @expectedException \InvalidArgumentException
+     * @expectedExceptionMessage The local connector requires path configuration.
      */
     public function testConnectWithoutPath()
     {

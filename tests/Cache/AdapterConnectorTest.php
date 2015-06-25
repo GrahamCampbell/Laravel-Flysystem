@@ -49,6 +49,7 @@ class AdapterConnectorTest extends AbstractTestCase
 
     /**
      * @expectedException \InvalidArgumentException
+     * @expectedExceptionMessage The adapter connector requires adapter configuration.
      */
     public function testConnectError()
     {

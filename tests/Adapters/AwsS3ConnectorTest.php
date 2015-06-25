@@ -139,6 +139,7 @@ class AwsS3ConnectorTest extends AbstractTestCase
 
     /**
      * @expectedException \InvalidArgumentException
+     * @expectedExceptionMessage The awss3 connector requires bucket configuration.
      */
     public function testConnectWithoutBucket()
     {
@@ -154,6 +155,7 @@ class AwsS3ConnectorTest extends AbstractTestCase
 
     /**
      * @expectedException \InvalidArgumentException
+     * @expectedExceptionMessage The awss3 connector requires authentication.
      */
     public function testConnectWithoutKey()
     {
@@ -169,6 +171,7 @@ class AwsS3ConnectorTest extends AbstractTestCase
 
     /**
      * @expectedException \InvalidArgumentException
+     * @expectedExceptionMessage The awss3 connector requires authentication.
      */
     public function testConnectWithoutSecret()
     {
@@ -184,21 +187,7 @@ class AwsS3ConnectorTest extends AbstractTestCase
 
     /**
      * @expectedException \InvalidArgumentException
-     */
-    public function testConnectWithoutRegion()
-    {
-        $connector = $this->getAwsS3Connector();
-
-        $connector->connect([
-            'key'     => 'your-key',
-            'secret'  => 'your-secret',
-            'bucket'  => 'your-bucket',
-            'version' => 'latest',
-        ]);
-    }
-
-    /**
-     * @expectedException \InvalidArgumentException
+     * @expectedExceptionMessage The awss3 connector requires version configuration.
      */
     public function testConnectWithoutVersion()
     {
@@ -209,6 +198,22 @@ class AwsS3ConnectorTest extends AbstractTestCase
             'secret' => 'your-secret',
             'bucket' => 'your-bucket',
             'region' => 'us-east-1',
+        ]);
+    }
+
+    /**
+     * @expectedException \InvalidArgumentException
+     * @expectedExceptionMessage The awss3 connector requires region configuration.
+     */
+    public function testConnectWithoutRegion()
+    {
+        $connector = $this->getAwsS3Connector();
+
+        $connector->connect([
+            'key'     => 'your-key',
+            'secret'  => 'your-secret',
+            'bucket'  => 'your-bucket',
+            'version' => 'latest',
         ]);
     }
 
