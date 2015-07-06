@@ -69,7 +69,7 @@ class RackspaceConnector implements ConnectorInterface
             throw new InvalidArgumentException('The rackspace connector requires a valid urlType.');
         }
 
-        return array_only($config, ['username', 'apiKey', 'endpoint', 'region', 'container']);
+        return array_only($config, ['username', 'apiKey', 'endpoint', 'region', 'container', 'urlType']);
     }
 
     /**
