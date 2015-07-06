@@ -143,7 +143,6 @@ class RackspaceConnectorTest extends AbstractTestCase
         }
     }
 
-
     /**
      * @expectedException \Guzzle\Http\Exception\ClientErrorResponseException
      */
