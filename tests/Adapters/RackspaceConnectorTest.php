@@ -122,6 +122,22 @@ class RackspaceConnectorTest extends AbstractTestCase
         ]);
     }
 
+    /**
+     * @expectedException \InvalidArgumentException
+     */
+    public function testConnectWithInvalidUrlType()
+    {
+        $connector = $this->getRackspaceConnector();
+
+        $connector->connect([
+            'region'    => 'LON',
+            'username'  => 'your-username',
+            'apiKey'    => 'your-api-key',
+            'container' => 'your-container',
+            'urlType'   => 'invalidURL'
+        ]);
+    }
+
     protected function getRackspaceConnector()
     {
         return new RackspaceConnector();
