@@ -2,7 +2,7 @@ CHANGE LOG
 ==========
 
 
-## V3.1 (Upcoming)
+## V3.1 (06/07/2015)
 
 * Support rackspace internal urls
 
