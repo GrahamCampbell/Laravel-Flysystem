@@ -131,6 +131,7 @@ return [
             'username'   => 'your-username',
             'apiKey'     => 'your-api-key',
             'container'  => 'your-container',
+            // 'internal'   => false,
             // 'visibility' => 'public',
             // 'eventable'  => true,
             // 'cache'      => 'foo'

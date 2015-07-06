@@ -122,6 +122,48 @@ class RackspaceConnectorTest extends AbstractTestCase
         ]);
     }
 
+    /**
+     * @expectedException \Guzzle\Http\Exception\ClientErrorResponseException
+     */
+    public function testConnectWithInternal()
+    {
+        $connector = $this->getRackspaceConnector();
+
+        try {
+            $connector->connect([
+                'endpoint'  => 'https://lon.identity.api.rackspacecloud.com/v2.0/',
+                'region'    => 'LON',
+                'username'  => 'your-username',
+                'apiKey'    => 'your-api-key',
+                'container' => 'your-container',
+                'internal'  => true,
+            ]);
+        } catch (CurlException $e) {
+            $this->markTestSkipped('No internet connection');
+        }
+    }
+
+    /**
+     * @expectedException \Guzzle\Http\Exception\ClientErrorResponseException
+     */
+    public function testConnectWithInternalFalse()
+    {
+        $connector = $this->getRackspaceConnector();
+
+        try {
+            $connector->connect([
+                'endpoint'  => 'https://lon.identity.api.rackspacecloud.com/v2.0/',
+                'region'    => 'LON',
+                'username'  => 'your-username',
+                'apiKey'    => 'your-api-key',
+                'container' => 'your-container',
+                'internal'  => false,
+            ]);
+        } catch (CurlException $e) {
+            $this->markTestSkipped('No internet connection');
+        }
+    }
+
     protected function getRackspaceConnector()
     {
         return new RackspaceConnector();
