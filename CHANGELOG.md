@@ -2,6 +2,11 @@ CHANGE LOG
 ==========
 
 
+## V3.1 (Upcoming)
+
+* Support rackspace internal urls
+
+
 ## V3.0 (26/06/2015)
 
 * Drop support for laravel 5.0
