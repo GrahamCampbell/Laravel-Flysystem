@@ -123,18 +123,19 @@ class RackspaceConnectorTest extends AbstractTestCase
     }
 
     /**
-     * @expectedException \InvalidArgumentException
+     * @expectedException \Guzzle\Http\Exception\ClientErrorResponseException
      */
-    public function testConnectWithInvalidUrlType()
+    public function testConnectWithInternal()
     {
         $connector = $this->getRackspaceConnector();
 
         $connector->connect([
+            'endpoint'  => 'https://lon.identity.api.rackspacecloud.com/v2.0/',
             'region'    => 'LON',
             'username'  => 'your-username',
             'apiKey'    => 'your-api-key',
             'container' => 'your-container',
-            'urlType'   => 'invalidURL',
+            'internal'  => true,
         ]);
     }
 
