@@ -124,7 +124,7 @@ class RackspaceConnectorTest extends AbstractTestCase
             'username'  => 'your-username',
             'apiKey'    => 'your-api-key',
             'container' => 'your-container',
-            'urlType'   => 'invalidURL'
+            'urlType'   => 'invalidURL',
         ]);
     }
 
