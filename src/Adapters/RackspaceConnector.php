@@ -64,6 +64,11 @@ class RackspaceConnector implements ConnectorInterface
             throw new InvalidArgumentException('The rackspace connector requires a container.');
         }
 
+        $config['urlType'] = array_get($config, 'urlType', array_get($config, 'internal', false) ? 'internalURL' : 'publicURL');
+        if (!in_array($config['urlType'], ['internalURL', 'publicURL'])) {
+            throw new InvalidArgumentException('The rackspace connector requires a valid urlType.');
+        }
+
         return array_only($config, ['username', 'apiKey', 'endpoint', 'region', 'container']);
     }
 
@@ -81,7 +86,7 @@ class RackspaceConnector implements ConnectorInterface
             'apiKey'   => $auth['apiKey'],
         ]);
 
-        return $client->objectStoreService('cloudFiles', $auth['region'])->getContainer($auth['container']);
+        return $client->objectStoreService('cloudFiles', $auth['region'], $auth['urlType'])->getContainer($auth['container']);
     }
 
     /**
