@@ -129,14 +129,40 @@ class RackspaceConnectorTest extends AbstractTestCase
     {
         $connector = $this->getRackspaceConnector();
 
-        $connector->connect([
-            'endpoint'  => 'https://lon.identity.api.rackspacecloud.com/v2.0/',
-            'region'    => 'LON',
-            'username'  => 'your-username',
-            'apiKey'    => 'your-api-key',
-            'container' => 'your-container',
-            'internal'  => true,
-        ]);
+        try {
+            $connector->connect([
+                'endpoint'  => 'https://lon.identity.api.rackspacecloud.com/v2.0/',
+                'region'    => 'LON',
+                'username'  => 'your-username',
+                'apiKey'    => 'your-api-key',
+                'container' => 'your-container',
+                'internal'  => true,
+            ]);
+        } catch (CurlException $e) {
+            $this->markTestSkipped('No internet connection');
+        }
+    }
+
+
+    /**
+     * @expectedException \Guzzle\Http\Exception\ClientErrorResponseException
+     */
+    public function testConnectWithInternalFalse()
+    {
+        $connector = $this->getRackspaceConnector();
+
+        try {
+            $connector->connect([
+                'endpoint'  => 'https://lon.identity.api.rackspacecloud.com/v2.0/',
+                'region'    => 'LON',
+                'username'  => 'your-username',
+                'apiKey'    => 'your-api-key',
+                'container' => 'your-container',
+                'internal'  => false,
+            ]);
+        } catch (CurlException $e) {
+            $this->markTestSkipped('No internet connection');
+        }
     }
 
     protected function getRackspaceConnector()
