@@ -32,22 +32,24 @@ class FlysystemServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        $this->setupConfig();
+        $this->setupConfig($this->app);
     }
 
     /**
      * Setup the config.
      *
+     * @param \Illuminate\Contracts\Foundation\Application $app
+     *
      * @return void
      */
-    protected function setupConfig()
+    protected function setupConfig(Application $app)
     {
         $source = realpath(__DIR__.'/../config/flysystem.php');
 
         if (class_exists('Illuminate\Foundation\Application', false)) {
             $this->publishes([$source => config_path('flysystem.php')]);
         } elseif (class_exists('Laravel\Lumen\Application', false)) {
-            $this->configure('flysystem');
+            $app->configure('flysystem');
         }
 
         $this->mergeConfigFrom($source, 'flysystem');
