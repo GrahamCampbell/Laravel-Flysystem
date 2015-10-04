@@ -2,6 +2,11 @@ CHANGE LOG
 ==========
 
 
+## V3.2 (Upcoming)
+
+* Improved lumen support
+
+
 ## V3.1 (06/07/2015)
 
 * Support rackspace internal urls
