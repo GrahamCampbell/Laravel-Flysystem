@@ -112,7 +112,7 @@ class AwsS3ConnectorTest extends AbstractTestCase
             'bucket'   => 'your-bucket',
             'region'   => 'us-east-1',
             'version'  => 'latest',
-            'endpoint' => 'your-url',
+            'endpoint' => 'https://example.com',
         ]);
 
         $this->assertInstanceOf(AwsS3Adapter::class, $return);
@@ -131,7 +131,7 @@ class AwsS3ConnectorTest extends AbstractTestCase
             'bucket_endpoint' => false,
             'calculate_md5'   => true,
             'scheme'          => 'https',
-            'endpoint'        => 'your-url',
+            'endpoint'        => 'https://example.com',
         ]);
 
         $this->assertInstanceOf(AwsS3Adapter::class, $return);
