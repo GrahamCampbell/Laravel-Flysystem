@@ -25,6 +25,7 @@ use GrahamCampbell\Flysystem\Adapters\SftpConnector;
 use GrahamCampbell\Flysystem\Adapters\WebDavConnector;
 use GrahamCampbell\Flysystem\Adapters\ZipConnector;
 use GrahamCampbell\TestBench\AbstractTestCase;
+use League\Flysystem\Adapter\AbstractAdapter;
 use League\Flysystem\Adapter\Local;
 use League\Flysystem\AdapterInterface;
 use Mockery;
@@ -47,7 +48,9 @@ class ConnectionFactoryTest extends AbstractTestCase
 
     public function createDataProvider()
     {
+        $customAdapter = Mockery::mock(AbstractAdapter::class)->mockery_getName();
         return [
+            [$customAdapter, $customAdapter],
             ['awss3', AwsS3Connector::class],
             ['azure', AzureConnector::class],
             ['copy', CopyConnector::class],
@@ -95,6 +98,17 @@ class ConnectionFactoryTest extends AbstractTestCase
         $factory = $this->getConnectionFactory();
 
         $factory->createConnector(['driver' => 'unsupported']);
+    }
+
+    /**
+     * @expectedException \InvalidArgumentException
+     * @expectedExceptionMessage Unsupported driver [DateTime].
+     */
+    public function testCustomInvalidDriverConnector()
+    {
+        $factory = $this->getConnectionFactory();
+
+        $factory->createConnector(['driver' => \DateTime::class]);
     }
 
     protected function getConnectionFactory()
