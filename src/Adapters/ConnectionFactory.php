@@ -74,6 +74,13 @@ class ConnectionFactory
                 return new ZipConnector();
         }
 
+        if (class_exists($config['driver'])) {
+            $adapter = new $config['driver']();
+            if ($adapter instanceof \GrahamCampbell\Manager\ConnectorInterface) {
+                return $adapter;
+            }
+        }
+
         throw new InvalidArgumentException("Unsupported driver [{$config['driver']}].");
     }
 }
