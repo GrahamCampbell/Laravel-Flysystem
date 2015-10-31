@@ -219,6 +219,10 @@ class AwsS3ConnectorTest extends AbstractTestCase
 
     protected function getAwsS3Connector()
     {
+        if (defined('HHVM_VERSION') && version_compare(HHVM_VERSION, '3.9.0') < 0) {
+            $this->markTestSkipped('The AWS SDK requires a newer verison of HHVM');
+        }
+
         return new AwsS3Connector();
     }
 }
