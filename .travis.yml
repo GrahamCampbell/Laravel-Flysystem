@@ -10,6 +10,7 @@ php:
 sudo: false
 
 install:
+  - if [ "$TRAVIS_PHP_VERSION" == "7.0" ]; then composer remove league/flysystem-azure --dev --no-update; fi
   - travis_retry composer install --no-interaction --prefer-source
 
 script:
