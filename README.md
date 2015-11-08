@@ -16,15 +16,25 @@ Laravel Flysystem was created by, and is maintained by [Graham Campbell](https:/
 
 ## Installation
 
-[PHP](https://php.net) 5.5+ or [HHVM](http://hhvm.com) 3.6+, and [Composer](https://getcomposer.org) are required.
+Either [PHP](https://php.net) 5.5+ or [HHVM](http://hhvm.com) 3.6+ are required.
 
-To get the latest version of Laravel Flysystem, simply add the following line to the require block of your `composer.json` file:
+To get the latest version of Laravel FLysystem, simply require the project using [Composer](https://getcomposer.org):
 
+```bash
+$ composer require graham-campbell/flysystem
 ```
-"graham-campbell/flysystem": "~3.2"
+
+Instead, you may of course manually update your require block and run `composer update` if you so choose:
+
+```json
+{
+    "require": {
+        "graham-campbell/flysystem": "^3.0"
+    }
+}
 ```
 
-There are some additional dependencies you will need to install for some of the features:
+There are also some additional dependencies you will need to install for some of the features:
 
 * The AwsS3 adapter requires `"league/flysystem-aws-s3-v3": "~1.0"` in your `composer.json`.
 * The Azure adapter requires `"league/flysystem-azure": "~1.0"` in your `composer.json`.
@@ -37,8 +47,6 @@ There are some additional dependencies you will need to install for some of the 
 * The ZipAdapter adapter requires `"league/flysystem-ziparchive": "~1.0"` in your `composer.json`.
 * The adapter caching support requires `"league/flysystem-cached-adapter": "~1.0"` in your `composer.json`.
 * The eventable filesystem support requires `"league/flysystem-eventable-filesystem": "~1.0"` in your `composer.json`.
-
-You'll then need to run `composer install` or `composer update` to download it and have the autoloader updated.
 
 Once Laravel Flysystem is installed, you need to register the service provider. Open up `config/app.php` and add the following to the `providers` key.
 
