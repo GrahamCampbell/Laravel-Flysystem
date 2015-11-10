@@ -15,6 +15,7 @@ use GrahamCampbell\Flysystem\Facades\Flysystem;
 use GrahamCampbell\Tests\Flysystem\AbstractTestCase;
 use League\Flysystem\Adapter\Local as LocalAdapter;
 use League\Flysystem\AdapterInterface;
+use League\Flysystem\NotSupportedException;
 
 /**
  * This is the local flysystem test class.
@@ -59,10 +60,7 @@ class LocalFlysystemTest extends AbstractTestCase
     }
 
     /**
-     * Asserts that custom permissions set on the connection config are honored
-     * when creating files and directories.
-     *
-     * @return null
+     * @requires OS Linux
      */
     public function testCustomPermissions()
     {
@@ -107,9 +105,7 @@ class LocalFlysystemTest extends AbstractTestCase
     }
 
     /**
-     * Asserts that custom link handling is properly set on the connection.
-     *
-     * @return null
+     * @requires OS Linux
      */
     public function testCustomSymlinkSettings()
     {
@@ -136,7 +132,7 @@ class LocalFlysystemTest extends AbstractTestCase
 
             // Will throw an exception if custom link handling isn't set correctly
             Flysystem::get('bar');
-        } catch (\League\Flysystem\NotSupportedException $e) {
+        } catch (NotSupportedException $e) {
             // If the link handling failed then catch it and set a flag to be
             // consumed by the assertion below
             $linkHandlingFailed = true;
@@ -153,7 +149,7 @@ class LocalFlysystemTest extends AbstractTestCase
      *
      * @return int
      */
-    private static function getMask($file)
+    protected static function getMask($file)
     {
         clearstatcache();
 
