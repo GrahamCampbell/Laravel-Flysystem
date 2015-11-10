@@ -51,7 +51,7 @@ class LocalConnector implements ConnectorInterface
             throw new InvalidArgumentException('The local connector requires path configuration.');
         }
 
-        return array_only($config, ['path']);
+        return array_only($config, ['path', 'write_flags', 'link_handling', 'permissions']);
     }
 
     /**
@@ -63,6 +63,12 @@ class LocalConnector implements ConnectorInterface
      */
     protected function getAdapter(array $config)
     {
-        return new Local($config['path']);
+        // Pull parameters from config and set defaults for optional values
+        $path = $config['path'];
+        $writeFlags = array_get($config, 'write_flags', LOCK_EX);
+        $linkHandling = array_get($config, 'link_handling', Local::DISALLOW_LINKS);
+        $permissions = array_get($config, 'permissions', []);
+
+        return new Local($path, $writeFlags, $linkHandling, $permissions);
     }
 }
