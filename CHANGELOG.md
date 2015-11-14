@@ -2,6 +2,12 @@ CHANGE LOG
 ==========
 
 
+## V3.3 (Upcoming)
+
+* Added laravel 5.2 support
+* Improved environment detection
+
+
 ## V3.2 (06/10/2015)
 
 * Improved lumen support
