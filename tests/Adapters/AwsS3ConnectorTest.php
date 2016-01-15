@@ -137,6 +137,25 @@ class AwsS3ConnectorTest extends AbstractTestCase
         $this->assertInstanceOf(AwsS3Adapter::class, $return);
     }
 
+    public function testConnectWithCredentials()
+    {
+        $connector = $this->getAwsS3Connector();
+
+        $return = $connector->connect([
+            'key'         => null,
+            'secret'      => null,
+            'credentials' => [
+                'key'    => 'your-credentials-key',
+                'secret' => 'your-credentials-secret',
+            ],
+            'bucket'      => 'your-bucket',
+            'region'      => 'us-east-1',
+            'version'     => 'latest',
+        ]);
+
+        $this->assertInstanceOf(AwsS3Adapter::class, $return);
+    }
+
     /**
      * @expectedException \InvalidArgumentException
      * @expectedExceptionMessage The awss3 connector requires bucket configuration.
