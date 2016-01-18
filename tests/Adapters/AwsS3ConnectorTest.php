@@ -137,17 +137,25 @@ class AwsS3ConnectorTest extends AbstractTestCase
         $this->assertInstanceOf(AwsS3Adapter::class, $return);
     }
 
+    /**
+     * Testing credential providers
+     *
+     * Using the provider to grab credentials from environment variables
+     */
     public function testConnectWithCredentials()
     {
         $connector = $this->getAwsS3Connector();
 
+        putenv('AWS_ACCESS_KEY_ID=your-access-key');
+        putenv('AWS_SECRET_ACCESS_KEY=your-secret');
+
+        $provider = \Aws\Credentials\CredentialProvider::defaultProvider();
+        $credentials = $provider()->wait();
+
         $return = $connector->connect([
             'key'         => null,
             'secret'      => null,
-            'credentials' => [
-                'key'    => 'your-credentials-key',
-                'secret' => 'your-credentials-secret',
-            ],
+            'credentials' => $credentials,
             'bucket'      => 'your-bucket',
             'region'      => 'us-east-1',
             'version'     => 'latest',
