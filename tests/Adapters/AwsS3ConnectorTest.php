@@ -138,7 +138,7 @@ class AwsS3ConnectorTest extends AbstractTestCase
     }
 
     /**
-     * Testing credential providers
+     * Testing credential providers.
      *
      * Using the provider to grab credentials from environment variables
      */
