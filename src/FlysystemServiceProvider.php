@@ -13,7 +13,7 @@ namespace GrahamCampbell\Flysystem;
 
 use GrahamCampbell\Flysystem\Adapters\ConnectionFactory as AdapterFactory;
 use GrahamCampbell\Flysystem\Cache\ConnectionFactory as CacheFactory;
-use Illuminate\Contracts\Foundation\Application;
+use Illuminate\Contracts\Container\Container;
 use Illuminate\Foundation\Application as LaravelApplication;
 use Illuminate\Support\ServiceProvider;
 use Laravel\Lumen\Application as LumenApplication;
@@ -62,102 +62,92 @@ class FlysystemServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        $this->registerAdapterFactory($this->app);
-        $this->registerCacheFactory($this->app);
-        $this->registerFlysystemFactory($this->app);
-        $this->registerManager($this->app);
-        $this->registerBindings($this->app);
+        $this->registerAdapterFactory();
+        $this->registerCacheFactory();
+        $this->registerFlysystemFactory();
+        $this->registerManager();
+        $this->registerBindings();
     }
 
     /**
      * Register the adapter factory class.
      *
-     * @param \Illuminate\Contracts\Foundation\Application $app
-     *
      * @return void
      */
-    protected function registerAdapterFactory(Application $app)
+    protected function registerAdapterFactory()
     {
-        $app->singleton('flysystem.adapterfactory', function () {
+        $this->app->singleton('flysystem.adapterfactory', function () {
             return new AdapterFactory();
         });
 
-        $app->alias('flysystem.adapterfactory', AdapterFactory::class);
+        $this->app->alias('flysystem.adapterfactory', AdapterFactory::class);
     }
 
     /**
      * Register the cache factory class.
      *
-     * @param \Illuminate\Contracts\Foundation\Application $app
-     *
      * @return void
      */
-    protected function registerCacheFactory(Application $app)
+    protected function registerCacheFactory()
     {
-        $app->singleton('flysystem.cachefactory', function ($app) {
+        $this->app->singleton('flysystem.cachefactory', function (Container $app) {
             $cache = $app['cache'];
 
             return new CacheFactory($cache);
         });
 
-        $app->alias('flysystem.cachefactory', CacheFactory::class);
+        $this->app->alias('flysystem.cachefactory', CacheFactory::class);
     }
 
     /**
      * Register the flysystem factory class.
      *
-     * @param \Illuminate\Contracts\Foundation\Application $app
-     *
      * @return void
      */
-    protected function registerFlysystemFactory(Application $app)
+    protected function registerFlysystemFactory()
     {
-        $app->singleton('flysystem.factory', function ($app) {
+        $this->app->singleton('flysystem.factory', function (Container $app) {
             $adapter = $app['flysystem.adapterfactory'];
             $cache = $app['flysystem.cachefactory'];
 
             return new FlysystemFactory($adapter, $cache);
         });
 
-        $app->alias('flysystem.factory', FlysystemFactory::class);
+        $this->app->alias('flysystem.factory', FlysystemFactory::class);
     }
 
     /**
      * Register the manager class.
      *
-     * @param \Illuminate\Contracts\Foundation\Application $app
-     *
      * @return void
      */
-    protected function registerManager(Application $app)
+    protected function registerManager()
     {
-        $app->singleton('flysystem', function ($app) {
+        $this->app->singleton('flysystem', function (Container $app) {
             $config = $app['config'];
             $factory = $app['flysystem.factory'];
 
             return new FlysystemManager($config, $factory);
         });
 
-        $app->alias('flysystem', FlysystemManager::class);
+        $this->app->alias('flysystem', FlysystemManager::class);
     }
 
     /**
      * Register the bindings.
      *
-     * @param \Illuminate\Contracts\Foundation\Application $app
-     *
      * @return void
      */
-    protected function registerBindings(Application $app)
+    protected function registerBindings()
     {
-        $app->bind('flysystem.connection', function ($app) {
+        $this->app->bind('flysystem.connection', function (Container $app) {
             $manager = $app['flysystem'];
 
             return $manager->connection();
         });
 
-        $app->alias('flysystem.connection', Filesystem::class);
-        $app->alias('flysystem.connection', FilesystemInterface::class);
+        $this->app->alias('flysystem.connection', Filesystem::class);
+        $this->app->alias('flysystem.connection', FilesystemInterface::class);
     }
 
     /**
