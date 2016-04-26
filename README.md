@@ -37,17 +37,17 @@ Instead, you may of course manually update your require block and run `composer 
 
 There are also some additional dependencies you will need to install for some of the features:
 
-* The AwsS3 adapter requires `"league/flysystem-aws-s3-v3": "~1.0"` in your `composer.json`.
-* The Azure adapter requires `"league/flysystem-azure": "~1.0"` in your `composer.json`.
-* The Copy adapter requires `"league/flysystem-copy": "~1.0"` in your `composer.json`.
-* The Dropbox adapter requires `"league/flysystem-dropbox": "~1.0"` in your `composer.json`.
-* The GridFS adapter requires `"league/flysystem-gridfs": "~1.0"` in your `composer.json`.
-* The Rackspace adapter requires `"league/flysystem-rackspace": "~1.0"` in your `composer.json`.
-* The Sftp adapter requires `"league/flysystem-sftp": "~1.0"` in your `composer.json`.
-* The WebDav adapter requires `"league/flysystem-webdav": "~1.0"` in your `composer.json`.
-* The ZipAdapter adapter requires `"league/flysystem-ziparchive": "~1.0"` in your `composer.json`.
-* The adapter caching support requires `"league/flysystem-cached-adapter": "~1.0"` in your `composer.json`.
-* The eventable filesystem support requires `"league/flysystem-eventable-filesystem": "~1.0"` in your `composer.json`.
+* The AwsS3 adapter requires `"league/flysystem-aws-s3-v3": "^1.0"` in your `composer.json`.
+* The Azure adapter requires `"league/flysystem-azure": "^1.0"` in your `composer.json`.
+* The Copy adapter requires `"league/flysystem-copy": "^1.0"` in your `composer.json`.
+* The Dropbox adapter requires `"league/flysystem-dropbox": "^1.0"` in your `composer.json`.
+* The GridFS adapter requires `"league/flysystem-gridfs": "^1.0"` in your `composer.json`.
+* The Rackspace adapter requires `"league/flysystem-rackspace": "^1.0"` in your `composer.json`.
+* The Sftp adapter requires `"league/flysystem-sftp": "^1.0"` in your `composer.json`.
+* The WebDav adapter requires `"league/flysystem-webdav": "^1.0"` in your `composer.json`.
+* The ZipAdapter adapter requires `"league/flysystem-ziparchive": "^1.0"` in your `composer.json`.
+* The adapter caching support requires `"league/flysystem-cached-adapter": "^1.0"` in your `composer.json`.
+* The eventable filesystem support requires `"league/flysystem-eventable-filesystem": "^1.0"` in your `composer.json`.
 
 Once Laravel Flysystem is installed, you need to register the service provider. Open up `config/app.php` and add the following to the `providers` key.
 
