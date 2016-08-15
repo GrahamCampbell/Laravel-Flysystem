@@ -34,7 +34,7 @@ class WebDavConnector implements ConnectorInterface
         $client = $this->getClient($config);
         $config = $this->getConfig($config);
 
-        return $this->getAdapter($client);
+        return $this->getAdapter($client, $config);
     }
 
     /**
