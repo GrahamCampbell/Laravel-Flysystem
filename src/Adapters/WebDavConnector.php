@@ -33,7 +33,7 @@ class WebDavConnector implements ConnectorInterface
     {
         $client = $this->getClient($config);
         $config = $this->getConfig($config);
-        
+
         return $this->getAdapter($client);
     }
 
@@ -48,22 +48,22 @@ class WebDavConnector implements ConnectorInterface
     {
         return new Client($config);
     }
-    
+
     /**
-	 * Get the configuration.
-	 *
-	 * @param string[] $config
-	 *
-	 * @return string[]
-	 */
-	protected function getConfig(array $config)
-	{
-		if (!array_key_exists('prefix', $config)) {
-			$config['prefix'] = null;
-		}
-		
-		return array_only($config, ['prefix']);
-	}
+     * Get the configuration.
+     *
+     * @param string[] $config
+     *
+     * @return string[]
+     */
+    protected function getConfig(array $config)
+    {
+        if (!array_key_exists('prefix', $config)) {
+            $config['prefix'] = null;
+        }
+
+        return array_only($config, ['prefix']);
+    }
 
     /**
      * Get the webdav adapter.
