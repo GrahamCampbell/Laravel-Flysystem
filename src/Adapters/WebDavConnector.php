@@ -32,7 +32,8 @@ class WebDavConnector implements ConnectorInterface
     public function connect(array $config)
     {
         $client = $this->getClient($config);
-
+        $config = $this->getConfig($config);
+        
         return $this->getAdapter($client);
     }
 
@@ -47,16 +48,33 @@ class WebDavConnector implements ConnectorInterface
     {
         return new Client($config);
     }
+    
+    /**
+	 * Get the configuration.
+	 *
+	 * @param string[] $config
+	 *
+	 * @return string[]
+	 */
+	protected function getConfig(array $config)
+	{
+		if (!array_key_exists('prefix', $config)) {
+			$config['prefix'] = null;
+		}
+		
+		return array_only($config, ['prefix']);
+	}
 
     /**
      * Get the webdav adapter.
      *
      * @param \Sabre\DAV\Client $client
+     * @param string[]          $config
      *
      * @return \League\Flysystem\WebDAV\WebDAVAdapter
      */
-    protected function getAdapter(Client $client)
+    protected function getAdapter(Client $client, array $config)
     {
-        return new WebDAVAdapter($client);
+        return new WebDAVAdapter($client, $config['prefix']);
     }
 }
