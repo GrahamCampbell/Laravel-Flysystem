@@ -14,8 +14,8 @@ namespace GrahamCampbell\Flysystem\Adapters;
 use GrahamCampbell\Manager\ConnectorInterface;
 use InvalidArgumentException;
 use League\Flysystem\Azure\AzureAdapter;
-use WindowsAzure\Blob\Internal\IBlob;
-use WindowsAzure\Common\ServicesBuilder;
+use MicrosoftAzure\Storage\Blob\Internal\IBlob;
+use MicrosoftAzure\Storage\Common\ServicesBuilder;
 
 /**
  * This is the azure connector class.
@@ -63,7 +63,7 @@ class AzureConnector implements ConnectorInterface
      *
      * @param string[] $auth
      *
-     * @return \WindowsAzure\Blob\Internal\IBlob
+     * @return \MicrosoftAzure\Storage\Blob\Internal\IBlob
      */
     protected function getClient(array $auth)
     {
@@ -91,8 +91,8 @@ class AzureConnector implements ConnectorInterface
     /**
      * Get the container adapter.
      *
-     * @param \WindowsAzure\Blob\Internal\IBlob $client
-     * @param string[]                          $config
+     * @param \MicrosoftAzure\Storage\Blob\Internal\IBlob $client
+     * @param string[]                                    $config
      *
      * @return \League\Flysystem\Azure\AzureAdapter
      */
