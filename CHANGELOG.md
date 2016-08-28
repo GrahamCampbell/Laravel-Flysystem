@@ -2,6 +2,12 @@ CHANGE LOG
 ==========
 
 
+## V3.5 (28/08/2016)
+
+* Added support for the latest azure adapter
+* Added support for webdav prefixes
+
+
 ## V3.4 (26/04/2016)
 
 * Added laravel 5.3 support
