@@ -9,12 +9,6 @@
             "email": "graham@alt-three.com"
         }
     ],
-    "repositories": [
-        {
-            "type": "pear",
-            "url": "http://pear.php.net"
-        }
-    ],
     "require": {
         "php": ">=5.5.9",
         "illuminate/cache": "5.1.*|5.2.*|5.3.*",
