@@ -35,6 +35,20 @@ class WebDavConnectorTest extends AbstractTestCase
         $this->assertInstanceOf(WebDAVAdapter::class, $return);
     }
 
+    public function testConnectWithPrefix()
+    {
+        $connector = $this->getWebDavConnector();
+
+        $return = $connector->connect([
+            'baseUri'  => 'http://example.org/dav/',
+            'userName' => 'your-username',
+            'password' => 'your-password',
+            'prefix'   => 'your-prefix',
+        ]);
+
+        $this->assertInstanceOf(WebDAVAdapter::class, $return);
+    }
+
     protected function getWebDavConnector()
     {
         return new WebDavConnector();
