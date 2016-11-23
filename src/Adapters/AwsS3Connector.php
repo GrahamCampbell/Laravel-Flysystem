@@ -65,7 +65,7 @@ class AwsS3Connector implements ConnectorInterface
         ];
 
         if (array_key_exists('key', $config) && array_key_exists('secret', $config)) {
-            $auth['credentials'] = array_only($config, ['key', 'secret']),
+            $auth['credentials'] = array_only($config, ['key', 'secret']);
         }
 
         if (array_key_exists('bucket_endpoint', $config)) {
