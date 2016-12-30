@@ -42,6 +42,7 @@ class FlysystemFactoryTest extends AbstractTestBenchTestCase
 
         $this->assertInstanceOf(Filesystem::class, $return);
         $this->assertInstanceOf(FilesystemInterface::class, $return);
+        $this->assertFalse($return->getConfig()->get('disable_asserts', false));
     }
 
     public function testMakeWithCache()
@@ -58,7 +59,7 @@ class FlysystemFactoryTest extends AbstractTestBenchTestCase
         $this->assertInstanceOf(Filesystem::class, $return);
     }
 
-    public function testMakeWithVisibility()
+    public function testMakeWithVisibilityPublic()
     {
         $config = ['driver' => 'local', 'path' => __DIR__, 'name' => 'local', 'visibility' => 'public'];
 
@@ -70,6 +71,37 @@ class FlysystemFactoryTest extends AbstractTestBenchTestCase
 
         $this->assertInstanceOf(FilesystemInterface::class, $return);
         $this->assertInstanceOf(Filesystem::class, $return);
+        $this->assertSame('public', $return->getConfig()->get('visibility'));
+    }
+
+    public function testMakeWithVisibilityPrivate()
+    {
+        $config = ['driver' => 'local', 'path' => __DIR__, 'name' => 'local', 'visibility' => 'private'];
+
+        $manager = Mockery::mock(FlysystemManager::class);
+
+        $factory = $this->getMockedFactory($config, $manager);
+
+        $return = $factory->make($config, $manager);
+
+        $this->assertInstanceOf(FilesystemInterface::class, $return);
+        $this->assertInstanceOf(Filesystem::class, $return);
+        $this->assertSame('private', $return->getConfig()->get('visibility'));
+    }
+
+    public function testMakeWithPirate()
+    {
+        $config = ['driver' => 'local', 'path' => __DIR__, 'name' => 'local', 'pirate' => true];
+
+        $manager = Mockery::mock(FlysystemManager::class);
+
+        $factory = $this->getMockedFactory($config, $manager);
+
+        $return = $factory->make($config, $manager);
+
+        $this->assertInstanceOf(FilesystemInterface::class, $return);
+        $this->assertInstanceOf(Filesystem::class, $return);
+        $this->assertTrue($return->getConfig()->get('disable_asserts', false));
     }
 
     public function testMakeEventable()
@@ -112,6 +144,7 @@ class FlysystemFactoryTest extends AbstractTestBenchTestCase
 
         $this->assertInstanceOf(FilesystemInterface::class, $return);
         $this->assertInstanceOf(EventableFilesystem::class, $return);
+        $this->assertSame('public', $return->getConfig()->get('visibility'));
     }
 
     public function testAdapter()
