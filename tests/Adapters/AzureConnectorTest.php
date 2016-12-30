@@ -79,10 +79,6 @@ class AzureConnectorTest extends AbstractTestCase
 
     protected function getAzureConnector()
     {
-        if (!class_exists(AzureAdapter::class)) {
-            $this->markTestSkipped('The AzureAdapter class does not exist');
-        }
-
         return new AzureConnector();
     }
 }
