@@ -5,7 +5,7 @@ CHANGE LOG
 ## V3.6 (01/01/2017)
 
 * Added laravel 5.4 support
-* Added support for priate mode
+* Added support for pirate mode
 
 
 ## V3.5 (28/08/2016)
