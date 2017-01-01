@@ -2,6 +2,12 @@ CHANGE LOG
 ==========
 
 
+## V3.6 (01/01/2017)
+
+* Added laravel 5.4 support
+* Added support for priate mode
+
+
 ## V3.5 (28/08/2016)
 
 * Added support for the latest azure adapter
