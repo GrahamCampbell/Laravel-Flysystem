@@ -2,6 +2,11 @@ CHANGE LOG
 ==========
 
 
+## V3.7 (18/03/2017)
+
+* Removed the copy adapter
+
+
 ## V3.6 (01/01/2017)
 
 * Added laravel 5.4 support
