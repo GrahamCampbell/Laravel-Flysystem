@@ -52,8 +52,6 @@ class ConnectionFactory
                 return new AwsS3Connector();
             case 'azure':
                 return new AzureConnector();
-            case 'copy':
-                return new CopyConnector();
             case 'dropbox':
                 return new DropboxConnector();
             case 'ftp':

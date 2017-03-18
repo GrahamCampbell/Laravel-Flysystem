@@ -39,7 +39,6 @@ There are also some additional dependencies you will need to install for some of
 
 * The AwsS3 adapter requires `"league/flysystem-aws-s3-v3": "^1.0"` in your `composer.json`.
 * The Azure adapter requires `"league/flysystem-azure": "^1.0"` in your `composer.json`.
-* The Copy adapter requires `"league/flysystem-copy": "^1.0"` in your `composer.json`.
 * The Dropbox adapter requires `"league/flysystem-dropbox": "^1.0"` in your `composer.json`.
 * The GridFS adapter requires `"league/flysystem-gridfs": "^1.0"` in your `composer.json`.
 * The Rackspace adapter requires `"league/flysystem-rackspace": "^1.0"` in your `composer.json`.
