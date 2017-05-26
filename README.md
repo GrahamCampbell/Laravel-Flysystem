@@ -25,7 +25,7 @@ To get the latest version of Laravel FLysystem, simply require the project using
 $ composer require graham-campbell/flysystem
 ```
 
-Instead, you may of course manually update your require block and run `composer update` if you so choose:
+Instead, you may of course manually update your require block and run `composer install` if you so choose:
 
 ```json
 {
