@@ -1,6 +1,9 @@
 CHANGE LOG
 ==========
 
+## V3.3 (27/10/2015)
+
+* Added support for custom adapter
 
 ## V3.7 (18/03/2017)
 
