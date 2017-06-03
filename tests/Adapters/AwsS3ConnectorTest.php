@@ -153,36 +153,32 @@ class AwsS3ConnectorTest extends AbstractTestCase
         ]);
     }
 
-    /**
-     * @expectedException \InvalidArgumentException
-     * @expectedExceptionMessage The awss3 connector requires authentication.
-     */
     public function testConnectWithoutKey()
     {
         $connector = $this->getAwsS3Connector();
 
-        $connector->connect([
+        $return = $connector->connect([
             'secret'  => 'your-secret',
             'bucket'  => 'your-bucket',
             'region'  => 'us-east-1',
             'version' => 'latest',
         ]);
+
+        $this->assertInstanceOf(AwsS3Adapter::class, $return);
     }
 
-    /**
-     * @expectedException \InvalidArgumentException
-     * @expectedExceptionMessage The awss3 connector requires authentication.
-     */
     public function testConnectWithoutSecret()
     {
         $connector = $this->getAwsS3Connector();
 
-        $connector->connect([
+        $return = $connector->connect([
             'key'     => 'your-key',
             'bucket'  => 'your-bucket',
             'region'  => 'us-east-1',
             'version' => 'latest',
         ]);
+
+        $this->assertInstanceOf(AwsS3Adapter::class, $return);
     }
 
     /**
