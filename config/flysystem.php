@@ -67,8 +67,8 @@ return [
         ],
 
         'dropbox' => [
-            'driver'             => 'dropbox',
-            'token' => 'your-token',
+            'driver'      => 'dropbox',
+            'token'       => 'your-token',
             // 'prefix'     => 'your-prefix',
             // 'visibility' => 'public',
             // 'pirate'     => false,

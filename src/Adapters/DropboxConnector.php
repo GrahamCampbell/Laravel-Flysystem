@@ -89,7 +89,7 @@ class DropboxConnector implements ConnectorInterface
      * Get the dropbox adapter.
      *
      * @param \Srmklive\Dropbox\Client\DropboxClient $client
-     * @param string[]        $config
+     * @param string[] $config
      *
      * @return \Srmklive\Dropbox\Adapter\DropboxAdapter
      */
