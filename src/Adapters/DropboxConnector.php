@@ -11,10 +11,10 @@
 
 namespace GrahamCampbell\Flysystem\Adapters;
 
-use Dropbox\Client;
+use Srmklive\Dropbox\Client\DropboxClient as Client;
 use GrahamCampbell\Manager\ConnectorInterface;
 use InvalidArgumentException;
-use League\Flysystem\Dropbox\DropboxAdapter;
+use Srmklive\Dropbox\Adapter\DropboxAdapter;
 
 /**
  * This is the dropbox connector class.
@@ -28,7 +28,7 @@ class DropboxConnector implements ConnectorInterface
      *
      * @param string[] $config
      *
-     * @return \League\Flysystem\Dropbox\DropboxAdapter
+     * @return Srmklive\Dropbox\Adapter\DropboxAdapter
      */
     public function connect(array $config)
     {
@@ -50,11 +50,11 @@ class DropboxConnector implements ConnectorInterface
      */
     protected function getAuth(array $config)
     {
-        if (!array_key_exists('token', $config) || !array_key_exists('app', $config)) {
-            throw new InvalidArgumentException('The dropbox connector requires authentication.');
+        if (!array_key_exists('authorizationToken', $config)) {
+            throw new InvalidArgumentException('The dropbox connector requires an authorizationToken.');
         }
 
-        return array_only($config, ['token', 'app']);
+        return array_only($config, ['authorizationToken']);
     }
 
     /**
@@ -66,7 +66,7 @@ class DropboxConnector implements ConnectorInterface
      */
     protected function getClient(array $auth)
     {
-        return new Client($auth['token'], $auth['app']);
+        return new Client($auth['authorizationToken']);
     }
 
     /**
@@ -91,7 +91,7 @@ class DropboxConnector implements ConnectorInterface
      * @param \Dropbox\Client $client
      * @param string[]        $config
      *
-     * @return \League\Flysystem\Dropbox\DropboxAdapter
+     * @return Srmklive\Dropbox\Adapter\DropboxAdapter
      */
     protected function getAdapter(Client $client, array $config)
     {

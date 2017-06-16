@@ -13,7 +13,7 @@ namespace GrahamCampbell\Tests\Flysystem\Adapters;
 
 use GrahamCampbell\Flysystem\Adapters\DropboxConnector;
 use GrahamCampbell\TestBench\AbstractTestCase;
-use League\Flysystem\Dropbox\DropboxAdapter;
+use Srmklive\Dropbox\Adapter\DropboxAdapter;
 
 /**
  * This is the dropbox connector test class.
@@ -27,8 +27,7 @@ class DropboxConnectorTest extends AbstractTestCase
         $connector = $this->getDropboxConnector();
 
         $return = $connector->connect([
-            'token'  => 'your-token',
-            'app'    => 'your-app',
+            'authorizationToken'  => 'your-authorization-token',
         ]);
 
         $this->assertInstanceOf(DropboxAdapter::class, $return);
@@ -39,8 +38,7 @@ class DropboxConnectorTest extends AbstractTestCase
         $connector = $this->getDropboxConnector();
 
         $return = $connector->connect([
-            'token'  => 'your-token',
-            'app'    => 'your-app',
+            'authorizationToken'  => 'your-authorization-token',
             'prefix' => 'your-prefix',
         ]);
 
@@ -49,24 +47,13 @@ class DropboxConnectorTest extends AbstractTestCase
 
     /**
      * @expectedException \InvalidArgumentException
-     * @expectedExceptionMessage The dropbox connector requires authentication.
+     * @expectedExceptionMessage The dropbox connector requires an authorizationToken.
      */
     public function testConnectWithoutToken()
     {
         $connector = $this->getDropboxConnector();
 
         $connector->connect(['app' => 'your-app']);
-    }
-
-    /**
-     * @expectedException \InvalidArgumentException
-     * @expectedExceptionMessage The dropbox connector requires authentication.
-     */
-    public function testConnectWithoutSecret()
-    {
-        $connector = $this->getDropboxConnector();
-
-        $connector->connect(['token' => 'your-token']);
     }
 
     protected function getDropboxConnector()
