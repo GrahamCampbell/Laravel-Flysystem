@@ -12,9 +12,9 @@
 namespace GrahamCampbell\Flysystem\Adapters;
 
 use Srmklive\Dropbox\Client\DropboxClient as Client;
+use Srmklive\Dropbox\Adapter\DropboxAdapter;
 use GrahamCampbell\Manager\ConnectorInterface;
 use InvalidArgumentException;
-use Srmklive\Dropbox\Adapter\DropboxAdapter;
 
 /**
  * This is the dropbox connector class.

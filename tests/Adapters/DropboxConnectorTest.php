@@ -39,7 +39,7 @@ class DropboxConnectorTest extends AbstractTestCase
 
         $return = $connector->connect([
             'authorizationToken'  => 'your-authorization-token',
-            'prefix' => 'your-prefix',
+            'prefix'              => 'your-prefix',
         ]);
 
         $this->assertInstanceOf(DropboxAdapter::class, $return);
