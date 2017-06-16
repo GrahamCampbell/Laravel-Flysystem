@@ -11,10 +11,10 @@
 
 namespace GrahamCampbell\Flysystem\Adapters;
 
-use Srmklive\Dropbox\Client\DropboxClient as Client;
-use Srmklive\Dropbox\Adapter\DropboxAdapter;
 use GrahamCampbell\Manager\ConnectorInterface;
 use InvalidArgumentException;
+use Srmklive\Dropbox\Adapter\DropboxAdapter;
+use Srmklive\Dropbox\Client\DropboxClient;
 
 /**
  * This is the dropbox connector class.
@@ -28,7 +28,7 @@ class DropboxConnector implements ConnectorInterface
      *
      * @param string[] $config
      *
-     * @return Srmklive\Dropbox\Adapter\DropboxAdapter
+     * @return \Srmklive\Dropbox\Adapter\DropboxAdapter
      */
     public function connect(array $config)
     {
@@ -50,11 +50,11 @@ class DropboxConnector implements ConnectorInterface
      */
     protected function getAuth(array $config)
     {
-        if (!array_key_exists('authorizationToken', $config)) {
-            throw new InvalidArgumentException('The dropbox connector requires an authorizationToken.');
+        if (!array_key_exists('token', $config)) {
+            throw new InvalidArgumentException('The dropbox connector requires authorization.');
         }
 
-        return array_only($config, ['authorizationToken']);
+        return array_only($config, ['token']);
     }
 
     /**
@@ -62,11 +62,11 @@ class DropboxConnector implements ConnectorInterface
      *
      * @param string[] $auth
      *
-     * @return \Dropbox\Client
+     * @return \Srmklive\Dropbox\Client\DropboxClient
      */
     protected function getClient(array $auth)
     {
-        return new Client($auth['authorizationToken']);
+        return new DropboxClient($auth['token']);
     }
 
     /**
@@ -88,12 +88,12 @@ class DropboxConnector implements ConnectorInterface
     /**
      * Get the dropbox adapter.
      *
-     * @param \Dropbox\Client $client
+     * @param \Srmklive\Dropbox\Client\DropboxClient $client
      * @param string[]        $config
      *
-     * @return Srmklive\Dropbox\Adapter\DropboxAdapter
+     * @return \Srmklive\Dropbox\Adapter\DropboxAdapter
      */
-    protected function getAdapter(Client $client, array $config)
+    protected function getAdapter(DropboxClient $client, array $config)
     {
         return new DropboxAdapter($client, $config['prefix']);
     }

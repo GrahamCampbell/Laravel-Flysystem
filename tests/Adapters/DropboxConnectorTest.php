@@ -27,7 +27,7 @@ class DropboxConnectorTest extends AbstractTestCase
         $connector = $this->getDropboxConnector();
 
         $return = $connector->connect([
-            'authorizationToken'  => 'your-authorization-token',
+            'token'  => 'your-token',
         ]);
 
         $this->assertInstanceOf(DropboxAdapter::class, $return);
@@ -38,8 +38,8 @@ class DropboxConnectorTest extends AbstractTestCase
         $connector = $this->getDropboxConnector();
 
         $return = $connector->connect([
-            'authorizationToken'  => 'your-authorization-token',
-            'prefix'              => 'your-prefix',
+            'token'  => 'your-token',
+            'prefix' => 'your-prefix',
         ]);
 
         $this->assertInstanceOf(DropboxAdapter::class, $return);
@@ -47,7 +47,7 @@ class DropboxConnectorTest extends AbstractTestCase
 
     /**
      * @expectedException \InvalidArgumentException
-     * @expectedExceptionMessage The dropbox connector requires an authorizationToken.
+     * @expectedExceptionMessage The dropbox connector requires authorization.
      */
     public function testConnectWithoutToken()
     {
