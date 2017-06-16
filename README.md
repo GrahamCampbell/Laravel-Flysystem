@@ -19,7 +19,7 @@ Laravel Flysystem was created by, and is maintained by [Graham Campbell](https:/
 
 Either [PHP](https://php.net) 5.5+ or [HHVM](http://hhvm.com) 3.6+ are required.
 
-To get the latest version of Laravel FLysystem, simply require the project using [Composer](https://getcomposer.org):
+To get the latest version of Laravel Flysystem, simply require the project using [Composer](https://getcomposer.org):
 
 ```bash
 $ composer require graham-campbell/flysystem
@@ -39,7 +39,7 @@ There are also some additional dependencies you will need to install for some of
 
 * The AwsS3 adapter requires `"league/flysystem-aws-s3-v3": "^1.0"` in your `composer.json`.
 * The Azure adapter requires `"league/flysystem-azure": "^1.0"` in your `composer.json`.
-* The Dropbox adapter requires `"league/flysystem-dropbox": "^1.0"` in your `composer.json`.
+* The Dropbox adapter requires `"srmklive/flysystem-dropbox-v2": "^1.0"` in your `composer.json`.
 * The GridFS adapter requires `"league/flysystem-gridfs": "^1.0"` in your `composer.json`.
 * The Rackspace adapter requires `"league/flysystem-rackspace": "^1.0"` in your `composer.json`.
 * The Sftp adapter requires `"league/flysystem-sftp": "^1.0"` in your `composer.json`.
