@@ -51,7 +51,7 @@ class DropboxConnector implements ConnectorInterface
     protected function getAuth(array $config)
     {
         if (!array_key_exists('token', $config)) {
-            throw new InvalidArgumentException('The dropbox connector requires authorization.');
+            throw new InvalidArgumentException('The dropbox connector requires authentication.');
         }
 
         return array_only($config, ['token']);

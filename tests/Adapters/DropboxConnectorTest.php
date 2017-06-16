@@ -47,7 +47,7 @@ class DropboxConnectorTest extends AbstractTestCase
 
     /**
      * @expectedException \InvalidArgumentException
-     * @expectedExceptionMessage The dropbox connector requires authorization.
+     * @expectedExceptionMessage The dropbox connector requires authentication.
      */
     public function testConnectWithoutToken()
     {
