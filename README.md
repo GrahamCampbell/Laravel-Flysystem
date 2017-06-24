@@ -41,7 +41,7 @@ There are also some additional dependencies you will need to install for some of
 Once installed, you need to register the `GrahamCampbell\Flysystem\FlysystemServiceProvider` service provider in your `config/app.php`, and optionally alias our facade:
 
 ```php
-        'Bitbucket' => GrahamCampbell\Flysystem\Facades\Flysystem::class,
+        'Flysystem' => GrahamCampbell\Flysystem\Facades\Flysystem::class,
 ```
 
 
