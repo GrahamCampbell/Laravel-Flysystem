@@ -77,7 +77,7 @@ This option (`'default'`) is where you may specify which of the connections belo
 
 ##### Flysystem Connections
 
-This option (`'connections'`) is where each of the connections are setup for your application. Examples of configuring each supported driver are included in the config file. You can of course have multiple connections per driver.
+This option (`'connections'`) is where each of the connections are setup for your application. **Examples of configuring each supported driver are included in the [config file](https://github.com/GrahamCampbell/Laravel-Flysystem/blob/37acea20eaff5e38827f0e8dc0eab1f036b4bc35/config/flysystem.php#L38-L180)**. You can of course have multiple connections per driver.
 
 ##### Flysystem Cache
 
