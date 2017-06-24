@@ -17,44 +17,32 @@ Laravel Flysystem was created by, and is maintained by [Graham Campbell](https:/
 
 ## Installation
 
-Either [PHP](https://php.net) 5.5+ or [HHVM](http://hhvm.com) 3.6+ are required.
+Laravel Flysystem requires [PHP](https://php.net) 5.5+. This particular version supports Laravel 5.1, 5.2, 5.3, or 5.4 only.
 
-To get the latest version of Laravel Flysystem, simply require the project using [Composer](https://getcomposer.org):
+To get the latest version, simply require the project using [Composer](https://getcomposer.org):
 
 ```bash
 $ composer require graham-campbell/flysystem
 ```
 
-Instead, you may of course manually update your require block and run `composer update` if you so choose:
-
-```json
-{
-    "require": {
-        "graham-campbell/flysystem": "^3.0"
-    }
-}
-```
-
 There are also some additional dependencies you will need to install for some of the features:
 
-* The AwsS3 adapter requires `"league/flysystem-aws-s3-v3": "^1.0"` in your `composer.json`.
-* The Azure adapter requires `"league/flysystem-azure": "^1.0"` in your `composer.json`.
-* The Dropbox adapter requires `"srmklive/flysystem-dropbox-v2": "^1.0"` in your `composer.json`.
-* The GridFS adapter requires `"league/flysystem-gridfs": "^1.0"` in your `composer.json`.
-* The Rackspace adapter requires `"league/flysystem-rackspace": "^1.0"` in your `composer.json`.
-* The Sftp adapter requires `"league/flysystem-sftp": "^1.0"` in your `composer.json`.
-* The WebDav adapter requires `"league/flysystem-webdav": "^1.0"` in your `composer.json`.
-* The ZipAdapter adapter requires `"league/flysystem-ziparchive": "^1.0"` in your `composer.json`.
-* The adapter caching support requires `"league/flysystem-cached-adapter": "^1.0"` in your `composer.json`.
-* The eventable filesystem support requires `"league/flysystem-eventable-filesystem": "^1.0"` in your `composer.json`.
+* The AwsS3 adapter requires `league/flysystem-aws-s3-v3` (`^1.0`).
+* The Azure adapter requires `league/flysystem-azure` (`^1.0`).
+* The Dropbox adapter requires `srmklive/flysystem-dropbox-v2` (`^1.0`).
+* The GridFS adapter requires `league/flysystem-gridfs` (`^1.0`).
+* The Rackspace adapter requires `league/flysystem-rackspace` (`^1.0`).
+* The Sftp adapter requires `league/flysystem-sftp` (`^1.0`).
+* The WebDav adapter requires `league/flysystem-webdav` (`^1.0`).
+* The ZipAdapter adapter requires `league/flysystem-ziparchive` (`^1.0`).
+* The adapter caching support requires `league/flysystem-cached-adapter` (`^1.0`).
+* The eventable filesystem support requires `league/flysystem-eventable-filesystem` (`^1.0`).
 
-Once Laravel Flysystem is installed, you need to register the service provider. Open up `config/app.php` and add the following to the `providers` key.
+Once installed, you need to register the `GrahamCampbell\Flysystem\FlysystemServiceProvider` service provider in your `config/app.php`, and optionally alias our facade:
 
-* `'GrahamCampbell\Flysystem\FlysystemServiceProvider'`
-
-You can register the Flysystem facade in the `aliases` key of your `config/app.php` file if you like.
-
-* `'Flysystem' => 'GrahamCampbell\Flysystem\Facades\Flysystem'`
+```php
+        'Bitbucket' => GrahamCampbell\Flysystem\Facades\Flysystem::class,
+```
 
 
 ## Configuration
