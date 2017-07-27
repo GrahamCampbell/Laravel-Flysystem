@@ -29,8 +29,8 @@
         "league/flysystem-sftp": "^1.0",
         "league/flysystem-webdav": "^1.0",
         "league/flysystem-ziparchive": "^1.0",
-        "mockery/mockery": "^0.9.9",
-        "phpunit/phpunit": "^5.0"
+        "mockery/mockery": "dev-master#c90a17247147543081e4d00f46911e422b49e583",
+        "phpunit/phpunit": "^6.0"
     },
     "suggest": {
         "league/flysystem-aws-s3-v3": "AwsS3 adapter support.",
