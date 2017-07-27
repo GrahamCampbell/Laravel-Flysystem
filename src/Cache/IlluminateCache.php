@@ -47,9 +47,9 @@ class IlluminateCache extends AbstractCache
      *
      * @param \Illuminate\Contracts\Cache\Store $client
      * @param string                            $key
-     * @param int                               $ttl
+     * @param int|null                          $ttl
      */
-    public function __construct(Store $client, $key = 'flysystem', $ttl = null)
+    public function __construct(Store $client, string $key = 'flysystem', int $ttl = null)
     {
         $this->client = $client;
         $this->key = $key;
