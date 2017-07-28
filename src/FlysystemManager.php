@@ -93,13 +93,13 @@ class FlysystemManager extends AbstractManager
     /**
      * Get the configuration for a connection.
      *
-     * @param string $name
+     * @param string|null $name
      *
      * @throws \InvalidArgumentException
      *
      * @return array
      */
-    public function getConnectionConfig($name)
+    public function getConnectionConfig(string $name = null)
     {
         $name = $name ?: $this->getDefaultConnection();
 
@@ -127,7 +127,7 @@ class FlysystemManager extends AbstractManager
      *
      * @return array
      */
-    protected function getCacheConfig($name)
+    protected function getCacheConfig(string $name)
     {
         $cache = $this->config->get($this->getConfigName().'.cache');
 
