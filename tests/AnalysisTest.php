@@ -16,6 +16,7 @@ namespace GrahamCampbell\Tests\Flysystem;
 use GrahamCampbell\Analyzer\AnalysisTrait;
 use Laravel\Lumen\Application;
 use MongoClient;
+use MongoConnectionException:;
 use PHPUnit\Framework\TestCase;
 
 /**
@@ -48,6 +49,6 @@ class AnalysisTest extends TestCase
      */
     protected function getIgnored()
     {
-        return [Application::class, MongoClient::class];
+        return [Application::class, MongoClient::class, MongoConnectionException::class];
     }
 }
