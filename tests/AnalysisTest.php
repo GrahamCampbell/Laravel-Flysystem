@@ -16,7 +16,7 @@ namespace GrahamCampbell\Tests\Flysystem;
 use GrahamCampbell\Analyzer\AnalysisTrait;
 use Laravel\Lumen\Application;
 use MongoClient;
-use MongoConnectionException:;
+use MongoConnectionException;
 use PHPUnit\Framework\TestCase;
 
 /**
