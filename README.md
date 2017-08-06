@@ -29,7 +29,7 @@ There are also some additional dependencies you will need to install for some of
 
 * The AwsS3 adapter requires `league/flysystem-aws-s3-v3` (`^1.0`).
 * The Azure adapter requires `league/flysystem-azure` (`^1.0`).
-* The Dropbox adapter requires `srmklive/flysystem-dropbox-v2` (`^1.0`).
+* The Dropbox adapter requires `spatie/flysystem-dropbox` (`^1.0`).
 * The GridFS adapter requires `league/flysystem-gridfs` (`^1.0`).
 * The Rackspace adapter requires `league/flysystem-rackspace` (`^1.0`).
 * The Sftp adapter requires `league/flysystem-sftp` (`^1.0`).
