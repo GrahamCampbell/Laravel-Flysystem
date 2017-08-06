@@ -2,6 +2,14 @@ CHANGE LOG
 ==========
 
 
+## V4.0 (06/08/2017)
+
+* Support PHP 7.0, 7.1, 7.2
+* Support Laravel 5.1 - 5.5
+* More type hints
+* Dropbox v2 support
+
+
 ## V3.7 (18/03/2017)
 
 * Removed the copy adapter
