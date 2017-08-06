@@ -62,6 +62,11 @@
     "extra": {
         "branch-alias": {
             "dev-master": "4.0-dev"
+        },
+        "laravel": {
+            "providers": [
+                "GrahamCampbell\\Flysystem\\FlysystemServiceProvider"
+            ]
         }
     },
     "minimum-stability": "dev",
