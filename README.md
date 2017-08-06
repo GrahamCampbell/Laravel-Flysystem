@@ -67,7 +67,7 @@ This option (`'default'`) is where you may specify which of the connections belo
 
 ##### Flysystem Connections
 
-This option (`'connections'`) is where each of the connections are setup for your application. Examples of configuring each supported driver are included in the [config file](config/flysystem.php#L38-L179), which you should have "published". You can of course have multiple connections per driver.
+This option (`'connections'`) is where each of the connections are setup for your application. Examples of configuring each supported driver are included in the [config file](config/flysystem.php#L40-L179), which you should have "published". You can of course have multiple connections per driver.
 
 ##### Flysystem Cache
 
