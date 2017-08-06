@@ -15,7 +15,7 @@ namespace GrahamCampbell\Tests\Flysystem\Adapters;
 
 use GrahamCampbell\Flysystem\Adapters\DropboxConnector;
 use GrahamCampbell\TestBench\AbstractTestCase;
-use Srmklive\Dropbox\Adapter\DropboxAdapter;
+use Spatie\FlysystemDropbox\DropboxAdapter;
 
 /**
  * This is the dropbox connector test class.

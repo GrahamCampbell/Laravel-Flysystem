@@ -15,8 +15,8 @@ namespace GrahamCampbell\Flysystem\Adapters;
 
 use GrahamCampbell\Manager\ConnectorInterface;
 use InvalidArgumentException;
-use Srmklive\Dropbox\Adapter\DropboxAdapter;
-use Srmklive\Dropbox\Client\DropboxClient;
+use Spatie\Dropbox\Client;
+use Spatie\FlysystemDropbox\DropboxAdapter;
 
 /**
  * This is the dropbox connector class.
@@ -30,7 +30,7 @@ class DropboxConnector implements ConnectorInterface
      *
      * @param string[] $config
      *
-     * @return \Srmklive\Dropbox\Adapter\DropboxAdapter
+     * @return \Spatie\FlysystemDropbox\DropboxAdapter
      */
     public function connect(array $config)
     {
@@ -64,11 +64,11 @@ class DropboxConnector implements ConnectorInterface
      *
      * @param string[] $auth
      *
-     * @return \Srmklive\Dropbox\Client\DropboxClient
+     * @return \Spatie\Dropbox\Client
      */
     protected function getClient(array $auth)
     {
-        return new DropboxClient($auth['token']);
+        return new Client($auth['token']);
     }
 
     /**
@@ -90,13 +90,13 @@ class DropboxConnector implements ConnectorInterface
     /**
      * Get the dropbox adapter.
      *
-     * @param \Srmklive\Dropbox\Client\DropboxClient $client
-     * @param string[]                               $config
+     * @param \Spatie\Dropbox\Client $client
+     * @param string[]               $config
      *
-     * @return \Srmklive\Dropbox\Adapter\DropboxAdapter
+     * @return \Spatie\FlysystemDropbox\DropboxAdapter
      */
-    protected function getAdapter(DropboxClient $client, array $config)
+    protected function getAdapter(Client $client, array $config)
     {
-        return new DropboxAdapter($client, $config['prefix']);
+        return new DropboxAdapter($client, (string) $config['prefix']);
     }
 }
