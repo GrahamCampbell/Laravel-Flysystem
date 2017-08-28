@@ -56,7 +56,7 @@ class BackblazeConnectorTest extends AbstractTestCase
      * @expectedException \InvalidArgumentException
      * @expectedExceptionMessage The backblaze connector requires accountId.
      */
-    public function testConnectWithoutApplicationKey()
+    public function testConnectWithoutAccountId()
     {
         $connector = $this->getBackblazeConnector();
 
