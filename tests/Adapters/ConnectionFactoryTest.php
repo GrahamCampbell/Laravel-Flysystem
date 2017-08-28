@@ -15,6 +15,7 @@ namespace GrahamCampbell\Tests\Flysystem\Adapters;
 
 use GrahamCampbell\Flysystem\Adapters\AwsS3Connector;
 use GrahamCampbell\Flysystem\Adapters\AzureConnector;
+use GrahamCampbell\Flysystem\Adapters\BackblazeConnector;
 use GrahamCampbell\Flysystem\Adapters\ConnectionFactory;
 use GrahamCampbell\Flysystem\Adapters\DropboxConnector;
 use GrahamCampbell\Flysystem\Adapters\FtpConnector;
@@ -51,6 +52,7 @@ class ConnectionFactoryTest extends AbstractTestCase
         return [
             ['awss3', AwsS3Connector::class],
             ['azure', AzureConnector::class],
+            ['backblaze', BackblazeConnector::class],
             ['dropbox', DropboxConnector::class],
             ['ftp', FtpConnector::class],
             ['gridfs', GridFSConnector::class],
