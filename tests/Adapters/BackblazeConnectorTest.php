@@ -32,7 +32,7 @@ class BackblazeConnectorTest extends AbstractTestCase
         $return = $connector->connect([
             'accountId'      => 'your-account-id',
             'applicationKey' => 'your-application-key',
-            'bucket'         => 'your-bucket'
+            'bucket'         => 'your-bucket',
         ]);
 
         $this->assertInstanceOf(BackblazeAdapter::class, $return);
@@ -48,7 +48,7 @@ class BackblazeConnectorTest extends AbstractTestCase
 
         $connector->connect([
             'accountId'      => 'your-account-id',
-            'applicationKey' => 'your-application-key'
+            'applicationKey' => 'your-application-key',
         ]);
     }
 
@@ -62,7 +62,7 @@ class BackblazeConnectorTest extends AbstractTestCase
 
         $connector->connect([
             'applicationKey' => 'your-application-key',
-            'bucket'         => 'your-bucket'
+            'bucket'         => 'your-bucket',
         ]);
     }
 
@@ -76,7 +76,7 @@ class BackblazeConnectorTest extends AbstractTestCase
 
         $connector->connect([
             'accountId' => 'your-account-id',
-            'bucket'    => 'your-bucket'
+            'bucket'    => 'your-bucket',
         ]);
     }
 

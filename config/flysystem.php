@@ -67,12 +67,12 @@ return [
             // 'eventable'    => true,
             // 'cache'        => 'foo'
         ],
-        
+
         'backblaze' => [
             'driver'         => 'backblaze',
             'accountId'      => 'your-account-id',
             'applicationKey' => 'your-application-key',
-            'bucket'         => 'your-bucket'
+            'bucket'         => 'your-bucket',
         ],
 
         'dropbox' => [
