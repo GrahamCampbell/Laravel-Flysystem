@@ -165,7 +165,7 @@ class AwsS3ConnectorTest extends AbstractTestCase
             'region'  => 'us-east-1',
             'version' => 'latest',
         ]);
-        
+
         $this->assertInstanceOf(AwsS3Adapter::class, $return);
     }
 
