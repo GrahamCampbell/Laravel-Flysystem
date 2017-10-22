@@ -53,10 +53,6 @@ class AwsS3Connector implements ConnectorInterface
      */
     protected function getAuth(array $config)
     {
-        if (!array_key_exists('key', $config) || !array_key_exists('secret', $config)) {
-            throw new InvalidArgumentException('The awss3 connector requires authentication.');
-        }
-
         if (!array_key_exists('version', $config)) {
             throw new InvalidArgumentException('The awss3 connector requires version configuration.');
         }
@@ -68,8 +64,14 @@ class AwsS3Connector implements ConnectorInterface
         $auth = [
             'region'      => $config['region'],
             'version'     => $config['version'],
-            'credentials' => array_only($config, ['key', 'secret']),
         ];
+
+        if (isset($config['key'])) {
+            if (!array_key_exists('secret', $config)) {
+                throw new InvalidArgumentException('The awss3 connector requires authentication.');
+            }
+            $auth['credentials'] = array_only($config, ['key', 'secret']);
+        }
 
         if (array_key_exists('bucket_endpoint', $config)) {
             $auth['bucket_endpoint'] = $config['bucket_endpoint'];
