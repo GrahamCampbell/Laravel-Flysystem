@@ -159,7 +159,7 @@ class AwsS3ConnectorTest extends AbstractTestCase
     {
         $connector = $this->getAwsS3Connector();
 
-        $connector->connect([
+        $return = $connector->connect([
             'secret'  => 'your-secret',
             'bucket'  => 'your-bucket',
             'region'  => 'us-east-1',
