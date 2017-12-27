@@ -18,7 +18,7 @@
         "league/flysystem": "^1.0"
     },
     "require-dev": {
-        "graham-campbell/analyzer": "^1.1",
+        "graham-campbell/analyzer": "^2.0",
         "graham-campbell/testbench": "^4.0",
         "league/flysystem-aws-s3-v3": "^1.0",
         "league/flysystem-azure": "^1.0",
@@ -31,7 +31,7 @@
         "league/flysystem-webdav": "^1.0",
         "league/flysystem-ziparchive": "^1.0",
         "mockery/mockery": "^1.0",
-        "phpunit/phpunit": "^6.1"
+        "phpunit/phpunit": "^6.5"
     },
     "suggest": {
         "league/flysystem-aws-s3-v3": "AwsS3 adapter support.",
