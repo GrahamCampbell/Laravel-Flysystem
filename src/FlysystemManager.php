@@ -38,7 +38,7 @@ use InvalidArgumentException;
  * @method bool delete(string $path)
  * @method bool deleteDir(string $dirname)
  * @method bool createDir(string $dirname, array $config = [])
- * @method bool setVisibility(sring $path, string $visibility)
+ * @method bool setVisibility(string $path, string $visibility)
  * @method bool put(string $path, string $contents, array $config = [])
  * @method bool putStream(string $path, resource $resource, array $config = [])
  * @method string readAndDelete(string $path)
