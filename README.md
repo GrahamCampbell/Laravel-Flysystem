@@ -17,7 +17,7 @@ Laravel Flysystem was created by, and is maintained by [Graham Campbell](https:/
 
 ## Installation
 
-Laravel Flysystem requires [PHP](https://php.net) 7. This particular version supports Laravel 5.1, 5.2, 5.3, 5.4, or 5.5 only.
+Laravel Flysystem requires [PHP](https://php.net) 7.1 or 7.2. This particular version supports Laravel 5.5 or 5.6 only.
 
 To get the latest version, simply require the project using [Composer](https://getcomposer.org):
 
@@ -38,7 +38,7 @@ There are also some additional dependencies you will need to install for some of
 * The adapter caching support requires `league/flysystem-cached-adapter` (`^1.0`).
 * The eventable filesystem support requires `league/flysystem-eventable-filesystem` (`^1.0`).
 
-Once installed, you need to register the `GrahamCampbell\Flysystem\FlysystemServiceProvider` service provider in your `config/app.php`, or if you're using Laravel 5.5, this can be done via the automatic package discovery.
+Once installed, if you are not using automatic package discovery, then you need to register the `GrahamCampbell\Flysystem\FlysystemServiceProvider` service provider in your `config/app.php`.
 
 You can also optionally alias our facade:
 
