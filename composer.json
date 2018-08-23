@@ -18,7 +18,7 @@
         "league/flysystem": "^1.0"
     },
     "require-dev": {
-        "graham-campbell/analyzer": "^2.0",
+        "graham-campbell/analyzer": "^2.1",
         "graham-campbell/testbench": "^5.0",
         "league/flysystem-aws-s3-v3": "^1.0",
         "league/flysystem-azure": "^1.0",
@@ -61,7 +61,7 @@
     },
     "extra": {
         "branch-alias": {
-            "dev-master": "5.0-dev"
+            "dev-master": "5.1-dev"
         },
         "laravel": {
             "providers": [
