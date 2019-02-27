@@ -58,14 +58,14 @@ class GoogleCloudStorageConnector implements ConnectorInterface
             throw new InvalidArgumentException('The gcs connector requires a project-id configuration.');
         }
 
-        $auth =  [
+        $auth = [
             'projectId' => $config['project_id'],
         ];
 
         if (array_key_exists('key_file', $config)) {
             $auth['keyFilePath'] = $config['key_file'];
         }
-        
+
         return $auth;
     }
 

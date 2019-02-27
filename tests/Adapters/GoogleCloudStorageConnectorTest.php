@@ -73,7 +73,7 @@ class GoogleCloudStorageConnectorTest extends AbstractTestCase
         $return = $connector->connect([
             'project_id'      => 'your-project-id',
             'bucket'          => 'your-bucket',
-            'storage_api_uri' => 'http://your-domain.com'
+            'storage_api_uri' => 'http://your-domain.com',
         ]);
 
         $this->assertInstanceOf(GoogleStorageAdapter::class, $return);
@@ -88,7 +88,7 @@ class GoogleCloudStorageConnectorTest extends AbstractTestCase
             'key_file'        => self::$testKeyFile,
             'bucket'          => 'your-bucket',
             'path_prefix'     => 'your-path',
-            'storage_api_uri' => 'http://your-domain.com'
+            'storage_api_uri' => 'http://your-domain.com',
         ]);
 
         $this->assertInstanceOf(GoogleStorageAdapter::class, $return);
