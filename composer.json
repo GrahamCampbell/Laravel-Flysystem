@@ -15,7 +15,7 @@
         "illuminate/contracts": "5.1.*|5.2.*|5.3.*|5.4.*|5.5.*",
         "illuminate/support": "5.1.*|5.2.*|5.3.*|5.4.*|5.5.*",
         "graham-campbell/manager": "^3.0",
-        "league/flysystem": "^1.0",
+        "league/flysystem": "^1.0"
     },
     "require-dev": {
         "graham-campbell/analyzer": "^2.0",
