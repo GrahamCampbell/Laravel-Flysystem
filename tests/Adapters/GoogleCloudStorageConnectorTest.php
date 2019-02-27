@@ -33,9 +33,9 @@ class GoogleCloudStorageConnectorTest extends AbstractTestCase
         $connector = $this->getGoogleCloudStorageConnector();
 
         $return = $connector->connect([
-            'project_id'     => 'your-project-id',
-            'key_file' => self::$testKeyFile,
-            'bucket'  => 'your-bucket',
+            'project_id' => 'your-project-id',
+            'key_file'   => self::$testKeyFile,
+            'bucket'     => 'your-bucket',
         ]);
 
         $this->assertInstanceOf(GoogleStorageAdapter::class, $return);
@@ -46,8 +46,8 @@ class GoogleCloudStorageConnectorTest extends AbstractTestCase
         $connector = $this->getGoogleCloudStorageConnector();
 
         $return = $connector->connect([
-            'project_id'     => 'your-project-id',
-            'bucket'  => 'your-bucket',
+            'project_id' => 'your-project-id',
+            'bucket'     => 'your-bucket',
         ]);
 
         $this->assertInstanceOf(GoogleStorageAdapter::class, $return);
@@ -58,8 +58,8 @@ class GoogleCloudStorageConnectorTest extends AbstractTestCase
         $connector = $this->getGoogleCloudStorageConnector();
 
         $return = $connector->connect([
-            'project_id'     => 'your-project-id',
-            'bucket'  => 'your-bucket',
+            'project_id'  => 'your-project-id',
+            'bucket'      => 'your-bucket',
             'path_prefix' => 'your-path',
         ]);
 
@@ -71,8 +71,8 @@ class GoogleCloudStorageConnectorTest extends AbstractTestCase
         $connector = $this->getGoogleCloudStorageConnector();
 
         $return = $connector->connect([
-            'project_id'     => 'your-project-id',
-            'bucket'  => 'your-bucket',
+            'project_id'      => 'your-project-id',
+            'bucket'          => 'your-bucket',
             'storage_api_uri' => 'http://your-domain.com'
         ]);
 
@@ -84,10 +84,10 @@ class GoogleCloudStorageConnectorTest extends AbstractTestCase
         $connector = $this->getGoogleCloudStorageConnector();
 
         $return = $connector->connect([
-            'project_id'     => 'your-project-id',
-            'key_file' => self::$testKeyFile,
-            'bucket'  => 'your-bucket',
-            'path_prefix' => 'your-path',
+            'project_id'      => 'your-project-id',
+            'key_file'        => self::$testKeyFile,
+            'bucket'          => 'your-bucket',
+            'path_prefix'     => 'your-path',
             'storage_api_uri' => 'http://your-domain.com'
         ]);
 

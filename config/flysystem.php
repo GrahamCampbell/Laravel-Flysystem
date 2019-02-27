@@ -179,10 +179,10 @@ return [
         ],
 
         'gcs' => [
-            'driver' => 'gcs',
+            'driver'     => 'gcs',
             'project_id' => 'your-project-id',
-            'key_file' => 'your-key-file', // optional: /path/to/service-account.json
-            'bucket' => 'your-bucket',
+            'key_file'   => 'your-key-file', // optional: /path/to/service-account.json
+            'bucket'     => 'your-bucket',
             // 'path_prefix' => 'your-path-prefix', // optional: /default/path/to/apply/in/bucket
             // 'storage_api_uri' => 'http://your-domain.com', // see: Public URLs below
         ],

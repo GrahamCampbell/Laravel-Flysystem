@@ -14,10 +14,10 @@ declare(strict_types=1);
 namespace GrahamCampbell\Flysystem\Adapters;
 
 use Google\Cloud\Storage\StorageClient;
-use Superbalist\Flysystem\GoogleStorage\GoogleStorageAdapter;
 
 use GrahamCampbell\Manager\ConnectorInterface;
 use InvalidArgumentException;
+use Superbalist\Flysystem\GoogleStorage\GoogleStorageAdapter;
 
 /**
  * This is the gcs connector class.
@@ -59,7 +59,7 @@ class GoogleCloudStorageConnector implements ConnectorInterface
         }
 
         $auth =  [
-            'projectId' =>  $config['project_id'],
+            'projectId' => $config['project_id'],
         ];
 
         if (array_key_exists('key_file', $config)) {
@@ -103,7 +103,7 @@ class GoogleCloudStorageConnector implements ConnectorInterface
      * Get the gcs adapter.
      *
      * @param \Google\Cloud\Storage\StorageClient $client
-     * @param string[]         $config
+     * @param string[] $config
      *
      * @return \Superbalist\Flysystem\GoogleStorage\GoogleStorageAdapter
      */
