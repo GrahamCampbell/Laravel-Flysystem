@@ -37,6 +37,7 @@ There are also some additional dependencies you will need to install for some of
 * The ZipAdapter adapter requires `league/flysystem-ziparchive` (`^1.0`).
 * The adapter caching support requires `league/flysystem-cached-adapter` (`^1.0`).
 * The eventable filesystem support requires `league/flysystem-eventable-filesystem` (`^1.0`).
+* The GoogleCloudStorage adapter requires `superbalist/flysystem-google-storage` (`^7.0`).
 
 Once installed, you need to register the `GrahamCampbell\Flysystem\FlysystemServiceProvider` service provider in your `config/app.php`, or if you're using Laravel 5.5, this can be done via the automatic package discovery.
 
