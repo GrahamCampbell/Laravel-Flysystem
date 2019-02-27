@@ -15,7 +15,6 @@ namespace GrahamCampbell\Tests\Flysystem\Adapters;
 
 use GrahamCampbell\Flysystem\Adapters\GoogleCloudStorageConnector;
 use GrahamCampbell\TestBench\AbstractTestCase;
-
 use Superbalist\Flysystem\GoogleStorage\GoogleStorageAdapter;
 
 /**

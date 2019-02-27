@@ -14,7 +14,6 @@ declare(strict_types=1);
 namespace GrahamCampbell\Flysystem\Adapters;
 
 use Google\Cloud\Storage\StorageClient;
-
 use GrahamCampbell\Manager\ConnectorInterface;
 use InvalidArgumentException;
 use Superbalist\Flysystem\GoogleStorage\GoogleStorageAdapter;
@@ -107,7 +106,6 @@ class GoogleCloudStorageConnector implements ConnectorInterface
      *
      * @return \Superbalist\Flysystem\GoogleStorage\GoogleStorageAdapter
      */
-
     protected function getAdapter(StorageClient $client, array $config)
     {
         $bucket = $client->bucket($config['bucket']);
