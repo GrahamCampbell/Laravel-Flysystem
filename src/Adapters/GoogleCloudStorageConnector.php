@@ -103,7 +103,7 @@ class GoogleCloudStorageConnector implements ConnectorInterface
      * Get the gcs adapter.
      *
      * @param \Google\Cloud\Storage\StorageClient $client
-     * @param string[] $config
+     * @param string[]                            $config
      *
      * @return \Superbalist\Flysystem\GoogleStorage\GoogleStorageAdapter
      */
