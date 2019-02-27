@@ -25,6 +25,7 @@ use GrahamCampbell\Flysystem\Adapters\RackspaceConnector;
 use GrahamCampbell\Flysystem\Adapters\SftpConnector;
 use GrahamCampbell\Flysystem\Adapters\WebDavConnector;
 use GrahamCampbell\Flysystem\Adapters\ZipConnector;
+use GrahamCampbell\Flysystem\Adapters\GoogleCloudStorageConnector;
 use GrahamCampbell\TestBench\AbstractTestCase;
 use League\Flysystem\Adapter\Local;
 use League\Flysystem\AdapterInterface;
@@ -60,6 +61,7 @@ class ConnectionFactoryTest extends AbstractTestCase
             ['sftp', SftpConnector::class],
             ['webdav', WebDavConnector::class],
             ['zip', ZipConnector::class],
+            ['gcs', GoogleCloudStorageConnector::class],
         ];
     }
 

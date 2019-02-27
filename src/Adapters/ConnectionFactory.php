@@ -72,6 +72,8 @@ class ConnectionFactory
                 return new WebDavConnector();
             case 'zip':
                 return new ZipConnector();
+            case 'gcs':
+                return new GoogleCloudStorageConnector();
         }
 
         throw new InvalidArgumentException("Unsupported driver [{$config['driver']}].");
