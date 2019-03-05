@@ -24,11 +24,9 @@ use Guzzle\Http\Exception\CurlException;
  */
 class RackspaceConnectorTest extends AbstractTestCase
 {
-    /**
-     * @expectedException \Guzzle\Http\Exception\ClientErrorResponseException
-     */
     public function testConnect()
     {
+        $this->expectException(\Guzzle\Http\Exception\ClientErrorResponseException::class);
         $connector = $this->getRackspaceConnector();
 
         try {
