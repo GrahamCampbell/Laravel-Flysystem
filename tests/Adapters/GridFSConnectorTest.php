@@ -48,22 +48,22 @@ class GridFSConnectorTest extends AbstractTestCase
 
     /**
      * @depends testConnectStandard
-     * @expectedException \InvalidArgumentException
-     * @expectedExceptionMessage The gridfs connector requires database configuration.
      */
     public function testConnectWithoutDatabase()
     {
+        $this->expectException(\InvalidArgumentException::class);
+        $this->expectExceptionMessage('The gridfs connector requires database configuration.');
+
         $connector = $this->getGridFSConnector();
 
         $connector->connect(['server' => 'mongodb://localhost:27017']);
     }
 
-    /**
-     * @expectedException \InvalidArgumentException
-     * @expectedExceptionMessage The gridfs connector requires server configuration.
-     */
     public function testConnectWithoutServer()
     {
+        $this->expectException(\InvalidArgumentException::class);
+        $this->expectExceptionMessage('The gridfs connector requires server configuration.');
+
         $connector = $this->getGridFSConnector();
 
         $connector->connect(['database' => 'your-database']);

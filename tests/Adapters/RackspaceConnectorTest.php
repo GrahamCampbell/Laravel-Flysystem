@@ -44,12 +44,11 @@ class RackspaceConnectorTest extends AbstractTestCase
         }
     }
 
-    /**
-     * @expectedException \InvalidArgumentException
-     * @expectedExceptionMessage The rackspace connector requires endpoint configuration.
-     */
     public function testConnectWithoutEndpoint()
     {
+        $this->expectException(\InvalidArgumentException::class);
+        $this->expectExceptionMessage('The rackspace connector requires endpoint configuration.');
+
         $connector = $this->getRackspaceConnector();
 
         $connector->connect([
@@ -60,12 +59,11 @@ class RackspaceConnectorTest extends AbstractTestCase
         ]);
     }
 
-    /**
-     * @expectedException \InvalidArgumentException
-     * @expectedExceptionMessage The rackspace connector requires region configuration.
-     */
     public function testConnectWithoutRegion()
     {
+        $this->expectException(\InvalidArgumentException::class);
+        $this->expectExceptionMessage('The rackspace connector requires region configuration.');
+
         $connector = $this->getRackspaceConnector();
 
         $connector->connect([
@@ -76,12 +74,11 @@ class RackspaceConnectorTest extends AbstractTestCase
         ]);
     }
 
-    /**
-     * @expectedException \InvalidArgumentException
-     * @expectedExceptionMessage The rackspace connector requires authentication.
-     */
     public function testConnectWithoutUsername()
     {
+        $this->expectException(\InvalidArgumentException::class);
+        $this->expectExceptionMessage('The rackspace connector requires authentication.');
+
         $connector = $this->getRackspaceConnector();
 
         $connector->connect([
@@ -92,12 +89,11 @@ class RackspaceConnectorTest extends AbstractTestCase
         ]);
     }
 
-    /**
-     * @expectedException \InvalidArgumentException
-     * @expectedExceptionMessage The rackspace connector requires authentication.
-     */
     public function testConnectWithoutApiKey()
     {
+        $this->expectException(\InvalidArgumentException::class);
+        $this->expectExceptionMessage('The rackspace connector requires authentication.');
+
         $connector = $this->getRackspaceConnector();
 
         $connector->connect([
@@ -108,12 +104,11 @@ class RackspaceConnectorTest extends AbstractTestCase
         ]);
     }
 
-    /**
-     * @expectedException \InvalidArgumentException
-     * @expectedExceptionMessage The rackspace connector requires container configuration.
-     */
     public function testConnectWithoutContainer()
     {
+        $this->expectException(\InvalidArgumentException::class);
+        $this->expectExceptionMessage('The rackspace connector requires container configuration.');
+
         $connector = $this->getRackspaceConnector();
 
         $connector->connect([
@@ -124,11 +119,10 @@ class RackspaceConnectorTest extends AbstractTestCase
         ]);
     }
 
-    /**
-     * @expectedException \Guzzle\Http\Exception\ClientErrorResponseException
-     */
     public function testConnectWithInternal()
     {
+        $this->expectException(\Guzzle\Http\Exception\ClientErrorResponseException::class);
+
         $connector = $this->getRackspaceConnector();
 
         try {
@@ -145,11 +139,10 @@ class RackspaceConnectorTest extends AbstractTestCase
         }
     }
 
-    /**
-     * @expectedException \Guzzle\Http\Exception\ClientErrorResponseException
-     */
     public function testConnectWithInternalFalse()
     {
+        $this->expectException(\Guzzle\Http\Exception\ClientErrorResponseException::class);
+
         $connector = $this->getRackspaceConnector();
 
         try {

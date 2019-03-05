@@ -42,12 +42,11 @@ class LocalConnectorTest extends AbstractTestCase
         $this->assertInstanceOf(Local::class, $return);
     }
 
-    /**
-     * @expectedException \InvalidArgumentException
-     * @expectedExceptionMessage The local connector requires path configuration.
-     */
     public function testConnectWithoutPath()
     {
+        $this->expectException(\InvalidArgumentException::class);
+        $this->expectExceptionMessage('The local connector requires path configuration.');
+
         $connector = $this->getLocalConnector();
 
         $connector->connect([]);

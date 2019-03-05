@@ -77,12 +77,11 @@ class FlysystemManagerTest extends AbstractTestBenchTestCase
         $this->assertArrayHasKey('local', $manager->getConnections());
     }
 
-    /**
-     * @expectedException \InvalidArgumentException
-     * @expectedExceptionMessage Adapter [error] not configured.
-     */
     public function testConnectionError()
     {
+        $this->expectException(\InvalidArgumentException::class);
+        $this->expectExceptionMessage('Adapter [error] not configured.');
+
         $manager = $this->getManager();
 
         $config = ['driver' => 'error', 'path' => __DIR__];
@@ -95,12 +94,11 @@ class FlysystemManagerTest extends AbstractTestBenchTestCase
         $manager->connection('error');
     }
 
-    /**
-     * @expectedException \InvalidArgumentException
-     * @expectedExceptionMessage Cache [foo] not configured.
-     */
     public function testConnectionErrorCache()
     {
+        $this->expectException(\InvalidArgumentException::class);
+        $this->expectExceptionMessage('Cache [foo] not configured.');
+
         $manager = $this->getManager();
 
         $config = ['driver' => 'local', 'path' => __DIR__, 'cache' => 'foo'];

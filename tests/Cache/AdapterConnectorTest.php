@@ -49,12 +49,11 @@ class AdapterConnectorTest extends AbstractTestCase
         $this->assertInstanceOf(Adapter::class, $return);
     }
 
-    /**
-     * @expectedException \InvalidArgumentException
-     * @expectedExceptionMessage The adapter connector requires adapter configuration.
-     */
     public function testConnectError()
     {
+        $this->expectException(\InvalidArgumentException::class);
+        $this->expectExceptionMessage('The adapter connector requires adapter configuration.');
+
         $connector = $this->getAdapterConnector();
 
         $connector->connect([]);

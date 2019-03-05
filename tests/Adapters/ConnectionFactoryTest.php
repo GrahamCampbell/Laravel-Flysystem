@@ -75,23 +75,21 @@ class ConnectionFactoryTest extends AbstractTestCase
         $this->assertInstanceOf($class, $return);
     }
 
-    /**
-     * @expectedException \InvalidArgumentException
-     * @expectedExceptionMessage A driver must be specified.
-     */
     public function testCreateEmptyDriverConnector()
     {
+        $this->expectException(\InvalidArgumentException::class);
+        $this->expectExceptionMessage('A driver must be specified.');
+
         $factory = $this->getConnectionFactory();
 
         $factory->createConnector([]);
     }
 
-    /**
-     * @expectedException \InvalidArgumentException
-     * @expectedExceptionMessage Unsupported driver [unsupported].
-     */
     public function testCreateUnsupportedDriverConnector()
     {
+        $this->expectException(\InvalidArgumentException::class);
+        $this->expectExceptionMessage('Unsupported driver [unsupported].');
+
         $factory = $this->getConnectionFactory();
 
         $factory->createConnector(['driver' => 'unsupported']);
