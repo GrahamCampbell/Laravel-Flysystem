@@ -15,6 +15,7 @@ namespace GrahamCampbell\Tests\Flysystem\Adapters;
 
 use GrahamCampbell\Flysystem\Adapters\ZipConnector;
 use GrahamCampbell\TestBench\AbstractTestCase;
+use InvalidArgumentException;
 use League\Flysystem\ZipArchive\ZipArchiveAdapter;
 
 /**
@@ -42,12 +43,11 @@ class ZipConnectorTest extends AbstractTestCase
         $this->assertInstanceOf(ZipArchiveAdapter::class, $return);
     }
 
-    /**
-     * @expectedException \InvalidArgumentException
-     * @expectedExceptionMessage The zip connector requires path configuration.
-     */
     public function testConnectWithoutPath()
     {
+        $this->expectException(InvalidArgumentException::class);
+        $this->expectExceptionMessage('The zip connector requires path configuration.');
+
         $connector = $this->getZipConnector();
 
         $connector->connect([]);

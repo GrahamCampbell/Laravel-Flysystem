@@ -15,6 +15,7 @@ namespace GrahamCampbell\Tests\Flysystem\Adapters;
 
 use GrahamCampbell\Flysystem\Adapters\AwsS3Connector;
 use GrahamCampbell\TestBench\AbstractTestCase;
+use InvalidArgumentException;
 use League\Flysystem\AwsS3v3\AwsS3Adapter;
 
 /**
@@ -139,12 +140,11 @@ class AwsS3ConnectorTest extends AbstractTestCase
         $this->assertInstanceOf(AwsS3Adapter::class, $return);
     }
 
-    /**
-     * @expectedException \InvalidArgumentException
-     * @expectedExceptionMessage The awss3 connector requires bucket configuration.
-     */
     public function testConnectWithoutBucket()
     {
+        $this->expectException(InvalidArgumentException::class);
+        $this->expectExceptionMessage('The awss3 connector requires bucket configuration.');
+
         $connector = $this->getAwsS3Connector();
 
         $connector->connect([
@@ -169,12 +169,11 @@ class AwsS3ConnectorTest extends AbstractTestCase
         $this->assertInstanceOf(AwsS3Adapter::class, $return);
     }
 
-    /**
-     * @expectedException \InvalidArgumentException
-     * @expectedExceptionMessage The awss3 connector requires authentication.
-     */
     public function testConnectWithoutSecret()
     {
+        $this->expectException(InvalidArgumentException::class);
+        $this->expectExceptionMessage('The awss3 connector requires authentication.');
+
         $connector = $this->getAwsS3Connector();
 
         $connector->connect([
@@ -185,12 +184,11 @@ class AwsS3ConnectorTest extends AbstractTestCase
         ]);
     }
 
-    /**
-     * @expectedException \InvalidArgumentException
-     * @expectedExceptionMessage The awss3 connector requires version configuration.
-     */
     public function testConnectWithoutVersion()
     {
+        $this->expectException(InvalidArgumentException::class);
+        $this->expectExceptionMessage('The awss3 connector requires version configuration.');
+
         $connector = $this->getAwsS3Connector();
 
         $connector->connect([
@@ -201,12 +199,11 @@ class AwsS3ConnectorTest extends AbstractTestCase
         ]);
     }
 
-    /**
-     * @expectedException \InvalidArgumentException
-     * @expectedExceptionMessage The awss3 connector requires region configuration.
-     */
     public function testConnectWithoutRegion()
     {
+        $this->expectException(InvalidArgumentException::class);
+        $this->expectExceptionMessage('The awss3 connector requires region configuration.');
+
         $connector = $this->getAwsS3Connector();
 
         $connector->connect([

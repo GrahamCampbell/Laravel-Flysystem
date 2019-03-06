@@ -17,6 +17,7 @@ use GrahamCampbell\Flysystem\Cache\AdapterConnector;
 use GrahamCampbell\Flysystem\FlysystemFactory;
 use GrahamCampbell\Flysystem\FlysystemManager;
 use GrahamCampbell\TestBench\AbstractTestCase;
+use InvalidArgumentException;
 use League\Flysystem\Adapter\Local;
 use League\Flysystem\Cached\Storage\Adapter;
 use Mockery;
@@ -49,12 +50,11 @@ class AdapterConnectorTest extends AbstractTestCase
         $this->assertInstanceOf(Adapter::class, $return);
     }
 
-    /**
-     * @expectedException \InvalidArgumentException
-     * @expectedExceptionMessage The adapter connector requires adapter configuration.
-     */
     public function testConnectError()
     {
+        $this->expectException(InvalidArgumentException::class);
+        $this->expectExceptionMessage('The adapter connector requires adapter configuration.');
+
         $connector = $this->getAdapterConnector();
 
         $connector->connect([]);

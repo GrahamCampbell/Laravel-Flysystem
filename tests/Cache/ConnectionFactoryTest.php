@@ -19,6 +19,7 @@ use GrahamCampbell\Flysystem\Cache\IlluminateConnector;
 use GrahamCampbell\Flysystem\FlysystemManager;
 use GrahamCampbell\TestBench\AbstractTestCase;
 use Illuminate\Contracts\Cache\Factory;
+use InvalidArgumentException;
 use League\Flysystem\Cached\CacheInterface;
 use Mockery;
 
@@ -62,12 +63,11 @@ class ConnectionFactoryTest extends AbstractTestCase
         $this->assertInstanceOf(AdapterConnector::class, $return);
     }
 
-    /**
-     * @expectedException \InvalidArgumentException
-     * @expectedExceptionMessage A driver must be specified.
-     */
     public function testCreateEmptyDriverConnector()
     {
+        $this->expectException(InvalidArgumentException::class);
+        $this->expectExceptionMessage('A driver must be specified.');
+
         $manager = Mockery::mock(FlysystemManager::class);
 
         $factory = $this->getConnectionFactory();
@@ -75,12 +75,11 @@ class ConnectionFactoryTest extends AbstractTestCase
         $factory->createConnector([], $manager);
     }
 
-    /**
-     * @expectedException \InvalidArgumentException
-     * @expectedExceptionMessage Unsupported driver [unsupported].
-     */
     public function testCreateUnsupportedDriverConnector()
     {
+        $this->expectException(InvalidArgumentException::class);
+        $this->expectExceptionMessage('Unsupported driver [unsupported].');
+
         $manager = Mockery::mock(FlysystemManager::class);
 
         $factory = $this->getConnectionFactory();

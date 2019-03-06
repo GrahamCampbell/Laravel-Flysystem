@@ -15,6 +15,7 @@ namespace GrahamCampbell\Tests\Flysystem\Adapters;
 
 use GrahamCampbell\Flysystem\Adapters\AzureConnector;
 use GrahamCampbell\TestBench\AbstractTestCase;
+use InvalidArgumentException;
 use League\Flysystem\Azure\AzureAdapter;
 
 /**
@@ -37,12 +38,11 @@ class AzureConnectorTest extends AbstractTestCase
         $this->assertInstanceOf(AzureAdapter::class, $return);
     }
 
-    /**
-     * @expectedException \InvalidArgumentException
-     * @expectedExceptionMessage The azure connector requires authentication.
-     */
     public function testConnectWithoutAccountName()
     {
+        $this->expectException(InvalidArgumentException::class);
+        $this->expectExceptionMessage('The azure connector requires authentication.');
+
         $connector = $this->getAzureConnector();
 
         $connector->connect([
@@ -51,12 +51,11 @@ class AzureConnectorTest extends AbstractTestCase
         ]);
     }
 
-    /**
-     * @expectedException \InvalidArgumentException
-     * @expectedExceptionMessage The azure connector requires authentication.
-     */
     public function testConnectWithoutApiKey()
     {
+        $this->expectException(InvalidArgumentException::class);
+        $this->expectExceptionMessage('The azure connector requires authentication.');
+
         $connector = $this->getAzureConnector();
 
         $connector->connect([
@@ -65,12 +64,11 @@ class AzureConnectorTest extends AbstractTestCase
         ]);
     }
 
-    /**
-     * @expectedException \InvalidArgumentException
-     * @expectedExceptionMessage The azure connector requires container configuration.
-     */
     public function testConnectWithoutContainer()
     {
+        $this->expectException(InvalidArgumentException::class);
+        $this->expectExceptionMessage('The azure connector requires container configuration.');
+
         $connector = $this->getAzureConnector();
 
         $connector->connect([
