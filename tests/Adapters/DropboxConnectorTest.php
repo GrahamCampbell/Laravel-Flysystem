@@ -15,6 +15,7 @@ namespace GrahamCampbell\Tests\Flysystem\Adapters;
 
 use GrahamCampbell\Flysystem\Adapters\DropboxConnector;
 use GrahamCampbell\TestBench\AbstractTestCase;
+use InvalidArgumentException;
 use Spatie\FlysystemDropbox\DropboxAdapter;
 
 /**
@@ -49,7 +50,7 @@ class DropboxConnectorTest extends AbstractTestCase
 
     public function testConnectWithoutToken()
     {
-        $this->expectException(\InvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         $this->expectExceptionMessage('The dropbox connector requires authentication.');
 
         $connector = $this->getDropboxConnector();

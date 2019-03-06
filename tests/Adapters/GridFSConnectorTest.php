@@ -15,6 +15,7 @@ namespace GrahamCampbell\Tests\Flysystem\Adapters;
 
 use GrahamCampbell\Flysystem\Adapters\GridFSConnector;
 use GrahamCampbell\TestBench\AbstractTestCase;
+use InvalidArgumentException;
 use League\Flysystem\GridFS\GridFSAdapter;
 use MongoClient;
 use MongoConnectionException;
@@ -51,7 +52,7 @@ class GridFSConnectorTest extends AbstractTestCase
      */
     public function testConnectWithoutDatabase()
     {
-        $this->expectException(\InvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         $this->expectExceptionMessage('The gridfs connector requires database configuration.');
 
         $connector = $this->getGridFSConnector();
@@ -61,7 +62,7 @@ class GridFSConnectorTest extends AbstractTestCase
 
     public function testConnectWithoutServer()
     {
-        $this->expectException(\InvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         $this->expectExceptionMessage('The gridfs connector requires server configuration.');
 
         $connector = $this->getGridFSConnector();

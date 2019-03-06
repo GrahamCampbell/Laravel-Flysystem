@@ -15,7 +15,9 @@ namespace GrahamCampbell\Tests\Flysystem\Adapters;
 
 use GrahamCampbell\Flysystem\Adapters\RackspaceConnector;
 use GrahamCampbell\TestBench\AbstractTestCase;
+use Guzzle\Http\Exception\ClientErrorResponseException;
 use Guzzle\Http\Exception\CurlException;
+use InvalidArgumentException;
 
 /**
  * This is the rackspace connector test class.
@@ -26,7 +28,7 @@ class RackspaceConnectorTest extends AbstractTestCase
 {
     public function testConnect()
     {
-        $this->expectException(\Guzzle\Http\Exception\ClientErrorResponseException::class);
+        $this->expectException(ClientErrorResponseException::class);
         $connector = $this->getRackspaceConnector();
 
         try {
@@ -44,7 +46,7 @@ class RackspaceConnectorTest extends AbstractTestCase
 
     public function testConnectWithoutEndpoint()
     {
-        $this->expectException(\InvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         $this->expectExceptionMessage('The rackspace connector requires endpoint configuration.');
 
         $connector = $this->getRackspaceConnector();
@@ -59,7 +61,7 @@ class RackspaceConnectorTest extends AbstractTestCase
 
     public function testConnectWithoutRegion()
     {
-        $this->expectException(\InvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         $this->expectExceptionMessage('The rackspace connector requires region configuration.');
 
         $connector = $this->getRackspaceConnector();
@@ -74,7 +76,7 @@ class RackspaceConnectorTest extends AbstractTestCase
 
     public function testConnectWithoutUsername()
     {
-        $this->expectException(\InvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         $this->expectExceptionMessage('The rackspace connector requires authentication.');
 
         $connector = $this->getRackspaceConnector();
@@ -89,7 +91,7 @@ class RackspaceConnectorTest extends AbstractTestCase
 
     public function testConnectWithoutApiKey()
     {
-        $this->expectException(\InvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         $this->expectExceptionMessage('The rackspace connector requires authentication.');
 
         $connector = $this->getRackspaceConnector();
@@ -104,7 +106,7 @@ class RackspaceConnectorTest extends AbstractTestCase
 
     public function testConnectWithoutContainer()
     {
-        $this->expectException(\InvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         $this->expectExceptionMessage('The rackspace connector requires container configuration.');
 
         $connector = $this->getRackspaceConnector();
@@ -119,7 +121,7 @@ class RackspaceConnectorTest extends AbstractTestCase
 
     public function testConnectWithInternal()
     {
-        $this->expectException(\Guzzle\Http\Exception\ClientErrorResponseException::class);
+        $this->expectException(ClientErrorResponseException::class);
 
         $connector = $this->getRackspaceConnector();
 
@@ -139,7 +141,7 @@ class RackspaceConnectorTest extends AbstractTestCase
 
     public function testConnectWithInternalFalse()
     {
-        $this->expectException(\Guzzle\Http\Exception\ClientErrorResponseException::class);
+        $this->expectException(ClientErrorResponseException::class);
 
         $connector = $this->getRackspaceConnector();
 

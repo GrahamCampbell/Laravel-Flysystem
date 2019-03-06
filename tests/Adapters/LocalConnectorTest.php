@@ -15,6 +15,7 @@ namespace GrahamCampbell\Tests\Flysystem\Adapters;
 
 use GrahamCampbell\Flysystem\Adapters\LocalConnector;
 use GrahamCampbell\TestBench\AbstractTestCase;
+use InvalidArgumentException;
 use League\Flysystem\Adapter\Local;
 
 /**
@@ -44,7 +45,7 @@ class LocalConnectorTest extends AbstractTestCase
 
     public function testConnectWithoutPath()
     {
-        $this->expectException(\InvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         $this->expectExceptionMessage('The local connector requires path configuration.');
 
         $connector = $this->getLocalConnector();
