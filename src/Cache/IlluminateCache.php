@@ -38,9 +38,9 @@ class IlluminateCache extends AbstractCache
     protected $key;
 
     /**
-     * The cache ttl in mins.
+     * The cache ttl in seconds.
      *
-     * @var int
+     * @var int|null
      */
     protected $ttl;
 
@@ -55,10 +55,7 @@ class IlluminateCache extends AbstractCache
     {
         $this->client = $client;
         $this->key = $key;
-
-        if ($ttl) {
-            $this->ttl = (int) ceil($ttl / 60);
-        }
+        $this->ttl = $ttl;
     }
 
     /**
@@ -85,7 +82,7 @@ class IlluminateCache extends AbstractCache
         $contents = $this->getForStorage();
 
         if ($this->ttl !== null) {
-            $this->client->put($this->key, $contents, $this->ttl);
+            $this->client->put($this->key, $contents, LifetimeHelper::computeLifetime($this->ttl));
         } else {
             $this->client->forever($this->key, $contents);
         }

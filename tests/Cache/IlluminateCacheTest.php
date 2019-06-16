@@ -14,6 +14,7 @@ declare(strict_types=1);
 namespace GrahamCampbell\Tests\Flysystem\Cache;
 
 use GrahamCampbell\Flysystem\Cache\IlluminateCache;
+use GrahamCampbell\Flysystem\Cache\LifetimeHelper;
 use GrahamCampbell\TestBench\AbstractTestCase;
 use Illuminate\Contracts\Cache\Store;
 use Mockery;
@@ -51,7 +52,7 @@ class IlluminateCacheTest extends AbstractTestCase
 
         $cache->shouldReceive('getForStorage')->once()->andReturn('herro');
 
-        $cache->getClient()->shouldReceive('put')->once()->with('foobarkey', 'herro', 2);
+        $cache->getClient()->shouldReceive('put')->once()->with('foobarkey', 'herro', LifetimeHelper::isLegacy() ? 2 : 95);
 
         $this->assertNull($cache->save());
     }
