@@ -2,6 +2,12 @@ CHANGE LOG
 ==========
 
 
+## V5.3 (16/06/2019)
+
+* Fixed cache TTL on Laravel 5.8
+* Added Google Cloud Storage adapter
+
+
 ## V5.2 (07/03/2019)
 
 * Added Laravel 5.8 support
