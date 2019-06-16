@@ -58,6 +58,8 @@ class ConnectionFactory
                 return new DropboxConnector();
             case 'ftp':
                 return new FtpConnector();
+            case 'gcs':
+                return new GoogleCloudStorageConnector();
             case 'gridfs':
                 return new GridFSConnector();
             case 'local':

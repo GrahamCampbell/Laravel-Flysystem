@@ -94,6 +94,15 @@ return [
             // 'cache'      => 'foo'
         ],
 
+        'gcs' => [
+            'driver'    => 'gcs',
+            'projectId' => 'your-project-id',
+            'keyFile'   => 'your-key-file',
+            'bucket'    => 'your-bucket',
+            // 'prefix'    => 'your-prefix',
+            // 'apiUri'    => 'http://your-domain.com',
+        ],
+
         'gridfs' => [
             'driver'     => 'gridfs',
             'server'     => 'mongodb://localhost:27017',
