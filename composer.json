@@ -30,6 +30,7 @@
         "league/flysystem-sftp": "^1.0",
         "league/flysystem-webdav": "^1.0",
         "league/flysystem-ziparchive": "^1.0",
+        "superbalist/flysystem-google-storage": "^7.2",
         "mockery/mockery": "^1.0",
         "phpunit/phpunit": "^6.5|^7.0|^8.0"
     },
@@ -44,7 +45,8 @@
         "league/flysystem-replicate-adapter": "Replicate adapter support.",
         "league/flysystem-sftp": "Sftp adapter support.",
         "league/flysystem-webdav": "WebDav adapter support.",
-        "league/flysystem-ziparchive": "ZipArchive adapter support."
+        "league/flysystem-ziparchive": "ZipArchive adapter support.",
+        "superbalist/flysystem-google-storage": "GoogleCloudStorage adapter support."
     },
     "autoload": {
         "psr-4": {

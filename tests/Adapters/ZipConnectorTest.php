@@ -29,7 +29,7 @@ class ZipConnectorTest extends AbstractTestCase
     {
         $connector = $this->getZipConnector();
 
-        $return = $connector->connect(['path' => __DIR__.'\stubs\test.zip']);
+        $return = $connector->connect(['path' => __DIR__.'/stubs/test.zip']);
 
         $this->assertInstanceOf(ZipArchiveAdapter::class, $return);
     }
@@ -38,7 +38,7 @@ class ZipConnectorTest extends AbstractTestCase
     {
         $connector = $this->getZipConnector();
 
-        $return = $connector->connect(['path' => __DIR__.'\stubs\test.zip', 'prefix' => 'your-prefix']);
+        $return = $connector->connect(['path' => __DIR__.'/stubs/test.zip', 'prefix' => 'your-prefix']);
 
         $this->assertInstanceOf(ZipArchiveAdapter::class, $return);
     }

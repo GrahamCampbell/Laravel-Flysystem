@@ -18,6 +18,7 @@ use GrahamCampbell\Flysystem\Adapters\AzureConnector;
 use GrahamCampbell\Flysystem\Adapters\ConnectionFactory;
 use GrahamCampbell\Flysystem\Adapters\DropboxConnector;
 use GrahamCampbell\Flysystem\Adapters\FtpConnector;
+use GrahamCampbell\Flysystem\Adapters\GoogleCloudStorageConnector;
 use GrahamCampbell\Flysystem\Adapters\GridFSConnector;
 use GrahamCampbell\Flysystem\Adapters\LocalConnector;
 use GrahamCampbell\Flysystem\Adapters\NullConnector;
@@ -54,6 +55,7 @@ class ConnectionFactoryTest extends AbstractTestCase
             ['azure', AzureConnector::class],
             ['dropbox', DropboxConnector::class],
             ['ftp', FtpConnector::class],
+            ['gcs', GoogleCloudStorageConnector::class],
             ['gridfs', GridFSConnector::class],
             ['local', LocalConnector::class],
             ['null', NullConnector::class],
