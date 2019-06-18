@@ -17,7 +17,6 @@ use GrahamCampbell\Flysystem\Adapters\GridFSConnector;
 use GrahamCampbell\TestBench\AbstractTestCase;
 use InvalidArgumentException;
 use League\Flysystem\GridFS\GridFSAdapter;
-use MongoClient;
 use MongoConnectionException;
 
 /**
