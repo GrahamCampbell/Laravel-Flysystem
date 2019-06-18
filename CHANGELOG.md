@@ -2,6 +2,12 @@ CHANGE LOG
 ==========
 
 
+## V6.0 (Upcoming)
+
+* Recommend mongo-php-adapter for GridFS
+* Upgraded to latest Azure SDK
+
+
 ## V5.3 (16/06/2019)
 
 * Fixed cache TTL on Laravel 5.8

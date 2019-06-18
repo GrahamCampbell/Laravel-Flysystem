@@ -16,7 +16,7 @@ namespace GrahamCampbell\Tests\Flysystem\Adapters;
 use GrahamCampbell\Flysystem\Adapters\AzureConnector;
 use GrahamCampbell\TestBench\AbstractTestCase;
 use InvalidArgumentException;
-use League\Flysystem\Azure\AzureAdapter;
+use League\Flysystem\AzureBlobStorage\AzureBlobStorageAdapter;
 
 /**
  * This is the adapter connector test class.
@@ -35,7 +35,7 @@ class AzureConnectorTest extends AbstractTestCase
             'container'    => 'your-container',
         ]);
 
-        $this->assertInstanceOf(AzureAdapter::class, $return);
+        $this->assertInstanceOf(AzureBlobStorageAdapter::class, $return);
     }
 
     public function testConnectWithoutAccountName()

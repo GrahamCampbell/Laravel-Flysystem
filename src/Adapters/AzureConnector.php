@@ -15,9 +15,8 @@ namespace GrahamCampbell\Flysystem\Adapters;
 
 use GrahamCampbell\Manager\ConnectorInterface;
 use InvalidArgumentException;
-use League\Flysystem\Azure\AzureAdapter;
-use MicrosoftAzure\Storage\Blob\Internal\IBlob;
-use MicrosoftAzure\Storage\Common\ServicesBuilder;
+use League\Flysystem\AzureBlobStorage\AzureBlobStorageAdapter;
+use MicrosoftAzure\Storage\Blob\BlobRestProxy;
 
 /**
  * This is the azure connector class.
@@ -31,7 +30,7 @@ class AzureConnector implements ConnectorInterface
      *
      * @param string[] $config
      *
-     * @return \League\Flysystem\Azure\AzureAdapter
+     * @return \League\Flysystem\AzureBlobStorage\AzureBlobStorageAdapter
      */
     public function connect(array $config)
     {
@@ -65,13 +64,13 @@ class AzureConnector implements ConnectorInterface
      *
      * @param string[] $auth
      *
-     * @return \MicrosoftAzure\Storage\Blob\Internal\IBlob
+     * @return \MicrosoftAzure\Storage\Blob\BlobRestProxy
      */
     protected function getClient(array $auth)
     {
         $endpoint = sprintf('DefaultEndpointsProtocol=https;AccountName=%s;AccountKey=%s', $auth['account-name'], $auth['api-key']);
 
-        return ServicesBuilder::getInstance()->createBlobService($endpoint);
+        return BlobRestProxy::createBlobService($endpoint);
     }
 
     /**
@@ -93,13 +92,13 @@ class AzureConnector implements ConnectorInterface
     /**
      * Get the container adapter.
      *
-     * @param \MicrosoftAzure\Storage\Blob\Internal\IBlob $client
-     * @param string[]                                    $config
+     * @param \MicrosoftAzure\Storage\Blob\BlobRestProxy $client
+     * @param string[]                                   $config
      *
-     * @return \League\Flysystem\Azure\AzureAdapter
+     * @return \League\Flysystem\AzureBlobStorage\AzureBlobStorageAdapter
      */
-    protected function getAdapter(IBlob $client, array $config)
+    protected function getAdapter(BlobRestProxy $client, array $config)
     {
-        return new AzureAdapter($client, $config['container']);
+        return new AzureBlobStorageAdapter($client, $config['container']);
     }
 }
