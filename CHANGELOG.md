@@ -6,6 +6,7 @@ CHANGE LOG
 
 * Recommend mongo-php-adapter for GridFS
 * Upgraded to latest Azure SDK
+* Avoid deprecated Laravel code
 
 
 ## V5.3 (16/06/2019)

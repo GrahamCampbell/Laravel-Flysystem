@@ -14,6 +14,7 @@ declare(strict_types=1);
 namespace GrahamCampbell\Flysystem\Adapters;
 
 use GrahamCampbell\Manager\ConnectorInterface;
+use Illuminate\Support\Arr;
 use InvalidArgumentException;
 use League\Flysystem\GridFS\GridFSAdapter;
 use MongoClient;
@@ -56,7 +57,7 @@ class GridFSConnector implements ConnectorInterface
             throw new InvalidArgumentException('The gridfs connector requires server configuration.');
         }
 
-        return array_only($config, ['server']);
+        return Arr::only($config, ['server']);
     }
 
     /**
@@ -84,7 +85,7 @@ class GridFSConnector implements ConnectorInterface
             throw new InvalidArgumentException('The gridfs connector requires database configuration.');
         }
 
-        return array_only($config, ['database']);
+        return Arr::only($config, ['database']);
     }
 
     /**

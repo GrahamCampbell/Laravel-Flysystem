@@ -14,6 +14,7 @@ declare(strict_types=1);
 namespace GrahamCampbell\Flysystem\Adapters;
 
 use GrahamCampbell\Manager\ConnectorInterface;
+use Illuminate\Support\Arr;
 use League\Flysystem\WebDAV\WebDAVAdapter;
 use Sabre\DAV\Client;
 
@@ -64,7 +65,7 @@ class WebDavConnector implements ConnectorInterface
             $config['prefix'] = null;
         }
 
-        return array_only($config, ['prefix']);
+        return Arr::only($config, ['prefix']);
     }
 
     /**

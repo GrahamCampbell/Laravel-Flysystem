@@ -15,6 +15,7 @@ namespace GrahamCampbell\Flysystem\Adapters;
 
 use Google\Cloud\Storage\StorageClient;
 use GrahamCampbell\Manager\ConnectorInterface;
+use Illuminate\Support\Arr;
 use InvalidArgumentException;
 use Superbalist\Flysystem\GoogleStorage\GoogleStorageAdapter;
 
@@ -95,7 +96,7 @@ class GoogleCloudStorageConnector implements ConnectorInterface
             throw new InvalidArgumentException('The gcs connector requires bucket configuration.');
         }
 
-        return array_only($config, ['bucket', 'prefix', 'apiUri']);
+        return Arr::only($config, ['bucket', 'prefix', 'apiUri']);
     }
 
     /**

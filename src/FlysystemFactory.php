@@ -15,6 +15,7 @@ namespace GrahamCampbell\Flysystem;
 
 use GrahamCampbell\Flysystem\Adapters\ConnectionFactory as AdapterFactory;
 use GrahamCampbell\Flysystem\Cache\ConnectionFactory as CacheFactory;
+use Illuminate\Support\Arr;
 use League\Flysystem\Cached\CachedAdapter;
 use League\Flysystem\EventableFilesystem\EventableFilesystem;
 use League\Flysystem\Filesystem;
@@ -66,13 +67,13 @@ class FlysystemFactory
     {
         $adapter = $this->createAdapter($config);
 
-        if (is_array($cache = array_get($config, 'cache', false))) {
+        if (is_array($cache = Arr::get($config, 'cache', false))) {
             $adapter = new CachedAdapter($adapter, $this->createCache($cache, $manager));
         }
 
         $options = $this->getOptions($config);
 
-        if (array_get($config, 'eventable', false)) {
+        if (Arr::get($config, 'eventable', false)) {
             return new EventableFilesystem($adapter, $options);
         }
 
@@ -88,7 +89,7 @@ class FlysystemFactory
      */
     public function createAdapter(array $config)
     {
-        $config = array_except($config, ['cache', 'eventable', 'visibility']);
+        $config = Arr::except($config, ['cache', 'eventable', 'visibility']);
 
         return $this->adapter->make($config);
     }
@@ -117,11 +118,11 @@ class FlysystemFactory
     {
         $options = [];
 
-        if ($visibility = array_get($config, 'visibility')) {
+        if ($visibility = Arr::get($config, 'visibility')) {
             $options['visibility'] = $visibility;
         }
 
-        if ($pirate = array_get($config, 'pirate')) {
+        if ($pirate = Arr::get($config, 'pirate')) {
             $options['disable_asserts'] = $pirate;
         }
 

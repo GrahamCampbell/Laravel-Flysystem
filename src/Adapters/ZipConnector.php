@@ -14,6 +14,7 @@ declare(strict_types=1);
 namespace GrahamCampbell\Flysystem\Adapters;
 
 use GrahamCampbell\Manager\ConnectorInterface;
+use Illuminate\Support\Arr;
 use InvalidArgumentException;
 use League\Flysystem\ZipArchive\ZipArchiveAdapter;
 
@@ -53,7 +54,7 @@ class ZipConnector implements ConnectorInterface
             throw new InvalidArgumentException('The zip connector requires path configuration.');
         }
 
-        return array_only($config, ['path']);
+        return Arr::only($config, ['path']);
     }
 
     /**

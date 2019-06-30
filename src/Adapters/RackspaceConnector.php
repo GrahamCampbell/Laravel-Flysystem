@@ -14,6 +14,7 @@ declare(strict_types=1);
 namespace GrahamCampbell\Flysystem\Adapters;
 
 use GrahamCampbell\Manager\ConnectorInterface;
+use Illuminate\Support\Arr;
 use InvalidArgumentException;
 use League\Flysystem\Rackspace\RackspaceAdapter;
 use OpenCloud\ObjectStore\Resource\Container;
@@ -70,7 +71,7 @@ class RackspaceConnector implements ConnectorInterface
             throw new InvalidArgumentException('The rackspace connector requires container configuration.');
         }
 
-        return array_only($config, ['username', 'apiKey', 'endpoint', 'region', 'container', 'internal']);
+        return Arr::only($config, ['username', 'apiKey', 'endpoint', 'region', 'container', 'internal']);
     }
 
     /**
@@ -87,7 +88,7 @@ class RackspaceConnector implements ConnectorInterface
             'apiKey'   => $auth['apiKey'],
         ]);
 
-        $urlType = array_get($auth, 'internal', false) ? 'internalURL' : 'publicURL';
+        $urlType = Arr::get($auth, 'internal', false) ? 'internalURL' : 'publicURL';
 
         return $client->objectStoreService('cloudFiles', $auth['region'], $urlType)->getContainer($auth['container']);
     }

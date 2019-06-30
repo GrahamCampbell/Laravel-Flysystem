@@ -14,6 +14,7 @@ declare(strict_types=1);
 namespace GrahamCampbell\Flysystem\Adapters;
 
 use GrahamCampbell\Manager\ConnectorInterface;
+use Illuminate\Support\Arr;
 use InvalidArgumentException;
 use Spatie\Dropbox\Client;
 use Spatie\FlysystemDropbox\DropboxAdapter;
@@ -56,7 +57,7 @@ class DropboxConnector implements ConnectorInterface
             throw new InvalidArgumentException('The dropbox connector requires authentication.');
         }
 
-        return array_only($config, ['token']);
+        return Arr::only($config, ['token']);
     }
 
     /**
@@ -84,7 +85,7 @@ class DropboxConnector implements ConnectorInterface
             $config['prefix'] = null;
         }
 
-        return array_only($config, ['prefix']);
+        return Arr::only($config, ['prefix']);
     }
 
     /**

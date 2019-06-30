@@ -15,6 +15,7 @@ namespace GrahamCampbell\Flysystem\Adapters;
 
 use Aws\S3\S3Client;
 use GrahamCampbell\Manager\ConnectorInterface;
+use Illuminate\Support\Arr;
 use InvalidArgumentException;
 use League\Flysystem\AwsS3v3\AwsS3Adapter;
 
@@ -70,7 +71,7 @@ class AwsS3Connector implements ConnectorInterface
             if (!array_key_exists('secret', $config)) {
                 throw new InvalidArgumentException('The awss3 connector requires authentication.');
             }
-            $auth['credentials'] = array_only($config, ['key', 'secret']);
+            $auth['credentials'] = Arr::only($config, ['key', 'secret']);
         }
 
         if (array_key_exists('bucket_endpoint', $config)) {
@@ -123,7 +124,7 @@ class AwsS3Connector implements ConnectorInterface
             throw new InvalidArgumentException('The awss3 connector requires bucket configuration.');
         }
 
-        return array_only($config, ['bucket', 'prefix']);
+        return Arr::only($config, ['bucket', 'prefix']);
     }
 
     /**

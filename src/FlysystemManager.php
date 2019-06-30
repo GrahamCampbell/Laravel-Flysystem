@@ -15,6 +15,7 @@ namespace GrahamCampbell\Flysystem;
 
 use GrahamCampbell\Manager\AbstractManager;
 use Illuminate\Contracts\Config\Repository;
+use Illuminate\Support\Arr;
 use InvalidArgumentException;
 
 /**
@@ -107,11 +108,11 @@ class FlysystemManager extends AbstractManager
 
         $connections = $this->config->get($this->getConfigName().'.connections');
 
-        if (!is_array($config = array_get($connections, $name)) && !$config) {
+        if (!is_array($config = Arr::get($connections, $name)) && !$config) {
             throw new InvalidArgumentException("Adapter [$name] not configured.");
         }
 
-        if (is_string($cache = array_get($config, 'cache'))) {
+        if (is_string($cache = Arr::get($config, 'cache'))) {
             $config['cache'] = $this->getCacheConfig($cache);
         }
 
@@ -133,7 +134,7 @@ class FlysystemManager extends AbstractManager
     {
         $cache = $this->config->get($this->getConfigName().'.cache');
 
-        if (!is_array($config = array_get($cache, $name)) && !$config) {
+        if (!is_array($config = Arr::get($cache, $name)) && !$config) {
             throw new InvalidArgumentException("Cache [$name] not configured.");
         }
 

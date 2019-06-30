@@ -14,6 +14,7 @@ declare(strict_types=1);
 namespace GrahamCampbell\Flysystem\Adapters;
 
 use GrahamCampbell\Manager\ConnectorInterface;
+use Illuminate\Support\Arr;
 use InvalidArgumentException;
 use League\Flysystem\AzureBlobStorage\AzureBlobStorageAdapter;
 use MicrosoftAzure\Storage\Blob\BlobRestProxy;
@@ -56,7 +57,7 @@ class AzureConnector implements ConnectorInterface
             throw new InvalidArgumentException('The azure connector requires authentication.');
         }
 
-        return array_only($config, ['account-name', 'api-key']);
+        return Arr::only($config, ['account-name', 'api-key']);
     }
 
     /**
@@ -86,7 +87,7 @@ class AzureConnector implements ConnectorInterface
             throw new InvalidArgumentException('The azure connector requires container configuration.');
         }
 
-        return array_only($config, ['container']);
+        return Arr::only($config, ['container']);
     }
 
     /**

@@ -16,6 +16,7 @@ namespace GrahamCampbell\Flysystem\Cache;
 use GrahamCampbell\Manager\ConnectorInterface;
 use Illuminate\Contracts\Cache\Factory;
 use Illuminate\Contracts\Cache\Store;
+use Illuminate\Support\Arr;
 
 /**
  * This is the illuminate connector class.
@@ -66,7 +67,7 @@ class IlluminateConnector implements ConnectorInterface
      */
     protected function getClient(array $config)
     {
-        $name = array_get($config, 'connector');
+        $name = Arr::get($config, 'connector');
 
         return $this->cache->driver($name)->getStore();
     }
@@ -81,8 +82,8 @@ class IlluminateConnector implements ConnectorInterface
      */
     protected function getAdapter(Store $client, array $config)
     {
-        $key = array_get($config, 'key', 'flysystem');
-        $ttl = array_get($config, 'ttl');
+        $key = Arr::get($config, 'key', 'flysystem');
+        $ttl = Arr::get($config, 'ttl');
 
         return new IlluminateCache($client, $key, $ttl);
     }

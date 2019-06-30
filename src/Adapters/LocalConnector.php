@@ -14,6 +14,7 @@ declare(strict_types=1);
 namespace GrahamCampbell\Flysystem\Adapters;
 
 use GrahamCampbell\Manager\ConnectorInterface;
+use Illuminate\Support\Arr;
 use InvalidArgumentException;
 use League\Flysystem\Adapter\Local;
 
@@ -53,7 +54,7 @@ class LocalConnector implements ConnectorInterface
             throw new InvalidArgumentException('The local connector requires path configuration.');
         }
 
-        return array_only($config, ['path', 'write_flags', 'link_handling', 'permissions']);
+        return Arr::only($config, ['path', 'write_flags', 'link_handling', 'permissions']);
     }
 
     /**
@@ -67,9 +68,9 @@ class LocalConnector implements ConnectorInterface
     {
         // Pull parameters from config and set defaults for optional values
         $path = $config['path'];
-        $writeFlags = array_get($config, 'write_flags', LOCK_EX);
-        $linkHandling = array_get($config, 'link_handling', Local::DISALLOW_LINKS);
-        $permissions = array_get($config, 'permissions', []);
+        $writeFlags = Arr::get($config, 'write_flags', LOCK_EX);
+        $linkHandling = Arr::get($config, 'link_handling', Local::DISALLOW_LINKS);
+        $permissions = Arr::get($config, 'permissions', []);
 
         return new Local($path, $writeFlags, $linkHandling, $permissions);
     }

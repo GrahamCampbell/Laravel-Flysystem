@@ -15,6 +15,7 @@ namespace GrahamCampbell\Flysystem\Cache;
 
 use GrahamCampbell\Flysystem\FlysystemManager;
 use GrahamCampbell\Manager\ConnectorInterface;
+use Illuminate\Support\Arr;
 use InvalidArgumentException;
 use League\Flysystem\AdapterInterface;
 use League\Flysystem\Cached\Storage\Adapter;
@@ -87,7 +88,7 @@ class AdapterConnector implements ConnectorInterface
      */
     protected function getClient(array $config)
     {
-        $name = array_get($config, 'adapter');
+        $name = Arr::get($config, 'adapter');
         $config = $this->manager->getConnectionConfig($name);
 
         return $this->manager->getFactory()->createAdapter($config);
@@ -103,8 +104,8 @@ class AdapterConnector implements ConnectorInterface
      */
     protected function getAdapter(AdapterInterface $client, array $config)
     {
-        $file = array_get($config, 'file', 'flysystem.json');
-        $ttl = array_get($config, 'ttl');
+        $file = Arr::get($config, 'file', 'flysystem.json');
+        $ttl = Arr::get($config, 'ttl');
 
         return new Adapter($client, $file, $ttl);
     }
