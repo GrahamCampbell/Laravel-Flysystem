@@ -2,7 +2,7 @@ CHANGE LOG
 ==========
 
 
-## V6.0 (Upcoming)
+## V6.0 (30/06/2019)
 
 * Recommend mongo-php-adapter for GridFS
 * Upgraded to latest Azure SDK
