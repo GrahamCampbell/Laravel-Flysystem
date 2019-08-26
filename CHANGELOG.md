@@ -2,6 +2,11 @@ CHANGE LOG
 ==========
 
 
+## V6.1 (26/08/2019)
+
+* Added Laravel 6 support
+
+
 ## V6.0 (30/06/2019)
 
 * Recommend mongo-php-adapter for GridFS
