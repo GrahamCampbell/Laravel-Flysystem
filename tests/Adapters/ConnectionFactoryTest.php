@@ -21,6 +21,7 @@ use GrahamCampbell\Flysystem\Adapters\FtpConnector;
 use GrahamCampbell\Flysystem\Adapters\GoogleCloudStorageConnector;
 use GrahamCampbell\Flysystem\Adapters\GridFSConnector;
 use GrahamCampbell\Flysystem\Adapters\LocalConnector;
+use GrahamCampbell\Flysystem\Adapters\MinIOConnector;
 use GrahamCampbell\Flysystem\Adapters\NullConnector;
 use GrahamCampbell\Flysystem\Adapters\RackspaceConnector;
 use GrahamCampbell\Flysystem\Adapters\SftpConnector;
@@ -63,6 +64,7 @@ class ConnectionFactoryTest extends AbstractTestCase
             ['sftp', SftpConnector::class],
             ['webdav', WebDavConnector::class],
             ['zip', ZipConnector::class],
+            ['minio', MinIOConnector::class],
         ];
     }
 

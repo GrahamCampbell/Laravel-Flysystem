@@ -74,6 +74,8 @@ class ConnectionFactory
                 return new WebDavConnector();
             case 'zip':
                 return new ZipConnector();
+            case 'minio':
+                return new MinIOConnector();
         }
 
         throw new InvalidArgumentException("Unsupported driver [{$config['driver']}].");

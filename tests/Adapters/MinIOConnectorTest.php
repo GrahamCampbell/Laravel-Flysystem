@@ -13,22 +13,22 @@ declare(strict_types=1);
 
 namespace GrahamCampbell\Tests\Flysystem\Adapters;
 
-use GrahamCampbell\Flysystem\Adapters\AwsS3Connector;
+use GrahamCampbell\Flysystem\Adapters\MinIOConnector;
 use GrahamCampbell\TestBench\AbstractTestCase;
 use InvalidArgumentException;
-use League\Flysystem\MinIO\MinIOAdapter;
+use League\Flysystem\minio\minioAdapter;
 
 /**
- * This is the awss3 connector test class.
+ * This is the minio connector test class.
  *
  * @author Graham Campbell <graham@alt-three.com>
  * @author Raul Ruiz <publiux@gmail.com>
  */
-class AwsS3ConnectorTest extends AbstractTestCase
+class MinIOConnectorTest extends AbstractTestCase
 {
     public function testConnectStandard()
     {
-        $connector = $this->getAwsS3Connector();
+        $connector = $this->getMinIOConnector();
 
         $return = $connector->connect([
             'key'     => 'your-key',
@@ -38,12 +38,12 @@ class AwsS3ConnectorTest extends AbstractTestCase
             'version' => 'latest',
         ]);
 
-        $this->assertInstanceOf(MinIOAdapter::class, $return);
+        $this->assertInstanceOf(minioAdapter::class, $return);
     }
 
     public function testConnectWithPrefix()
     {
-        $connector = $this->getAwsS3Connector();
+        $connector = $this->getMinIOConnector();
 
         $return = $connector->connect([
             'key'     => 'your-key',
@@ -54,12 +54,12 @@ class AwsS3ConnectorTest extends AbstractTestCase
             'prefix'  => 'your-prefix',
         ]);
 
-        $this->assertInstanceOf(MinIOAdapter::class, $return);
+        $this->assertInstanceOf(minioAdapter::class, $return);
     }
 
     public function testConnectWithBucketEndPoint()
     {
-        $connector = $this->getAwsS3Connector();
+        $connector = $this->getMinIOConnector();
 
         $return = $connector->connect([
             'key'             => 'your-key',
@@ -70,12 +70,12 @@ class AwsS3ConnectorTest extends AbstractTestCase
             'bucket_endpoint' => false,
         ]);
 
-        $this->assertInstanceOf(MinIOAdapter::class, $return);
+        $this->assertInstanceOf(minioAdapter::class, $return);
     }
 
     public function testConnectWithCalculateMD5()
     {
-        $connector = $this->getAwsS3Connector();
+        $connector = $this->getMinIOConnector();
 
         $return = $connector->connect([
             'key'           => 'your-key',
@@ -86,12 +86,12 @@ class AwsS3ConnectorTest extends AbstractTestCase
             'calculate_md5' => true,
         ]);
 
-        $this->assertInstanceOf(MinIOAdapter::class, $return);
+        $this->assertInstanceOf(minioAdapter::class, $return);
     }
 
     public function testConnectWithScheme()
     {
-        $connector = $this->getAwsS3Connector();
+        $connector = $this->getMinIOConnector();
 
         $return = $connector->connect([
             'key'     => 'your-key',
@@ -102,12 +102,12 @@ class AwsS3ConnectorTest extends AbstractTestCase
             'scheme'  => 'https',
         ]);
 
-        $this->assertInstanceOf(MinIOAdapter::class, $return);
+        $this->assertInstanceOf(minioAdapter::class, $return);
     }
 
     public function testConnectWithEndPoint()
     {
-        $connector = $this->getAwsS3Connector();
+        $connector = $this->getMinIOConnector();
 
         $return = $connector->connect([
             'key'      => 'your-key',
@@ -118,12 +118,12 @@ class AwsS3ConnectorTest extends AbstractTestCase
             'endpoint' => 'https://example.com',
         ]);
 
-        $this->assertInstanceOf(MinIOAdapter::class, $return);
+        $this->assertInstanceOf(minioAdapter::class, $return);
     }
 
     public function testConnectWithEverything()
     {
-        $connector = $this->getAwsS3Connector();
+        $connector = $this->getMinIOConnector();
 
         $return = $connector->connect([
             'key'             => 'your-key',
@@ -137,15 +137,15 @@ class AwsS3ConnectorTest extends AbstractTestCase
             'endpoint'        => 'https://example.com',
         ]);
 
-        $this->assertInstanceOf(MinIOAdapter::class, $return);
+        $this->assertInstanceOf(minioAdapter::class, $return);
     }
 
     public function testConnectWithoutBucket()
     {
         $this->expectException(InvalidArgumentException::class);
-        $this->expectExceptionMessage('The awss3 connector requires bucket configuration.');
+        $this->expectExceptionMessage('The minio connector requires bucket configuration.');
 
-        $connector = $this->getAwsS3Connector();
+        $connector = $this->getMinIOConnector();
 
         $connector->connect([
             'key'     => 'your-key',
@@ -157,7 +157,7 @@ class AwsS3ConnectorTest extends AbstractTestCase
 
     public function testConnectWithoutKey()
     {
-        $connector = $this->getAwsS3Connector();
+        $connector = $this->getMinIOConnector();
 
         $return = $connector->connect([
             'secret'  => 'your-secret',
@@ -166,15 +166,15 @@ class AwsS3ConnectorTest extends AbstractTestCase
             'version' => 'latest',
         ]);
 
-        $this->assertInstanceOf(MinIOAdapter::class, $return);
+        $this->assertInstanceOf(minioAdapter::class, $return);
     }
 
     public function testConnectWithoutSecret()
     {
         $this->expectException(InvalidArgumentException::class);
-        $this->expectExceptionMessage('The awss3 connector requires authentication.');
+        $this->expectExceptionMessage('The minio connector requires authentication.');
 
-        $connector = $this->getAwsS3Connector();
+        $connector = $this->getMinIOConnector();
 
         $connector->connect([
             'key'     => 'your-key',
@@ -187,9 +187,9 @@ class AwsS3ConnectorTest extends AbstractTestCase
     public function testConnectWithoutVersion()
     {
         $this->expectException(InvalidArgumentException::class);
-        $this->expectExceptionMessage('The awss3 connector requires version configuration.');
+        $this->expectExceptionMessage('The minio connector requires version configuration.');
 
-        $connector = $this->getAwsS3Connector();
+        $connector = $this->getMinIOConnector();
 
         $connector->connect([
             'key'    => 'your-key',
@@ -202,9 +202,9 @@ class AwsS3ConnectorTest extends AbstractTestCase
     public function testConnectWithoutRegion()
     {
         $this->expectException(InvalidArgumentException::class);
-        $this->expectExceptionMessage('The awss3 connector requires region configuration.');
+        $this->expectExceptionMessage('The minio connector requires region configuration.');
 
-        $connector = $this->getAwsS3Connector();
+        $connector = $this->getMinIOConnector();
 
         $connector->connect([
             'key'     => 'your-key',
@@ -214,8 +214,8 @@ class AwsS3ConnectorTest extends AbstractTestCase
         ]);
     }
 
-    protected function getAwsS3Connector()
+    protected function getMinIOConnector()
     {
-        return new AwsS3Connector();
+        return new MinIOConnector();
     }
 }
