@@ -13,7 +13,6 @@ declare(strict_types=1);
 
 namespace GrahamCampbell\Tests\Flysystem\Adapters;
 
-use GrahamCampbell\Flysystem\Adapters\AwsS3Connector;
 use GrahamCampbell\Flysystem\Adapters\MinioConnector;
 use GrahamCampbell\TestBench\AbstractTestCase;
 use InvalidArgumentException;

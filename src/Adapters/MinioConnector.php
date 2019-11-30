@@ -82,7 +82,6 @@ class MinioConnector implements ConnectorInterface
             $auth['bucket_endpoint'] = $config['bucket_endpoint'];
         }
 
-
         if (array_key_exists('scheme', $config)) {
             $auth['scheme'] = $config['scheme'];
         }
@@ -125,7 +124,7 @@ class MinioConnector implements ConnectorInterface
             throw new InvalidArgumentException('The minio connector requires bucket configuration.');
         }
 
-        return Arr::only($config, ['key','secret','region','endpoint','bucket']);
+        return Arr::only($config, ['key', 'secret', 'region', 'endpoint', 'bucket']);
     }
 
     /**
@@ -140,18 +139,19 @@ class MinioConnector implements ConnectorInterface
     {
         $client = new S3Client([
             'credentials' => [
-                'key' => $config["key"],
-                'secret' => $config["secret"]
+                'key'    => $config['key'],
+                'secret' => $config['secret'],
             ],
-            'region' => $config["region"],
-            'version' => "latest",
-            'bucket_endpoint' => false,
+            'region'                  => $config['region'],
+            'version'                 => 'latest',
+            'bucket_endpoint'         => false,
             'use_path_style_endpoint' => true,
-            'endpoint' => $config["endpoint"],
+            'endpoint'                => $config['endpoint'],
         ]);
         $options = [
-            'override_visibility_on_copy' => true
+            'override_visibility_on_copy' => true,
         ];
-        return new AwsS3Adapter($client, $config["bucket"], '', $options);
+
+        return new AwsS3Adapter($client, $config['bucket'], '', $options);
     }
 }
