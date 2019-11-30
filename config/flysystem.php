@@ -187,6 +187,22 @@ return [
             // 'cache'      => 'foo'
         ],
 
+        'minio' => [
+            'driver'          => 'minio',
+            'key'             => 'your-key',
+            'secret'          => 'your-secret',
+            'region'          => 'your-region',
+            'bucket'          => 'your-bucket',
+            'endpoint'        => 'your-url',
+            // 'cache'           => 'foo'
+            // 'eventable'       => true,
+            // 'pirate'          => false,
+            // 'visibility'      => 'public',
+            // 'prefix'          => 'your-prefix',
+            // 'scheme'          => 'https',
+            'bucket_endpoint' => true,
+            'version'         => 'latest',
+        ],
     ],
 
     /*
