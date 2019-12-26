@@ -3,7 +3,7 @@ Laravel Flysystem
 
 Laravel Flysystem was created by, and is maintained by [Graham Campbell](https://github.com/GrahamCampbell), and is a [Flysystem](https://github.com/thephpleague/flysystem) bridge for [Laravel 5](http://laravel.com). It utilises my [Laravel Manager](https://github.com/GrahamCampbell/Laravel-Manager) package. Feel free to check out the [change log](CHANGELOG.md), [releases](https://github.com/GrahamCampbell/Laravel-Flysystem/releases), [security policy](https://github.com/GrahamCampbell/Laravel-Flysystem/security/policy), [license](LICENSE), [code of conduct](.github/CODE_OF_CONDUCT.md), and [contribution guidelines](.github/CONTRIBUTING.md).
 
-![Laravel Flysystem](https://cloud.githubusercontent.com/assets/2829600/4432299/c12eac50-468c-11e4-93c3-5d587a2a56fa.PNG)
+![Banner](https://user-images.githubusercontent.com/2829600/71477347-60993680-27e1-11ea-9ae5-e8168f95c3a6.png)
 
 <p align="center">
 <a href="https://styleci.io/repos/15766264"><img src="https://styleci.io/repos/15766264/shield" alt="StyleCI Status"></img></a>
