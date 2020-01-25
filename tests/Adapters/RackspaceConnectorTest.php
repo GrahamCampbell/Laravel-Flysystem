@@ -18,6 +18,7 @@ use GrahamCampbell\TestBench\AbstractTestCase;
 use Guzzle\Http\Exception\ClientErrorResponseException;
 use Guzzle\Http\Exception\CurlException;
 use InvalidArgumentException;
+use Symfony\Component\EventDispatcher\Event;
 
 /**
  * This is the rackspace connector test class.
@@ -28,6 +29,10 @@ class RackspaceConnectorTest extends AbstractTestCase
 {
     public function testConnect()
     {
+        if (!class_exists(Event::class)) {
+            $this->markTestSkipped('Symfony 5 is not supported by the rackspace adapter.');
+        }
+
         $this->expectException(ClientErrorResponseException::class);
         $connector = $this->getRackspaceConnector();
 
@@ -121,6 +126,10 @@ class RackspaceConnectorTest extends AbstractTestCase
 
     public function testConnectWithInternal()
     {
+        if (!class_exists(Event::class)) {
+            $this->markTestSkipped('Symfony 5 is not supported by the rackspace adapter.');
+        }
+
         $this->expectException(ClientErrorResponseException::class);
 
         $connector = $this->getRackspaceConnector();
@@ -141,6 +150,10 @@ class RackspaceConnectorTest extends AbstractTestCase
 
     public function testConnectWithInternalFalse()
     {
+        if (!class_exists(Event::class)) {
+            $this->markTestSkipped('Symfony 5 is not supported by the rackspace adapter.');
+        }
+
         $this->expectException(ClientErrorResponseException::class);
 
         $connector = $this->getRackspaceConnector();

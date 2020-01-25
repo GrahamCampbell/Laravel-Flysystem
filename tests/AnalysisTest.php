@@ -18,6 +18,7 @@ use Laravel\Lumen\Application;
 use MongoClient;
 use MongoConnectionException;
 use PHPUnit\Framework\TestCase;
+use Symfony\Component\EventDispatcher\Event;
 
 /**
  * This is the analysis test class.
@@ -49,6 +50,6 @@ class AnalysisTest extends TestCase
      */
     protected function getIgnored()
     {
-        return [Application::class, MongoClient::class, MongoConnectionException::class];
+        return [Application::class, MongoClient::class, MongoConnectionException::class, Event::class];
     }
 }
