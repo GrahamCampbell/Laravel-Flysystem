@@ -18,6 +18,7 @@ use GrahamCampbell\Flysystem\Cache\ConnectionFactory as CacheFactory;
 use GrahamCampbell\Flysystem\FlysystemFactory;
 use GrahamCampbell\Flysystem\FlysystemManager;
 use GrahamCampbell\TestBench\AbstractTestCase as AbstractTestBenchTestCase;
+use InvalidArgumentException;
 use League\Flysystem\AdapterInterface;
 use League\Flysystem\Cached\CacheInterface;
 use League\Flysystem\EventableFilesystem\EventableFilesystem;
@@ -163,7 +164,7 @@ class FlysystemFactoryTest extends AbstractTestBenchTestCase
         $this->assertInstanceOf(AdapterInterface::class, $return);
     }
 
-    public function testCache()
+    public function testIlluminateCache()
     {
         $factory = $this->getFlysystemFactory();
 
@@ -179,10 +180,24 @@ class FlysystemFactoryTest extends AbstractTestBenchTestCase
         $this->assertInstanceOf(CacheInterface::class, $return);
     }
 
-    protected function getFlysystemFactory()
+    public function testNoFactoryCache()
+    {
+        $factory = $this->getFlysystemFactory(false);
+
+        $manager = Mockery::mock(FlysystemManager::class);
+
+        $config = ['driver' => 'illuminate', 'connector' => 'redis', 'name' => 'foo'];
+
+        $this->expectException(InvalidArgumentException::class);
+        $this->expectExceptionMessage('Illuminate caching support not available.');
+
+        $factory->createCache($config, $manager);
+    }
+
+    protected function getFlysystemFactory(bool $cache = true)
     {
         $adapter = Mockery::mock(AdapterFactory::class);
-        $cache = Mockery::mock(CacheFactory::class);
+        $cache = $cache ? Mockery::mock(CacheFactory::class) : new CacheFactory();
 
         return new FlysystemFactory($adapter, $cache);
     }

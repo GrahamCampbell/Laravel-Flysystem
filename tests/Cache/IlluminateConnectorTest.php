@@ -20,6 +20,7 @@ use Illuminate\Cache\ArrayStore;
 use Illuminate\Cache\RedisStore;
 use Illuminate\Cache\Repository;
 use Illuminate\Contracts\Cache\Factory;
+use InvalidArgumentException;
 use Mockery;
 
 /**
@@ -66,6 +67,16 @@ class IlluminateConnectorTest extends AbstractTestCase
         ]);
 
         $this->assertInstanceOf(IlluminateCache::class, $return);
+    }
+
+    public function testConnectNoCacheFactory()
+    {
+        $connector = new IlluminateConnector();
+
+        $this->expectException(InvalidArgumentException::class);
+        $this->expectExceptionMessage('Illuminate caching support not available.');
+
+        $connector->connect([]);
     }
 
     protected function getIlluminateConnector()

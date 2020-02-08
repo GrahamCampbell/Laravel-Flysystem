@@ -17,6 +17,7 @@ use GrahamCampbell\Manager\ConnectorInterface;
 use Illuminate\Contracts\Cache\Factory;
 use Illuminate\Contracts\Cache\Store;
 use Illuminate\Support\Arr;
+use InvalidArgumentException;
 
 /**
  * This is the illuminate connector class.
@@ -28,18 +29,18 @@ class IlluminateConnector implements ConnectorInterface
     /**
      * The cache factory instance.
      *
-     * @var \Illuminate\Contracts\Cache\Factory
+     * @var \Illuminate\Contracts\Cache\Factory|null
      */
     protected $cache;
 
     /**
      * Create a new illuminate connector instance.
      *
-     * @param \Illuminate\Contracts\Cache\Factory $cache
+     * @param \Illuminate\Contracts\Cache\Factory|null $cache
      *
      * @return void
      */
-    public function __construct(Factory $cache)
+    public function __construct(Factory $cache = null)
     {
         $this->cache = $cache;
     }
@@ -65,10 +66,16 @@ class IlluminateConnector implements ConnectorInterface
      *
      * @param string[] $config
      *
+     * @throws \InvalidArgumentException
+     *
      * @return \Illuminate\Contracts\Cache\Store
      */
     protected function getClient(array $config)
     {
+        if (!$this->cache) {
+            throw new InvalidArgumentException('Illuminate caching support not available.');
+        }
+
         $name = Arr::get($config, 'connector');
 
         return $this->cache->driver($name)->getStore();
@@ -93,7 +100,7 @@ class IlluminateConnector implements ConnectorInterface
     /**
      * Get the cache instance.
      *
-     * @return \Illuminate\Contracts\Cache\Factory
+     * @return \Illuminate\Contracts\Cache\Factory|null
      */
     public function getCache()
     {

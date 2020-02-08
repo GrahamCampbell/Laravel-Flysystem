@@ -27,18 +27,18 @@ class ConnectionFactory
     /**
      * The cache factory instance.
      *
-     * @var \Illuminate\Contracts\Cache\Factory
+     * @var \Illuminate\Contracts\Cache\Factory|null
      */
     protected $cache;
 
     /**
      * Create a new connection factory instance.
      *
-     * @param \Illuminate\Contracts\Cache\Factory $cache
+     * @param \Illuminate\Contracts\Cache\Factory|null $cache
      *
      * @return void
      */
-    public function __construct(Factory $cache)
+    public function __construct(Factory $cache = null)
     {
         $this->cache = $cache;
     }
@@ -87,9 +87,7 @@ class ConnectionFactory
     /**
      * Get the cache factory instance.
      *
-     * @codeCoverageIgnore
-     *
-     * @return \Illuminate\Contracts\Cache\Factory
+     * @return \Illuminate\Contracts\Cache\Factory|null
      */
     public function getCache()
     {

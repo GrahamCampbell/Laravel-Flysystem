@@ -93,7 +93,7 @@ class FlysystemServiceProvider extends ServiceProvider
     protected function registerCacheFactory()
     {
         $this->app->singleton('flysystem.cachefactory', function (Container $app) {
-            $cache = $app['cache'];
+            $cache = $app->bound('cache') ? $app->make('cache') : null;
 
             return new CacheFactory($cache);
         });
