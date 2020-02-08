@@ -61,6 +61,8 @@ class FlysystemFactory
      * @param array                                      $config
      * @param \GrahamCampbell\Flysystem\FlysystemManager $manager
      *
+     * @throws \InvalidArgumentException
+     *
      * @return \League\Flysystem\FilesystemInterface
      */
     public function make(array $config, FlysystemManager $manager)

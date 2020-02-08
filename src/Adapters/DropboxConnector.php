@@ -31,6 +31,8 @@ class DropboxConnector implements ConnectorInterface
      *
      * @param string[] $config
      *
+     * @throws \InvalidArgumentException
+     *
      * @return \Spatie\FlysystemDropbox\DropboxAdapter
      */
     public function connect(array $config)

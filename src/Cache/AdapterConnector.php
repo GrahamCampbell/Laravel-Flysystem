@@ -51,6 +51,8 @@ class AdapterConnector implements ConnectorInterface
      *
      * @param string[] $config
      *
+     * @throws \InvalidArgumentException
+     *
      * @return \League\Flysystem\Cached\Storage\Adapter
      */
     public function connect(array $config)

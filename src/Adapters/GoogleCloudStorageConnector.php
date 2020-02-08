@@ -32,6 +32,8 @@ class GoogleCloudStorageConnector implements ConnectorInterface
      *
      * @param string[] $config
      *
+     * @throws \InvalidArgumentException
+     *
      * @return \Superbalist\Flysystem\GoogleStorage\GoogleStorageAdapter
      */
     public function connect(array $config)

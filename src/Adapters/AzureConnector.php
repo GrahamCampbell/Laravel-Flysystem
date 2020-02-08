@@ -31,6 +31,8 @@ class AzureConnector implements ConnectorInterface
      *
      * @param string[] $config
      *
+     * @throws \InvalidArgumentException
+     *
      * @return \League\Flysystem\AzureBlobStorage\AzureBlobStorageAdapter
      */
     public function connect(array $config)

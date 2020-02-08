@@ -30,6 +30,8 @@ class ZipConnector implements ConnectorInterface
      *
      * @param string[] $config
      *
+     * @throws \InvalidArgumentException
+     *
      * @return \League\Flysystem\ZipArchive\ZipArchiveAdapter
      */
     public function connect(array $config)

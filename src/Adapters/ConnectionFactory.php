@@ -27,6 +27,8 @@ class ConnectionFactory
      *
      * @param array $config
      *
+     * @throws \InvalidArgumentException
+     *
      * @return \League\Flysystem\AdapterInterface
      */
     public function make(array $config)

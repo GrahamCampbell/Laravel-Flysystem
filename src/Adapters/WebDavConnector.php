@@ -30,6 +30,8 @@ class WebDavConnector implements ConnectorInterface
      *
      * @param string[] $config
      *
+     * @throws \InvalidArgumentException
+     *
      * @return \League\Flysystem\WebDAV\WebDAVAdapter
      */
     public function connect(array $config)

@@ -30,6 +30,8 @@ class LocalConnector implements ConnectorInterface
      *
      * @param string[] $config
      *
+     * @throws \InvalidArgumentException
+     *
      * @return \League\Flysystem\Adapter\Local
      */
     public function connect(array $config)

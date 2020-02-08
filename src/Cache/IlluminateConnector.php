@@ -49,6 +49,8 @@ class IlluminateConnector implements ConnectorInterface
      *
      * @param string[] $config
      *
+     * @throws \InvalidArgumentException
+     *
      * @return \GrahamCampbell\Flysystem\Cache\IlluminateCache
      */
     public function connect(array $config)

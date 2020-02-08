@@ -31,6 +31,8 @@ class GridFSConnector implements ConnectorInterface
      *
      * @param string[] $config
      *
+     * @throws \InvalidArgumentException
+     *
      * @return \League\Flysystem\GridFS\GridFSAdapter
      */
     public function connect(array $config)

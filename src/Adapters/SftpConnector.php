@@ -28,6 +28,8 @@ class SftpConnector implements ConnectorInterface
      *
      * @param string[] $config
      *
+     * @throws \InvalidArgumentException
+     *
      * @return \League\Flysystem\Sftp\SftpAdapter
      */
     public function connect(array $config)

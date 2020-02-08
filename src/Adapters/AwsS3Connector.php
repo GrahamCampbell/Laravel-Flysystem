@@ -32,6 +32,8 @@ class AwsS3Connector implements ConnectorInterface
      *
      * @param string[] $config
      *
+     * @throws \InvalidArgumentException
+     *
      * @return \League\Flysystem\AwsS3v3\AwsS3Adapter
      */
     public function connect(array $config)

@@ -49,6 +49,8 @@ class ConnectionFactory
      * @param array                                      $config
      * @param \GrahamCampbell\Flysystem\FlysystemManager $manager
      *
+     * @throws \InvalidArgumentException
+     *
      * @return \League\Flysystem\Cached\CacheInterface
      */
     public function make(array $config, FlysystemManager $manager)

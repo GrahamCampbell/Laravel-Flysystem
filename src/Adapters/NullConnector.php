@@ -28,6 +28,8 @@ class NullConnector implements ConnectorInterface
      *
      * @param string[] $config
      *
+     * @throws \InvalidArgumentException
+     *
      * @return \League\Flysystem\Adapter\NullAdapter
      */
     public function connect(array $config)

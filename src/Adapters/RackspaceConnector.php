@@ -30,9 +30,9 @@ class RackspaceConnector implements ConnectorInterface
     /**
      * Establish an adapter connection.
      *
-     * @codeCoverageIgnore
-     *
      * @param string[] $config
+     *
+     * @throws \InvalidArgumentException
      *
      * @return \League\Flysystem\Rackspace\RackspaceAdapter
      */
@@ -95,8 +95,6 @@ class RackspaceConnector implements ConnectorInterface
 
     /**
      * Get the rackspace adapter.
-     *
-     * @codeCoverageIgnore
      *
      * @param \OpenCloud\ObjectStore\Resource\Container $client
      *
