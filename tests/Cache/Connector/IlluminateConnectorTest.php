@@ -36,7 +36,7 @@ class IlluminateConnectorTest extends AbstractTestCase
 
         $repo = Mockery::mock(Repository::class);
 
-        $connector->getCache()->shouldReceive('driver')->once()->andReturn($repo);
+        $connector->getCache()->shouldReceive('store')->once()->andReturn($repo);
 
         $store = Mockery::mock(ArrayStore::class);
 
@@ -53,7 +53,7 @@ class IlluminateConnectorTest extends AbstractTestCase
 
         $repo = Mockery::mock(Repository::class);
 
-        $connector->getCache()->shouldReceive('driver')->once()->with('redis')->andReturn($repo);
+        $connector->getCache()->shouldReceive('store')->once()->with('redis')->andReturn($repo);
 
         $store = Mockery::mock(RedisStore::class);
 

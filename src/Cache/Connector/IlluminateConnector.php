@@ -79,7 +79,7 @@ class IlluminateConnector implements ConnectorInterface
 
         $name = Arr::get($config, 'connector');
 
-        return $this->cache->driver($name)->getStore();
+        return $this->cache->store($name)->getStore();
     }
 
     /**
