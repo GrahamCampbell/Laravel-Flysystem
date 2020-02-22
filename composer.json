@@ -11,10 +11,9 @@
     ],
     "require": {
         "php": "^7.2.5",
-        "illuminate/cache": "^6.0|^7.0",
+        "graham-campbell/manager": "^4.5",
         "illuminate/contracts": "^6.0|^7.0",
         "illuminate/support": "^6.0|^7.0",
-        "graham-campbell/manager": "^4.4",
         "league/flysystem": "^1.0.47"
     },
     "require-dev": {
