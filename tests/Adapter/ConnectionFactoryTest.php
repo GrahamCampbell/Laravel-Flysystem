@@ -16,6 +16,7 @@ namespace GrahamCampbell\Tests\Flysystem\Adapter;
 use GrahamCampbell\Flysystem\Adapter\ConnectionFactory;
 use GrahamCampbell\Flysystem\Adapter\Connector\AwsS3Connector;
 use GrahamCampbell\Flysystem\Adapter\Connector\AzureConnector;
+use GrahamCampbell\Flysystem\Adapter\Connector\ConnectorInterface;
 use GrahamCampbell\Flysystem\Adapter\Connector\DropboxConnector;
 use GrahamCampbell\Flysystem\Adapter\Connector\FtpConnector;
 use GrahamCampbell\Flysystem\Adapter\Connector\GoogleCloudStorageConnector;
@@ -105,7 +106,7 @@ class ConnectionFactoryTest extends AbstractTestCase
     {
         $mock = Mockery::mock(ConnectionFactory::class.'[createConnector]');
 
-        $connector = Mockery::mock(LocalConnector::class);
+        $connector = Mockery::mock(ConnectorInterface::class);
 
         $connector->shouldReceive('connect')->once()
             ->with(['name' => 'local', 'driver' => 'local', 'path' => __DIR__])
