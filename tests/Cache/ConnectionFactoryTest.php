@@ -33,7 +33,6 @@ class ConnectionFactoryTest extends AbstractTestCase
     public function testMake()
     {
         $manager = Mockery::mock(FlysystemManager::class);
-
         $factory = $this->getMockedFactory($manager);
 
         $return = $factory->make(['name' => 'foo', 'driver' => 'illuminate', 'connector' => 'redis'], $manager);
@@ -44,7 +43,6 @@ class ConnectionFactoryTest extends AbstractTestCase
     public function testCreateIlluminateConnector()
     {
         $manager = Mockery::mock(FlysystemManager::class);
-
         $factory = $this->getConnectionFactory();
 
         $return = $factory->createConnector(['name' => 'foo', 'driver' => 'illuminate', 'connector' => 'redis'], $manager);
@@ -55,7 +53,6 @@ class ConnectionFactoryTest extends AbstractTestCase
     public function testCreateAdapterConnector()
     {
         $manager = Mockery::mock(FlysystemManager::class);
-
         $factory = $this->getConnectionFactory();
 
         $return = $factory->createConnector(['name' => 'foo', 'driver' => 'adapter', 'adapter' => 'local'], $manager);
@@ -65,24 +62,22 @@ class ConnectionFactoryTest extends AbstractTestCase
 
     public function testCreateEmptyDriverConnector()
     {
+        $manager = Mockery::mock(FlysystemManager::class);
+        $factory = $this->getConnectionFactory();
+
         $this->expectException(InvalidArgumentException::class);
         $this->expectExceptionMessage('A driver must be specified.');
-
-        $manager = Mockery::mock(FlysystemManager::class);
-
-        $factory = $this->getConnectionFactory();
 
         $factory->createConnector([], $manager);
     }
 
     public function testCreateUnsupportedDriverConnector()
     {
+        $manager = Mockery::mock(FlysystemManager::class);
+        $factory = $this->getConnectionFactory();
+
         $this->expectException(InvalidArgumentException::class);
         $this->expectExceptionMessage('Unsupported driver [unsupported].');
-
-        $manager = Mockery::mock(FlysystemManager::class);
-
-        $factory = $this->getConnectionFactory();
 
         $factory->createConnector(['driver' => 'unsupported'], $manager);
     }
