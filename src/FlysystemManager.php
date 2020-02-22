@@ -16,7 +16,6 @@ namespace GrahamCampbell\Flysystem;
 use GrahamCampbell\Manager\AbstractManager;
 use Illuminate\Contracts\Config\Repository;
 use Illuminate\Support\Arr;
-use InvalidArgumentException;
 
 /**
  * This is the flysystem manager class.
