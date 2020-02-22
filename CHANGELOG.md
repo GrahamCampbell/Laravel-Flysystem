@@ -2,6 +2,13 @@ CHANGE LOG
 ==========
 
 
+## V7.0 (Upcoming)
+
+* Dropped Laravel 5
+* Dropped Rackspace
+* Moved around internals
+
+
 ## V6.3 (22/02/2020)
 
 * Added missing throws doc

@@ -13,7 +13,7 @@ declare(strict_types=1);
 
 namespace GrahamCampbell\Flysystem;
 
-use GrahamCampbell\Flysystem\Adapters\ConnectionFactory as AdapterFactory;
+use GrahamCampbell\Flysystem\Adapter\ConnectionFactory as AdapterFactory;
 use GrahamCampbell\Flysystem\Cache\ConnectionFactory as CacheFactory;
 use Illuminate\Support\Arr;
 use League\Flysystem\Cached\CachedAdapter;
@@ -30,7 +30,7 @@ class FlysystemFactory
     /**
      * The adapter factory instance.
      *
-     * @var \GrahamCampbell\Flysystem\Adapters\ConnectionFactory
+     * @var \GrahamCampbell\Flysystem\Adapter\ConnectionFactory
      */
     protected $adapter;
 
@@ -44,8 +44,8 @@ class FlysystemFactory
     /**
      * Create a new filesystem factory instance.
      *
-     * @param \GrahamCampbell\Flysystem\Adapters\ConnectionFactory $adapter
-     * @param \GrahamCampbell\Flysystem\Cache\ConnectionFactory    $cache
+     * @param \GrahamCampbell\Flysystem\Adapter\ConnectionFactory $adapter
+     * @param \GrahamCampbell\Flysystem\Cache\ConnectionFactory   $cache
      *
      * @return void
      */
@@ -134,7 +134,7 @@ class FlysystemFactory
     /**
      * Get the adapter factory instance.
      *
-     * @return \GrahamCampbell\Flysystem\Adapters\ConnectionFactory
+     * @return \GrahamCampbell\Flysystem\Adapter\ConnectionFactory
      */
     public function getAdapter()
     {

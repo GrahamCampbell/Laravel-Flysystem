@@ -76,9 +76,9 @@ class ConnectionFactory
 
         switch ($config['driver']) {
             case 'illuminate':
-                return new IlluminateConnector($this->cache);
+                return new Connector\IlluminateConnector($this->cache);
             case 'adapter':
-                return new AdapterConnector($manager);
+                return new Connector\AdapterConnector($manager);
         }
 
         throw new InvalidArgumentException("Unsupported driver [{$config['driver']}].");

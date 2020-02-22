@@ -128,20 +128,6 @@ return [
             // 'cache'     => 'foo'
         ],
 
-        'rackspace' => [
-            'driver'     => 'rackspace',
-            'endpoint'   => 'your-endpoint',
-            'region'     => 'your-region',
-            'username'   => 'your-username',
-            'apiKey'     => 'your-api-key',
-            'container'  => 'your-container',
-            // 'internal'   => false,
-            // 'visibility' => 'public',
-            // 'pirate'     => false,
-            // 'eventable'  => true,
-            // 'cache'      => 'foo'
-        ],
-
         'replicate' => [
             'driver'     => 'replicate',
             'source'     => 'your-source-adapter',

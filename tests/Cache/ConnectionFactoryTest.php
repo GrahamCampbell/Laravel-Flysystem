@@ -13,9 +13,9 @@ declare(strict_types=1);
 
 namespace GrahamCampbell\Tests\Flysystem\Cache;
 
-use GrahamCampbell\Flysystem\Cache\AdapterConnector;
 use GrahamCampbell\Flysystem\Cache\ConnectionFactory;
-use GrahamCampbell\Flysystem\Cache\IlluminateConnector;
+use GrahamCampbell\Flysystem\Cache\Connector\AdapterConnector;
+use GrahamCampbell\Flysystem\Cache\Connector\IlluminateConnector;
 use GrahamCampbell\Flysystem\FlysystemManager;
 use GrahamCampbell\TestBench\AbstractTestCase;
 use Illuminate\Contracts\Cache\Factory;

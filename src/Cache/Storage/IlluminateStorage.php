@@ -1,0 +1,100 @@
+<?php
+
+declare(strict_types=1);
+
+/*
+ * This file is part of Laravel Flysystem.
+ *
+ * (c) Graham Campbell <graham@alt-three.com>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
+namespace GrahamCampbell\Flysystem\Cache\Storage;
+
+use Illuminate\Contracts\Cache\Store;
+use League\Flysystem\Cached\Storage\AbstractCache;
+
+/**
+ * This is the illuminate storage class.
+ *
+ * @author Graham Campbell <graham@alt-three.com>
+ */
+class IlluminateStorage extends AbstractCache
+{
+    /**
+     * The cache store instance.
+     *
+     * @var \Illuminate\Contracts\Cache\Store
+     */
+    protected $client;
+
+    /**
+     * The cache key.
+     *
+     * @var string
+     */
+    protected $key;
+
+    /**
+     * The cache ttl in seconds.
+     *
+     * @var int|null
+     */
+    protected $ttl;
+
+    /**
+     * Create a new illuminate storage instance.
+     *
+     * @param \Illuminate\Contracts\Cache\Store $client
+     * @param string                            $key
+     * @param int|null                          $ttl
+     */
+    public function __construct(Store $client, string $key = 'flysystem', int $ttl = null)
+    {
+        $this->client = $client;
+        $this->key = $key;
+        $this->ttl = $ttl;
+    }
+
+    /**
+     * Load the cache.
+     *
+     * @return void
+     */
+    public function load()
+    {
+        $contents = $this->client->get($this->key);
+
+        if ($contents !== null) {
+            $this->setFromStorage($contents);
+        }
+    }
+
+    /**
+     * Store the cache.
+     *
+     * @return void
+     */
+    public function save()
+    {
+        $contents = $this->getForStorage();
+
+        if ($this->ttl !== null) {
+            $this->client->put($this->key, $contents, $this->ttl);
+        } else {
+            $this->client->forever($this->key, $contents);
+        }
+    }
+
+    /**
+     * Get the cache store instance.
+     *
+     * @return \Illuminate\Contracts\Cache\Store
+     */
+    public function getClient()
+    {
+        return $this->client;
+    }
+}

@@ -10,12 +10,12 @@
         }
     ],
     "require": {
-        "php": "^7.1.3",
-        "illuminate/cache": "^5.5|^6.0|^7.0",
-        "illuminate/contracts": "^5.5|^6.0|^7.0",
-        "illuminate/support": "^5.5|^6.0|^7.0",
+        "php": "^7.2.5",
+        "illuminate/cache": "^6.0|^7.0",
+        "illuminate/contracts": "^6.0|^7.0",
+        "illuminate/support": "^6.0|^7.0",
         "graham-campbell/manager": "^4.4",
-        "league/flysystem": "^1.0"
+        "league/flysystem": "^1.0.47"
     },
     "require-dev": {
         "alcaeus/mongo-php-adapter": "^1.1",
@@ -27,13 +27,12 @@
         "spatie/flysystem-dropbox": "^1.0",
         "league/flysystem-eventable-filesystem": "^1.0",
         "league/flysystem-gridfs": "^1.0",
-        "league/flysystem-rackspace": "^1.0",
         "league/flysystem-sftp": "^1.0",
         "league/flysystem-webdav": "^1.0",
         "league/flysystem-ziparchive": "^1.0",
         "superbalist/flysystem-google-storage": "^7.2",
         "mockery/mockery": "^1.3.1",
-        "phpunit/phpunit": "^6.5|^7.0|^8.0"
+        "phpunit/phpunit": "^8.5|^9.0"
     },
     "suggest": {
         "alcaeus/mongo-php-adapter": "GridFS adapter support.",
@@ -43,7 +42,6 @@
         "spatie/flysystem-dropbox": "Dropbox adapter support.",
         "league/flysystem-eventable-filesystem": "Eventable filesystem support.",
         "league/flysystem-gridfs": "GridFS adapter support.",
-        "league/flysystem-rackspace": "Rackspace adapter support.",
         "league/flysystem-replicate-adapter": "Replicate adapter support.",
         "league/flysystem-sftp": "Sftp adapter support.",
         "league/flysystem-webdav": "WebDav adapter support.",
@@ -65,7 +63,7 @@
     },
     "extra": {
         "branch-alias": {
-            "dev-master": "6.3-dev"
+            "dev-master": "7.0-dev"
         },
         "laravel": {
             "providers": [

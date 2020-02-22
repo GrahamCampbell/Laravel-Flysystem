@@ -13,7 +13,7 @@ declare(strict_types=1);
 
 namespace GrahamCampbell\Tests\Flysystem;
 
-use GrahamCampbell\Flysystem\Adapters\ConnectionFactory as AdapterFactory;
+use GrahamCampbell\Flysystem\Adapter\ConnectionFactory as AdapterFactory;
 use GrahamCampbell\Flysystem\Cache\ConnectionFactory as CacheFactory;
 use GrahamCampbell\Flysystem\FlysystemFactory;
 use GrahamCampbell\Flysystem\FlysystemManager;
