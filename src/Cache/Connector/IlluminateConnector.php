@@ -57,13 +57,13 @@ class IlluminateConnector implements ConnectorInterface
      */
     public function connect(array $config)
     {
-        $client = $this->getClient($config);
+        $store = $this->getStore($config);
 
-        return $this->getAdapter($client, $config);
+        return $this->getAdapter($store, $config);
     }
 
     /**
-     * Get the cache client.
+     * Get the cache store.
      *
      * @param string[] $config
      *
@@ -71,7 +71,7 @@ class IlluminateConnector implements ConnectorInterface
      *
      * @return \Illuminate\Contracts\Cache\Store
      */
-    protected function getClient(array $config)
+    protected function getStore(array $config)
     {
         if (!$this->cache) {
             throw new InvalidArgumentException('Illuminate caching support not available.');
@@ -85,17 +85,17 @@ class IlluminateConnector implements ConnectorInterface
     /**
      * Get the illuminate cache adapter.
      *
-     * @param \Illuminate\Contracts\Cache\Store $client
+     * @param \Illuminate\Contracts\Cache\Store $store
      * @param string[]                          $config
      *
      * @return \GrahamCampbell\Flysystem\Cache\Storage\IlluminateStorage
      */
-    protected function getAdapter(Store $client, array $config)
+    protected function getAdapter(Store $store, array $config)
     {
         $key = Arr::get($config, 'key', 'flysystem');
         $ttl = Arr::get($config, 'ttl');
 
-        return new IlluminateStorage($client, $key, $ttl);
+        return new IlluminateStorage($store, $key, $ttl);
     }
 
     /**

@@ -29,7 +29,7 @@ class IlluminateStorageTest extends AbstractTestCase
     {
         $storage = $this->getIlluminateStorage('foobarkey');
 
-        $storage->getClient()->shouldReceive('get')->once()->with('foobarkey')->andReturn('herro');
+        $storage->getStore()->shouldReceive('get')->once()->with('foobarkey')->andReturn('herro');
 
         $storage->shouldReceive('setFromStorage')->once()->with('herro');
 
@@ -40,7 +40,7 @@ class IlluminateStorageTest extends AbstractTestCase
     {
         $storage = $this->getIlluminateStorage('foobarkey');
 
-        $storage->getClient()->shouldReceive('get')->once()->with('foobarkey');
+        $storage->getStore()->shouldReceive('get')->once()->with('foobarkey');
 
         $this->assertNull($storage->load());
     }
@@ -51,7 +51,7 @@ class IlluminateStorageTest extends AbstractTestCase
 
         $storage->shouldReceive('getForStorage')->once()->andReturn('herro');
 
-        $storage->getClient()->shouldReceive('put')->once()->with('foobarkey', 'herro', 95);
+        $storage->getStore()->shouldReceive('put')->once()->with('foobarkey', 'herro', 95);
 
         $this->assertNull($storage->save());
     }
@@ -62,7 +62,7 @@ class IlluminateStorageTest extends AbstractTestCase
 
         $storage->shouldReceive('getForStorage')->once()->andReturn('herro');
 
-        $storage->getClient()->shouldReceive('forever')->once()->with('foobarkey', 'herro');
+        $storage->getStore()->shouldReceive('forever')->once()->with('foobarkey', 'herro');
 
         $this->assertNull($storage->save());
     }
