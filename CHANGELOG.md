@@ -2,6 +2,12 @@ CHANGE LOG
 ==========
 
 
+## V6.3 (22/02/2020)
+
+* Added missing throws doc
+* Made caching truly optional
+
+
 ## V6.2 (25/01/2020)
 
 * Added Laravel 7 support
