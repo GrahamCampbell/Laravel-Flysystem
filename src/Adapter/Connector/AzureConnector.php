@@ -24,7 +24,7 @@ use MicrosoftAzure\Storage\Blob\BlobRestProxy;
  *
  * @author Graham Campbell <graham@alt-three.com>
  */
-class AzureConnector implements ConnectorInterface
+final class AzureConnector implements ConnectorInterface
 {
     /**
      * Establish an adapter connection.
@@ -37,11 +37,11 @@ class AzureConnector implements ConnectorInterface
      */
     public function connect(array $config)
     {
-        $auth = $this->getAuth($config);
-        $client = $this->getClient($auth);
-        $config = $this->getConfig($config);
+        $auth = self::getAuth($config);
+        $client = self::getClient($auth);
+        $config = self::getConfig($config);
 
-        return $this->getAdapter($client, $config);
+        return self::getAdapter($client, $config);
     }
 
     /**
@@ -53,7 +53,7 @@ class AzureConnector implements ConnectorInterface
      *
      * @return string[]
      */
-    protected function getAuth(array $config)
+    private static function getAuth(array $config)
     {
         if (!array_key_exists('account-name', $config) || !array_key_exists('api-key', $config)) {
             throw new InvalidArgumentException('The azure connector requires authentication.');
@@ -69,7 +69,7 @@ class AzureConnector implements ConnectorInterface
      *
      * @return \MicrosoftAzure\Storage\Blob\BlobRestProxy
      */
-    protected function getClient(array $auth)
+    private static function getClient(array $auth)
     {
         $endpoint = sprintf('DefaultEndpointsProtocol=https;AccountName=%s;AccountKey=%s', $auth['account-name'], $auth['api-key']);
 
@@ -83,7 +83,7 @@ class AzureConnector implements ConnectorInterface
      *
      * @return string[]
      */
-    protected function getConfig(array $config)
+    private static function getConfig(array $config)
     {
         if (!array_key_exists('container', $config)) {
             throw new InvalidArgumentException('The azure connector requires container configuration.');
@@ -100,7 +100,7 @@ class AzureConnector implements ConnectorInterface
      *
      * @return \League\Flysystem\AzureBlobStorage\AzureBlobStorageAdapter
      */
-    protected function getAdapter(BlobRestProxy $client, array $config)
+    private static function getAdapter(BlobRestProxy $client, array $config)
     {
         return new AzureBlobStorageAdapter($client, $config['container']);
     }

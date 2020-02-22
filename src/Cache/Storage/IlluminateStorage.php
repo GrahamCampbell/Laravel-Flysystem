@@ -28,21 +28,21 @@ class IlluminateStorage extends AbstractCache
      *
      * @var \Illuminate\Contracts\Cache\Store
      */
-    protected $store;
+    private $store;
 
     /**
      * The cache key.
      *
      * @var string
      */
-    protected $key;
+    private $key;
 
     /**
      * The cache ttl in seconds.
      *
      * @var int|null
      */
-    protected $ttl;
+    private $ttl;
 
     /**
      * Create a new illuminate storage instance.

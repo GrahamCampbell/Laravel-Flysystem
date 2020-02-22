@@ -24,7 +24,7 @@ use MongoClient;
  *
  * @author Graham Campbell <graham@alt-three.com>
  */
-class GridFSConnector implements ConnectorInterface
+final class GridFSConnector implements ConnectorInterface
 {
     /**
      * Establish an adapter connection.
@@ -37,11 +37,11 @@ class GridFSConnector implements ConnectorInterface
      */
     public function connect(array $config)
     {
-        $auth = $this->getAuth($config);
-        $client = $this->getClient($auth);
-        $config = $this->getConfig($config);
+        $auth = self::getAuth($config);
+        $client = self::getClient($auth);
+        $config = self::getConfig($config);
 
-        return $this->getAdapter($client, $config);
+        return self::getAdapter($client, $config);
     }
 
     /**
@@ -53,7 +53,7 @@ class GridFSConnector implements ConnectorInterface
      *
      * @return string[]
      */
-    protected function getAuth(array $config)
+    private static function getAuth(array $config)
     {
         if (!array_key_exists('server', $config)) {
             throw new InvalidArgumentException('The gridfs connector requires server configuration.');
@@ -69,7 +69,7 @@ class GridFSConnector implements ConnectorInterface
      *
      * @return \MongoClient
      */
-    protected function getClient(array $auth)
+    private static function getClient(array $auth)
     {
         return new MongoClient($auth['server']);
     }
@@ -81,7 +81,7 @@ class GridFSConnector implements ConnectorInterface
      *
      * @return string[]
      */
-    protected function getConfig(array $config)
+    private static function getConfig(array $config)
     {
         if (!array_key_exists('database', $config)) {
             throw new InvalidArgumentException('The gridfs connector requires database configuration.');
@@ -98,7 +98,7 @@ class GridFSConnector implements ConnectorInterface
      *
      * @return \League\Flysystem\GridFS\GridFSAdapter
      */
-    protected function getAdapter(MongoClient $client, array $config)
+    private static function getAdapter(MongoClient $client, array $config)
     {
         $fs = $client->selectDB($config['database'])->getGridFS();
 

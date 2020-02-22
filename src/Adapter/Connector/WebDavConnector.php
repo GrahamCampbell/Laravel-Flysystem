@@ -23,7 +23,7 @@ use Sabre\DAV\Client;
  *
  * @author Graham Campbell <graham@alt-three.com>
  */
-class WebDavConnector implements ConnectorInterface
+final class WebDavConnector implements ConnectorInterface
 {
     /**
      * Establish an adapter connection.
@@ -36,10 +36,10 @@ class WebDavConnector implements ConnectorInterface
      */
     public function connect(array $config)
     {
-        $client = $this->getClient($config);
-        $config = $this->getConfig($config);
+        $client = self::getClient($config);
+        $config = self::getConfig($config);
 
-        return $this->getAdapter($client, $config);
+        return self::getAdapter($client, $config);
     }
 
     /**
@@ -49,7 +49,7 @@ class WebDavConnector implements ConnectorInterface
      *
      * @return \Sabre\DAV\Client
      */
-    protected function getClient(array $config)
+    private static function getClient(array $config)
     {
         return new Client($config);
     }
@@ -61,7 +61,7 @@ class WebDavConnector implements ConnectorInterface
      *
      * @return string[]
      */
-    protected function getConfig(array $config)
+    private static function getConfig(array $config)
     {
         if (!array_key_exists('prefix', $config)) {
             $config['prefix'] = null;
@@ -78,7 +78,7 @@ class WebDavConnector implements ConnectorInterface
      *
      * @return \League\Flysystem\WebDAV\WebDAVAdapter
      */
-    protected function getAdapter(Client $client, array $config)
+    private static function getAdapter(Client $client, array $config)
     {
         return new WebDAVAdapter($client, $config['prefix']);
     }

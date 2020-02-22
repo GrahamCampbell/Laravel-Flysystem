@@ -25,14 +25,14 @@ use InvalidArgumentException;
  *
  * @author Graham Campbell <graham@alt-three.com>
  */
-class IlluminateConnector implements ConnectorInterface
+final class IlluminateConnector implements ConnectorInterface
 {
     /**
      * The cache factory instance.
      *
      * @var \Illuminate\Contracts\Cache\Factory|null
      */
-    protected $cache;
+    private $cache;
 
     /**
      * Create a new illuminate connector instance.
@@ -59,7 +59,7 @@ class IlluminateConnector implements ConnectorInterface
     {
         $store = $this->getStore($config);
 
-        return $this->getAdapter($store, $config);
+        return self::getAdapter($store, $config);
     }
 
     /**
@@ -71,7 +71,7 @@ class IlluminateConnector implements ConnectorInterface
      *
      * @return \Illuminate\Contracts\Cache\Store
      */
-    protected function getStore(array $config)
+    private function getStore(array $config)
     {
         if (!$this->cache) {
             throw new InvalidArgumentException('Illuminate caching support not available.');
@@ -90,7 +90,7 @@ class IlluminateConnector implements ConnectorInterface
      *
      * @return \GrahamCampbell\Flysystem\Cache\Storage\IlluminateStorage
      */
-    protected function getAdapter(Store $store, array $config)
+    private static function getAdapter(Store $store, array $config)
     {
         $key = Arr::get($config, 'key', 'flysystem');
         $ttl = Arr::get($config, 'ttl');

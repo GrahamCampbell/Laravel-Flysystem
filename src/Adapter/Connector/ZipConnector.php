@@ -23,7 +23,7 @@ use League\Flysystem\ZipArchive\ZipArchiveAdapter;
  *
  * @author Graham Campbell <graham@alt-three.com>
  */
-class ZipConnector implements ConnectorInterface
+final class ZipConnector implements ConnectorInterface
 {
     /**
      * Establish an adapter connection.
@@ -36,9 +36,9 @@ class ZipConnector implements ConnectorInterface
      */
     public function connect(array $config)
     {
-        $config = $this->getConfig($config);
+        $config = self::getConfig($config);
 
-        return $this->getAdapter($config);
+        return self::getAdapter($config);
     }
 
     /**
@@ -50,7 +50,7 @@ class ZipConnector implements ConnectorInterface
      *
      * @return string[]
      */
-    protected function getConfig(array $config)
+    private static function getConfig(array $config)
     {
         if (!array_key_exists('path', $config)) {
             throw new InvalidArgumentException('The zip connector requires path configuration.');
@@ -66,7 +66,7 @@ class ZipConnector implements ConnectorInterface
      *
      * @return \League\Flysystem\ZipArchive\ZipArchiveAdapter
      */
-    protected function getAdapter(array $config)
+    private static function getAdapter(array $config)
     {
         return new ZipArchiveAdapter($config['path']);
     }

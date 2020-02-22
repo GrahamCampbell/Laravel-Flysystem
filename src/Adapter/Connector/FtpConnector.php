@@ -21,7 +21,7 @@ use League\Flysystem\Adapter\Ftp;
  *
  * @author Graham Campbell <graham@alt-three.com>
  */
-class FtpConnector implements ConnectorInterface
+final class FtpConnector implements ConnectorInterface
 {
     /**
      * Establish an adapter connection.
@@ -34,7 +34,7 @@ class FtpConnector implements ConnectorInterface
      */
     public function connect(array $config)
     {
-        return $this->getAdapter($config);
+        return self::getAdapter($config);
     }
 
     /**
@@ -44,7 +44,7 @@ class FtpConnector implements ConnectorInterface
      *
      * @return \League\Flysystem\Adapter\Ftp
      */
-    protected function getAdapter(array $config)
+    private static function getAdapter(array $config)
     {
         return new Ftp($config);
     }

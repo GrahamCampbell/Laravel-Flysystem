@@ -25,7 +25,7 @@ use League\Flysystem\AwsS3v3\AwsS3Adapter;
  * @author Graham Campbell <graham@alt-three.com>
  * @author Raul Ruiz <publiux@gmail.com>
  */
-class AwsS3Connector implements ConnectorInterface
+final class AwsS3Connector implements ConnectorInterface
 {
     /**
      * Establish an adapter connection.
@@ -38,11 +38,11 @@ class AwsS3Connector implements ConnectorInterface
      */
     public function connect(array $config)
     {
-        $auth = $this->getAuth($config);
-        $client = $this->getClient($auth);
-        $config = $this->getConfig($config);
+        $auth = self::getAuth($config);
+        $client = self::getClient($auth);
+        $config = self::getConfig($config);
 
-        return $this->getAdapter($client, $config);
+        return self::getAdapter($client, $config);
     }
 
     /**
@@ -54,7 +54,7 @@ class AwsS3Connector implements ConnectorInterface
      *
      * @return string[]
      */
-    protected function getAuth(array $config)
+    private static function getAuth(array $config)
     {
         if (!array_key_exists('version', $config)) {
             throw new InvalidArgumentException('The awss3 connector requires version configuration.');
@@ -102,7 +102,7 @@ class AwsS3Connector implements ConnectorInterface
      *
      * @return \Aws\S3\S3Client
      */
-    protected function getClient(array $auth)
+    private static function getClient(array $auth)
     {
         return new S3Client($auth);
     }
@@ -116,7 +116,7 @@ class AwsS3Connector implements ConnectorInterface
      *
      * @return array
      */
-    protected function getConfig(array $config)
+    private static function getConfig(array $config)
     {
         if (!array_key_exists('prefix', $config)) {
             $config['prefix'] = null;
@@ -137,7 +137,7 @@ class AwsS3Connector implements ConnectorInterface
      *
      * @return \League\Flysystem\AwsS3v3\AwsS3Adapter
      */
-    protected function getAdapter(S3Client $client, array $config)
+    private static function getAdapter(S3Client $client, array $config)
     {
         return new AwsS3Adapter($client, $config['bucket'], $config['prefix']);
     }

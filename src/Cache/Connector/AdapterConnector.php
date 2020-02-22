@@ -25,14 +25,14 @@ use League\Flysystem\Cached\Storage\Adapter;
  *
  * @author Graham Campbell <graham@alt-three.com>
  */
-class AdapterConnector implements ConnectorInterface
+final class AdapterConnector implements ConnectorInterface
 {
     /**
      * The flysysten manager instance.
      *
      * @var \GrahamCampbell\Flysystem\FlysystemManager
      */
-    protected $manager;
+    private $manager;
 
     /**
      * Create a new adapter connector instance.
@@ -57,10 +57,10 @@ class AdapterConnector implements ConnectorInterface
      */
     public function connect(array $config)
     {
-        $config = $this->getConfig($config);
+        $config = self::getConfig($config);
         $client = $this->getClient($config);
 
-        return $this->getAdapter($client, $config);
+        return self::getAdapter($client, $config);
     }
 
     /**
@@ -72,7 +72,7 @@ class AdapterConnector implements ConnectorInterface
      *
      * @return string[]
      */
-    protected function getConfig(array $config)
+    private static function getConfig(array $config)
     {
         if (!array_key_exists('adapter', $config)) {
             throw new InvalidArgumentException('The adapter connector requires adapter configuration.');
@@ -88,7 +88,7 @@ class AdapterConnector implements ConnectorInterface
      *
      * @return \League\Flysystem\AdapterInterface
      */
-    protected function getClient(array $config)
+    private function getClient(array $config)
     {
         $name = Arr::get($config, 'adapter');
         $config = $this->manager->getConnectionConfig($name);
@@ -104,7 +104,7 @@ class AdapterConnector implements ConnectorInterface
      *
      * @return \League\Flysystem\Cached\Storage\Adapter
      */
-    protected function getAdapter(AdapterInterface $client, array $config)
+    private static function getAdapter(AdapterInterface $client, array $config)
     {
         $file = Arr::get($config, 'file', 'flysystem.json');
         $ttl = Arr::get($config, 'ttl');

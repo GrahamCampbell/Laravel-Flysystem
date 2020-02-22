@@ -21,7 +21,7 @@ use League\Flysystem\Adapter\NullAdapter;
  *
  * @author Graham Campbell <graham@alt-three.com>
  */
-class NullConnector implements ConnectorInterface
+final class NullConnector implements ConnectorInterface
 {
     /**
      * Establish an adapter connection.
@@ -34,7 +34,7 @@ class NullConnector implements ConnectorInterface
      */
     public function connect(array $config)
     {
-        return $this->getAdapter();
+        return self::getAdapter();
     }
 
     /**
@@ -42,7 +42,7 @@ class NullConnector implements ConnectorInterface
      *
      * @return \League\Flysystem\Adapter\NullAdapter
      */
-    protected function getAdapter()
+    private static function getAdapter()
     {
         return new NullAdapter();
     }

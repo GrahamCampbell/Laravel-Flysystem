@@ -18,6 +18,8 @@ use GrahamCampbell\Flysystem\Cache\Connector\AdapterConnector;
 use GrahamCampbell\Flysystem\Cache\Connector\IlluminateConnector;
 use GrahamCampbell\Flysystem\FlysystemManager;
 use GrahamCampbell\TestBench\AbstractTestCase;
+use Illuminate\Cache\ArrayStore;
+use Illuminate\Cache\Repository;
 use Illuminate\Contracts\Cache\Factory;
 use InvalidArgumentException;
 use League\Flysystem\Cached\CacheInterface;
@@ -33,7 +35,9 @@ class ConnectionFactoryTest extends AbstractTestCase
     public function testMake()
     {
         $manager = Mockery::mock(FlysystemManager::class);
-        $factory = $this->getMockedFactory($manager);
+        $cache = Mockery::mock(Factory::class);
+        $cache->shouldReceive('store')->once()->with('redis')->andReturn(new Repository(new ArrayStore()));
+        $factory = new ConnectionFactory($cache);
 
         $return = $factory->make(['name' => 'foo', 'driver' => 'illuminate', 'connector' => 'redis'], $manager);
 
@@ -87,24 +91,5 @@ class ConnectionFactoryTest extends AbstractTestCase
         $cache = Mockery::mock(Factory::class);
 
         return new ConnectionFactory($cache);
-    }
-
-    protected function getMockedFactory($manager)
-    {
-        $cache = Mockery::mock(Factory::class);
-
-        $mock = Mockery::mock(ConnectionFactory::class.'[createConnector]', [$cache]);
-
-        $connector = Mockery::mock(IlluminateConnector::class, [$cache]);
-
-        $connector->shouldReceive('connect')->once()
-            ->with(['name' => 'foo', 'driver' => 'illuminate', 'connector' => 'redis'])
-            ->andReturn(Mockery::mock(CacheInterface::class));
-
-        $mock->shouldReceive('createConnector')->once()
-            ->with(['name' => 'foo', 'driver' => 'illuminate', 'connector' => 'redis'], $manager)
-            ->andReturn($connector);
-
-        return $mock;
     }
 }

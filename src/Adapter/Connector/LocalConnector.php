@@ -23,7 +23,7 @@ use League\Flysystem\Adapter\Local;
  *
  * @author Graham Campbell <graham@alt-three.com>
  */
-class LocalConnector implements ConnectorInterface
+final class LocalConnector implements ConnectorInterface
 {
     /**
      * Establish an adapter connection.
@@ -36,9 +36,9 @@ class LocalConnector implements ConnectorInterface
      */
     public function connect(array $config)
     {
-        $config = $this->getConfig($config);
+        $config = self::getConfig($config);
 
-        return $this->getAdapter($config);
+        return self::getAdapter($config);
     }
 
     /**
@@ -50,7 +50,7 @@ class LocalConnector implements ConnectorInterface
      *
      * @return string[]
      */
-    protected function getConfig(array $config)
+    private static function getConfig(array $config)
     {
         if (!array_key_exists('path', $config)) {
             throw new InvalidArgumentException('The local connector requires path configuration.');
@@ -66,7 +66,7 @@ class LocalConnector implements ConnectorInterface
      *
      * @return \League\Flysystem\Adapter\Local
      */
-    protected function getAdapter(array $config)
+    private static function getAdapter(array $config)
     {
         // Pull parameters from config and set defaults for optional values
         $path = $config['path'];

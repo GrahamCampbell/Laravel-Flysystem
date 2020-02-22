@@ -25,7 +25,7 @@ use Superbalist\Flysystem\GoogleStorage\GoogleStorageAdapter;
  * @author Graham Campbell <graham@alt-three.com>
  * @author Nir Radian <nirradi@gmail.com>
  */
-class GoogleCloudStorageConnector implements ConnectorInterface
+final class GoogleCloudStorageConnector implements ConnectorInterface
 {
     /**
      * Establish an adapter connection.
@@ -38,11 +38,11 @@ class GoogleCloudStorageConnector implements ConnectorInterface
      */
     public function connect(array $config)
     {
-        $auth = $this->getAuth($config);
-        $client = $this->getClient($auth);
-        $config = $this->getConfig($config);
+        $auth = self::getAuth($config);
+        $client = self::getClient($auth);
+        $config = self::getConfig($config);
 
-        return $this->getAdapter($client, $config);
+        return self::getAdapter($client, $config);
     }
 
     /**
@@ -54,7 +54,7 @@ class GoogleCloudStorageConnector implements ConnectorInterface
      *
      * @return string[]
      */
-    protected function getAuth(array $config)
+    private static function getAuth(array $config)
     {
         if (!array_key_exists('projectId', $config)) {
             throw new InvalidArgumentException('The gcs connector requires project id configuration.');
@@ -78,7 +78,7 @@ class GoogleCloudStorageConnector implements ConnectorInterface
      *
      * @return \Google\Cloud\Storage\StorageClient
      */
-    protected function getClient(array $auth)
+    private static function getClient(array $auth)
     {
         return new StorageClient($auth);
     }
@@ -92,7 +92,7 @@ class GoogleCloudStorageConnector implements ConnectorInterface
      *
      * @return array
      */
-    protected function getConfig(array $config)
+    private static function getConfig(array $config)
     {
         if (!array_key_exists('bucket', $config)) {
             throw new InvalidArgumentException('The gcs connector requires bucket configuration.');
@@ -109,7 +109,7 @@ class GoogleCloudStorageConnector implements ConnectorInterface
      *
      * @return \Superbalist\Flysystem\GoogleStorage\GoogleStorageAdapter
      */
-    protected function getAdapter(StorageClient $client, array $config)
+    private static function getAdapter(StorageClient $client, array $config)
     {
         $bucket = $client->bucket($config['bucket']);
 

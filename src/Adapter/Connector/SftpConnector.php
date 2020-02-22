@@ -21,7 +21,7 @@ use League\Flysystem\Sftp\SftpAdapter;
  *
  * @author Graham Campbell <graham@alt-three.com>
  */
-class SftpConnector implements ConnectorInterface
+final class SftpConnector implements ConnectorInterface
 {
     /**
      * Establish an adapter connection.
@@ -34,7 +34,7 @@ class SftpConnector implements ConnectorInterface
      */
     public function connect(array $config)
     {
-        return $this->getAdapter($config);
+        return self::getAdapter($config);
     }
 
     /**
@@ -44,7 +44,7 @@ class SftpConnector implements ConnectorInterface
      *
      * @return \League\Flysystem\Sftp\SftpAdapter
      */
-    protected function getAdapter(array $config)
+    private static function getAdapter(array $config)
     {
         return new SftpAdapter($config);
     }
