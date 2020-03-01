@@ -2,7 +2,7 @@ CHANGE LOG
 ==========
 
 
-## V7.0 (Upcoming)
+## V7.0 (01/03/2020)
 
 * Dropped Laravel 5
 * Dropped Rackspace
