@@ -19,13 +19,90 @@ Laravel Flysystem was created by, and is maintained by [Graham Campbell](https:/
 
 Laravel Flysystem requires [PHP](https://php.net) 7.2-7.4. This particular version supports Laravel 6-7.
 
-| Flysystem | L5.1               | L5.2               | L5.3               | L5.4               | L5.5               | L5.6               | L5.7               | L5.8               | L6                 | L7                 |
-|-----------|--------------------|--------------------|--------------------|--------------------|--------------------|--------------------|--------------------|--------------------|--------------------|--------------------|
-| 3.7       | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: | :x:                | :x:                | :x:                | :x:                | :x:                | :x:                |
-| 4.1       | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: | :x:                | :x:                | :x:                | :x:                | :x:                |
-| 5.3       | :x:                | :x:                | :x:                | :x:                | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: | :x:                | :x:                |
-| 6.3       | :x:                | :x:                | :x:                | :x:                | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: |
-| 7.0       | :x:                | :x:                | :x:                | :x:                | :x:                | :x:                | :x:                | :x:                | :white_check_mark: | :white_check_mark: |
+<table>
+	<tr>
+		<th rowspan="8">Flysystem</td>
+		<th colspan="11"><center>Laravel</center></td>
+	</tr>
+	<tr>
+		<td>&nbsp;</td>
+		<td>5.1</td>
+		<td>5.2</td>
+		<td>5.3</td>
+		<td>5.4</td>
+		<td>5.5</td>
+		<td>5.6</td>
+		<td>5.7</td>
+		<td>5.8</td>
+		<td>6</td>
+		<td>7</td>
+	</tr>
+	<tr>
+		<td>3.7</td>
+		<td>:white_check_mark:</td>
+		<td>:white_check_mark:</td>
+		<td>:white_check_mark:</td>
+		<td>:white_check_mark:</td>
+		<td>:x:</td>
+		<td>:x:</td>
+		<td>:x:</td>
+		<td>:x:</td>
+		<td>:x:</td>
+		<td>:x:</td>
+	</tr>
+	<tr>
+		<td>4.1</td>
+		<td>:white_check_mark:</td>
+		<td>:white_check_mark:</td>
+		<td>:white_check_mark:</td>
+		<td>:white_check_mark:</td>
+		<td>:white_check_mark:</td>
+		<td>:x:</td>
+		<td>:x:</td>
+		<td>:x:</td>
+		<td>:x:</td>
+		<td>:x:</td>
+	</tr>
+	<tr>
+		<td>5.3</td>
+		<td>:x:</td>
+		<td>:x:</td>
+		<td>:x:</td>
+		<td>:x:</td>
+		<td>:white_check_mark:</td>
+		<td>:white_check_mark:</td>
+		<td>:white_check_mark:</td>
+		<td>:white_check_mark:</td>
+		<td>:x:</td>
+		<td>:x:</td>
+	</tr>
+	<tr>
+		<td>6.3</td>
+		<td>:x:</td>
+		<td>:x:</td>
+		<td>:x:</td>
+		<td>:x:</td>
+		<td>:white_check_mark:</td>
+		<td>:white_check_mark:</td>
+		<td>:white_check_mark:</td>
+		<td>:white_check_mark:</td>
+		<td>:white_check_mark:</td>
+		<td>:white_check_mark:</td>
+	</tr>
+	<tr>
+		<td>6.3</td>
+		<td>:x:</td>
+		<td>:x:</td>
+		<td>:x:</td>
+		<td>:x:</td>
+		<td>:x:</td>
+		<td>:x:</td>
+		<td>:x:</td>
+		<td>:x:</td>
+		<td>:white_check_mark:</td>
+		<td>:white_check_mark:</td>
+	</tr>
+</table>
 
 To get the latest version, simply require the project using [Composer](https://getcomposer.org):
 
