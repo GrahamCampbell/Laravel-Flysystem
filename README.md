@@ -6,12 +6,12 @@ Laravel Flysystem was created by, and is maintained by [Graham Campbell](https:/
 ![Banner](https://user-images.githubusercontent.com/2829600/71477347-60993680-27e1-11ea-9ae5-e8168f95c3a6.png)
 
 <p align="center">
-<a href="https://styleci.io/repos/15766264"><img src="https://styleci.io/repos/15766264/shield" alt="StyleCI Status"></img></a>
-<a href="https://travis-ci.org/GrahamCampbell/Laravel-Flysystem"><img src="https://img.shields.io/travis/GrahamCampbell/Laravel-Flysystem/master.svg?style=flat-square" alt="Build Status"></img></a>
-<a href="https://scrutinizer-ci.com/g/GrahamCampbell/Laravel-Flysystem/code-structure"><img src="https://img.shields.io/scrutinizer/coverage/g/GrahamCampbell/Laravel-Flysystem.svg?style=flat-square" alt="Coverage Status"></img></a>
-<a href="https://scrutinizer-ci.com/g/GrahamCampbell/Laravel-Flysystem"><img src="https://img.shields.io/scrutinizer/g/GrahamCampbell/Laravel-Flysystem.svg?style=flat-square" alt="Quality Score"></img></a>
-<a href="LICENSE"><img src="https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square" alt="Software License"></img></a>
-<a href="https://github.com/GrahamCampbell/Laravel-Flysystem/releases"><img src="https://img.shields.io/github/release/GrahamCampbell/Laravel-Flysystem.svg?style=flat-square" alt="Latest Version"></img></a>
+<a href="https://github.styleci.io/repos/15766264"><img src="https://github.styleci.io/repos/15766264/shield" alt="StyleCI Status"></img></a>
+<a href="https://github.com/GrahamCampbell/Laravel-Flysystem/actions?query=workflow%3ATests"><img src="https://img.shields.io/github/workflow/status/GrahamCampbell/Laravel-Flysystem/Tests?style=flat-square" alt="Build Status"></img></a>
+<a href="https://scrutinizer-ci.com/g/GrahamCampbell/Laravel-Flysystem/code-structure"><img src="https://img.shields.io/scrutinizer/coverage/g/GrahamCampbell/Laravel-Flysystem?style=flat-square" alt="Coverage Status"></img></a>
+<a href="https://scrutinizer-ci.com/g/GrahamCampbell/Laravel-Flysystem"><img src="https://img.shields.io/scrutinizer/g/GrahamCampbell/Laravel-Flysystem?style=flat-square" alt="Quality Score"></img></a>
+<a href="LICENSE"><img src="https://img.shields.io/badge/license-MIT-brightgreen?style=flat-square" alt="Software License"></img></a>
+<a href="https://github.com/GrahamCampbell/Laravel-Flysystem/releases"><img src="https://img.shields.io/github/release/GrahamCampbell/Laravel-Flysystem?style=flat-square" alt="Latest Version"></img></a>
 </p>
 
 
@@ -184,14 +184,8 @@ If you discover a security vulnerability within this package, please send an ema
 Laravel Flysystem is licensed under [The MIT License (MIT)](LICENSE).
 
 
----
+## For Enterprise
 
-<div align="center">
-	<b>
-		<a href="https://tidelift.com/subscription/pkg/packagist-graham-campbell-flysystem?utm_source=packagist-graham-campbell-flysystem&utm_medium=referral&utm_campaign=readme">Get professional support for Laravel Flysystem with a Tidelift subscription</a>
-	</b>
-	<br>
-	<sub>
-		Tidelift helps make open source sustainable for maintainers while giving companies<br>assurances about security, maintenance, and licensing for their dependencies.
-	</sub>
-</div>
+Available as part of the Tidelift Subscription
+
+The maintainers of `graham-campbell/flysystem` and thousands of other packages are working with Tidelift to deliver commercial support and maintenance for the open source dependencies you use to build your applications. Save time, reduce risk, and improve code health, while paying the maintainers of the exact dependencies you use. [Learn more.](https://tidelift.com/subscription/pkg/packagist-graham-campbell-flysystem?utm_source=packagist-graham-campbell-flysystem&utm_medium=referral&utm_campaign=enterprise&utm_term=repo)
