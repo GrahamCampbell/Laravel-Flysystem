@@ -64,9 +64,6 @@
         "preferred-install": "dist"
     },
     "extra": {
-        "branch-alias": {
-            "dev-master": "6.3-dev"
-        },
         "laravel": {
             "providers": [
                 "GrahamCampbell\\Flysystem\\FlysystemServiceProvider"
