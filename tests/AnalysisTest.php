@@ -18,6 +18,7 @@ use Laravel\Lumen\Application;
 use MongoClient;
 use MongoConnectionException;
 use PHPUnit\Framework\TestCase;
+use SplFileInfo;
 use Symfony\Component\EventDispatcher\Event;
 
 /**
@@ -41,6 +42,18 @@ class AnalysisTest extends TestCase
             realpath(__DIR__.'/../src'),
             realpath(__DIR__),
         ];
+    }
+
+    /**
+     * Determine if the given file should be analyzed.
+     *
+     * @param \SplFileInfo $file
+     *
+     * @return bool
+     */
+    protected function shouldAnalyzeFile(SplFileInfo $file)
+    {
+        return $file->getExtension() === 'php';
     }
 
     /**
