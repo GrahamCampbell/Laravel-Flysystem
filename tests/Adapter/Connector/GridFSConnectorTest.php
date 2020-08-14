@@ -26,6 +26,9 @@ use MongoConnectionException;
  */
 class GridFSConnectorTest extends AbstractTestCase
 {
+    /**
+     * @requires extension mongodb
+     */
     public function testConnectStandard()
     {
         $connector = $this->getGridFSConnector();
@@ -42,6 +45,9 @@ class GridFSConnectorTest extends AbstractTestCase
         }
     }
 
+    /**
+     * @requires extension mongodb
+     */
     public function testConnectWithoutDatabase()
     {
         $this->expectException(InvalidArgumentException::class);
