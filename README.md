@@ -39,7 +39,7 @@ $ composer require graham-campbell/flysystem:^7.1
 There are also some additional dependencies you will need to install for some of the features:
 
 * The AwsS3 adapter requires `league/flysystem-aws-s3-v3` (`^1.0`).
-* The Azure adapter requires `league/flysystem-azure-azure-blob-storage` (`^0.1.6`).
+* The Azure adapter requires `league/flysystem-azure-blob-storage` (`^0.1.6`).
 * The Dropbox adapter requires `spatie/flysystem-dropbox` (`^1.0`).
 * The GoogleCloudStorage adapter requires `superbalist/flysystem-google-storage` (`^7.2`).
 * The GridFS adapter requires `league/flysystem-gridfs` (`^1.0`) and `alcaeus/mongo-php-adapter` (`^1.1`).
