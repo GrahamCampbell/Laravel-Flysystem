@@ -56,21 +56,12 @@ jobs:
           command: composer require "laravel/framework:8.*" --no-update --no-interaction
         if: "matrix.laravel == '8'"
 
-      - name: Install PHP 7 Dependencies
+      - name: Install PHP Dependencies
         uses: nick-invision/retry@v1
         with:
           timeout_minutes: 5
           max_attempts: 5
           command: composer update --no-interaction --no-progress
-        if: "matrix.php < 8"
-
-      - name: Install PHP 8 Dependencies
-        uses: nick-invision/retry@v1
-        with:
-          timeout_minutes: 5
-          max_attempts: 5
-          command: composer update --no-interaction --no-progress --ignore-platform-req=php --ignore-platform-req=ext-mongodb
-        if: "matrix.php >= 8"
 
       - name: Execute PHPUnit
         run: vendor/bin/phpunit
