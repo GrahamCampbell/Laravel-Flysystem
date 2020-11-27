@@ -20,10 +20,9 @@ use Illuminate\Support\Arr;
 /**
  * This is the flysystem manager class.
  *
- * @method \League\Flysystem\FilesystemInterface               connection(string|null $name = null)
- * @method \League\Flysystem\FilesystemInterface               reconnect(string|null $name = null)
- * @method void                                                disconnect(string|null $name = null)
- * @method array<string,\League\Flysystem\FilesystemInterface> getConnections()
+ * @method \League\Flysystem\FilesystemInterface               connection(string|null $name)
+ * @method \League\Flysystem\FilesystemInterface               reconnect(string|null $name)
+ * @method array<string,\League\Flysystem\FilesystemInterface> getConnections(string $name)
  * @method bool                                                has(string $path)
  * @method false|string                                        read(string $path)
  * @method false|resource                                      readStream(string $path)
