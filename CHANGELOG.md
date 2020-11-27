@@ -2,6 +2,11 @@ CHANGE LOG
 ==========
 
 
+## V7.1.1 (27/11/2020)
+
+* Manager phpdoc fixes
+
+
 ## V7.1 (14/08/2020)
 
 * Added Laravel 8 support
