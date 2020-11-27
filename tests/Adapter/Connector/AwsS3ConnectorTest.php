@@ -155,9 +155,6 @@ class AwsS3ConnectorTest extends AbstractTestCase
         ]);
     }
 
-    /**
-     * @requires PHP < 8
-     */
     public function testConnectWithoutKey()
     {
         $connector = $this->getAwsS3Connector();
