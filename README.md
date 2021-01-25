@@ -33,7 +33,7 @@ Laravel Flysystem requires [PHP](https://php.net) 7.2-8.0. This particular versi
 To get the latest version, simply require the project using [Composer](https://getcomposer.org):
 
 ```bash
-$ composer require graham-campbell/flysystem:^7.1
+$ composer require "graham-campbell/flysystem:^7.1"
 ```
 
 There are also some additional dependencies you will need to install for some of the features:
