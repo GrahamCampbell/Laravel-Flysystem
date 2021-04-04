@@ -19,7 +19,7 @@
     "require-dev": {
         "alcaeus/mongo-php-adapter": "^1.1",
         "graham-campbell/analyzer": "^3.0",
-        "graham-campbell/testbench": "^5.4",
+        "graham-campbell/testbench": "^5.6",
         "league/flysystem-aws-s3-v3": "^1.0",
         "league/flysystem-azure-blob-storage": "^0.1.6",
         "league/flysystem-cached-adapter": "^1.0",
