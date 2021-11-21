@@ -29,7 +29,8 @@ jobs:
         uses: shivammathur/setup-php@v2
         with:
           php-version: ${{ matrix.php }}
-          tools: composer:v2
+          tools: composer:v2, pecl
+          extensions: mongodb, redis, zip
           coverage: none
 
       - name: Setup Problem Matchers
