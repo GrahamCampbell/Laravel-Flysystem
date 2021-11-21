@@ -25,6 +25,8 @@ use Symfony\Component\EventDispatcher\Event;
  * This is the analysis test class.
  *
  * @author Graham Campbell <hello@gjcampbell.co.uk>
+ *
+ * @requires PHP < 8.1
  */
 class AnalysisTest extends TestCase
 {
