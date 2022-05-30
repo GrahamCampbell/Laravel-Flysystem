@@ -16,7 +16,7 @@ Laravel Flysystem was created by, and is maintained by [Graham Campbell](https:/
 
 ## Installation
 
-Laravel Flysystem requires [PHP](https://php.net) 7.2-8.1. This particular version supports Laravel 6-8.
+This version requires [PHP](https://www.php.net/) 7.4-8.1 and supports [Laravel](https://laravel.com/) 8.
 
 | Flysystem | L5.1               | L5.2               | L5.3               | L5.4               | L5.5               | L5.6               | L5.7               | L5.8               | L6                 | L7                 | L8                 |
 |-----------|--------------------|--------------------|--------------------|--------------------|--------------------|--------------------|--------------------|--------------------|--------------------|--------------------|--------------------|
@@ -25,11 +25,12 @@ Laravel Flysystem requires [PHP](https://php.net) 7.2-8.1. This particular versi
 | 5.3       | :x:                | :x:                | :x:                | :x:                | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: | :x:                | :x:                | :x:                |
 | 6.3       | :x:                | :x:                | :x:                | :x:                | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: | :x:                |
 | 7.1       | :x:                | :x:                | :x:                | :x:                | :x:                | :x:                | :x:                | :x:                | :white_check_mark: | :white_check_mark: | :white_check_mark: |
+| 8.0       | :x:                | :x:                | :x:                | :x:                | :x:                | :x:                | :x:                | :x:                | :x:                | :x:                | :white_check_mark: |
 
-To get the latest version, simply require the project using [Composer](https://getcomposer.org):
+To get the latest version, simply require the project using [Composer](https://getcomposer.org/):
 
 ```bash
-$ composer require "graham-campbell/flysystem:^7.1"
+$ composer require "graham-campbell/flysystem:^8.0"
 ```
 
 There are also some additional dependencies you will need to install for some of the features:

@@ -11,15 +11,15 @@
         }
     ],
     "require": {
-        "php": "^7.2.5 || ^8.0",
-        "graham-campbell/manager": "^4.5",
-        "illuminate/contracts": "^6.0 || ^7.0 || ^8.0",
-        "illuminate/support": "^6.0 || ^7.0 || ^8.0",
-        "league/flysystem": "^1.1.1"
+        "php":  "^7.4.15 || ^8.0.2",
+        "graham-campbell/manager": "^4.7",
+        "illuminate/contracts": "^8.75",
+        "illuminate/support": "^8.75",
+        "league/flysystem": "^1.1.9"
     },
     "require-dev": {
         "alcaeus/mongo-php-adapter": "^1.1",
-        "graham-campbell/analyzer": "^3.0",
+        "graham-campbell/analyzer": "^3.1",
         "graham-campbell/testbench": "^5.6",
         "league/flysystem-aws-s3-v3": "^1.0",
         "league/flysystem-azure-blob-storage": "^0.1.6",
@@ -31,8 +31,8 @@
         "league/flysystem-webdav": "^1.0",
         "league/flysystem-ziparchive": "^1.0",
         "superbalist/flysystem-google-storage": "^7.2",
-        "mockery/mockery": "^1.3.1",
-        "phpunit/phpunit": "^8.5.8 || ^9.3.7"
+        "mockery/mockery": "^1.5",
+        "phpunit/phpunit": "^9.5"
     },
     "suggest": {
         "alcaeus/mongo-php-adapter": "GridFS adapter support.",

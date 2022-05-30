@@ -2,6 +2,12 @@ CHANGE LOG
 ==========
 
 
+## V8.0 (UPGRADES)
+
+* Dropped PHP < 7.4
+* Dropped Laravel < 8
+
+
 ## V7.1.2 (21/11/2021)
 
 * Provisional PHP 8.1 support
